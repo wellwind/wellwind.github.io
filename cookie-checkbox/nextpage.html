@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cookie Checkbox</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="jquery.cookie.js"></script>
+    <script src="cookie-checkbox.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Cookie Checkbox <small> | Demo</small></h1>
+      </div>
+      <div class="row">
+        <a href="demo.html">Previous Page</a>
+      </div>
+      <div class="row">
+        <input type="button" id="btnGetChecked" value="Get Selected Values" class="btn btn-primary">
+        <input type="button" id="btnClearCheck" value="Clear Selection" class="btn btn-primary">
+        <div class="form-group">
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox-check-all="true" data-cookie-checkbox-key="CookieCheckBoxSample1"> Select All
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="11"> Option 11
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="12"> Option 12
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="13"> Option 13
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="14"> Option 14
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="15"> Option 15
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="16"> Option 16
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="17"> Option 17
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="18"> Option 18
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="19"> Option 19
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" data-cookie-checkbox="true" data-cookie-checkbox-key="CookieCheckBoxSample1" data-cookie-checkbox-value="20"> Option 20
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <a href="demo.html">Previous Page</a>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+      enableCookieCheckBox();
+      
+      $('#btnGetChecked').click(function () {
+       var result = JSON.stringify(getCookieCheckboxValues('CookieCheckBoxSample1'));
+       alert(result);
+      });
+      
+        $('#btnClearCheck').click(function () {
+          clearCookieCheckBox('CookieCheckBoxSample1');
+        });
+      
+      });
+    </script>
+  </body>
+</html>
