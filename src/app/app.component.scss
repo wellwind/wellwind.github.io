@@ -1,3 +1,6 @@
+@import '../variables';
+
+
 .toolbar {
   position: fixed;
   z-index: 10;
@@ -26,13 +29,13 @@
   max-width: 240px;
 
   .section-title {
-    color: #727272;
+    color: $sidebar-text-color;
     font-size: 20px;
     padding-left: 16px;
   }
 
   .section-content {
-    color: #727272;
+    color: $sidebar-text-color;
     text-align: center;
   }
 
@@ -54,13 +57,13 @@
       }
 
       .counter {
-        color: #6573c3;
+        color: $sidebar-highlight-text-color;
         font-size: 24px;
         text-align: center;
       }
 
       .description {
-        color: #727272;
+        color: $sidebar-text-color;
         font-size: 16px;
         text-align: center;
       }
@@ -68,7 +71,7 @@
   }
 
   .mat-list-item {
-    color: #727272;
+    color: $sidebar-text-color;
 
     .mat-icon {
       padding-right: 8px;
@@ -82,8 +85,8 @@
     }
 
     &.active {
-      color: #6573c3;
-      background: #dee1f0;
+      color: $sidebar-highlight-text-color;
+      background: $sidebar-highlight-bg-color;
     }
   }
 }

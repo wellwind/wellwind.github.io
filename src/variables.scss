@@ -1,0 +1,5 @@
+@import '~@angular/material/theming';
+
+$sidebar-text-color: map-get($mat-gray, 600);
+$sidebar-highlight-text-color: map-get($mat-indigo, 500);
+$sidebar-highlight-bg-color: transparentize($sidebar-highlight-text-color, 0.85);
