@@ -8,8 +8,33 @@
   height: calc(100vh - 64px);
 }
 
+::ng-deep {
+  .mat-drawer-inner-container {
+    &::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, .26);
+    }
+  }
+}
+
 .sidebar {
   min-width: 240px;
+  max-width: 240px;
+
+  .section-title {
+    color: #727272;
+    font-size: 20px;
+    padding-left: 16px;
+  }
+
+  .section-content {
+    color: #727272;
+    text-align: center;
+  }
 
   .mat-divider {
     margin: 4px 0;
