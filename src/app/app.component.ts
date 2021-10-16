@@ -27,10 +27,7 @@ export class AppComponent implements OnInit {
     map(posts => Object
       .keys(posts)
       .map(key => posts[key])
-      .reduce((categories, post) => {
-        console.log(categories, post.categories);
-        return [...categories, ...post.categories];
-      }, [] as string[])
+      .reduce((categories, post) => ([...categories, ...post.categories]), [] as string[])
     ),
     map(categories => new Set(categories).size)
   );
