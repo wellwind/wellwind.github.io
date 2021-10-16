@@ -1,0 +1,64 @@
+.toolbar {
+  position: fixed;
+  z-index: 10;
+}
+
+.drawer-container {
+  top: 64px;
+  height: calc(100vh - 64px);
+}
+
+.sidebar {
+  min-width: 240px;
+
+  .mat-divider {
+    margin: 4px 0;
+  }
+
+  .post-statics {
+    padding: 16px;
+    display: flex;
+
+    .statics-block {
+      flex: 33%;
+      display: flex;
+      flex-direction: column;
+
+      a {
+        text-decoration: none;
+      }
+
+      .counter {
+        color: #6573c3;
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .description {
+        color: #727272;
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+
+  .mat-list-item {
+    color: #727272;
+
+    .mat-icon {
+      padding-right: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.fab {
+        font-size: 20px;
+      }
+    }
+
+    &.active {
+      color: #6573c3;
+      background: #dee1f0;
+    }
+  }
+}

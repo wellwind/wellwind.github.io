@@ -192,7 +192,7 @@
               "serverTarget": "blog:server:development"
             },
             "static": {
-              "browserTarget": "blog:build:static",
+              "browserTarget": "blog:build:production",
               "serverTarget": "blog:server:static"
             }
           },
