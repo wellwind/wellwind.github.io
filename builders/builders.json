@@ -1,0 +1,9 @@
+{
+  "builders": {
+    "copy": {
+      "implementation": "./dist/post-meta-builder.js",
+      "schema": "./src/schema.json",
+      "description": "Copies a file."
+    }
+  }
+}

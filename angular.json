@@ -197,6 +197,13 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "copy-package": {
+          "builder": "@example/copy-file:copy",
+          "options": {
+            "source": "package.json",
+            "destination": "package-copy.json"
+          }
         }
       }
     }
