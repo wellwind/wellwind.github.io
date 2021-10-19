@@ -198,12 +198,15 @@
           },
           "defaultConfiguration": "production"
         },
-        "copy-package": {
-          "builder": "@example/copy-file:copy",
+        "generate-blog-posts-json": {
+          "builder": "@wellwind/blog-builder:generate-blog-posts-json",
           "options": {
-            "source": "package.json",
-            "destination": "package-copy.json"
+            "markdownPostsPath": "src/assets/blog",
+            "targetJsonPath": "src/assets/blog/blog-posts.json"
           }
+        },
+        "static-server": {
+          "builder": "@wellwind/blog-builder:static-server"
         }
       }
     }

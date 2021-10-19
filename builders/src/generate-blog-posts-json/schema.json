@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "required": ["markdownPostsPath", "targetJsonPath"],
+  "properties": {
+    "markdownPostsPath": {
+      "type": "string"
+    },
+    "targetJsonPath": {
+      "type": "string"
+    }
+  }
+}

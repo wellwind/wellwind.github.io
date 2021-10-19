@@ -1,12 +1,13 @@
 {
   "$schema": "http://json-schema.org/schema",
   "type": "object",
+  "required": ["path", "port"],
   "properties": {
-    "source": {
+    "path": {
       "type": "string"
     },
-    "destination": {
-      "type": "string"
+    "port": {
+      "type": "number"
     }
   }
 }

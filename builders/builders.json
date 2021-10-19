@@ -1,9 +1,14 @@
 {
   "builders": {
-    "copy": {
-      "implementation": "./dist/post-meta-builder.js",
-      "schema": "./src/schema.json",
-      "description": "Copies a file."
+    "generate-blog-posts-json": {
+      "implementation": "./dist/builders/src/generate-blog-posts-json/index.js",
+      "schema": "./src/generate-blog-posts-json/schema.json",
+      "description": "Generate json file as posts metadata."
+    },
+    "static-server": {
+      "implementation": "./dist/builders/src/static-server/index.js",
+      "schema": "./src/static-server/schema.json",
+      "description": "Server static files as a HTTP server."
     }
   }
 }
