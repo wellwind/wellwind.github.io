@@ -1,5 +1,14 @@
 @import '~@angular/material/theming';
 
+$default-link-color: map-get($mat-indigo, 400);
+$default-link-hover-color: map-get($mat-indigo, 600);
+
 $sidebar-text-color: map-get($mat-gray, 600);
 $sidebar-highlight-text-color: map-get($mat-indigo, 500);
 $sidebar-highlight-bg-color: transparentize($sidebar-highlight-text-color, 0.85);
+
+$post-card-header-link-color: map-get($mat-gray, 900);
+$post-card-header-link-hover-color: map-get($mat-indigo, 500);
+$post-card-content-text-color: map-get($mat-gray, 900);
+
+$code-background-color: map-get($mat-gray, 200);

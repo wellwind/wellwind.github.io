@@ -24,9 +24,10 @@ async function generateBlogPostsJson(options: Options, context: BuilderContext):
   }
 
   const getMarkdownMeta = (fileName: string) => {
-    const slug = fileName;
     const filePath = join(markdownPostsPath, fileName);
     const fileContent = readFileSync(filePath).toString('utf-8');
+    // replace `.md` as slug
+    const slug = fileName.substr(0, fileName.length - 3);
     return parseMarkdownMeta(fileContent, slug);
   }
 

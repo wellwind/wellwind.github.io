@@ -29,7 +29,7 @@ export class BlogContentResolve implements Resolve<SafeHtml> {
 
   private getMarkdownContent(slug: string) {
     return this.httpClient
-      .get(`${environment.url}assets/blog/${slug}/${slug}.md`, { responseType: 'text' })
+      .get(`${environment.url}assets/blog/${slug}.md`, { responseType: 'text' })
       .pipe(
         timeout(3000),
         catchError(() => of('404')),

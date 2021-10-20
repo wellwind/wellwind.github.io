@@ -1,0 +1,38 @@
+<ng-container *ngFor="let post of posts$ | async">
+  <mat-card class="post-summary">
+    <mat-card-title>
+      <a [routerLink]="['/blog/', (post.date | date:'yyyy'), (post.date | date:'MM'), (post.date | date:'dd'), post.slug]">{{ post.title }}</a>
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      <span class="post-summary-published">
+        <mat-icon>date_range</mat-icon>
+        <span>{{ post.date | date: 'yyyy-MM-dd'}}</span>
+      </span>
+
+      <ng-container *ngIf="(post.categories || []).length > 0">
+        <span class="post-summary-categories">
+          <mat-icon>folder_open</mat-icon>
+          <ng-container *ngFor="let category of post.categories; let last = last">
+            <a class="category-link" [routerLink]="['/blog/categories', category | slugify]">{{ category }}</a>
+            <span class="sub-divider" *ngIf="!last">|</span>
+          </ng-container>
+        </span>
+      </ng-container>
+    </mat-card-subtitle>
+
+    <mat-card-content>
+      <div class="post-summary-content" [innerHTML]="post.summary"></div>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <button
+        [routerLink]="['/blog/', (post.date | date:'yyyy'), (post.date | date:'MM'), (post.date | date:'dd'), post.slug]"
+        mat-raised-button
+        color="primary">
+        <mat-icon>read_more</mat-icon>
+        <span>繼續閱讀</span>
+      </button>
+    </mat-card-footer>
+  </mat-card>
+</ng-container>

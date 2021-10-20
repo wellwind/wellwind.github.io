@@ -33,6 +33,7 @@ $blog-theme: mat.define-light-theme((
 @include mat.all-component-themes($blog-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@import './variables';
 
 html, body {
   height: 100%;
@@ -42,4 +43,43 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, loto, noto sans tc, microsoft yahei, sans-serif;
+}
+
+a {
+  color: $default-link-color;
+  text-decoration: underline;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $default-link-hover-color;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $default-link-color;
+  }
+}
+
+.post-summary-content, .blog-post {
+  font-size: 16px;
+  line-height: 24px;
+  
+  pre {
+    font-size: 14px;
+    line-height:  21px;
+    background: $code-background-color;
+    border: .5px solid rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    display: block;
+    margin: 16px auto;
+    overflow-x: auto;
+    padding: 20px;
+    white-space: pre-wrap;
+  }
+
+  code {
+    background: $code-background-color;
+    border-radius: 3px;
+    padding: 3px;
+  }
 }

@@ -3,6 +3,7 @@ import { Route, RouterModule, Routes } from '@angular/router';
 import { BlogContentResolve } from './blog-content-resolve';
 import { BlogLayoutComponent } from './blog-layout/blog-layout.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
+import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 
 const postRoute: Route = {
   path: ':yyyy',
@@ -29,6 +30,14 @@ const routes: Routes = [
     path: '',
     component: BlogLayoutComponent,
     children: [
+      {
+        path: '',
+        component: BlogPostsComponent
+      },
+      {
+        path: 'page/:page',
+        component: BlogPostsComponent
+      },
       postRoute
     ]
   }

@@ -1,0 +1,46 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { descend, prop, sortWith } from 'ramda';
+import { map, switchMap, tap } from 'rxjs/operators';
+import { PostMeta } from '../../post-meta.interface';
+import { SitePostService } from '../../site-post.service';
+
+const PAGE_SIZE = 10;
+
+interface PostMetaWithSlug extends PostMeta {
+  slug: string;
+}
+
+const getPagePosts = (pageNum: number, pageSize: number, item: PostMetaWithSlug[]) =>
+  item.slice((pageNum - 1) * pageSize, (pageNum - 1) * pageSize + pageSize);
+
+@Component({
+  selector: 'app-blog-posts',
+  templateUrl: './blog-posts.component.html',
+  styleUrls: ['./blog-posts.component.scss']
+})
+export class BlogPostsComponent implements OnInit {
+
+  currentPage$ = this.route.paramMap.pipe(
+    map(paramMap => +(paramMap.get('page') || 1))
+  );
+
+  posts$ = this.currentPage$.pipe(
+    switchMap(pageNum => this.sitePostService.postsMeta$.pipe(
+      tap(r => console.log(r)),
+      map(postsMeta => Object.keys(postsMeta).map(key => ({ ...postsMeta[key], slug: key }))),
+      tap(r => console.log(r)),
+      map(posts => sortWith([descend(prop('date'))], posts)),
+      tap(r => console.log(r)),
+      map(posts => getPagePosts(pageNum, PAGE_SIZE, posts)),
+      tap(r => console.log(r))
+    ))
+  );
+
+  constructor(private sitePostService: SitePostService, private route: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
+  }
+
+}

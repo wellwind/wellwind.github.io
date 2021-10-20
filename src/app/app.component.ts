@@ -1,9 +1,8 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
-import { NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { SitePostService } from './site-post.service';
 
 @Component({
@@ -27,7 +26,7 @@ export class AppComponent implements OnInit {
     map(posts => Object
       .keys(posts)
       .map(key => posts[key])
-      .reduce((categories, post) => ([...categories, ...post.categories]), [] as string[])
+      .reduce((categories, post) => ([...categories, ...post.categories || []]), [] as string[])
     ),
     map(categories => new Set(categories).size)
   );
@@ -35,7 +34,7 @@ export class AppComponent implements OnInit {
     map(posts => Object
       .keys(posts)
       .map(key => posts[key])
-      .reduce((tags, post) => ([...tags, ...post.tags]), [] as string[])
+      .reduce((tags, post) => ([...tags, ...post.tags || []]), [] as string[])
     ),
     map(tags => new Set(tags).size)
   );
