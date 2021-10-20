@@ -10,7 +10,7 @@ import { PostMeta } from './post-meta.interface';
 export class SitePostService {
 
   public postsMeta$ = this.httpClient
-    .get<{ [keg: string]: PostMeta }>(`${environment.url}assets/blog/blog-posts.json`)
+    .get<{ [keg: string]: PostMeta }>(`${environment.url}assets/blog-posts.json`)
     .pipe(shareReplay(1))
 
   constructor(private httpClient: HttpClient) {

@@ -23,9 +23,10 @@ async function generateBlogPostsJson(options: Options, context: BuilderContext):
     };
   }
 
-  const getMarkdownMeta = (dirName: string) => {
-    const slug = dirName;
-    const filePath = join(markdownPostsPath, dirName, `${dirName}.md`);
+  const getMarkdownMeta = (fileName: string) => {
+    const slug = fileName;
+    const filePath = join(markdownPostsPath, fileName);
+    console.log(filePath);
     const fileContent = readFileSync(filePath).toString('utf-8');
     return parseMarkdownMeta(fileContent, slug);
   }
@@ -33,9 +34,9 @@ async function generateBlogPostsJson(options: Options, context: BuilderContext):
   context.logger.info(`Generate ${targetJsonPath} from markdown files in ${markdownPostsPath}`);
 
   const posts = readdirSync(markdownPostsPath, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
+    .filter(dirent => dirent.isFile() && dirent.name.endsWith('.md'))
     .map(dirent => dirent.name)
-    .map(dirName => getMarkdownMeta(dirName))
+    .map(fileName => getMarkdownMeta(fileName))
     .filter(markdownMeta => !!markdownMeta)
     .filter(markdownMeta => !markdownMeta?.draft)
     .reduce((prev, markdownMeta) => ({

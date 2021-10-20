@@ -202,7 +202,7 @@
           "builder": "@wellwind/blog-builder:generate-blog-posts-json",
           "options": {
             "markdownPostsPath": "src/assets/blog",
-            "targetJsonPath": "src/assets/blog/blog-posts.json"
+            "targetJsonPath": "src/assets/blog-posts.json"
           }
         },
         "static-server": {
