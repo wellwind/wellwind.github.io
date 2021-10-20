@@ -26,7 +26,6 @@ async function generateBlogPostsJson(options: Options, context: BuilderContext):
   const getMarkdownMeta = (fileName: string) => {
     const slug = fileName;
     const filePath = join(markdownPostsPath, fileName);
-    console.log(filePath);
     const fileContent = readFileSync(filePath).toString('utf-8');
     return parseMarkdownMeta(fileContent, slug);
   }
