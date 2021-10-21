@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-button {
+  margin: 0 8px;
+}
+
+.mat-raised-button, .mat-stroked-button {
+  min-width: 32px;
+}

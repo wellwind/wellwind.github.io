@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { descend, prop, sortWith } from 'ramda';
+import { combineLatest } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { PostMeta } from '../../post-meta.interface';
 import { SitePostService } from '../../site-post.service';
@@ -31,6 +32,10 @@ export class BlogPostsComponent implements OnInit {
       map(posts => sortWith([descend(prop('date'))], posts)),
       map(posts => getPagePosts(pageNum, PAGE_SIZE, posts)),
     ))
+  );
+
+  totalPage$ =  this.sitePostService.postsMeta$.pipe(
+    map((posts) => Math.ceil(Object.keys(posts).length / PAGE_SIZE))
   );
 
   constructor(private sitePostService: SitePostService, private route: ActivatedRoute) {

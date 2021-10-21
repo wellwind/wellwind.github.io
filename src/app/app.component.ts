@@ -1,7 +1,8 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { MatDrawerContent } from '@angular/material/sidenav';
+import { NavigationStart, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { SiteMetaService } from './site-meta.service';
@@ -13,6 +14,8 @@ import { SitePostService } from './site-post.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  @ViewChild('matDrawerContent') matDrawerContent?: MatDrawerContent
+
   menuOpen$ = new BehaviorSubject<boolean>(true);
   menuItems = [
     { link: '/blog', icon: 'home', text: '首頁' },
@@ -55,7 +58,10 @@ export class AppComponent implements OnInit {
         description: '個人學習程式設計、系統開發和讀書的經驗及心得。',
         keywords: [],
         type: 'website'
-      })
+      });
+      if(this.matDrawerContent){
+        this.matDrawerContent.scrollTo({ top: 0, left: 0});
+      }
     });
   }
 
