@@ -1,3 +1,16 @@
 .mat-divider {
   margin: 8px 0;
 }
+
+.blog-post-container {
+  display: flex;
+  align-items: start;
+
+  .blog-post-overview {
+    flex: 80%;
+  }
+
+  .blog-post-toc {
+    flex: 19%;
+  }
+}

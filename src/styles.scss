@@ -150,9 +150,13 @@ a {
   font-size: 16px;
   line-height: 24px;
 
+  img {
+    width: 100%;
+  }
+
   pre {
     font-size: 14px;
-    line-height:  21px;
+    line-height: 21px;
     background: $code-background-color;
     border: .5px solid rgba(0, 0, 0, .2);
     border-radius: 5px;

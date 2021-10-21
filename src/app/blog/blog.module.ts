@@ -11,13 +11,15 @@ import { BlogLayoutComponent } from './blog-layout/blog-layout.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 import { BlogPostSubtitleComponent } from './blog-post-subtitle/blog-post-subtitle.component';
+import { BlogPostTocComponent } from './blog-post-toc/blog-post-toc.component';
 
 @NgModule({
   declarations: [
     BlogLayoutComponent,
     BlogPostComponent,
     BlogPostsComponent,
-    BlogPostSubtitleComponent
+    BlogPostSubtitleComponent,
+    BlogPostTocComponent
   ],
     imports: [
         CommonModule,

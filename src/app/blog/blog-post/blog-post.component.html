@@ -1,15 +1,21 @@
 <ng-container *ngIf="postMeta$ | async as postMeta">
-  <div class="blog-post">
-    <div class="blog-post-title">
-      <h1>{{ postMeta.title }}</h1>
+  <div class="blog-post-container" #root>
+    <div class="blog-post" [class.blog-post-overview]="!(hideToc$ | async)">
+      <div class="blog-post-title">
+        <h1>{{ postMeta.title }}</h1>
+      </div>
+
+      <div class="blog-post-subtitle">
+        <app-blog-post-subtitle [postMeta]="postMeta"></app-blog-post-subtitle>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="blog-post" #content [innerHTML]="postContent$ | async"></div>
     </div>
 
-    <div class="blog-post-subtitle">
-      <app-blog-post-subtitle [postMeta]="postMeta"></app-blog-post-subtitle>
+    <div class="blog-post-toc" *ngIf="!(hideToc$ | async)">
+      <app-blog-post-toc [rootElement]="root" [contentElement]="content"></app-blog-post-toc>
     </div>
-
-    <mat-divider></mat-divider>
-
-    <div class="blog-post" [innerHTML]="postMeta.summary + postMeta.content"></div>
   </div>
 </ng-container>

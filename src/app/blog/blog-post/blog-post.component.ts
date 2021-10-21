@@ -1,4 +1,6 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { MarkdownMeta } from 'site-utils';
@@ -15,9 +17,21 @@ export class BlogPostComponent implements OnInit {
     map(data => data.content as MarkdownMeta)
   );
 
+  postContent$ = this.postMeta$.pipe(
+    map(postMeta => this.domSanitizer.bypassSecurityTrustHtml(postMeta.summary + postMeta.content))
+  );
+
+  hideToc$ =
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium
+    ]).pipe(map(value => value.matches));
 
   constructor(
     private route: ActivatedRoute,
+    private domSanitizer: DomSanitizer,
+    private breakpointObserver: BreakpointObserver,
     private siteMetaService: SiteMetaService) {
   }
 
@@ -33,5 +47,6 @@ export class BlogPostComponent implements OnInit {
         keywords: postMeta.tags || []
       });
     });
+
   }
 }

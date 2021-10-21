@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
   postCount$ = this.sitePostService.postsMeta$.pipe(
     map(posts => Object.keys(posts).length)
   );
+
   categoryCount$ = this.sitePostService.postsMeta$.pipe(
     map(posts => Object
       .keys(posts)
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit {
     ),
     map(categories => new Set(categories).size)
   );
+
   tagCount$ = this.sitePostService.postsMeta$.pipe(
     map(posts => Object
       .keys(posts)
