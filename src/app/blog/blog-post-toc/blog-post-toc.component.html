@@ -1,1 +1,7 @@
-<p>blog-post-toc works!</p>
+<div class="toc-list">
+  <div
+    class="toc-item level{{head.level}}"
+    *ngFor="let head of headings">
+    <a href="#">{{ head.text }}</a>
+  </div>
+</div>
