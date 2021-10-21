@@ -1,8 +1,10 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
+import { SiteMetaService } from './site-meta.service';
 import { SitePostService } from './site-post.service';
 
 @Component({
@@ -40,9 +42,21 @@ export class AppComponent implements OnInit {
   );
 
   constructor(
+    private router: Router,
+    private siteMetaService:SiteMetaService,
     private sitePostService: SitePostService,
     private breakpointObserver: BreakpointObserver,
     private matIconRegistry: MatIconRegistry) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationStart)
+    ).subscribe(_ => {
+      this.siteMetaService.resetMeta({
+        title: '',
+        description: '個人學習程式設計、系統開發和讀書的經驗及心得。',
+        keywords: [],
+        type: 'website'
+      })
+    });
   }
 
   ngOnInit() {

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { SiteCommonModule } from '../site-common/site-common.module';
 
@@ -9,12 +10,14 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { BlogLayoutComponent } from './blog-layout/blog-layout.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { BlogPostsComponent } from './blog-posts/blog-posts.component';
+import { BlogPostSubtitleComponent } from './blog-post-subtitle/blog-post-subtitle.component';
 
 @NgModule({
   declarations: [
     BlogLayoutComponent,
     BlogPostComponent,
-    BlogPostsComponent
+    BlogPostsComponent,
+    BlogPostSubtitleComponent
   ],
     imports: [
         CommonModule,
@@ -22,7 +25,8 @@ import { BlogPostsComponent } from './blog-posts/blog-posts.component';
         MatCardModule,
         MatIconModule,
         SiteCommonModule,
-        MatButtonModule
+        MatButtonModule,
+        MatDividerModule
     ]
 })
 export class BlogModule { }

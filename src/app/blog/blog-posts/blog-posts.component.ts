@@ -27,13 +27,9 @@ export class BlogPostsComponent implements OnInit {
 
   posts$ = this.currentPage$.pipe(
     switchMap(pageNum => this.sitePostService.postsMeta$.pipe(
-      tap(r => console.log(r)),
       map(postsMeta => Object.keys(postsMeta).map(key => ({ ...postsMeta[key], slug: key }))),
-      tap(r => console.log(r)),
       map(posts => sortWith([descend(prop('date'))], posts)),
-      tap(r => console.log(r)),
       map(posts => getPagePosts(pageNum, PAGE_SIZE, posts)),
-      tap(r => console.log(r))
     ))
   );
 

@@ -1,29 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
-  ActivatedRoute,
   ActivatedRouteSnapshot,
-  CanActivate,
   Resolve,
   RouterStateSnapshot,
-  UrlTree
 } from '@angular/router';
-import * as markdownIt from 'markdown-it';
 import { Observable, of } from 'rxjs';
 import { catchError, map, timeout } from 'rxjs/operators';
+import { MarkdownMeta, parseMarkdownMeta } from 'site-utils';
 import { environment } from '../../environments/environment';
-
-const markdown = markdownIt();
+import { PostMeta } from '../post-meta.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BlogContentResolve implements Resolve<SafeHtml> {
-  constructor(private httpClient: HttpClient, private domSanitizer: DomSanitizer) {
+export class BlogContentResolve implements Resolve<MarkdownMeta> {
+  constructor(private httpClient: HttpClient) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<SafeHtml> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<MarkdownMeta> {
     return this.getMarkdownContent(route.paramMap.get('slug') as string);
   }
 
@@ -33,9 +28,7 @@ export class BlogContentResolve implements Resolve<SafeHtml> {
       .pipe(
         timeout(3000),
         catchError(() => of('404')),
-        map(content => markdown.render(content)),
-        map(content => content.replace(/\{% asset_img (.*) (.*)%\}/g, `<img src="./assets/blog/${slug}/$1" alt="$2" />`)),
-        map(content => this.domSanitizer.bypassSecurityTrustHtml(content))
+        map(content => parseMarkdownMeta(content, slug)!)
       );
   }
 }
