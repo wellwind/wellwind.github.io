@@ -1,7 +1,8 @@
 <div class="toc-list">
   <div
     class="toc-item level{{head.level}}"
+    [class.active]="head.active"
     *ngFor="let head of headings">
-    <a href="#">{{ head.text }}</a>
+    <a href="#" (click)="goTo(head, $event)">{{ head.text }}</a>
   </div>
 </div>

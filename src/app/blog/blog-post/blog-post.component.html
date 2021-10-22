@@ -15,7 +15,7 @@
     </div>
 
     <div class="blog-post-toc" *ngIf="!(hideToc$ | async)">
-      <app-blog-post-toc [rootElement]="root" [contentElement]="content"></app-blog-post-toc>
+      <app-blog-post-toc [contentElement]="content"></app-blog-post-toc>
     </div>
   </div>
 </ng-container>
