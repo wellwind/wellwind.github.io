@@ -13,5 +13,11 @@ $post-card-content-text-color: map-get($mat-gray, 900);
 
 $code-background-color: map-get($mat-gray, 200);
 
+$toc-header-color: map-get($mat-gray, 900);
 $toc-indicator-color: map-get($mat-gray, 500);
 $toc-indicator-focus-color: map-get($mat-indigo, 500);
+
+$note-background-color: transparent;
+$note-info-border-color: map-get($mat-indigo, 500);
+$note-warning-border-color: map-get($mat-orange, 500);
+$note-danger-border-color: map-get($mat-pink, 500);

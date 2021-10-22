@@ -35,13 +35,17 @@
       }
     }
 
+    &.level0 {
+      padding-left: 12px;
+      color: $toc-header-color;
+      font-weight: 800;
+    }
+
     @for $i from 1 through 6 {
       &.level#{$i} {
         padding-left: ($i - 1) * 14px + 12px;
       }
     }
-
-
   }
 }
 

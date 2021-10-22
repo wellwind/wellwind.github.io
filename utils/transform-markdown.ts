@@ -10,11 +10,20 @@ export const transformMarkdown = (content: string, slug: string) => markdown
   .render(content)
   // 特殊語法轉換
   // title anchor
-  .replace(/<h([1-6])(.*)>(.*)<\/h([1-6])>/g, (match, head1, headAttr, title, head2) => {
-    const slug = title.replace(/ /g, '-').toLowerCase();
-    return `<h${head1}${headAttr} id="${slug}">${title}</h${head2}>`;
-  })
+  .replace(
+    /<h([1-6])(.*)>(.*)<\/h([1-6])>/g,
+    (match, head1, headAttr, title, head2) => {
+      const slug = title.trim().replace(/ /g, '-').toLowerCase();
+      return `<h${head1}${headAttr} id="${slug}">${title}</h${head2}>`;
+    })
   // 圖片轉換
-  .replace(/\{% asset_img (.*) (.*)%\}/g, `<img src="./assets/blog/${slug}/$1" alt="$2" />`)
+  .replace(
+    /\{% asset_img (.*?)\s(.*?)%\}/g,
+    `<img src="./assets/blog/${slug}/$1" alt="$2" title="$2" />`)
   // {% note %} 轉換
-  .replace(/{%\s*note (.*)%}(.*){%\s*endnote\s*%}/s, `<div class=note $1>$2</div>`)
+  .replace(
+    /<p>{% note (.*?) %}<\/p>(.*?)<p>{% endnote %}<\/p>/gs,
+    (match, noteClass, content) => {
+      const newContent = content.trim().replace(/^\s+|\s+$/g, '');
+      return `</p><div class=\"note ${noteClass}\">${newContent}</div><p>`
+    })
