@@ -12,6 +12,11 @@
       <mat-divider></mat-divider>
 
       <div class="blog-post" #content [innerHTML]="postContent$ | async"></div>
+
+      <mat-divider></mat-divider>
+
+      <h1>有問題或建議嗎？歡迎留言給我</h1>
+      <div class="blog-post-comments" #comments></div>
     </div>
 
     <div class="blog-post-toc" *ngIf="!(hideToc$ | async)">

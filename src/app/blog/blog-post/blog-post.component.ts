@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { isPlatformServer } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
@@ -12,6 +13,8 @@ import { SiteMetaService } from '../../site-meta.service';
   styleUrls: ['./blog-post.component.scss']
 })
 export class BlogPostComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('comments') comments?: ElementRef<HTMLElement>;
 
   postMeta$ = this.route.data.pipe(
     map(data => data.content as MarkdownMeta)
@@ -29,6 +32,7 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
     ]).pipe(map(value => value.matches));
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
     private route: ActivatedRoute,
     private domSanitizer: DomSanitizer,
     private breakpointObserver: BreakpointObserver,
@@ -50,6 +54,24 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    if (isPlatformServer(this.platformId)) {
+      return;
+    }
+
     (window as any)?.hljs?.highlightAll();
+    if (this.comments && this.comments.nativeElement) {
+      const element = this.comments.nativeElement;
+      const scriptTag = document.createElement('script');
+
+      scriptTag.setAttribute('src', 'https://utteranc.es/client.js');
+      scriptTag.setAttribute('repo', 'wellwind/wellwind.github.io');
+      scriptTag.setAttribute('issue-term', 'title');
+      scriptTag.setAttribute('label', 'comment');
+      scriptTag.setAttribute('theme', 'github-light');
+      scriptTag.setAttribute('crossorigin', 'anonymous');
+      scriptTag.setAttribute('async', '');
+
+      element.appendChild(scriptTag);
+    }
   }
 }
