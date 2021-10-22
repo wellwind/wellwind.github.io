@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { SiteMetaService } from '../../site-meta.service';
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss']
 })
-export class BlogPostComponent implements OnInit {
+export class BlogPostComponent implements OnInit, AfterViewInit {
 
   postMeta$ = this.route.data.pipe(
     map(data => data.content as MarkdownMeta)
@@ -47,6 +47,9 @@ export class BlogPostComponent implements OnInit {
         keywords: postMeta.tags || []
       });
     });
+  }
 
+  ngAfterViewInit() {
+    (window as any)?.hljs?.highlightAll();
   }
 }

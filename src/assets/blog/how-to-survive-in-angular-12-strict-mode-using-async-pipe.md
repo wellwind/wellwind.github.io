@@ -23,7 +23,7 @@ strict mode 當然是可以關掉的，不過開啟 strict mode 除了除錯更�
 
 打開 strict mode 後，最容易發生的錯誤非 `strictNullChecks` 檢查莫屬了！這也是一般撰寫 JavaScript 程式時最容易在執行階段發生錯誤的問題，也就是嘗試去存取一個 `null` 或 `undefined` 的屬性，例如：
 
-```typescript;highlightLines=2:18:2:22;
+```typescript
 let user;
 console.log(user.name);
 ```
@@ -40,7 +40,7 @@ console.log(user.name);
 
 這種的解決方式很簡單，確定有賦予變數資料即可：
 
-```typescript;highlightLines=1:1:1:1:true
+```typescript
 let user = { name: 'Mike' };
 consoe.log(user.name);
 ```

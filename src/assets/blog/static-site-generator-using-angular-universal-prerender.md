@@ -176,7 +176,7 @@ posts$ = this.httpClient.get('http://localhost:3000/assets/blog/posts.json');
 
 實際上線時，除了進入該頁時本來就會有靜態內容之外，其餘的過程還是會走 Angular 本身的處理，因此透過路由機制切換到其他頁面時，就不可能像 Prerender 時指定一個本地端的位置，因此要把 prerender 的環境也切出來，因此我們可以建立一個 `environment.ssr.ts` 來處理伺服器端地抓檔問題，並指定靜態檔案的來源：
 
-```json
+```typescript
 export const environment = {
   production: true,
   assetsUrl: 'http://localhost:3000/'
@@ -185,7 +185,7 @@ export const environment = {
 
 其他的 `environment.ts` 和 `environment.prod.ts` 則可以加上 `assetUrl: ''` 設定，來抓取相對路徑的資源，之後使用 HttpClient 的寫法就會改成：
 
-```typescript;highlightLines=1:1:1:1;highlightLines=5:31:5:55
+```typescript
 import { environment } from '../../environment';
 
 ...
@@ -195,7 +195,7 @@ posts$ = this.httpClient.get(`${environment.assetsUrl}assets/blog/posts.json`)
 
 最後，當然還需要修改 `angular.json` 內的設定，讓我們在 prerender 時能換掉 `environment.ts`，主要內容如下：
 
-```json;highlightLines=13:13:13:18;highlightLines=18:57:18:60;highlightLines=31:13:31:18;highlightLines=33:68:33:71
+```json
 {
   ...
   "projects": {
@@ -208,7 +208,7 @@ posts$ = this.httpClient.get(`${environment.assetsUrl}assets/blog/posts.json`)
           "configurations": {
             "production": { ... },
             "development": { ... },
-            "ssr": {
+            "ssr": { // 設定 ssr 取代檔案
               "outputHashing": "media",
               "fileReplacements": [
                 {
@@ -226,7 +226,7 @@ posts$ = this.httpClient.get(`${environment.assetsUrl}assets/blog/posts.json`)
           "configurations": {
             "production": { ... },
             "development": { ... },
-            "ssr": {
+            "ssr": { // 設定 ssr 在 server 模式取代檔案
               "browserTarget": "ngx-universal-prerender-demo:build:production",
               "serverTarget": "ngx-universal-prerender-demo:server:ssr"
             }
@@ -309,7 +309,7 @@ export class PostResolver implements Resolve<string> {
 
 接著在路由設定加上這幾個 resolver
 
-```typescript;highlightLines=3:3:3:36;highlightLines=8:5:8:12
+```typescript
 {
   path: '',
   resolve: { posts: PostsResolver },
