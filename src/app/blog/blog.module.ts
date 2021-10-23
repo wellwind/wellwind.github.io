@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { SiteCommonModule } from '../site-common/site-common.module';
 
 import { BlogRoutingModule } from './blog-routing.module';
@@ -28,7 +29,8 @@ import { BlogPostTocComponent } from './blog-post-toc/blog-post-toc.component';
         MatIconModule,
         SiteCommonModule,
         MatButtonModule,
-        MatDividerModule
+        MatDividerModule,
+        MatTooltipModule
     ]
 })
 export class BlogModule { }

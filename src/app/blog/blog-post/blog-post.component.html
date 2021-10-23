@@ -22,5 +22,15 @@
     <div class="blog-post-toc" *ngIf="!(hideToc$ | async)">
       <app-blog-post-toc [contentElement]="content"></app-blog-post-toc>
     </div>
+
+    <button mat-fab color="default" class="go-top" (click)="goTop(content)" matTooltip="回到最上面">
+      <mat-icon>keyboard_double_arrow_up</mat-icon>
+    </button>
+
+    <button mat-fab color="default" class="go-comment" (click)="goComment(comments)" matTooltip="留言">
+      <mat-icon>comment</mat-icon>
+    </button>
+
   </div>
 </ng-container>
+

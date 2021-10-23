@@ -5,6 +5,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { MarkdownMeta } from 'site-utils';
+import { findMainContentContainer } from '../../../utils/find-main-content-container';
+import { scrollTo } from '../../../utils/scroll-to';
 import { SiteMetaService } from '../../site-meta.service';
 
 @Component({
@@ -72,6 +74,24 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
       scriptTag.setAttribute('async', '');
 
       element.appendChild(scriptTag);
+    }
+  }
+
+  goTop(contentElement: HTMLElement) {
+    if (contentElement) {
+      const containerElement = findMainContentContainer(contentElement);
+      if (containerElement) {
+        scrollTo(0, containerElement);
+      }
+    }
+  }
+
+  goComment(commentsElement: HTMLElement) {
+    if (commentsElement) {
+      const containerElement = findMainContentContainer(commentsElement);
+      if (containerElement) {
+        scrollTo(commentsElement.offsetTop + 256, containerElement);
+      }
     }
   }
 }

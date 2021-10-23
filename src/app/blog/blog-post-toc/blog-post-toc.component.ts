@@ -1,5 +1,7 @@
 import { isPlatformServer } from '@angular/common';
 import { AfterViewInit, Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { findMainContentContainer } from '../../../utils/find-main-content-container';
+import { scrollTo } from '../../../utils/scroll-to';
 
 @Component({
   selector: 'app-blog-post-toc',
@@ -80,13 +82,9 @@ export class BlogPostTocComponent implements OnInit, AfterViewInit, OnDestroy {
 
   goTo(target: { text: string; level: number; element: HTMLElement; active: boolean }, event: MouseEvent) {
     event.preventDefault();
-    const motionQuery = window.matchMedia('(prefers-reduced-motion)');
-    const containerElement = this.contentElement.closest('.mat-drawer-content.main-content');
+    const containerElement = findMainContentContainer(this.contentElement);
     if (containerElement) {
-      containerElement.scroll({
-        behavior: motionQuery.matches ? 'auto' : 'smooth',
-        top: target.element.offsetTop - 20
-      });
+      scrollTo(target.element.offsetTop - 20, containerElement);
     }
   }
 }
