@@ -1,7 +1,7 @@
+import { ContentObserver } from '@angular/cdk/observers';
 import { isPlatformServer } from '@angular/common';
 import { AfterViewInit, Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
-import { findMainContentContainer } from '../../../utils/find-main-content-container';
-import { scrollTo } from '../../../utils/scroll-to';
+import { findMainContentContainer, scrollTo } from '../../../utils';
 
 @Component({
   selector: 'app-blog-post-toc',
@@ -12,9 +12,9 @@ export class BlogPostTocComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() contentElement!: HTMLElement
 
   headings: { text: string, level: number, element: HTMLElement, active: boolean }[] = [];
-  intersectionObserver?: IntersectionObserver;
+  intersectionObserver?: IntersectionObserver | null;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any) {
+  constructor(@Inject(PLATFORM_ID) private platformId: any, private contentObserver: ContentObserver) {
   }
 
   ngOnInit(): void {
@@ -26,6 +26,13 @@ export class BlogPostTocComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     setTimeout(() => {
+      this.contentObserver.observe(this.contentElement).subscribe(() => {
+        if (this.intersectionObserver) {
+          this.intersectionObserver.disconnect();
+          this.intersectionObserver = null;
+        }
+        this.setTocScrollSpy();
+      });
       this.setTocScrollSpy();
     });
   }
@@ -51,7 +58,6 @@ export class BlogPostTocComponent implements OnInit, AfterViewInit, OnDestroy {
 
     let visibleElements: HTMLElement[] = [];
     this.intersectionObserver = new IntersectionObserver(entries => {
-
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           visibleElements = [...visibleElements, entry.target as HTMLElement];

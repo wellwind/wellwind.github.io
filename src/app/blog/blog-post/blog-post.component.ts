@@ -3,11 +3,12 @@ import { isPlatformServer } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { MarkdownMeta } from 'site-utils';
-import { findMainContentContainer } from '../../../utils/find-main-content-container';
-import { scrollTo } from '../../../utils/scroll-to';
+import { findMainContentContainer, scrollTo } from '../../../utils';
 import { SiteMetaService } from '../../site-meta.service';
+import { SitePostService } from '../../site-post.service';
 
 @Component({
   selector: 'app-blog-post',
@@ -23,7 +24,8 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   );
 
   postContent$ = this.postMeta$.pipe(
-    map(postMeta => this.domSanitizer.bypassSecurityTrustHtml(postMeta.summary + postMeta.content))
+    map(postMeta => this.domSanitizer.bypassSecurityTrustHtml(postMeta.summary + postMeta.content)),
+    tap(() => this.highlightCode())
   );
 
   hideToc$ =
@@ -33,11 +35,32 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
       Breakpoints.Medium
     ]).pipe(map(value => value.matches));
 
+  previousPost$ = combineLatest([this.postMeta$, this.sitePostService.postsMetaWithSlugAndSortAsc$]).pipe(
+    map(([currentPostMeta, allPostsMeta]) => {
+      const found = allPostsMeta.filter(post => new Date(post.date) < new Date(currentPostMeta.date));
+      if (found) {
+        return found[found.length - 1];
+      }
+      return null;
+    })
+  )
+
+  nextPost$ = combineLatest([this.postMeta$, this.sitePostService.postsMetaWithSlugAndSortAsc$]).pipe(
+    map(([currentPostMeta, allPostsMeta]) => {
+      const found = allPostsMeta.filter(post => new Date(post.date) > new Date(currentPostMeta.date));
+      if (found) {
+        return found[0];
+      }
+      return null;
+    })
+  )
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     private route: ActivatedRoute,
     private domSanitizer: DomSanitizer,
     private breakpointObserver: BreakpointObserver,
+    private sitePostService: SitePostService,
     private siteMetaService: SiteMetaService) {
   }
 
@@ -60,7 +83,8 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    (window as any)?.hljs?.highlightAll();
+    this.highlightCode();
+
     if (this.comments && this.comments.nativeElement) {
       const element = this.comments.nativeElement;
       const scriptTag = document.createElement('script');
@@ -75,6 +99,12 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
 
       element.appendChild(scriptTag);
     }
+  }
+
+  highlightCode() {
+    setTimeout(() => {
+      (window as any)?.hljs?.highlightAll();
+    });
   }
 
   goTop(contentElement: HTMLElement) {

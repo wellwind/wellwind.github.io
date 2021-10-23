@@ -15,7 +15,35 @@
 
       <mat-divider></mat-divider>
 
-      <h1>有問題或建議嗎？歡迎留言給我</h1>
+      <div class="blog-post-prev-next">
+        <div class="blog-post-prev">
+          <ng-container *ngIf="previousPost$ | async as post">
+            <div class="blog-post-prev-next-notify prev">
+              <mat-icon>chevron_left</mat-icon> 上一篇
+            </div>
+            <ng-container *ngTemplateOutlet="postLink; context: {post: post}"></ng-container>
+          </ng-container>
+        </div>
+        <div class="blog-post-next">
+          <ng-container *ngIf="nextPost$ | async as post">
+            <div class="blog-post-prev-next-notify next">
+              下一篇 <mat-icon>chevron_right</mat-icon>
+            </div>
+            <ng-container *ngTemplateOutlet="postLink; context: {post: post}"></ng-container>
+          </ng-container>
+        </div>
+
+        <ng-template #postLink let-post="post">
+          <a
+            [routerLink]="['/blog/', (post.date | date:'yyyy'), (post.date | date:'MM'), (post.date | date:'dd'), post.slug]">
+            {{ post.title }}
+          </a>
+        </ng-template>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <h1>有任何問題或建議嗎？歡迎留言給我</h1>
       <div class="blog-post-comments" #comments></div>
     </div>
 

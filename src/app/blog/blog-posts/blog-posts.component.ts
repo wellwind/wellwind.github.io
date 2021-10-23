@@ -27,9 +27,7 @@ export class BlogPostsComponent implements OnInit {
   );
 
   posts$ = this.currentPage$.pipe(
-    switchMap(pageNum => this.sitePostService.postsMeta$.pipe(
-      map(postsMeta => Object.keys(postsMeta).map(key => ({ ...postsMeta[key], slug: key }))),
-      map(posts => sortWith([descend(prop('date'))], posts)),
+    switchMap(pageNum => this.sitePostService.postsMetaWithSlugAndSortDesc$.pipe(
       map(posts => getPagePosts(pageNum, PAGE_SIZE, posts)),
     ))
   );
