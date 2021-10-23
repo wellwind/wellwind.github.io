@@ -83,8 +83,10 @@
     </div>
 
   </mat-drawer>
-  <mat-drawer-content class="main-content" #matDrawerContent>
+
+  <mat-drawer-content class="main-content" [class.server]="isServer" #matDrawerContent>
     <router-outlet></router-outlet>
   </mat-drawer-content>
+
 </mat-drawer-container>
 

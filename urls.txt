@@ -1,14 +1,1 @@
-blog/2009/01/01/my-first-post
-blog/2010/01/01/my-first-post
-blog/2011/01/01/my-first-post
-blog/2012/01/01/my-first-post
-blog/2013/01/01/my-first-post
-blog/2014/01/01/my-first-post
-blog/2015/01/01/my-first-post
-blog/2016/01/01/my-first-post
-blog/2017/01/01/my-first-post
-blog/2018/01/01/my-first-post
-blog/2019/01/01/my-first-post
-blog/2020/01/01/my-first-post
-blog/2021/01/01/my-first-post
-blog/2022/01/01/my-first-post
+/blog/2021/10/16/static-site-generator-using-angular-universal-prerender

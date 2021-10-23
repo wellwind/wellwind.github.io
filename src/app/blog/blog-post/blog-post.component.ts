@@ -1,11 +1,11 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { isPlatformServer } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { MarkdownMeta } from 'site-utils';
+import { PlatformService } from '../../../platform.service';
 import { findMainContentContainer, scrollTo } from '../../../utils';
 import { SiteMetaService } from '../../site-meta.service';
 import { SitePostService } from '../../site-post.service';
@@ -18,6 +18,10 @@ import { SitePostService } from '../../site-post.service';
 export class BlogPostComponent implements OnInit, AfterViewInit {
 
   @ViewChild('comments') comments?: ElementRef<HTMLElement>;
+
+  get isServer() {
+    return this.platformService.isServer;
+  }
 
   postMeta$ = this.route.data.pipe(
     map(data => data.content as MarkdownMeta)
@@ -56,10 +60,10 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   )
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: any,
     private route: ActivatedRoute,
     private domSanitizer: DomSanitizer,
     private breakpointObserver: BreakpointObserver,
+    private platformService: PlatformService,
     private sitePostService: SitePostService,
     private siteMetaService: SiteMetaService) {
   }
@@ -79,7 +83,7 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (isPlatformServer(this.platformId)) {
+    if (this.platformService.isServer) {
       return;
     }
 
@@ -102,6 +106,9 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   }
 
   highlightCode() {
+    if (this.platformService.isServer) {
+      return;
+    }
     setTimeout(() => {
       (window as any)?.hljs?.highlightAll();
     });

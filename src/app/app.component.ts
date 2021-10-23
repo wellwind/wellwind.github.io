@@ -5,6 +5,7 @@ import { MatDrawerContent } from '@angular/material/sidenav';
 import { NavigationStart, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { PlatformService } from '../platform.service';
 import { SiteMetaService } from './site-meta.service';
 import { SitePostService } from './site-post.service';
 
@@ -15,6 +16,10 @@ import { SitePostService } from './site-post.service';
 })
 export class AppComponent implements OnInit {
   @ViewChild('matDrawerContent') matDrawerContent?: MatDrawerContent
+
+  get isServer(){
+    return this.platformService.isServer;
+  }
 
   menuOpen$ = new BehaviorSubject<boolean>(true);
   menuItems = [
@@ -48,6 +53,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private platformService: PlatformService,
     private siteMetaService:SiteMetaService,
     private sitePostService: SitePostService,
     private breakpointObserver: BreakpointObserver,

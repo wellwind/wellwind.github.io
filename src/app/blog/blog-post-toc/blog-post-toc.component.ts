@@ -1,6 +1,6 @@
 import { ContentObserver } from '@angular/cdk/observers';
-import { isPlatformServer } from '@angular/common';
-import { AfterViewInit, Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { PlatformService } from '../../../platform.service';
 import { findMainContentContainer, scrollTo } from '../../../utils';
 
 @Component({
@@ -14,14 +14,14 @@ export class BlogPostTocComponent implements OnInit, AfterViewInit, OnDestroy {
   headings: { text: string, level: number, element: HTMLElement, active: boolean }[] = [];
   intersectionObserver?: IntersectionObserver | null;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any, private contentObserver: ContentObserver) {
+  constructor(private platformService: PlatformService, private contentObserver: ContentObserver) {
   }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit() {
-    if (isPlatformServer(this.platformId)) {
+    if (this.platformService.isServer) {
       return;
     }
 
