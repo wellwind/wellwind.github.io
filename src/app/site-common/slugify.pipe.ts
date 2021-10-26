@@ -7,8 +7,8 @@ export const slugify = (value: string) => value.replace(/[ ]+/g, '-')
 })
 export class SlugifyPipe implements PipeTransform {
 
-  transform(value: string): string {
-    return slugify(value);
+  transform(value?: string): string {
+    return slugify(value || '');
   }
 
 }

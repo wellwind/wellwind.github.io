@@ -13,7 +13,7 @@
       <a
         *ngIf="tag?.key"
         class="tag size-{{ $any(tag.value).length | blogPostTagSize:((maxPostsCount$ | async )|| 0) }}"
-        [routerLink]="['/blog/tags', tag.key]"
+        [routerLink]="['/blog/tags', $any(tag.key) | slugify]"
         >
         {{ tag.key }}
       </a>
