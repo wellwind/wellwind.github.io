@@ -6,7 +6,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SiteCommonModule } from '../../site-common/site-common.module';
-import { BlogPostSubtitleComponent } from './blog-post-subtitle/blog-post-subtitle.component';
 import { BlogPostTocComponent } from './blog-post-toc/blog-post-toc.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 
@@ -17,7 +16,6 @@ import { BlogPostsComponent } from './blog-posts.component';
   declarations: [
     BlogPostComponent,
     BlogPostsComponent,
-    BlogPostSubtitleComponent,
     BlogPostTocComponent
   ],
   imports: [

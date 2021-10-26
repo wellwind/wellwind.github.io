@@ -1,13 +1,19 @@
+<div class="categories-header">
+  <h1>{{ ((categorySlug$ | async) || '') | unslugify }}</h1>
+  <h2>分類</h2>
+</div>
+
 <ng-container *ngFor="let post of posts$ | async">
+
   <mat-card class="blog-post">
     <mat-card-title class="blog-post-title">
       <a
         [routerLink]="['/blog/', (post.date | date:'yyyy'), (post.date | date:'MM'), (post.date | date:'dd'), post.slug]">{{ post.title }}</a>
     </mat-card-title>
 
-<!--    <mat-card-subtitle class="blog-post-subtitle">-->
-<!--      <app-blog-post-subtitle [postMeta]="post"></app-blog-post-subtitle>-->
-<!--    </mat-card-subtitle>-->
+    <mat-card-subtitle class="blog-post-subtitle">
+      <app-blog-post-subtitle [postMeta]="post"></app-blog-post-subtitle>
+    </mat-card-subtitle>
 
     <mat-card-content class="blog-post-content">
       <div [innerHTML]="post.summary"></div>
@@ -26,9 +32,9 @@
 
 </ng-container>
 
-<!--<mat-card class="pagination">-->
-<!--  <app-pagination-->
-<!--    linkBase="/blog/page"-->
-<!--    [currentPage]="(currentPage$ | async) || 1"-->
-<!--    [totalPage]="(totalPage$ | async) || 1"></app-pagination>-->
-<!--</mat-card>-->
+<mat-card class="pagination">
+  <app-pagination
+    linkBase="/blog/categories/{{ categorySlug$ | async }}/page"
+    [currentPage]="(currentPage$ | async) || 1"
+    [totalPage]="(totalPage$ | async) || 1"></app-pagination>
+</mat-card>

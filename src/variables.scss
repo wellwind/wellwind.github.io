@@ -1,5 +1,9 @@
 @import '~@angular/material/theming';
 
+$primary-color: map-get($mat-indigo, 500);
+$primary-text-color: map-get($mat-gray, 900);
+$secondary-text-color: map-get($mat-gray, 500);
+
 $default-link-color: map-get($mat-indigo, 400);
 $default-link-hover-color: map-get($mat-indigo, 600);
 
@@ -7,20 +11,20 @@ $header-link-color-1: #ffffff;
 $header-link-color-2: #ffffff;
 
 $sidebar-text-color: map-get($mat-gray, 600);
-$sidebar-highlight-text-color: map-get($mat-indigo, 500);
+$sidebar-highlight-text-color: $primary-color;
 $sidebar-highlight-bg-color: transparentize($sidebar-highlight-text-color, 0.85);
 
-$post-card-header-link-color: map-get($mat-gray, 900);
-$post-card-header-link-hover-color: map-get($mat-indigo, 500);
-$post-card-content-text-color: map-get($mat-gray, 900);
+$post-card-header-link-color: $primary-text-color;
+$post-card-header-link-hover-color: $primary-color;
+$post-card-content-text-color: $primary-text-color;
 
-$post-next-prev-text-color: map-get($mat-gray, 500);
+$post-next-prev-text-color: $secondary-text-color;
 
 $code-background-color: map-get($mat-gray, 200);
 
-$toc-header-color: map-get($mat-gray, 900);
+$toc-header-color: $primary-text-color;
 $toc-indicator-color: map-get($mat-gray, 500);
-$toc-indicator-focus-color: map-get($mat-indigo, 500);
+$toc-indicator-focus-color: $primary-color;
 
 $note-background-color: transparent;
 $note-info-border-color: map-get($mat-indigo, 500);

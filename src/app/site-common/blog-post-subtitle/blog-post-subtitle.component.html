@@ -1,0 +1,17 @@
+<ng-container *ngIf="postMeta">
+  <span class="blog-post-published">
+    <mat-icon>date_range</mat-icon>
+    <span>{{ postMeta.date | date: 'yyyy-MM-dd'}}</span>
+  </span>
+
+  <ng-container *ngIf="(postMeta.categories || []).length > 0">
+    <span class="blog-post-categories">
+      <mat-icon>folder_open</mat-icon>
+      <ng-container *ngFor="let category of postMeta.categories; let last = last">
+        <a class="blog-post-category-link"
+          [routerLink]="['/blog/categories', category | slugify]">{{ category }}</a>
+        <span class="sub-divider" *ngIf="!last">|</span>
+      </ng-container>
+    </span>
+  </ng-container>
+</ng-container>

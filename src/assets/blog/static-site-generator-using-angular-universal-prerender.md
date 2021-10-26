@@ -402,7 +402,7 @@ connect()
 
 ```json
 {
-  "extends": "./tsconfig.json",
+  "extends": "./get-page-posts.ts",
   "compilerOptions": {
     "module": "commonjs"
   }

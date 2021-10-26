@@ -209,3 +209,18 @@ a {
   }
 }
 
+.categories-header {
+  display: flex;
+  align-items: baseline;
+
+  h2 {
+    margin-left: 2px;
+    color: $secondary-text-color;
+  }
+}
+
+.mat-card.pagination {
+  display: flex !important;
+  justify-content: center;
+}
+

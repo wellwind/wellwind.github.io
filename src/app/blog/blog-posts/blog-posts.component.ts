@@ -1,17 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
-import { PostMeta } from '../../post-meta.interface';
 import { SitePostService } from '../../site-post.service';
+import { getPagePosts } from '../get-page-posts';
 
 const PAGE_SIZE = 10;
-
-interface PostMetaWithSlug extends PostMeta {
-  slug: string;
-}
-
-const getPagePosts = (pageNum: number, pageSize: number, item: PostMetaWithSlug[]) =>
-  item.slice((pageNum - 1) * pageSize, (pageNum - 1) * pageSize + pageSize);
 
 @Component({
   selector: 'app-blog-posts',
