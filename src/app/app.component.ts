@@ -17,7 +17,7 @@ import { SitePostService } from './site-post.service';
 export class AppComponent implements OnInit {
   @ViewChild('matDrawerContent') matDrawerContent?: MatDrawerContent
 
-  get isServer(){
+  get isServer() {
     return this.platformService.isServer;
   }
 
@@ -33,28 +33,18 @@ export class AppComponent implements OnInit {
     map(posts => Object.keys(posts).length)
   );
 
-  categoryCount$ = this.sitePostService.postsMeta$.pipe(
-    map(posts => Object
-      .keys(posts)
-      .map(key => posts[key])
-      .reduce((categories, post) => ([...categories, ...post.categories || []]), [] as string[])
-    ),
+  categoryCount$ = this.sitePostService.postCategories$.pipe(
     map(categories => new Set(categories).size)
   );
 
-  tagCount$ = this.sitePostService.postsMeta$.pipe(
-    map(posts => Object
-      .keys(posts)
-      .map(key => posts[key])
-      .reduce((tags, post) => ([...tags, ...post.tags || []]), [] as string[])
-    ),
+  tagCount$ = this.sitePostService.postTags$.pipe(
     map(tags => new Set(tags).size)
   );
 
   constructor(
     private router: Router,
     private platformService: PlatformService,
-    private siteMetaService:SiteMetaService,
+    private siteMetaService: SiteMetaService,
     private sitePostService: SitePostService,
     private breakpointObserver: BreakpointObserver,
     private matIconRegistry: MatIconRegistry) {
@@ -67,14 +57,13 @@ export class AppComponent implements OnInit {
         keywords: [],
         type: 'website'
       });
-      if(this.matDrawerContent){
-        this.matDrawerContent.scrollTo({ top: 0, left: 0});
+      if (this.matDrawerContent) {
+        this.matDrawerContent.scrollTo({ top: 0, left: 0 });
       }
     });
   }
 
   ngOnInit() {
-
     this.matIconRegistry.registerFontClassAlias('fontawesome', 'fab');
 
     this.breakpointObserver.observe([

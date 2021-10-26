@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { descend, prop, sortWith } from 'ramda';
-import { combineLatest } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { PostMeta } from '../../post-meta.interface';
 import { SitePostService } from '../../site-post.service';
 

@@ -3,7 +3,12 @@
     <mat-icon *ngIf="menuOpen$ | async">menu_open</mat-icon>
     <mat-icon *ngIf="!(menuOpen$ | async)">menu</mat-icon>
   </button>
-  <h1>全端開發人員天梯</h1>
+  <h1>
+    <a class="header-link" routerLink="/">
+      <span class="header-link-1">全端開發</span>
+      <span class="header-link-2">人員天梯</span>
+    </a>
+  </h1>
 </mat-toolbar>
 
 <mat-drawer-container class="drawer-container">

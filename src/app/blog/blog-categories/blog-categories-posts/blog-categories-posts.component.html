@@ -1,0 +1,34 @@
+<ng-container *ngFor="let post of posts$ | async">
+  <mat-card class="blog-post">
+    <mat-card-title class="blog-post-title">
+      <a
+        [routerLink]="['/blog/', (post.date | date:'yyyy'), (post.date | date:'MM'), (post.date | date:'dd'), post.slug]">{{ post.title }}</a>
+    </mat-card-title>
+
+<!--    <mat-card-subtitle class="blog-post-subtitle">-->
+<!--      <app-blog-post-subtitle [postMeta]="post"></app-blog-post-subtitle>-->
+<!--    </mat-card-subtitle>-->
+
+    <mat-card-content class="blog-post-content">
+      <div [innerHTML]="post.summary"></div>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <button
+        [routerLink]="['/blog/', (post.date | date:'yyyy'), (post.date | date:'MM'), (post.date | date:'dd'), post.slug]"
+        mat-raised-button
+        color="primary">
+        <mat-icon>read_more</mat-icon>
+        <span>繼續閱讀</span>
+      </button>
+    </mat-card-footer>
+  </mat-card>
+
+</ng-container>
+
+<!--<mat-card class="pagination">-->
+<!--  <app-pagination-->
+<!--    linkBase="/blog/page"-->
+<!--    [currentPage]="(currentPage$ | async) || 1"-->
+<!--    [totalPage]="(totalPage$ | async) || 1"></app-pagination>-->
+<!--</mat-card>-->

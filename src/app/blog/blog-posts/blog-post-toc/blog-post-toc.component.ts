@@ -1,7 +1,7 @@
 import { ContentObserver } from '@angular/cdk/observers';
 import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { PlatformService } from '../../../platform.service';
-import { findMainContentContainer, scrollTo } from '../../../utils';
+import { PlatformService } from '../../../../platform.service';
+import { findMainContentContainer, scrollTo } from '../../../../utils';
 
 @Component({
   selector: 'app-blog-post-toc',

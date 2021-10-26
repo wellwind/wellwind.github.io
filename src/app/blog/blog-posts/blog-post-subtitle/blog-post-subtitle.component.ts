@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MarkdownMeta } from 'site-utils';
-import { PostMeta } from '../../post-meta.interface';
+import { PostMeta } from '../../../post-meta.interface';
 
 @Component({
   selector: 'app-blog-post-subtitle',

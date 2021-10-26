@@ -5,10 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { MarkdownMeta } from 'site-utils';
-import { PlatformService } from '../../../platform.service';
-import { findMainContentContainer, scrollTo } from '../../../utils';
-import { SiteMetaService } from '../../site-meta.service';
-import { SitePostService } from '../../site-post.service';
+import { PlatformService } from '../../../../platform.service';
+import { findMainContentContainer, scrollTo } from '../../../../utils';
+import { SiteMetaService } from '../../../site-meta.service';
+import { SitePostService } from '../../../site-post.service';
 
 @Component({
   selector: 'app-blog-post',

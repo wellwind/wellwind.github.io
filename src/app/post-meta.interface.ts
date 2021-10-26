@@ -5,3 +5,7 @@ export interface PostMeta {
   tags: string[];
   summary: string;
 }
+
+export interface PostMetaWithSlug extends PostMeta {
+  slug: string;
+}

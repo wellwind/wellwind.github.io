@@ -1,9 +1,26 @@
 @import '../variables';
 
-
 .toolbar {
   position: fixed;
   z-index: 10;
+
+  a.header-link {
+    text-decoration: none;
+
+    .header-link-1 {
+      color: $header-link-color-1;
+      &:hover, &:active {
+        color: $header-link-color-1;
+      }
+    }
+
+    .header-link-2 {
+      color: $header-link-color-2;
+      &:hover, &:active {
+        color: $header-link-color-2;
+      }
+    }
+  }
 }
 
 .drawer-container {
