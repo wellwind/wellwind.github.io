@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   menuItems = [
     { link: '/blog', icon: 'home', text: '首頁' },
     { link: '/blog/categories', icon: 'apps', text: '分類' },
-    { link: '/blog/tag', icon: 'label', text: '標籤' },
+    { link: '/blog/tags', icon: 'label', text: '標籤' },
     { link: '/blog/archives', icon: 'archive', text: '歸檔' }
   ];
 

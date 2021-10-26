@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SitePostService } from '../../site-post.service';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { PostMetaWithSlug } from '../../post-meta.interface';
 
 @Component({
   selector: 'app-blog-categories',
@@ -8,9 +10,12 @@ import { SitePostService } from '../../site-post.service';
 })
 export class BlogCategoriesComponent implements OnInit {
 
-  categories$ = this.sitePostService.categoriesAndPosts$;
+  categories$ = this.route.data.pipe(
+    map(data => data.categories as { [key: string]: PostMetaWithSlug[] })
+  );
 
-  constructor(private sitePostService: SitePostService) { }
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
   }

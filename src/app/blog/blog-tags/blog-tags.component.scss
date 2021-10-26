@@ -1,0 +1,23 @@
+.tags {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .tag {
+    margin: 8px;
+
+    &.size-1 {
+      font-size: 36px;
+    }
+    &.size-2 {
+      font-size: 30px;
+    }
+    &.size-3 {
+      font-size: 24px;
+    }
+    &.size-4 {
+      font-size: 16px;
+    }
+  }
+}

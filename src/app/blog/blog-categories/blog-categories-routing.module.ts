@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BlogCategoriesPostsResolve } from './blog-categories-posts-resolve';
 import { BlogCategoriesPostsComponent } from './blog-categories-posts/blog-categories-posts.component';
+import { BlogCategoriesResolve } from './blog-categories-resolve';
 import { BlogCategoriesComponent } from './blog-categories.component';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    resolve: { categories: BlogCategoriesResolve },
     component: BlogCategoriesComponent
   }
 ];
