@@ -1,6 +1,6 @@
 export interface PostMeta {
   title: string;
-  date: Date;
+  date: string;
   categories: string[];
   tags: string[];
   summary: string;

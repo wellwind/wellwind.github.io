@@ -7,7 +7,7 @@ import { BlogLayoutComponent } from './blog-posts/blog-layout/blog-layout.compon
 
 @NgModule({
   declarations: [
-    BlogLayoutComponent
+    BlogLayoutComponent,
   ],
   imports: [
     CommonModule,

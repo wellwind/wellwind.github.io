@@ -8,6 +8,10 @@ const routes: Routes = [
     component: BlogLayoutComponent,
     children: [
       {
+        path: 'archives',
+        loadChildren: () => import('./blog-archives/blog-archives.module').then(m => m.BlogArchivesModule)
+      },
+      {
         path: 'categories',
         loadChildren: () => import('./blog-categories/blog-categories.module').then(m => m.BlogCategoriesModule)
       },
