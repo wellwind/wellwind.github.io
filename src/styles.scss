@@ -209,13 +209,27 @@ a {
   }
 }
 
-.categories-header {
+.categories-header, .tags-header {
   display: flex;
-  align-items: baseline;
+  align-items: baseline !important;
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  margin-bottom: 8px;
+
+  h1 {
+    font-size: 36px;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+  }
 
   h2 {
     margin-left: 2px;
     color: $secondary-text-color;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
   }
 }
 

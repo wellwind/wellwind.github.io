@@ -114,14 +114,7 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
     });
   }
 
-  goTop(contentElement: HTMLElement) {
-    if (contentElement) {
-      const containerElement = findMainContentContainer(contentElement);
-      if (containerElement) {
-        scrollTo(0, containerElement);
-      }
-    }
-  }
+
 
   goComment(commentsElement: HTMLElement) {
     if (commentsElement) {

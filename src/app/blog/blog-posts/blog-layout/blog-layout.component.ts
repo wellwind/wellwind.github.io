@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { findMainContentContainer, scrollTo } from '../../../../utils';
 
 @Component({
   selector: 'app-blog-layout',
@@ -12,4 +13,12 @@ export class BlogLayoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goTop(contentElement: HTMLElement) {
+    if (contentElement) {
+      const containerElement = findMainContentContainer(contentElement);
+      if (containerElement) {
+        scrollTo(0, containerElement);
+      }
+    }
+  }
 }
