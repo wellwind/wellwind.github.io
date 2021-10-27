@@ -209,7 +209,16 @@ a {
   }
 }
 
-.categories-header, .tags-header {
+.blog-post-tags {
+  display: flex;
+  justify-content: center;
+
+  .blog-post-tag {
+    cursor: pointer;
+  }
+}
+
+.categories-header, .tags-header, .year-header {
   display: flex;
   align-items: baseline !important;
   position: sticky;

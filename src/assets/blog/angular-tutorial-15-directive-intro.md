@@ -5,8 +5,8 @@ category: "Angular速成班"
 tags:
     - Angular
     - Directive
-    - \@Directive
-    - \@HostListener
+    - "@Directive"
+    - "@HostListener"
 ---
 今天我們要介紹Angular中的attribute directive，透過attribute directive，我們可以自行擴充元件的屬性，讓元件更富有變化性！
 

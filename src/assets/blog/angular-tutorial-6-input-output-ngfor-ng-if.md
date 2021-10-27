@@ -7,10 +7,10 @@ tags:
     - TypeScript
     - ngFor
     - ngIf
-    - \@Input
-    - \@Output
+    - "@Input"
+    - "@Output"
 ---
-在前一篇文章「認識Angular的4種data binding機制」我們學到了4種Angular的data binding機制後，今天我們一口氣要學習**@Input, @output, ngFor和ngIf**。這4樣東西學會後，基本上就算是把Angular最常用的功能都學起來了。我們也會在本篇文章中把基本的TodoApp給完成。
+在前一篇文章「認識Angular的4種data binding機制」我們學到了4種Angular的data binding機制後，今天我們一口氣要學習 **@Input, @output, ngFor和ngIf**。這4樣東西學會後，基本上就算是把Angular最常用的功能都學起來了。我們也會在本篇文章中把基本的TodoApp給完成。
 
 <!-- more -->
 
@@ -24,7 +24,7 @@ ng g interface shared\TodoItem
 
 interface屬於TypeScript的語法，目的是用來賦予沒有強型別的JavsScript物件一個型別，如此一來在將TypeScript編譯成JavaScript時，就可以用來檢查我們傳入的物件是否有正確的屬性名稱；同時IDE如果支援的話，還可以藉此享受到autocomplete和即時檢查型別是否正確等等的方便功能。
 
-產生TodoItem這個interface之後，我們打開**src/app/shared/todo-item.ts**，並將裡面的內容改成
+產生TodoItem這個interface之後，我們打開 **src/app/shared/todo-item.ts**，並將裡面的內容改成
 
 ```typescript
 export interface TodoItem {
@@ -39,7 +39,7 @@ export interface TodoItem {
 
 # 加入基本資料
 
-接下來我們要讓畫面上呈現我們在程式裡加入的TodoItem，首先打開**src/app/app.component.ts**，在最上面加上
+接下來我們要讓畫面上呈現我們在程式裡加入的TodoItem，首先打開 **src/app/app.component.ts**，在最上面加上
 
 ```typescript
 import { TodoItem } from './shared/todo-item';
@@ -103,7 +103,7 @@ export class TodoItemsComponent implements OnInit {
 
 ```
 
-在最上面我們匯入了**TodoItem的interface**，以及來自**@angular/core的Input**，然後class裡面我們宣告了`items: TodoItem[]`並在前面加上`@Input`，代表後面的items變數是從外面**輸入(input)**進來的。@Input()預設會把後面變數的名稱當作component要接受資料的屬性名稱，但我們也可以藉由`@Input('xxx')`的方式來進行調整，例如上面的宣告可以改成
+在最上面我們匯入了**TodoItem的interface**，以及來自 **@angular/core的Input**，然後class裡面我們宣告了`items: TodoItem[]`並在前面加上`@Input`，代表後面的items變數是從外面 **輸入(input)** 進來的。@Input()預設會把後面變數的名稱當作component要接受資料的屬性名稱，但我們也可以藉由`@Input('xxx')`的方式來進行調整，例如上面的宣告可以改成
 
 ```
 @Input('items') theTodoItems: TodoItem[];
@@ -113,7 +113,7 @@ export class TodoItemsComponent implements OnInit {
 
 # 使用ngFor來列舉資料
 
-接下來我們要讓TodoItemsComponent能正確顯示傳進來的資料，打開**src/app/todo-items/todo-items.component.html**，把原本的html改為
+接下來我們要讓TodoItemsComponent能正確顯示傳進來的資料，打開 **src/app/todo-items/todo-items.component.html**，把原本的html改為
 
 ```html
 
@@ -144,7 +144,7 @@ export class TodoItemsComponent implements OnInit {
 </ul>
 ```
 
-跟前面的內容差不多，只是加入了`<span *ngif="item.done">(已完成)</span>`，而**ngIf則會根據後面的條件來決定所在的標籤是否需要產生**。若條件為true，則標籤就會產生，條件為false的話，標籤就不會產生。
+跟前面的內容差不多，只是加入了`<span *ngif="item.done">(已完成)</span>`，而 **ngIf則會根據後面的條件來決定所在的標籤是否需要產生**。若條件為true，則標籤就會產生，條件為false的話，標籤就不會產生。
 
 # 使用@Output傳遞事件
 
@@ -189,7 +189,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Output() addTodoItem = new EventEmitter();
 ```
 
-代表addTodoItem這個component的property是一個要**輸出(output)**的東西，什麼樣的東西呢？是一個**用來處理事件的EventEmitter**。接著把我們之前學習event binding在AddFormComponent中加入的addTodo函數內容改為
+代表addTodoItem這個component的property是一個要 **輸出(output)** 的東西，什麼樣的東西呢？是一個 **用來處理事件的EventEmitter**。接著把我們之前學習event binding在AddFormComponent中加入的addTodo函數內容改為
 
 ```typescript
   addTodo($event: MouseEvent) {
@@ -197,7 +197,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   }
 ```
 
-這裡我們藉由`addTodoItem.emit(this.todoText)`來**把事件發射出去**，並且參數內容為`this.todoText`，這個參數會變成`<app-add-form (addtodoitem)="addTodo($event)"></app-add-form>`的$event部分，如此一來在AppComponent的addTodo函數就可以接收到這個參數啦！
+這裡我們藉由`addTodoItem.emit(this.todoText)`來 **把事件發射出去**，並且參數內容為`this.todoText`，這個參數會變成`<app-add-form (addtodoitem)="addTodo($event)"></app-add-form>`的$event部分，如此一來在AppComponent的addTodo函數就可以接收到這個參數啦！
 
 接著回到瀏覽器就可以看到目前的成果啦！
 
@@ -205,7 +205,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 # 單元回顧
 
-本篇文章我們簡單介紹了Angular中的**@Input, @output, ngFor和ngIf**語法。透過這些語法我們已經可以完成大部分的需求了，因此我們也一次把TodoApp的基本功能通通完成了。至於剩下的[勾選/取消勾選]和[刪除]功能，就當作回家作業吧XD
+本篇文章我們簡單介紹了Angular中的 **@Input, @output, ngFor和ngIf** 語法。透過這些語法我們已經可以完成大部分的需求了，因此我們也一次把TodoApp的基本功能通通完成了。至於剩下的[勾選/取消勾選]和[刪除]功能，就當作回家作業吧XD
 
 到目前為止的程式碼以及實作完的[勾選/取消勾選]和[刪除]的部分，程式碼都在下面
 

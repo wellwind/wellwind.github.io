@@ -3,9 +3,9 @@ title: "[Angular速成班]透過Module組織管理你的程式"
 date: 2017-02-18 11:11:11
 category: "Angular速成班"
 tags:
-    - Angular CLI
-    - Angular
-    - \@NgModule
+  - Angular CLI
+  - Angular
+  - "@NgModule"
 ---
 在過去的文章我們已經學到—Angular的應用程式是由一個一個的component所堆積組合起來的，這麼做的好處不用多說就是關注點分離，讓你專心在目前的功能上，也不用擔心影響到其他的component，但是當你的程式架構越來越龐大時，管理這些數以百計的components就變成一門學問了，這時候我們就可以透過模組化的機制，更有組織的管理你的所有components，這也就是我們今天要談的主題—Module。
 

@@ -5,7 +5,7 @@ category: "Angular速成班"
 tags:
     - Angular
     - Service
-    - \@Injectable
+    - "@Injectable"
 ---
 今天我們要介紹Angular的Service，透過Service我們可以**將資料和商業邏輯統一放到一個（或數個）類別中進行管理**，並**在多個Components之間共享**，讓程式架構更加明確！
 

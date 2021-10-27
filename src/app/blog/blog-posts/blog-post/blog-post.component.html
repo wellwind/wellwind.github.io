@@ -13,6 +13,19 @@
 
       <div class="blog-post" #content [innerHTML]="postContent$ | async"></div>
 
+      <div class="blog-post-tags">
+        <mat-chip-list aria-label="Post Tags">
+          <mat-chip
+            class="blog-post-tag"
+            [routerLink]="['/blog/tags', tag | slugify]"
+            color="primary"
+            selected
+            *ngFor="let tag of postMeta.tags">
+            {{ tag }}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+
       <mat-divider></mat-divider>
 
       <div class="blog-post-prev-next">
