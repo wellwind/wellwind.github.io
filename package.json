@@ -15,12 +15,12 @@
     "serve:ssr": "node dist/blog/server/main.js",
     "build:ssr": "ng build && ng run blog:server",
     "serve:assets": "ng run blog:static-server --path ./src --port 4201",
-    "serve:blog": "ng run blog:static-server --path ./dist/blog/browser --port 4202",
+    "serve:blog": "ng run blog:static-server --path ./docs --port 4202",
     "build:builders": "cd builders && npx tsc",
     "build:blog-posts-json": "ng run blog:generate-blog-posts-json",
     "build:urls": "ng run blog:generate-prerender-urls",
     "build:rss": "ng run blog:generate-rss",
-    "build:blog": "npm run build:urls && npm run prerender:pages && npm run build:rss -- --rss-path ./dist/blog/browser/blog/atom.xml && npm run copy:docs",
+    "build:blog": "npm run build:urls && npm run prerender:pages && npm run build:rss -- --rss-path ./dist/blog/browser/blog/atom.xml && npm run copy:docs"
   },
   "private": true,
   "dependencies": {
