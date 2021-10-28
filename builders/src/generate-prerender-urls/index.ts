@@ -107,7 +107,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
 
   //#region Archive pages
 
-  context.logger.info(`Generating archive pages.`);
+  context.logger.info(`Generating 📁 archive pages.`);
 
   // archive page
   const archivePageCount = getPageCount(posts);
@@ -118,6 +118,6 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
 
   writeFileSync(urlsPath, urls.join('\n'));
 
-  context.logger.info('Done');
+  context.logger.info('✅ Done');
   return { success: true };
 }

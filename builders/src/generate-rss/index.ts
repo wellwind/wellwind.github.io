@@ -15,7 +15,7 @@ async function generateRss(options: Options, context: BuilderContext): Promise<B
   const markdownPostsPath = options.markdownPostsPath;
   const rssPath = options.rssPath;
 
-  context.logger.info(`Generate ${rssPath}.`);
+  context.logger.info(`Generate 📒 ${rssPath}.`);
 
   const posts = readdirSync(markdownPostsPath, { withFileTypes: true })
     .filter(dirent => dirent.isFile() && dirent.name.endsWith('.md'))
