@@ -1,0 +1,399 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <title>[Angular Material完全攻略]設計一個部落格(5) - Chip、Tooltip、Snackbar | 全端開發人員天梯</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <style type="text/css">@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+  <style type="text/css">@font-face{font-family:'Lato';font-style:italic;font-weight:300;src:url(https://fonts.gstatic.com/s/lato/v20/S6u_w4BMUTPHjxsI9w2_FQftx9897sxZ.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Lato';font-style:italic;font-weight:300;src:url(https://fonts.gstatic.com/s/lato/v20/S6u_w4BMUTPHjxsI9w2_Gwftx9897g.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Lato';font-style:italic;font-weight:400;src:url(https://fonts.gstatic.com/s/lato/v20/S6u8w4BMUTPHjxsAUi-qNiXg7eU0.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Lato';font-style:italic;font-weight:400;src:url(https://fonts.gstatic.com/s/lato/v20/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Lato';font-style:italic;font-weight:700;src:url(https://fonts.gstatic.com/s/lato/v20/S6u_w4BMUTPHjxsI5wq_FQftx9897sxZ.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Lato';font-style:italic;font-weight:700;src:url(https://fonts.gstatic.com/s/lato/v20/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Lato';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Lato';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Lato';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/lato/v20/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Lato';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/lato/v20/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Lato';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Lato';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+  <style type="text/css">@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v111/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
+  <script src="https://kit.fontawesome.com/1792a2a12b.js" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/github.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+  <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&amp;version=v3.3&amp;appId=1148471878668114&amp;autoLogAppEvents=1"></script>
+<style>body,html{height:100%;background:#fafafa;}body{margin:0;font-family:Roboto,loto,noto sans tc,microsoft yahei,sans-serif;}</style><style>.mat-fab,.mat-icon-button{font-family:Roboto,Helvetica Neue,sans-serif;font-size:14px;font-weight:500;}.mat-chip{font-size:14px;font-weight:500;}.mat-toolbar,.mat-toolbar h1{font:500 20px/32px Roboto,Helvetica Neue,sans-serif;letter-spacing:normal;margin:0;}.mat-list-item{font-family:Roboto,Helvetica Neue,sans-serif;}.mat-list-base .mat-list-item{font-size:16px;}.mat-ripple{overflow:hidden;position:relative;}.mat-ripple:not(:empty){transform:translateZ(0);}.cdk-visually-hidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap;outline:0;-webkit-appearance:none;-moz-appearance:none;}.mat-focus-indicator{position:relative;}.mat-elevation-z6{box-shadow:0 3px 5px -1px #0003,0 6px 10px 0 #00000024,0 1px 18px 0 #0000001f;}.mat-icon-button{color:inherit;background:#0000;}.mat-button-focus-overlay{background:#000;}.mat-fab{color:#000000de;background-color:#fff;}.mat-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 5px -1px #0003,0 6px 10px 0 #00000024,0 1px 18px 0 #0000001f;}.mat-fab:not(.mat-button-disabled):active:not([class*=mat-elevation-z]){box-shadow:0 7px 8px -4px #0003,0 12px 17px 2px #00000024,0 5px 22px 4px #0000001f;}.mat-chip.mat-standard-chip{background-color:#e0e0e0;color:#000000de;}.mat-chip.mat-standard-chip:not(.mat-chip-disabled):active{box-shadow:0 3px 3px -2px #0003,0 3px 4px 0 #00000024,0 1px 8px 0 #0000001f;}.mat-chip.mat-standard-chip:after{background:#000;}.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary{background-color:#3f51b5;color:#fff;}.mat-divider{border-top-color:#0000001f;}.mat-list-base .mat-list-item{color:#000000de;}.mat-nav-list .mat-list-item:focus,.mat-nav-list .mat-list-item:hover{background:#0000000a;}.mat-drawer-container{background-color:#fafafa;color:#000000de;}.mat-drawer{color:#000000de;}.mat-drawer{background-color:#fff;}.mat-drawer-side{border-right:1px solid #0000001f;}.mat-toolbar{background:#f5f5f5;color:#000000de;}.mat-toolbar.mat-primary{background:#3f51b5;color:#fff;}.mat-toolbar-single-row{height:64px;}@media (max-width: 599px){.mat-toolbar-single-row{height:56px;}}body,html{height:100%;background:#fafafa;}body{margin:0;font-family:Roboto,loto,noto sans tc,microsoft yahei,sans-serif;}a{color:#5c6bc0;transition:all .3s;}a,a:hover{text-decoration:underline;}a:hover{color:#3949ab;}a:active{color:#5c6bc0;}.blog-post{margin-bottom:16px;}.blog-post .blog-post-subtitle{display:flex;align-items:center;font-size:14px;}.blog-post .blog-post-subtitle .mat-icon{margin-right:8px;position:relative;top:-2px;}.blog-post .blog-post-subtitle .blog-post-published{line-height:24px;display:inline-flex;flex-direction:row;align-items:center;}.blog-post .blog-post-subtitle .blog-post-categories{margin-left:8px;line-height:24px;display:inline-flex;}.blog-post .blog-post-subtitle .blog-post-categories .blog-post-category-link{font-weight:500;}.blog-post .blog-post{font-size:16px;line-height:24px;color:#212121;}.blog-post{font-size:16px;line-height:24px;}.blog-post img{max-width:100%;border:.5px solid #0003;display:block;margin:0 auto;}.blog-post pre{font-size:14px;line-height:21px;background:#eee;border:.5px solid #0003;border-radius:5px;display:block;margin:16px auto;overflow-x:auto;white-space:pre-wrap;}.blog-post code{background:#eee;border-radius:3px;padding:3px;}.blog-post .note{background:#0000;border:.5px solid #0003;border-radius:3px;padding:1em;}.blog-post .note p:first-child{margin-block-start:0;}.blog-post .note p:last-child{margin-block-end:0;}.blog-post .note.info{border-left:5px solid #3f51b5;}.blog-post-tags{display:flex;justify-content:center;}.blog-post-tags .blog-post-tag{cursor:pointer;}</style><link rel="stylesheet" href="styles.876ba2c12bf128be887b.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.876ba2c12bf128be887b.css"></noscript><style ng-transition="serverApp">.toolbar[_ngcontent-sc86]{position:fixed;z-index:10}.toolbar[_ngcontent-sc86]   a.header-link[_ngcontent-sc86]{text-decoration:none}.toolbar[_ngcontent-sc86]   a.header-link[_ngcontent-sc86]   .header-link-1[_ngcontent-sc86]{color:#fff}.toolbar[_ngcontent-sc86]   a.header-link[_ngcontent-sc86]   .header-link-1[_ngcontent-sc86]:hover, .toolbar[_ngcontent-sc86]   a.header-link[_ngcontent-sc86]   .header-link-1[_ngcontent-sc86]:active{color:#fff}.toolbar[_ngcontent-sc86]   a.header-link[_ngcontent-sc86]   .header-link-2[_ngcontent-sc86]{color:#fff}.toolbar[_ngcontent-sc86]   a.header-link[_ngcontent-sc86]   .header-link-2[_ngcontent-sc86]:hover, .toolbar[_ngcontent-sc86]   a.header-link[_ngcontent-sc86]   .header-link-2[_ngcontent-sc86]:active{color:#fff}.drawer-container[_ngcontent-sc86]{top:64px;height:calc(100vh - 64px)}  .mat-drawer-inner-container::-webkit-scrollbar{height:4px;width:4px}  .mat-drawer-inner-container::-webkit-scrollbar-thumb{background:rgba(0,0,0,.26)}.sidebar[_ngcontent-sc86]{min-width:240px;max-width:240px}.sidebar[_ngcontent-sc86]   .section-title[_ngcontent-sc86]{color:#757575;font-size:20px;padding-left:16px}.sidebar[_ngcontent-sc86]   .section-content[_ngcontent-sc86]{color:#757575;text-align:center}.sidebar[_ngcontent-sc86]   .mat-divider[_ngcontent-sc86]{margin:4px 0}.sidebar[_ngcontent-sc86]   .post-statics[_ngcontent-sc86]{padding:16px;display:flex}.sidebar[_ngcontent-sc86]   .post-statics[_ngcontent-sc86]   .statics-block[_ngcontent-sc86]{flex:33%;display:flex;flex-direction:column}.sidebar[_ngcontent-sc86]   .post-statics[_ngcontent-sc86]   .statics-block[_ngcontent-sc86]   a[_ngcontent-sc86]{text-decoration:none}.sidebar[_ngcontent-sc86]   .post-statics[_ngcontent-sc86]   .statics-block[_ngcontent-sc86]   .counter[_ngcontent-sc86]{color:#3f51b5;font-size:24px;text-align:center}.sidebar[_ngcontent-sc86]   .post-statics[_ngcontent-sc86]   .statics-block[_ngcontent-sc86]   .description[_ngcontent-sc86]{color:#757575;font-size:16px;text-align:center}.sidebar[_ngcontent-sc86]   .mat-list-item[_ngcontent-sc86]{color:#757575}.sidebar[_ngcontent-sc86]   .mat-list-item[_ngcontent-sc86]   .mat-icon[_ngcontent-sc86]{padding-right:8px;display:flex;align-items:center;justify-content:center}.sidebar[_ngcontent-sc86]   .mat-list-item[_ngcontent-sc86]   .mat-icon.fab[_ngcontent-sc86]{font-size:20px}.sidebar[_ngcontent-sc86]   .mat-list-item.active[_ngcontent-sc86]{color:#3f51b5;background:rgba(63,81,181,.15)}.main-content.server[_ngcontent-sc86]{margin-left:240px}</style><style ng-transition="serverApp">.cdk-high-contrast-active .mat-toolbar{outline:solid 1px}.mat-toolbar-row,.mat-toolbar-single-row{display:flex;box-sizing:border-box;padding:0 16px;width:100%;flex-direction:row;align-items:center;white-space:nowrap}.mat-toolbar-multiple-rows{display:flex;box-sizing:border-box;flex-direction:column;width:100%}
+</style><style ng-transition="serverApp">.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{opacity:0}.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay{opacity:.04}@media(hover: none){.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay{opacity:0}}.mat-button,.mat-icon-button,.mat-stroked-button,.mat-flat-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible}.mat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner{border:0}.mat-button.mat-button-disabled,.mat-icon-button.mat-button-disabled,.mat-stroked-button.mat-button-disabled,.mat-flat-button.mat-button-disabled{cursor:default}.mat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-button.cdk-program-focused .mat-button-focus-overlay,.mat-icon-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-icon-button.cdk-program-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-program-focused .mat-button-focus-overlay,.mat-flat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-flat-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner{border:0}.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button.mat-button-disabled{cursor:default}.mat-raised-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-raised-button.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-raised-button::-moz-focus-inner{border:0}._mat-animation-noopable.mat-raised-button{transition:none;animation:none}.mat-stroked-button{border:1px solid currentColor;padding:0 15px;line-height:34px}.mat-stroked-button .mat-button-ripple.mat-ripple,.mat-stroked-button .mat-button-focus-overlay{top:-1px;left:-1px;right:-1px;bottom:-1px}.mat-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab::-moz-focus-inner{border:0}.mat-fab.mat-button-disabled{cursor:default}.mat-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-fab::-moz-focus-inner{border:0}._mat-animation-noopable.mat-fab{transition:none;animation:none}.mat-fab .mat-button-wrapper{padding:16px 0;display:inline-block;line-height:24px}.mat-mini-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:64px;line-height:36px;padding:0 16px;border-radius:4px;overflow:visible;transform:translate3d(0, 0, 0);transition:background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab.mat-button-disabled{cursor:default}.mat-mini-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-mini-fab.cdk-program-focused .mat-button-focus-overlay{opacity:.12}.mat-mini-fab::-moz-focus-inner{border:0}._mat-animation-noopable.mat-mini-fab{transition:none;animation:none}.mat-mini-fab .mat-button-wrapper{padding:8px 0;display:inline-block;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button i,.mat-icon-button .mat-icon{line-height:24px}.mat-button-ripple.mat-ripple,.mat-button-focus-overlay{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-button-ripple.mat-ripple:not(:empty){transform:translateZ(0)}.mat-button-focus-overlay{opacity:0;transition:opacity 200ms cubic-bezier(0.35, 0, 0.25, 1),background-color 200ms cubic-bezier(0.35, 0, 0.25, 1)}._mat-animation-noopable .mat-button-focus-overlay{transition:none}.mat-button-ripple-round{border-radius:50%;z-index:1}.mat-button .mat-button-wrapper>*,.mat-flat-button .mat-button-wrapper>*,.mat-stroked-button .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-fab .mat-button-wrapper>*,.mat-mini-fab .mat-button-wrapper>*{vertical-align:middle}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button{display:inline-flex;justify-content:center;align-items:center;font-size:inherit;width:2.5em;height:2.5em}.cdk-high-contrast-active .mat-button,.cdk-high-contrast-active .mat-flat-button,.cdk-high-contrast-active .mat-raised-button,.cdk-high-contrast-active .mat-icon-button,.cdk-high-contrast-active .mat-fab,.cdk-high-contrast-active .mat-mini-fab{outline:solid 1px}.cdk-high-contrast-active .mat-button-base.cdk-keyboard-focused,.cdk-high-contrast-active .mat-button-base.cdk-program-focused{outline:solid 3px}
+</style><style ng-transition="serverApp">.mat-drawer-container{position:relative;z-index:1;box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-container-has-open{overflow:hidden}.mat-drawer-container.mat-drawer-container-explicit-backdrop .mat-drawer-side{z-index:3}.mat-drawer-container.ng-animate-disabled .mat-drawer-backdrop,.mat-drawer-container.ng-animate-disabled .mat-drawer-content,.ng-animate-disabled .mat-drawer-container .mat-drawer-backdrop,.ng-animate-disabled .mat-drawer-container .mat-drawer-content{transition:none}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:background-color,visibility}.cdk-high-contrast-active .mat-drawer-backdrop{opacity:.5}.mat-drawer-content{position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:400ms;transition-timing-function:cubic-bezier(0.25, 0.8, 0.25, 1);transition-property:transform,margin-left,margin-right}.mat-drawer{position:relative;z-index:4;display:block;position:absolute;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%, 0, 0)}.cdk-high-contrast-active .mat-drawer,.cdk-high-contrast-active [dir=rtl] .mat-drawer.mat-drawer-end{border-right:solid 1px currentColor}.cdk-high-contrast-active [dir=rtl] .mat-drawer,.cdk-high-contrast-active .mat-drawer.mat-drawer-end{border-left:solid 1px currentColor;border-right:none}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer{transform:translate3d(100%, 0, 0)}[dir=rtl] .mat-drawer.mat-drawer-end{left:0;right:auto;transform:translate3d(-100%, 0, 0)}.mat-drawer-inner-container{width:100%;height:100%;overflow:auto;-webkit-overflow-scrolling:touch}.mat-sidenav-fixed{position:fixed}
+</style><style ng-transition="serverApp">.mat-divider{display:block;margin:0;border-top-width:1px;border-top-style:solid}.mat-divider.mat-divider-vertical{border-top:0;border-right-width:1px;border-right-style:solid}.mat-divider.mat-divider-inset{margin-left:80px}[dir=rtl] .mat-divider.mat-divider-inset{margin-left:auto;margin-right:80px}
+</style><style ng-transition="serverApp">.mat-subheader{display:flex;box-sizing:border-box;padding:16px;align-items:center}.mat-list-base .mat-subheader{margin:0}.mat-list-base{padding-top:8px;display:block;-webkit-tap-highlight-color:transparent}.mat-list-base .mat-subheader{height:48px;line-height:16px}.mat-list-base .mat-subheader:first-child{margin-top:-8px}.mat-list-base .mat-list-item,.mat-list-base .mat-list-option{display:block;height:48px;-webkit-tap-highlight-color:transparent;width:100%;padding:0}.mat-list-base .mat-list-item .mat-list-item-content,.mat-list-base .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list-base .mat-list-item .mat-list-item-content-reverse,.mat-list-base .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list-base .mat-list-item .mat-list-item-ripple,.mat-list-base .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list-base .mat-list-item.mat-list-item-with-avatar,.mat-list-base .mat-list-option.mat-list-item-with-avatar{height:56px}.mat-list-base .mat-list-item.mat-2-line,.mat-list-base .mat-list-option.mat-2-line{height:72px}.mat-list-base .mat-list-item.mat-3-line,.mat-list-base .mat-list-option.mat-3-line{height:88px}.mat-list-base .mat-list-item.mat-multi-line,.mat-list-base .mat-list-option.mat-multi-line{height:auto}.mat-list-base .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list-base .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list-base .mat-list-item .mat-list-text,.mat-list-base .mat-list-option .mat-list-text{display:flex;flex-direction:column;flex:auto;box-sizing:border-box;overflow:hidden;padding:0}.mat-list-base .mat-list-item .mat-list-text>*,.mat-list-base .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:normal;font-size:inherit}.mat-list-base .mat-list-item .mat-list-text:empty,.mat-list-base .mat-list-option .mat-list-text:empty{display:none}.mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,.mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,.mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text{padding-right:0;padding-left:16px}[dir=rtl] .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text{padding-right:16px;padding-left:0}.mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,.mat-list-base .mat-list-item.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,.mat-list-base .mat-list-option.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-left:0;padding-right:16px}[dir=rtl] .mat-list-base .mat-list-item.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base .mat-list-item.mat-list-option .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base .mat-list-option.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base .mat-list-option.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-right:0;padding-left:16px}.mat-list-base .mat-list-item.mat-list-item-with-avatar.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base .mat-list-item.mat-list-item-with-avatar.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base .mat-list-option.mat-list-item-with-avatar.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base .mat-list-option.mat-list-item-with-avatar.mat-list-option .mat-list-item-content .mat-list-text{padding-right:16px;padding-left:16px}.mat-list-base .mat-list-item .mat-list-avatar,.mat-list-base .mat-list-option .mat-list-avatar{flex-shrink:0;width:40px;height:40px;border-radius:50%;object-fit:cover}.mat-list-base .mat-list-item .mat-list-avatar~.mat-divider-inset,.mat-list-base .mat-list-option .mat-list-avatar~.mat-divider-inset{margin-left:72px;width:calc(100% - 72px)}[dir=rtl] .mat-list-base .mat-list-item .mat-list-avatar~.mat-divider-inset,[dir=rtl] .mat-list-base .mat-list-option .mat-list-avatar~.mat-divider-inset{margin-left:auto;margin-right:72px}.mat-list-base .mat-list-item .mat-list-icon,.mat-list-base .mat-list-option .mat-list-icon{flex-shrink:0;width:24px;height:24px;font-size:24px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list-base .mat-list-item .mat-list-icon~.mat-divider-inset,.mat-list-base .mat-list-option .mat-list-icon~.mat-divider-inset{margin-left:64px;width:calc(100% - 64px)}[dir=rtl] .mat-list-base .mat-list-item .mat-list-icon~.mat-divider-inset,[dir=rtl] .mat-list-base .mat-list-option .mat-list-icon~.mat-divider-inset{margin-left:auto;margin-right:64px}.mat-list-base .mat-list-item .mat-divider,.mat-list-base .mat-list-option .mat-divider{position:absolute;bottom:0;left:0;width:100%;margin:0}[dir=rtl] .mat-list-base .mat-list-item .mat-divider,[dir=rtl] .mat-list-base .mat-list-option .mat-divider{margin-left:auto;margin-right:0}.mat-list-base .mat-list-item .mat-divider.mat-divider-inset,.mat-list-base .mat-list-option .mat-divider.mat-divider-inset{position:absolute}.mat-list-base[dense]{padding-top:4px;display:block}.mat-list-base[dense] .mat-subheader{height:40px;line-height:8px}.mat-list-base[dense] .mat-subheader:first-child{margin-top:-4px}.mat-list-base[dense] .mat-list-item,.mat-list-base[dense] .mat-list-option{display:block;height:40px;-webkit-tap-highlight-color:transparent;width:100%;padding:0}.mat-list-base[dense] .mat-list-item .mat-list-item-content,.mat-list-base[dense] .mat-list-option .mat-list-item-content{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;padding:0 16px;position:relative;height:inherit}.mat-list-base[dense] .mat-list-item .mat-list-item-content-reverse,.mat-list-base[dense] .mat-list-option .mat-list-item-content-reverse{display:flex;align-items:center;padding:0 16px;flex-direction:row-reverse;justify-content:space-around}.mat-list-base[dense] .mat-list-item .mat-list-item-ripple,.mat-list-base[dense] .mat-list-option .mat-list-item-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar{height:48px}.mat-list-base[dense] .mat-list-item.mat-2-line,.mat-list-base[dense] .mat-list-option.mat-2-line{height:60px}.mat-list-base[dense] .mat-list-item.mat-3-line,.mat-list-base[dense] .mat-list-option.mat-3-line{height:76px}.mat-list-base[dense] .mat-list-item.mat-multi-line,.mat-list-base[dense] .mat-list-option.mat-multi-line{height:auto}.mat-list-base[dense] .mat-list-item.mat-multi-line .mat-list-item-content,.mat-list-base[dense] .mat-list-option.mat-multi-line .mat-list-item-content{padding-top:16px;padding-bottom:16px}.mat-list-base[dense] .mat-list-item .mat-list-text,.mat-list-base[dense] .mat-list-option .mat-list-text{display:flex;flex-direction:column;flex:auto;box-sizing:border-box;overflow:hidden;padding:0}.mat-list-base[dense] .mat-list-item .mat-list-text>*,.mat-list-base[dense] .mat-list-option .mat-list-text>*{margin:0;padding:0;font-weight:normal;font-size:inherit}.mat-list-base[dense] .mat-list-item .mat-list-text:empty,.mat-list-base[dense] .mat-list-option .mat-list-text:empty{display:none}.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,.mat-list-base[dense] .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text{padding-right:0;padding-left:16px}[dir=rtl] .mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-item.mat-list-option .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar .mat-list-item-content .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-option.mat-list-option .mat-list-item-content .mat-list-text{padding-right:16px;padding-left:0}.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,.mat-list-base[dense] .mat-list-item.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-left:0;padding-right:16px}[dir=rtl] .mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-item.mat-list-option .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar .mat-list-item-content-reverse .mat-list-text,[dir=rtl] .mat-list-base[dense] .mat-list-option.mat-list-option .mat-list-item-content-reverse .mat-list-text{padding-right:0;padding-left:16px}.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base[dense] .mat-list-item.mat-list-item-with-avatar.mat-list-option .mat-list-item-content .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar.mat-list-option .mat-list-item-content-reverse .mat-list-text,.mat-list-base[dense] .mat-list-option.mat-list-item-with-avatar.mat-list-option .mat-list-item-content .mat-list-text{padding-right:16px;padding-left:16px}.mat-list-base[dense] .mat-list-item .mat-list-avatar,.mat-list-base[dense] .mat-list-option .mat-list-avatar{flex-shrink:0;width:36px;height:36px;border-radius:50%;object-fit:cover}.mat-list-base[dense] .mat-list-item .mat-list-avatar~.mat-divider-inset,.mat-list-base[dense] .mat-list-option .mat-list-avatar~.mat-divider-inset{margin-left:68px;width:calc(100% - 68px)}[dir=rtl] .mat-list-base[dense] .mat-list-item .mat-list-avatar~.mat-divider-inset,[dir=rtl] .mat-list-base[dense] .mat-list-option .mat-list-avatar~.mat-divider-inset{margin-left:auto;margin-right:68px}.mat-list-base[dense] .mat-list-item .mat-list-icon,.mat-list-base[dense] .mat-list-option .mat-list-icon{flex-shrink:0;width:20px;height:20px;font-size:20px;box-sizing:content-box;border-radius:50%;padding:4px}.mat-list-base[dense] .mat-list-item .mat-list-icon~.mat-divider-inset,.mat-list-base[dense] .mat-list-option .mat-list-icon~.mat-divider-inset{margin-left:60px;width:calc(100% - 60px)}[dir=rtl] .mat-list-base[dense] .mat-list-item .mat-list-icon~.mat-divider-inset,[dir=rtl] .mat-list-base[dense] .mat-list-option .mat-list-icon~.mat-divider-inset{margin-left:auto;margin-right:60px}.mat-list-base[dense] .mat-list-item .mat-divider,.mat-list-base[dense] .mat-list-option .mat-divider{position:absolute;bottom:0;left:0;width:100%;margin:0}[dir=rtl] .mat-list-base[dense] .mat-list-item .mat-divider,[dir=rtl] .mat-list-base[dense] .mat-list-option .mat-divider{margin-left:auto;margin-right:0}.mat-list-base[dense] .mat-list-item .mat-divider.mat-divider-inset,.mat-list-base[dense] .mat-list-option .mat-divider.mat-divider-inset{position:absolute}.mat-nav-list a{text-decoration:none;color:inherit}.mat-nav-list .mat-list-item{cursor:pointer;outline:none}mat-action-list button{background:none;color:inherit;border:none;font:inherit;outline:inherit;-webkit-tap-highlight-color:transparent;text-align:left}[dir=rtl] mat-action-list button{text-align:right}mat-action-list button::-moz-focus-inner{border:0}mat-action-list .mat-list-item{cursor:pointer;outline:inherit}.mat-list-option:not(.mat-list-item-disabled){cursor:pointer;outline:none}.mat-list-item-disabled{pointer-events:none}.cdk-high-contrast-active .mat-list-item-disabled{opacity:.5}.cdk-high-contrast-active :host .mat-list-item-disabled{opacity:.5}.cdk-high-contrast-active .mat-selection-list:focus{outline-style:dotted}.cdk-high-contrast-active .mat-list-option:hover,.cdk-high-contrast-active .mat-list-option:focus,.cdk-high-contrast-active .mat-nav-list .mat-list-item:hover,.cdk-high-contrast-active .mat-nav-list .mat-list-item:focus,.cdk-high-contrast-active mat-action-list .mat-list-item:hover,.cdk-high-contrast-active mat-action-list .mat-list-item:focus{outline:dotted 1px;z-index:1}.cdk-high-contrast-active .mat-list-single-selected-option::after{content:"";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}.cdk-high-contrast-active [dir=rtl] .mat-list-single-selected-option::after{right:auto;left:16px}@media(hover: none){.mat-list-option:not(.mat-list-single-selected-option):not(.mat-list-item-disabled):hover,.mat-nav-list .mat-list-item:not(.mat-list-item-disabled):hover,.mat-action-list .mat-list-item:not(.mat-list-item-disabled):hover{background:none}}
+</style><style ng-transition="serverApp">.mat-icon{background-repeat:no-repeat;display:inline-block;fill:currentColor;height:24px;width:24px}.mat-icon.mat-icon-inline{font-size:inherit;height:inherit;line-height:inherit;width:inherit}[dir=rtl] .mat-icon-rtl-mirror{transform:scale(-1, 1)}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon{display:block}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-icon{margin:auto}
+</style><style ng-transition="serverApp">.blog-page-container[_ngcontent-sc87]{padding:16px}.go-top[_ngcontent-sc87]{position:fixed;bottom:32px;right:64px}</style><style ng-transition="serverApp">.mat-divider[_ngcontent-sc131]{margin:8px 0}.blog-post-container[_ngcontent-sc131]{display:flex;align-items:flex-start}.blog-post-container[_ngcontent-sc131]   .blog-post-overview[_ngcontent-sc131]{flex:80%}.blog-post-container[_ngcontent-sc131]   .blog-post-toc[_ngcontent-sc131]{flex:19%}.blog-post-container[_ngcontent-sc131]   .blog-post-prev-next[_ngcontent-sc131]{display:flex;align-items:flex-start}.blog-post-container[_ngcontent-sc131]   .blog-post-prev-next[_ngcontent-sc131]   a[_ngcontent-sc131]{width:100%}.blog-post-container[_ngcontent-sc131]   .blog-post-prev-next[_ngcontent-sc131]   .blog-post-prev[_ngcontent-sc131]{display:flex;flex-direction:column;flex:50%;align-items:flex-start;justify-content:flex-start;text-align:start}.blog-post-container[_ngcontent-sc131]   .blog-post-prev-next[_ngcontent-sc131]   .blog-post-next[_ngcontent-sc131]{display:flex;flex-direction:column;flex:50%;align-items:flex-start;justify-content:flex-end;text-align:end}.blog-post-container[_ngcontent-sc131]   .blog-post-prev-next[_ngcontent-sc131]   .blog-post-prev-next-notify[_ngcontent-sc131]{display:flex;align-items:center;font-size:12px;color:#9e9e9e;width:100%}.blog-post-container[_ngcontent-sc131]   .blog-post-prev-next[_ngcontent-sc131]   .blog-post-prev-next-notify.prev[_ngcontent-sc131]{justify-content:flex-start}.blog-post-container[_ngcontent-sc131]   .blog-post-prev-next[_ngcontent-sc131]   .blog-post-prev-next-notify.next[_ngcontent-sc131]{justify-content:flex-end}.go-comment[_ngcontent-sc131]{position:fixed;bottom:32px;right:128px}</style><meta name="keywords" content="Material Design,Angular Material"><meta name="description" content="今天是Angular Material部落格篇的最後一天，我們要一口氣介紹三個元件，分別是Chip、Tooltip和Snackbar，其中Chip很適合用來當作類似標籤的功能；而Tooltip和Snackbar則是用在不同的地方，作為提示時使用。"><meta property="og:type" content="article"><meta property="og:title" content="[Angular Material完全攻略]設計一個部落格(5) - Chip、Tooltip、Snackbar | 全端開發人員天梯"><meta property="og:site_name" content="全端開發人員天梯"><meta property="og:description" content="今天是Angular Material部落格篇的最後一天，我們要一口氣介紹三個元件，分別是Chip、Tooltip和Snackbar，其中Chip很適合用來當作類似標籤的功能；而Tooltip和Snackbar則是用在不同的地方，作為提示時使用。"><meta property="og:locale" content="zh-tw"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="[Angular Material完全攻略]設計一個部落格(5) - Chip、Tooltip、Snackbar | 全端開發人員天梯"><meta name="twitter:description" content="今天是Angular Material部落格篇的最後一天，我們要一口氣介紹三個元件，分別是Chip、Tooltip和Snackbar，其中Chip很適合用來當作類似標籤的功能；而Tooltip和Snackbar則是用在不同的地方，作為提示時使用。"><style ng-transition="serverApp">[_nghost-sc113]{display:flex;align-items:center}</style><style ng-transition="serverApp">.mat-chip{position:relative;box-sizing:border-box;-webkit-tap-highlight-color:transparent;transform:translateZ(0);border:none;-webkit-appearance:none;-moz-appearance:none}.mat-standard-chip{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);display:inline-flex;padding:7px 12px;border-radius:16px;align-items:center;cursor:default;min-height:32px;height:1px}._mat-animation-noopable.mat-standard-chip{transition:none;animation:none}.mat-standard-chip .mat-chip-remove{border:none;-webkit-appearance:none;-moz-appearance:none;padding:0;background:none}.mat-standard-chip .mat-chip-remove.mat-icon,.mat-standard-chip .mat-chip-remove .mat-icon{width:18px;height:18px;font-size:18px}.mat-standard-chip::after{top:0;left:0;right:0;bottom:0;position:absolute;border-radius:inherit;opacity:0;content:"";pointer-events:none;transition:opacity 200ms cubic-bezier(0.35, 0, 0.25, 1)}.mat-standard-chip:hover::after{opacity:.12}.mat-standard-chip:focus{outline:none}.mat-standard-chip:focus::after{opacity:.16}.cdk-high-contrast-active .mat-standard-chip{outline:solid 1px}.cdk-high-contrast-active .mat-standard-chip:focus{outline:dotted 2px}.mat-standard-chip.mat-chip-disabled::after{opacity:0}.mat-standard-chip.mat-chip-disabled .mat-chip-remove,.mat-standard-chip.mat-chip-disabled .mat-chip-trailing-icon{cursor:default}.mat-standard-chip.mat-chip-with-trailing-icon.mat-chip-with-avatar,.mat-standard-chip.mat-chip-with-avatar{padding-top:0;padding-bottom:0}.mat-standard-chip.mat-chip-with-trailing-icon.mat-chip-with-avatar{padding-right:8px;padding-left:0}[dir=rtl] .mat-standard-chip.mat-chip-with-trailing-icon.mat-chip-with-avatar{padding-left:8px;padding-right:0}.mat-standard-chip.mat-chip-with-trailing-icon{padding-top:7px;padding-bottom:7px;padding-right:8px;padding-left:12px}[dir=rtl] .mat-standard-chip.mat-chip-with-trailing-icon{padding-left:8px;padding-right:12px}.mat-standard-chip.mat-chip-with-avatar{padding-left:0;padding-right:12px}[dir=rtl] .mat-standard-chip.mat-chip-with-avatar{padding-right:0;padding-left:12px}.mat-standard-chip .mat-chip-avatar{width:24px;height:24px;margin-right:8px;margin-left:4px}[dir=rtl] .mat-standard-chip .mat-chip-avatar{margin-left:8px;margin-right:4px}.mat-standard-chip .mat-chip-remove,.mat-standard-chip .mat-chip-trailing-icon{width:18px;height:18px;cursor:pointer}.mat-standard-chip .mat-chip-remove,.mat-standard-chip .mat-chip-trailing-icon{margin-left:8px;margin-right:0}[dir=rtl] .mat-standard-chip .mat-chip-remove,[dir=rtl] .mat-standard-chip .mat-chip-trailing-icon{margin-right:8px;margin-left:0}.mat-chip-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit;overflow:hidden}.mat-chip-list-wrapper{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;margin:-4px}.mat-chip-list-wrapper input.mat-input-element,.mat-chip-list-wrapper .mat-standard-chip{margin:4px}.mat-chip-list-stacked .mat-chip-list-wrapper{flex-direction:column;align-items:flex-start}.mat-chip-list-stacked .mat-chip-list-wrapper .mat-standard-chip{width:100%}.mat-chip-avatar{border-radius:50%;justify-content:center;align-items:center;display:flex;overflow:hidden;object-fit:cover}input.mat-chip-input{width:150px;margin:4px;flex:1 0 150px}
+</style></head>
+<body>
+  <app-root _nghost-sc86="" ng-version="12.2.9"><mat-toolbar _ngcontent-sc86="" color="primary" xmlns="http://www.w3.org/1999/html" class="mat-toolbar toolbar mat-elevation-z6 mat-primary mat-toolbar-single-row"><button _ngcontent-sc86="" mat-icon-button="" class="mat-focus-indicator mat-icon-button mat-button-base _mat-animation-noopable"><span class="mat-button-wrapper"><mat-icon _ngcontent-sc86="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color ng-star-inserted" aria-hidden="true" data-mat-icon-type="font">menu_open</mat-icon><!----><!----></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span><span class="mat-button-focus-overlay"></span></button><h1 _ngcontent-sc86=""><a _ngcontent-sc86="" routerlink="/" class="header-link" href="/"><span _ngcontent-sc86="" class="header-link-1">全端開發</span><span _ngcontent-sc86="" class="header-link-2">人員天梯</span></a></h1></mat-toolbar><mat-drawer-container _ngcontent-sc86="" class="mat-drawer-container drawer-container"><div class="mat-drawer-backdrop ng-star-inserted"></div><!----><div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"></div><mat-drawer _ngcontent-sc86="" tabindex="-1" mode="side" disableclose="" class="mat-drawer sidebar ng-tns-c74-0 ng-trigger ng-trigger-transform mat-drawer-side mat-drawer-opened ng-star-inserted" style="transform:none;visibility:visible;"><div cdkscrollable="" class="mat-drawer-inner-container ng-tns-c74-0"><div _ngcontent-sc86="" class="post-statics ng-tns-c74-0"><div _ngcontent-sc86="" class="statics-block"><a _ngcontent-sc86="" routerlink="/blog/archives" href="/blog/archives"><div _ngcontent-sc86="" class="counter">214</div><div _ngcontent-sc86="" class="description">文章</div></a></div><div _ngcontent-sc86="" class="statics-block"><a _ngcontent-sc86="" routerlink="/blog/categories" href="/blog/categories"><div _ngcontent-sc86="" class="counter">14</div><div _ngcontent-sc86="" class="description">分類</div></a></div><div _ngcontent-sc86="" class="statics-block"><a _ngcontent-sc86="" routerlink="/blog/tags" href="/blog/tags"><div _ngcontent-sc86="" class="counter">313</div><div _ngcontent-sc86="" class="description">標籤</div></a></div></div><mat-divider _ngcontent-sc86="" role="separator" class="mat-divider ng-tns-c74-0 mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><div _ngcontent-sc86="" class="ng-tns-c74-0"><div _ngcontent-sc86="" class="section-title">好書推薦</div><div _ngcontent-sc86="" class="section-content"><mat-nav-list _ngcontent-sc86="" role="navigation" class="mat-nav-list mat-list-base"><a _ngcontent-sc86="" href="https://www.tenlong.com.tw/products/9789864348039" target="_blank" style="display: flex; flex-direction: column; align-items: center;"><img _ngcontent-sc86="" src="assets/promotion/rxjs.webp" width="160px" alt="打通 RxJS 任督二脈 - 好評熱售中！"><div _ngcontent-sc86="">打通 RxJS 任督二脈</div></a></mat-nav-list></div></div><mat-divider _ngcontent-sc86="" role="separator" class="mat-divider ng-tns-c74-0 mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-nav-list _ngcontent-sc86="" role="navigation" class="mat-nav-list mat-list-base ng-tns-c74-0"><a _ngcontent-sc86="" mat-list-item="" routerlinkactive="active" class="mat-list-item mat-focus-indicator ng-star-inserted" href="/blog" style=""><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div><mat-icon _ngcontent-sc86="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">home</mat-icon><span _ngcontent-sc86="" class="link-text">首頁</span></div></a><a _ngcontent-sc86="" mat-list-item="" routerlinkactive="active" class="mat-list-item mat-focus-indicator ng-star-inserted" href="/blog/categories" style=""><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div><mat-icon _ngcontent-sc86="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">apps</mat-icon><span _ngcontent-sc86="" class="link-text">分類</span></div></a><a _ngcontent-sc86="" mat-list-item="" routerlinkactive="active" class="mat-list-item mat-focus-indicator ng-star-inserted" href="/blog/tags" style=""><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div><mat-icon _ngcontent-sc86="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">label</mat-icon><span _ngcontent-sc86="" class="link-text">標籤</span></div></a><a _ngcontent-sc86="" mat-list-item="" routerlinkactive="active" class="mat-list-item mat-focus-indicator ng-star-inserted" href="/blog/archives" style=""><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div><mat-icon _ngcontent-sc86="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">archive</mat-icon><span _ngcontent-sc86="" class="link-text">歸檔</span></div></a><!----></mat-nav-list><mat-divider _ngcontent-sc86="" role="separator" class="mat-divider ng-tns-c74-0 mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-nav-list _ngcontent-sc86="" role="navigation" class="mat-nav-list mat-list-base ng-tns-c74-0"><a _ngcontent-sc86="" mat-list-item="" href="/blog/atom.xml" target="_blank" class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div><mat-icon _ngcontent-sc86="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">rss_feed</mat-icon><span _ngcontent-sc86="" class="link-text">RSS</span></div></a><a _ngcontent-sc86="" mat-list-item="" href="https://github.com/wellwind/" target="_blank" class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div><mat-icon _ngcontent-sc86="" role="img" fontset="fontawesome" fonticon="fa-github" class="mat-icon notranslate fa-github fab mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font" data-mat-icon-name="fa-github" data-mat-icon-namespace="fontawesome"></mat-icon><span _ngcontent-sc86="" class="link-text">GitHub</span></div></a><a _ngcontent-sc86="" mat-list-item="" href="https://www.facebook.com/fullstackledder" target="_blank" class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div><mat-icon _ngcontent-sc86="" role="img" fontset="fontawesome" fonticon="fa-facebook" class="mat-icon notranslate fa-facebook fab mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font" data-mat-icon-name="fa-facebook" data-mat-icon-namespace="fontawesome"></mat-icon><span _ngcontent-sc86="" class="link-text">Facebook</span></div></a></mat-nav-list><div _ngcontent-sc86="" data-href="https://www.facebook.com/fullstackledder" data-tabs="timeline" data-width="235" data-height="450" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" class="fb-page ng-tns-c74-0"><blockquote _ngcontent-sc86="" cite="https://www.facebook.com/fullstackledder" class="fb-xfbml-parse-ignore"><a _ngcontent-sc86="" href="https://www.facebook.com/fullstackledder">全端開發人員天梯</a></blockquote></div></div></mat-drawer><div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"></div><mat-drawer-content _ngcontent-sc86="" class="mat-drawer-content main-content server" style="margin-left:;margin-right:;"><router-outlet _ngcontent-sc86=""></router-outlet><app-blog-layout _nghost-sc87="" class="ng-star-inserted"><div _ngcontent-sc87="" class="blog-page-container"><router-outlet _ngcontent-sc87=""></router-outlet><app-blog-post _nghost-sc131="" class="ng-star-inserted"><div _ngcontent-sc131="" class="blog-post-container ng-star-inserted"><div _ngcontent-sc131="" class="blog-post"><div _ngcontent-sc131="" class="blog-post-title"><h1 _ngcontent-sc131="">[Angular Material完全攻略]設計一個部落格(5) - Chip、Tooltip、Snackbar</h1></div><div _ngcontent-sc131="" class="blog-post-subtitle"><app-blog-post-subtitle _ngcontent-sc131="" _nghost-sc113=""><span _ngcontent-sc113="" class="blog-post-published ng-star-inserted"><mat-icon _ngcontent-sc113="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">date_range</mat-icon><span _ngcontent-sc113="">2018-01-08</span></span><span _ngcontent-sc113="" class="blog-post-categories ng-star-inserted"><mat-icon _ngcontent-sc113="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">folder_open</mat-icon><a _ngcontent-sc113="" class="blog-post-category-link ng-star-inserted" href="/blog/categories/Angular-Material%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5">Angular Material完全攻略</a><!----><!----><!----></span><!----><!----><!----><!----></app-blog-post-subtitle></div><mat-divider _ngcontent-sc131="" role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><div _ngcontent-sc131="" class="blog-post"><p>今天是Angular Material部落格篇的最後一天，我們要一口氣介紹三個元件，分別是Chip、Tooltip和Snackbar，其中Chip很適合用來當作類似標籤的功能；而Tooltip和Snackbar則是用在不同的地方，作為提示時使用。</p>
+<h2 id="關於material-design中的chip">關於Material Design中的Chip</h2>
+<p>在<a href="https://material.io/guidelines/components/chips.html">Material Design的Chips設計指南</a>中，Chip主要用來<strong>把複雜的實體分成多個小區塊顯示</strong>，像是聯絡人清單等等的資訊，就很適合用Chips存放。</p>
+<p>Chip是可以被選擇的，當被選擇時，我們應該要能提供更多關於這個Chip的資訊；當然，既然可選擇，應該也是要能夠提供直覺的刪除Chip的方法。</p>
+<h2 id="開始使用angular-material的chip">開始使用Angular Material的Chip</h2>
+<p>我們可以在加入<code>MatChipsModule</code>後，使用<code>&lt;mat-chip-list&gt;</code>和<code>&lt;mat-chip&gt;</code>的組合，即可完成一個基本的清單。</p>
+<h3 id="使用mat-chip-list和mat-chip">使用mat-chip-list和mat-chip</h3>
+<p>這種類型的組合我們已經練習過很多次了，不多說，直接上程式：</p>
+<pre><code class="language-html">&lt;h4&gt;文章標籤&lt;/h4&gt;
+&lt;mat-chip-list&gt;
+  &lt;mat-chip&gt;JavaScript&lt;/mat-chip&gt;
+  &lt;mat-chip&gt;Material Design&lt;/mat-chip&gt;
+  &lt;mat-chip&gt;Angular Material&lt;/mat-chip&gt;
+&lt;/mat-chip-list&gt;
+</code></pre>
+<p>結果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/01-mat-chip.png" alt="" title=""></p>
+<p>簡單到不行吧！接下來我們再看看還有什麼其他的玩法吧！！</p>
+<h3 id="替mat-chip加上選取狀態">替mat-chip加上選取狀態</h3>
+<p>非常容易，只需要加上<code>selected="true"</code>即可</p>
+<pre><code class="language-html">&lt;mat-chip-list&gt;
+  &lt;mat-chip selected="true"&gt;JavaScript&lt;/mat-chip&gt;
+  &lt;mat-chip&gt;Material Design&lt;/mat-chip&gt;
+  &lt;mat-chip&gt;Angular Material&lt;/mat-chip&gt;
+&lt;/mat-chip-list&gt;
+</code></pre>
+<p>結果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/02-mat-chip-selected.png" alt="" title=""></p>
+<p>可以看到JavaScript選項因為加上<code>selected="true"</code>之後，變成了被選取的顏色了！當然這個被選取的顏色，也是可以調整的。</p>
+<h3 id="變更選取的mat-chip顏色">變更選取的mat-chip顏色</h3>
+<pre><code class="language-html">&lt;mat-chip-list&gt;
+  &lt;mat-chip color="primary" selected="true"&gt;JavaScript&lt;/mat-chip&gt;
+  &lt;mat-chip color="accent" selected="true"&gt;Material Design&lt;/mat-chip&gt;
+  &lt;mat-chip color="warn" selected="true"&gt;Angular Material&lt;/mat-chip&gt;
+&lt;/mat-chip-list&gt;
+</code></pre>
+<p>結果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/03-colored-mat-chip.png" alt="" title=""></p>
+<p>這裡有個比較容易搞混的部分是，設定<code>color</code>並不會改變整個chip的顏色，只會改變<strong>被選取時的顏色</strong>，目前是沒有辦法再不被選取的狀態下透過<code>color</code>屬性改變顏色的，只能直接調整CSS。</p>
+<h3 id="設計自己的chip樣式">設計自己的Chip樣式</h3>
+<p>預設的<code>&lt;mat-chip&gt;</code>已經有了基本Material Design風格的樣式，而Angular Material提供了一個<code>&lt;mat-basic-chip&gt;</code>，只提供基本的<code>mat-basic-chip</code>的CSS class，讓我們可以自訂chip樣式：</p>
+<p>例如一個CSS如下</p>
+<pre><code class="language-css">.mat-basic-chip {
+  background: lime;
+  margin: 0 0 0 8px;
+  padding: 7px 12px;
+  border-radius: 5px;
+}
+</code></pre>
+<p>接著畫面上加入<code>&lt;mat-basic-chip&gt;</code>：</p>
+<pre><code class="language-html">&lt;mat-basic-chip&gt;HTML&lt;/mat-basic-chip&gt;
+</code></pre>
+<p>成果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/04-mat-basic-chip.png" alt="" title=""></p>
+<p>自己使用Chip就可以自己做啦！</p>
+<h3 id="可被刪除的chip">可被刪除的Chip</h3>
+<p>Chip是可以被刪除的，我們可以在<code>&lt;mat-chip&gt;</code>裡面加上一個包含<code>matChipRemove</code>的元件，通常是<code>&lt;mat-icon&gt;</code>，之後就可以搭配<code>remove</code>事件，來處理刪除的程式邏輯。</p>
+<p>如下：</p>
+<pre><code class="language-html">&lt;mat-chip-list&gt;
+  &lt;mat-chip *ngFor="let tag of tags" (remove)="removeTag(tag)"&gt;
+    {{ tag }}
+    &lt;mat-icon matChipRemove&gt;cancel&lt;/mat-icon&gt;
+  &lt;/mat-chip&gt;
+&lt;/mat-chip-list&gt;
+</code></pre>
+<p>接著在程式加上移除的邏輯：</p>
+<pre><code class="language-typescript">@Component({
+  ...
+})
+export class AddPostDialogComponent implements OnInit {
+  tags = ['JavaScript', 'Material Design', 'Angular Material'];
+  removeTag(tagName) {
+    this.tags = this.tags.filter(tag =&gt; tag !== tagName);
+  }
+</code></pre>
+<p>成果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/05-delete-mat-list.gif" alt="" title=""></p>
+<p>我們也可以為<code>&lt;mat-chip&gt;</code>設定<code>removable</code>屬性，來決定是否允許刪除，例如以下程式代表設定成<code>remove</code>事件不會發生，自然也無法刪除囉</p>
+<pre><code class="language-html">&lt;mat-chip removable="false"&gt;
+  ...
+&lt;/mat-chip-list&gt;
+</code></pre>
+<h3 id="搭配mat-form-field使用">搭配mat-form-field使用</h3>
+<p><code>&lt;mat-chip-list&gt;</code>和<code>&lt;mat-chip&gt;</code>很棒的一點是，他同時可以跟表單元件一起使用，讓我們能直接輸入文字，並立即轉為Chip，我們直接來看看程式碼：</p>
+<p>這次我們反過來，先看TypeScript再來看HTML</p>
+<p>TypeScript部分：</p>
+<pre><code class="language-typescript">import { ENTER, COMMA } from '@angular/cdk/keycodes';
+@Component({
+  ...
+})
+export class AddPostDialogComponent implements OnInit {
+  tags = ['JavaScript', 'Material Design', 'Angular Material'];
+  separatorKeysCodes = [ENTER, COMMA];
+  
+  addTag($event: MatChipInputEvent) {
+    if (($event.value || '').trim()) {
+      const value = $event.value.trim();
+      if (this.tags.indexOf(value) === -1) {
+        this.tags.push(value);
+      }
+    }
+
+    $event.input.value = '';
+  }
+}
+</code></pre>
+<p>上面程式我們宣告了一個<code>separatorKeysCodes</code>變數，來指令當按下哪些鍵時，會傳入新的<code>MatChipInputEvent</code>資料，以這裡的設定來說是<code>ENTER</code>鍵和<code>逗點(,)</code>。這兩個鍵盤keyCode都在<code>@angular/cdk/keycodes</code>先定義好了，節省我們尋找鍵盤keyCode的時間。</p>
+<p>另外我們也寫了一個<code>addTag()</code>方法，接收當畫面上輸入資料遇到<code>separatorKeysCodes</code>時，傳入的事件，這個事件有兩個屬性</p>
+<ul>
+<li><strong>input</strong>：輸入的來源，基本上就是DOM</li>
+<li><strong>value</strong>：輸入的資料</li>
+</ul>
+<p>程式中我們確定輸入的資料若不是空的且沒有重複，就把輸入的內容加入清單中，然後重設輸入的資料。</p>
+<p>接著看看HTML中有哪些東西：</p>
+<pre><code class="language-html">&lt;mat-form-field&gt;
+  &lt;mat-chip-list #chipList&gt;
+    &lt;mat-chip *ngFor="let tag of tags" (remove)="removeTag(tag)"&gt;
+      {{ tag }}
+      &lt;mat-icon matChipRemove&gt;cancel&lt;/mat-icon&gt;
+    &lt;/mat-chip&gt;
+  &lt;/mat-chip-list&gt;
+  &lt;input placeholder="文章標籤" 
+         [matChipInputFor]="chipList" 
+         [matChipInputAddOnBlur]="true" 
+         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+         (matChipInputTokenEnd)="addTag($event)" /&gt;
+&lt;/mat-form-field&gt;
+</code></pre>
+<p>我們把原來的<code>&lt;mat-chip-list&gt;</code>包裝在<code>&lt;mat-form-field&gt;</code>之中，同時也加上一個<code>&lt;input&gt;</code>，也因此我們可以直接使用placeholder當做整個輸入控制項的標籤，呈現更具有一致性！</p>
+<p>在<code>&lt;input&gt;</code>中，關於chip有幾個重要的屬性可以設定</p>
+<ul>
+<li><code>[matChipInputFor]</code>：實際上要放置的<code>&lt;mat-chip-list&gt;</code></li>
+<li><code>[matChipInputAddOnBlur]</code>：是否要在blur時加入chip</li>
+<li><code>[matChipInputSeparatorKeyCodes]</code>：當按下指定的鍵盤按鍵時，視為要新增chip</li>
+<li><code>(matChipInputTokenEnd)</code>：當真正要加入一個chip時的邏輯程式。</li>
+</ul>
+<p>最後來看看成果：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/06-mat-form-field-with-chip.gif" alt="" title=""></p>
+<p>看起來就很強大啊！</p>
+<h2 id="關於material-design中的tooltip">關於Material Design中的Tooltip</h2>
+<p>在<a href="https://material.io/guidelines/components/tooltips.html">Material Design的Tooltips設計指南</a>中，Tooltip主要是用來<strong>作為提示訊息使用</strong>，會在使用者與某個UI發生互動如滑鼠移過去或focus等行為時顯示；用來給予使用這一些提示文字。</p>
+<h2 id="開始使用angular-material的tooltip">開始使用Angular Material的Tooltip</h2>
+<p>要使用Tooltip，我們需要加入<code>MatTooltipModule</code>，接著就可以直接來使用<code>matTooltip</code>這個directive。</p>
+<h3 id="使用mattooltip">使用matTooltip</h3>
+<p>我們可以在任何元件上加入<code>matTooltip</code>這個directive來決定tooltip的文字，如下</p>
+<pre><code class="language-html">&lt;mat-form-field&gt;
+  &lt;input matInput placeholder="標題" [(ngModel)]="title" matTooltip="替你的文章下一個漂亮的標題吧！" /&gt;
+&lt;/mat-form-field&gt;
+</code></pre>
+<p>成果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/07-tooltip-basic.gif" alt="" title=""></p>
+<h3 id="設定tooltip的方向">設定tooltip的方向</h3>
+<p>我們可以透過<code>matTooltipPosition</code>屬性來決定tooltip顯示的位置，<code>matTooltipPosition</code>可以設定成如下：</p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>顯示位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>above</code></td>
+<td>顯示在目標之上</td>
+</tr>
+<tr>
+<td><code>below</code></td>
+<td>顯示在目標之下</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td>顯示在目標左邊</td>
+</tr>
+<tr>
+<td><code>right</code></td>
+<td>顯示在目標右邊</td>
+</tr>
+<tr>
+<td><code>before</code></td>
+<td>LTR模式在左邊，RTL模式在右邊</td>
+</tr>
+<tr>
+<td><code>after</code></td>
+<td>LTR模式在右邊，RTL模式在左邊</td>
+</tr>
+</tbody>
+</table>
+<p>例如我們改為<code>matTooltipPosition="right"</code>，就會改為顯示在目標的右邊</p>
+<pre><code class="language-html">&lt;mat-form-field&gt;
+  &lt;input matInput placeholder="標題" [(ngModel)]="title" 
+         matTooltip="替你的文章下一個漂亮的標題吧！" 
+         matTooltipPosition="right"/&gt;
+&lt;/mat-form-field&gt;
+</code></pre>
+<p>成果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/08-tooltip-position.gif" alt="" title=""></p>
+<h3 id="在程式中決定tooltip的顯示">在程式中決定tooltip的顯示</h3>
+<p>我們可以直接使用<code>matTooltip</code>提供的<code>show()</code>和<code>hide()</code>方法來動態打開或關閉tooltip</p>
+<p>以下程式按下"打開"按鈕，會直接顯示tooltip；按下"關閉"按鈕則會關閉tooltip：</p>
+<pre><code class="language-html">&lt;button mat-button (click)="titleTooltip.show()"&gt;打開提示&lt;/button&gt;
+&lt;button mat-button (click)="titleTooltip.hide()"&gt;關閉提示&lt;/button&gt;
+&lt;mat-form-field&gt;
+  &lt;input matInput placeholder="標題" [(ngModel)]="title" 
+         #titleTooltip="matTooltip" 
+         matTooltip="替你的文章下一個漂亮的標題吧！" 
+         matTooltipPosition="right"/&gt;
+&lt;/mat-form-field&gt;
+</code></pre>
+<p>成果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/09-show-hide-tooltip.gif" alt="" title=""></p>
+<h3 id="決定tooltip顯示和隱藏的延長時間">決定tooltip顯示和隱藏的延長時間</h3>
+<p>我們可以使用<code>matTooltipShowDelay</code>屬性來決定要延遲多久顯示tooltip，另外也可以使用<code>matTooltipHideDelay</code>來決定延遲多久隱藏tooltip：</p>
+<pre><code class="language-html">&lt;mat-form-field&gt;
+  &lt;input matInput placeholder="標題" [(ngModel)]="title" 
+         #titleTooltip="matTooltip" 
+         matTooltip="替你的文章下一個漂亮的標題吧！" 
+         matTooltipPosition="right" 
+         matTooltipShowDelay="500" 
+         matTooltipHideDelay="500" /&gt;
+  &lt;/mat-form-field&gt;
+</code></pre>
+<p>結果如下：</p>
+<p>當滑鼠移過去時，會延遲500毫秒才顯示tooltip，同樣的當滑鼠離開時，也會延遲500毫秒才關閉tooltip。</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/10-tooltip-with-delay.gif" alt="" title=""></p>
+<h2 id="關於material-design中的snackbar">關於Material Design中的Snackbar</h2>
+<p>在<a href="https://material.io/guidelines/components/snackbars-toasts.html">Material Design的Snackbars &amp; toasts設計指南</a>中，Snackbar是在畫面最下方提供一個文字訊息，讓使用者知道目前系統大致的狀態。<strong>這種功能在Android中也叫toast</strong>。</p>
+<h2 id="開始使用angular-material的snackbar">開始使用Angular Material的Snackbar</h2>
+<p>SnackBar主要由一個<code>MatSnackBar</code> service來控制顯示，要使用這個service，必須要先加入<code>MatSnackBarModule</code>。</p>
+<h3 id="直接使用matsnackbar-service">直接使用MatSnackBar service</h3>
+<p>不多說，直接上程式：</p>
+<pre><code class="language-typescript">@Component({
+  ...
+})
+export class AddPostConfirmDialogComponent implements OnInit {
+  constructor(..., private snackBar: MatSnackBar) {}
+
+  confirm() {
+    ...
+    this.snackBar.open('已新增部落格文章', '我知道了');
+  }
+}
+</code></pre>
+<p>成果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/11-snackbar-basic.gif" alt="" title=""></p>
+<p>我們只用了<code>MatSnackBar</code>的<code>open()</code>方法，第一個參數代表提示的訊息，第二個參數代表用來關閉訊息的按鈕文字。另外還有第三個參數<code>config?: MatSnackBarConfig</code>，用來做比較細部的微調，稍後我們再來說明。</p>
+<h3 id="使用component當作snackbar">使用Component當作SnackBar</h3>
+<p>我們也可以使用<code>MatSnackBar</code>的<code>openFromComponent</code>方法，把一個component當作是SnackBar要顯示的對象，概念上跟昨天介紹過的Dialog非常像，下面程式我們自訂了一個新的Component，HTML內容如下：</p>
+<pre><code class="language-html">&lt;button mat-icon-button (click)="closeSnackBar()"&gt;
+  &lt;mat-icon align="right"&gt;cancel&lt;/mat-icon&gt;
+&lt;/button&gt;
+&lt;h4&gt;已新增部落格文章&lt;/h4&gt;
+&lt;p&gt;溫馨小提示：每30分鐘記得起來運動一下喔！&lt;/p&gt;
+</code></pre>
+<p>接著在程式內，使用<code>MatSnackBar</code>的<code>dismiss()</code>方法，將SnackBar關閉</p>
+<pre><code class="language-typescript">@Component({
+   ...
+})
+export class AfterPostNotifyComponent implements OnInit {
+  constructor(private snackBar: MatSnackBar) {}
+  closeSnackBar() {
+    this.snackBar.dismiss();
+  }
+}
+</code></pre>
+<p>成果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/12-snackbar-with-component.gif" alt="" title=""></p>
+<p></p><div class="note info"><p>記得自訂的component要加入entryComponents中。</p></div><p>
+</p><h3 id="使用config:-matsnackbarconfig來調整顯示細節">使用config: MatSnackBarConfig來調整顯示細節</h3>
+<p><code>MatSnackBar</code>的<code>open()</code>或<code>openFromComponent()</code>的最後一個參數都是<code>config: MatSnackBarConfig</code>，我們可以透過這個參數來做一些調整，完成的參數可以上<a href="https://material.angular.io/components/snack-bar/api">SnackBar的API文件</a>去看，以下列出一些個人覺得重要的參數：</p>
+<h4 id="duration">duration</h4>
+<p>代表多少ms後，會自動關閉SnackBar，如此一來我們就不需要手動去關掉SnackBar了。</p>
+<h4 id="data">data</h4>
+<p>在使用自訂component當作SnackBar時非常重要，概念同dialog，我們可以透過注入<code>MAT_SNACK_BAR_DATA</code>來傳入我們要的資訊給自訂的component。</p>
+<p>在component中注入的方法：</p>
+<pre><code class="language-typescript">@Component({
+  ...
+})
+export class AfterPostNotifyComponent implements OnInit {
+  get title() {
+    return this.snackBarData.title;
+  }
+  constructor(private snackBar: MatSnackBar, @Inject(MAT_SNACK_BAR_DATA) private snackBarData: any) {}
+
+  ngOnInit() {}
+
+  closeSnackBar() {
+    this.snackBar.dismiss();
+  }
+}
+</code></pre>
+<p>在使用<code>openFromComponent()</code>時只需要加入這個data參數即可：</p>
+<pre><code class="language-typescript">this.snackBar.openFromComponent(AfterPostNotifyComponent, {
+  data: { title: this.title }
+});
+</code></pre>
+<p>成果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/13-inject-data-by-snackbar.gif" alt="" title=""></p>
+<p>有了昨天dialog的概念後，這裡應該很容易理解才對吧！</p>
+<h4 id="horizontalposition及verticalposition">horizontalPosition及verticalPosition</h4>
+<p>設定SnackBar的水平和垂直的定位方式。</p>
+<p>水平定位方式<code>horizontalPosition</code>有幾個選項：</p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>顯示位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>center</code></td>
+<td>顯示在螢幕中間</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td>顯示在螢幕左邊</td>
+</tr>
+<tr>
+<td><code>right</code></td>
+<td>顯示在螢幕右邊</td>
+</tr>
+<tr>
+<td><code>before</code></td>
+<td>LTR模式在左邊，RTL模式在右邊</td>
+</tr>
+<tr>
+<td><code>after</code></td>
+<td>LTR模式在右邊，RTL模式在左邊</td>
+</tr>
+</tbody>
+</table>
+<p>垂直定位方式<code>verticalPosition</code>的選項如下：</p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>顯示位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>top</code></td>
+<td>顯示在螢幕之上</td>
+</tr>
+<tr>
+<td><code>bottom</code></td>
+<td>顯示在螢幕之下</td>
+</tr>
+</tbody>
+</table>
+<p>預設會是在中間正下方，如果我們希望改成左下方可以自行設定：</p>
+<p>成果如下：</p>
+<p><img src="./assets/blog/angular-material-20-chip-tooltip-snackbar/14-snackbar-position.gif" alt="" title=""></p>
+<p>有沒有覺得再調整一下就跟某個社群網站很像啦XD</p>
+<h2 id="本日小結">本日小結</h2>
+<p>今天我們介紹了一個可以當作標籤使用的<code>&lt;mat-chip&gt;</code>，這個元件在需要顯示多筆資料時非常好用，也能搭配<code>&lt;mat-form-field&gt;</code>，在表單中能夠有更一致的呈現方式。</p>
+<p>另外我們也介紹了兩個用來作為提示用的好功能，分別是<strong>tooltip和snackbar</strong>。</p>
+<p>Tooltip可以當作不同元件的提示訊息，當某個元件可能會有不明確的狀況需要提醒，又不希望提示訊息影響到畫面呈現時，可以使用這種方式來<strong>在不破壞畫面的前提給予明確的訊息</strong>。</p>
+<p>Snackbar則適合當作整個網站程式的狀態提示，不會特別針對某個元件，<strong>比起使用alert這種方式，Snackbar則更具有設計質感，也不會破壞畫面的操作</strong>，更棒的是我們還能<strong>自己設計元件來客製化SnackBar的內容</strong>，真的是非常的方便！</p>
+<p>部落格篇到這邊告一個段落，不知不覺也用掉了20天，介紹了25個Angular Material的實用功能，明天開始我們將進入收件夾篇，把最後的5個功能介紹完；到時候我們就能大聲的跟人家說我們把Angular Material基本的30種功能 <s>玩弄在鼓掌之間</s> 理解得很不錯啦！</p>
+<p>本日的程式碼GitHub：<a href="https://github.com/wellwind/it-ironman-demo-angular-material/tree/day-20-chip-tooltip-snackbar">https://github.com/wellwind/it-ironman-demo-angular-material/tree/day-20-chip-tooltip-snackbar</a></p>
+<p>分支：day-20-chip-tooltip-snackbar</p>
+<h2 id="相關資源">相關資源</h2>
+<ul>
+<li><a href="https://material.io/guidelines/components/chips.html">Material Design - Chips</a></li>
+<li><a href="https://material.io/guidelines/components/tooltips.html">Material Design - Tooltips</a></li>
+<li><a href="https://material.io/guidelines/components/snackbars-toasts.html">Material Design - Snackbars &amp; toasts</a></li>
+<li><a href="https://material.angular.io/components/chips/overview">Angular Material - Chips</a></li>
+<li><a href="https://material.angular.io/components/tooltip/overview">Angular Material - Tooltip</a></li>
+<li><a href="https://material.angular.io/components/snack-bar/overview">Angular Material - Snackbar</a></li>
+</ul>
+</div><div _ngcontent-sc131="" class="blog-post-tags"><mat-chip-list _ngcontent-sc131="" aria-label="Post Tags" class="mat-chip-list" id="mat-chip-list-4" tabindex="0" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false" role="listbox" aria-orientation="horizontal"><div class="mat-chip-list-wrapper"><mat-chip _ngcontent-sc131="" role="option" color="primary" selected="" class="mat-chip mat-focus-indicator blog-post-tag mat-primary mat-standard-chip mat-chip-selected _mat-animation-noopable ng-star-inserted" tabindex="-1" aria-disabled="false" aria-selected="true"><div class="mat-chip-ripple"></div> Material Design </mat-chip><mat-chip _ngcontent-sc131="" role="option" color="primary" selected="" class="mat-chip mat-focus-indicator blog-post-tag mat-primary mat-standard-chip mat-chip-selected _mat-animation-noopable ng-star-inserted" tabindex="-1" aria-disabled="false" aria-selected="true"><div class="mat-chip-ripple"></div> Angular Material </mat-chip><!----></div></mat-chip-list></div><mat-divider _ngcontent-sc131="" role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><div _ngcontent-sc131="" class="blog-post-prev-next"><div _ngcontent-sc131="" class="blog-post-prev"><div _ngcontent-sc131="" class="blog-post-prev-next-notify prev ng-star-inserted"><mat-icon _ngcontent-sc131="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">chevron_left</mat-icon> 上一篇 </div><a _ngcontent-sc131="" href="/blog/2018/01/07/angular-material-19-dialog" class="ng-star-inserted"> [Angular Material完全攻略]設計一個部落格(4) - Dialog </a><!----><!----><!----></div><div _ngcontent-sc131="" class="blog-post-next"><div _ngcontent-sc131="" class="blog-post-prev-next-notify next ng-star-inserted"> 下一篇 <mat-icon _ngcontent-sc131="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">chevron_right</mat-icon></div><a _ngcontent-sc131="" href="/blog/2018/01/08/angular-material-21-expansion-panels" class="ng-star-inserted"> [Angular Material完全攻略]收件夾頁面(1) - Expansion Panels </a><!----><!----><!----></div><!----></div><mat-divider _ngcontent-sc131="" role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><h1 _ngcontent-sc131="">有任何問題或建議嗎？歡迎留言給我</h1><div _ngcontent-sc131="" class="blog-post-comments"></div></div><!----></div><!----><!----></app-blog-post><!----><button _ngcontent-sc87="" mat-fab="" color="default" mattooltip="回到最上面" class="mat-focus-indicator go-top mat-fab mat-button-base mat-default _mat-animation-noopable"><span class="mat-button-wrapper"><mat-icon _ngcontent-sc87="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">keyboard_double_arrow_up</mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span><span class="mat-button-focus-overlay"></span></button></div></app-blog-layout><!----></mat-drawer-content><!----></mat-drawer-container></app-root>
+<script src="runtime.7ff58c590f5487bde224.js" defer=""></script><script src="polyfills.145163af39e593267dd4.js" defer=""></script><script src="main.4dee6e8b23e793363d55.js" defer=""></script>
+
+
+</body><!-- This page was prerendered with Angular Universal --></html>
