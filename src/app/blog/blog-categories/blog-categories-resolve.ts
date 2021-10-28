@@ -4,11 +4,8 @@ import {
   Resolve,
   RouterStateSnapshot
 } from '@angular/router';
-import { descend, prop, sortWith } from 'ramda';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { PostMetaWithSlug } from '../../post-meta.interface';
-import { slugify } from '../../site-common/slugify.pipe';
 import { SitePostService } from '../../site-post.service';
 
 @Injectable({

@@ -3,6 +3,7 @@ import { JsonObject } from '@angular-devkit/core';
 import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { parseMarkdownMeta } from '../../../utils';
+import { getMarkdownMeta } from '../../../utils/get-markdown-meta';
 
 interface Options extends JsonObject {
   markdownPostsPath: string;
@@ -15,28 +16,12 @@ async function generateBlogPostsJson(options: Options, context: BuilderContext):
   const markdownPostsPath = options.markdownPostsPath;
   const targetJsonPath = options.targetJsonPath;
 
-  if (!markdownPostsPath || !targetJsonPath) {
-    const message = `Option {markdownPostsPath} or {targetJsonPath} is not set.`;
-    return {
-      success: false,
-      error: message,
-    };
-  }
-
-  const getMarkdownMeta = (fileName: string) => {
-    const filePath = join(markdownPostsPath, fileName);
-    const fileContent = readFileSync(filePath).toString('utf-8');
-    // replace `.md` as slug
-    const slug = fileName.substr(0, fileName.length - 3);
-    return parseMarkdownMeta(fileContent, slug);
-  }
-
   context.logger.info(`Generate ${targetJsonPath} from markdown files in ${markdownPostsPath}`);
 
   const posts = readdirSync(markdownPostsPath, { withFileTypes: true })
     .filter(dirent => dirent.isFile() && dirent.name.endsWith('.md'))
     .map(dirent => dirent.name)
-    .map(fileName => getMarkdownMeta(fileName))
+    .map(fileName => getMarkdownMeta(markdownPostsPath, fileName))
     .filter(markdownMeta => !!markdownMeta)
     .filter(markdownMeta => !markdownMeta?.draft)
     .reduce((prev, markdownMeta) => ({

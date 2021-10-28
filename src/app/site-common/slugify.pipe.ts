@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
-export const slugify = (value: string) => value.replace(/[ ]+/g, '-')
+import { slugify } from '../../../utils/slugify';
 
 @Pipe({
   name: 'slugify'

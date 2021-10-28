@@ -63,7 +63,5 @@ export class BlogArchivesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.posts$.subscribe(console.log);
   }
-
 }

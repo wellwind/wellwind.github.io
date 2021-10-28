@@ -9,14 +9,17 @@
     "test": "ng test",
     "postinstall": "npm link builders && npm run build:builders",
     "prerender": "ng run blog:prerender",
-    "prerender:urls": "ng run blog:prerender --routes-file urls.txt --configuration static",
+    "prerender:pages": "ng run blog:prerender --routes-file pages.txt --configuration static",
     "dev:ssr": "ng run blog:serve-ssr",
     "serve:ssr": "node dist/blog/server/main.js",
     "build:ssr": "ng build && ng run blog:server",
     "serve:assets": "ng run blog:static-server --path ./src --port 4201",
     "serve:blog": "ng run blog:static-server --path ./dist/blog/browser --port 4202",
     "build:builders": "cd builders && npx tsc",
-    "build:blog-posts-json": "ng run blog:generate-blog-posts-json"
+    "build:blog-posts-json": "ng run blog:generate-blog-posts-json",
+    "build:urls": "ng run blog:generate-prerender-urls",
+    "build:rss": "",
+    "build:blog": "npm run build:urls && npm run prerender:pages && npm eun build:rss"
   },
   "private": true,
   "dependencies": {
@@ -58,6 +61,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "shx": "^0.3.3",
     "ts-node": "^10.2.1",
     "typescript": "~4.3.5"
   }

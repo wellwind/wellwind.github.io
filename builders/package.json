@@ -6,6 +6,7 @@
   "dependencies": {
     "@angular-devkit/architect": "~0.1200.0",
     "@angular-devkit/core": "^12.0.0",
+    "feed": "^4.2.2",
     "js-yaml": "^4.1.0",
     "markdown-it": "^12.2.0"
   },

@@ -198,6 +198,13 @@
           },
           "defaultConfiguration": "production"
         },
+        "generate-prerender-urls": {
+          "builder": "@wellwind/blog-builder:generate-prerender-urls",
+          "options": {
+            "markdownPostsPath": "src/assets/blog",
+            "urlsPath": "pages.txt"
+          }
+        },
         "generate-blog-posts-json": {
           "builder": "@wellwind/blog-builder:generate-blog-posts-json",
           "options": {
