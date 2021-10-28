@@ -12,8 +12,6 @@ const PAGE_SIZE = 10;
   styleUrls: ['./blog-tag-posts.component.scss']
 })
 export class BlogTagPostsComponent implements OnInit {
-
-
   tagSlug$ = this.route.paramMap.pipe(
     map(paramMap => paramMap.get('tag-slug'))
   );
@@ -24,6 +22,10 @@ export class BlogTagPostsComponent implements OnInit {
 
   tagPosts$ = this.route.data.pipe(
     map(data => data.posts as PostMetaWithSlug[])
+  );
+
+  tagPostsCount$ = this.tagPosts$.pipe(
+    map(posts => posts.length)
   );
 
   posts$ = this.currentPage$.pipe(

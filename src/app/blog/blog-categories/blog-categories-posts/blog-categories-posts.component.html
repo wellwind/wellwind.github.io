@@ -1,6 +1,6 @@
 <mat-toolbar class="categories-header mat-elevation-z4">
   <h1>{{ ((categorySlug$ | async) || '') | unslugify }}</h1>
-  <h2>分類</h2>
+  <h2>分類 (共 {{ categoryPostsCount$ | async }} 篇文章)</h2>
 </mat-toolbar>
 
 <ng-container *ngFor="let post of posts$ | async">

@@ -25,6 +25,10 @@ export class BlogCategoriesPostsComponent implements OnInit {
     map(data => data.posts as PostMetaWithSlug[])
   );
 
+  categoryPostsCount$ = this.categoryPosts$.pipe(
+    map(posts => posts.length)
+  );
+
   posts$ = this.currentPage$.pipe(
     switchMap(pageNum => this.categoryPosts$.pipe(
       map(posts => getPagePosts(pageNum, PAGE_SIZE, posts))

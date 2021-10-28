@@ -43,12 +43,12 @@ export class SitePostService {
 
   public postsMetaWithSlugAndSortDesc$ = this.postsMetaWithSlug$
     .pipe(
-      map(posts => sortWith([descend(prop('date'))], posts))
+      map(posts => sortWith([descend(prop('date'))], posts) as PostMetaWithSlug[])
     );
 
   public postsMetaWithSlugAndSortAsc$ = this.postsMetaWithSlug$
     .pipe(
-      map(posts => sortWith([ascend(prop('date'))], posts))
+      map(posts => sortWith([ascend(prop('date'))], posts) as PostMetaWithSlug[])
     );
 
   public categoriesAndPosts$ = combineLatest([this.postsMetaWithSlug$, this.postCategories$])
@@ -57,7 +57,7 @@ export class SitePostService {
         .filter(category => !!category)
         .reduce((prev, category) => {
           if (!prev[category]) {
-            prev[category] = Object.values(posts).filter(post => (post.categories || []).find(cat => cat === category))
+            prev[category] = posts.filter(post => (post.categories || []).find(cat => cat === category))
           }
           return prev;
         }, {} as { [key: string]: PostMetaWithSlug[] }))
@@ -69,7 +69,7 @@ export class SitePostService {
         .filter(category => !!category)
         .reduce((prev, tag) => {
           if (!prev[tag]) {
-            prev[tag] = Object.values(posts).filter(post => (post.tags || []).find(tagName => tagName === tag))
+            prev[tag] = posts.filter(post => (post.tags || []).find(tagName => tagName === tag))
           }
           return prev;
         }, {} as { [key: string]: PostMetaWithSlug[] }))
