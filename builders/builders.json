@@ -14,6 +14,11 @@
       "implementation": "./dist/builders/src/generate-prerender-urls/index.js",
       "schema": "./src/generate-prerender-urls/schema.json",
       "description": "Generate urls.txt for prerender."
+    },
+    "generate-rss": {
+      "implementation": "./dist/builders/src/generate-rss/index.js",
+      "schema": "./src/generate-rss/schema.json",
+      "description": "Generate rss file."
     }
   }
 }

@@ -212,6 +212,13 @@
             "targetJsonPath": "src/assets/blog-posts.json"
           }
         },
+        "generate-rss": {
+          "builder": "@wellwind/blog-builder:generate-rss",
+          "options": {
+            "markdownPostsPath": "src/assets/blog",
+            "rssPath": "rss.xml"
+          }
+        },
         "static-server": {
           "builder": "@wellwind/blog-builder:static-server"
         }

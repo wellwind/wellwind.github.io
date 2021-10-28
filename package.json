@@ -18,8 +18,8 @@
     "build:builders": "cd builders && npx tsc",
     "build:blog-posts-json": "ng run blog:generate-blog-posts-json",
     "build:urls": "ng run blog:generate-prerender-urls",
-    "build:rss": "",
-    "build:blog": "npm run build:urls && npm run prerender:pages && npm eun build:rss"
+    "build:rss": "ng run blog:generate-rss",
+    "build:blog": "npm run build:urls && npm run prerender:pages && npm run build:rss -- --rss-path ./dist/blog/browser/blog"
   },
   "private": true,
   "dependencies": {

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
   "type": "object",
-  "required": ["markdownPostsPath", "urlsPath"],
+  "required": ["markdownPostsPath", "rssPath"],
   "properties": {
     "markdownPostsPath": {
       "type": "string"
