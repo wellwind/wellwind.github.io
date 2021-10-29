@@ -65,10 +65,10 @@ export class AppComponent implements OnInit {
     });
 
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(url => {
+      filter(event => event instanceof NavigationEnd),
+    ).subscribe((event: any) => {
       if (!this.platformService.isServer) {
-        gtag('event', 'page_view', { 'page_path': url });
+        gtag('event', 'page_view', { 'page_path': event.url });
       }
     });
   }
