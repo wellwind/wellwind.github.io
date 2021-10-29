@@ -1,10 +1,15 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatOptionSelectionChange } from '@angular/material/core';
 import { MatIconRegistry } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
 import { MatDrawerContent } from '@angular/material/sidenav';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
+import { slugify } from '../../utils/slugify';
+import { environment } from '../environments/environment';
 import { PlatformService } from '../platform.service';
 import { SiteMetaService } from './site-meta.service';
 import { SitePostService } from './site-post.service';
@@ -43,13 +48,85 @@ export class AppComponent implements OnInit {
     map(tags => new Set(tags).size)
   );
 
+  isSmallScreen$ = this.platformService.isSmallScreen$;
+
+  searchKeyword = new FormControl();
+
+  suggestList$ = combineLatest([
+    this.sitePostService.postsMetaWithSlugAndSortDesc$,
+    this.searchKeyword.valueChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged()
+    )])
+    .pipe(
+      map(([posts, keywordString]) => {
+        let result = [];
+
+        let searchType = 'any';
+        let keyword = '';
+        const chunks = keywordString.split(':');
+        if (chunks.length > 1) {
+          searchType = chunks[0].toLowerCase();
+          keyword = chunks[1];
+        } else {
+          keyword = chunks[0];
+        }
+        console.log(keyword);
+
+        if (searchType === 'any' || searchType === 'post') {
+          const relatePosts = posts
+            .filter(post => post.title.toLowerCase().indexOf(keyword.toLowerCase()) >= 0)
+            .sort((postA, postB) =>
+              postA.title.toLowerCase().indexOf(keyword.toLowerCase()) - postB.title.toLowerCase().indexOf(keyword.toLowerCase()))
+          result.push(...relatePosts.map(post => ({
+            type: '文章',
+            text: post.title,
+            link: `/blog/${new Date(post.date).toISOString().slice(0, 10).replace(/-/g, '/')}/${post.slug}`,
+            toString: () => ''
+          })));
+        }
+
+        if (searchType === 'any' || searchType === 'category') {
+          const allCategories = posts
+            .reduce((curr, post) => ([...new Set([...curr, ...post.categories || []])]), [] as string[])
+
+          const relatedCategories = allCategories.filter((category: string) => category.toLowerCase().indexOf(keyword.toLowerCase()) >= 0)
+            .sort((categoryA, categoryB) =>
+              categoryA.toLowerCase().indexOf(keyword.toLowerCase()) - categoryB.toLowerCase().indexOf(keyword.toLowerCase()))
+          result.push(...relatedCategories.map(category => ({
+            type: '分類',
+            text: category,
+            link: `/blog/categories/${slugify(category)}`,
+            toString: () => ''
+          })));
+        }
+
+        if (searchType === 'any' || searchType === 'tag') {
+          const allTags = posts
+            .reduce((curr, post) => ([...new Set([...curr, ...post.tags || []])]), [] as string[])
+
+          const relatedTags = allTags
+            .filter((tag: string) => tag.toLowerCase().indexOf(keyword.toLowerCase()) >= 0)
+            .sort((tagA, tagB) =>
+              tagA.toLowerCase().indexOf(keyword.toLowerCase()) - tagB.toLowerCase().indexOf(keyword.toLowerCase()))
+          result.push(...relatedTags.map(tag => ({
+            type: '標籤',
+            text: tag,
+            link: `/blog/tags/${slugify(tag)}`,
+            toString: () => ''
+          })));
+        }
+
+        return result;
+      })
+    )
+
   constructor(
     private router: Router,
     private platformService: PlatformService,
     private siteMetaService: SiteMetaService,
     private sitePostService: SitePostService,
-    private matIconRegistry: MatIconRegistry,
-    private breakpointObserver: BreakpointObserver) {
+    private matIconRegistry: MatIconRegistry) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationStart)
     ).subscribe(url => {
@@ -65,9 +142,9 @@ export class AppComponent implements OnInit {
     });
 
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
+      filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
-      if (!this.platformService.isServer) {
+      if (!this.platformService.isServer && environment.production) {
         gtag('event', 'page_view', { 'page_path': event.url });
       }
     });
@@ -76,14 +153,17 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.matIconRegistry.registerFontClassAlias('fontawesome', 'fab');
 
-    this.breakpointObserver.observe([
-      Breakpoints.XSmall,
-      Breakpoints.Small
-    ]).pipe(
-      map(value => !value.matches)
-    ).subscribe(shouldOpen => {
-      this.menuOpen$.next(shouldOpen);
-    });
+    this.platformService
+      .isSmallScreen$
+      .pipe(map(result => !result))
+      .subscribe(shouldOpen => {
+        this.menuOpen$.next(shouldOpen);
+      });
   }
 
+  async selectSuggestItem(event: MatAutocompleteSelectedEvent) {
+    const item = event.option.value as { link: string };
+    await this.router.navigateByUrl(item.link);
+    this.searchKeyword.setValue('');
+  }
 }

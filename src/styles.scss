@@ -45,6 +45,12 @@ body {
   font-family: Roboto, loto, noto sans tc, microsoft yahei, sans-serif;
 }
 
+.suggest-item-type {
+  font-size: 12px;
+  margin-right: 6px;
+  color: $secondary-text-color;
+}
+
 a {
   color: $default-link-color;
   text-decoration: underline;

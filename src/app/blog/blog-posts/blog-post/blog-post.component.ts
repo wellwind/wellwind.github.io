@@ -1,4 +1,3 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -32,12 +31,7 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
     tap(() => this.highlightCode())
   );
 
-  hideToc$ =
-    this.breakpointObserver.observe([
-      Breakpoints.XSmall,
-      Breakpoints.Small,
-      Breakpoints.Medium
-    ]).pipe(map(value => value.matches));
+  hideToc$ = this.platformService.isSmallAndMediumScreen$;
 
   previousPost$ = combineLatest([this.postMeta$, this.sitePostService.postsMetaWithSlugAndSortAsc$]).pipe(
     map(([currentPostMeta, allPostsMeta]) => {
@@ -62,7 +56,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   constructor(
     private route: ActivatedRoute,
     private domSanitizer: DomSanitizer,
-    private breakpointObserver: BreakpointObserver,
     private platformService: PlatformService,
     private sitePostService: SitePostService,
     private siteMetaService: SiteMetaService) {
@@ -113,8 +106,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
       (window as any)?.hljs?.highlightAll();
     });
   }
-
-
 
   goComment(commentsElement: HTMLElement) {
     if (commentsElement) {

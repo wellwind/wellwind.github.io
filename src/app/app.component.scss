@@ -9,6 +9,7 @@
 
     .header-link-1 {
       color: $header-link-color-1;
+
       &:hover, &:active {
         color: $header-link-color-1;
       }
@@ -16,9 +17,25 @@
 
     .header-link-2 {
       color: $header-link-color-2;
+
       &:hover, &:active {
         color: $header-link-color-2;
       }
+    }
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .search-bar {
+    input.search-input {
+      height: 36px;
+      border-radius: 5px;
+      width: 240px;
+      font-size: 16px;
+      border: 0;
+      padding: 8px;
     }
   }
 }

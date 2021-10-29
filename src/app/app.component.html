@@ -9,6 +9,26 @@
       <span class="header-link-2">人員天梯</span>
     </a>
   </h1>
+
+  <div class="spacer"></div>
+
+  <div class="search-bar" *ngIf="!(isSmallScreen$ | async)">
+    <input
+      autocomplete="off"
+      type="text"
+      class="search-input"
+      matInput
+      placeholder="搜尋..."
+      [formControl]="searchKeyword"
+      [matAutocomplete]="auto"
+    >
+    <mat-autocomplete #auto="matAutocomplete" panelWidth="auto" (optionSelected)="selectSuggestItem($event)">
+      <mat-option *ngFor="let item of suggestList$ | async" [value]="item">
+        <span class="suggest-item-type">{{ item.type }}</span>
+        <span class="suggest-item-text">{{ item.text }}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </div>
 </mat-toolbar>
 
 <mat-drawer-container class="drawer-container">
@@ -41,10 +61,11 @@
       <div class="section-title">好書推薦</div>
       <div class="section-content">
         <mat-nav-list>
-        <a href="https://www.tenlong.com.tw/products/9789864348039" target="_blank" style="display: flex; flex-direction: column; align-items: center">
-          <img src="assets/promotion/rxjs.webp" width="160px" alt="打通 RxJS 任督二脈 - 好評熱售中！" />
-          <div >打通 RxJS 任督二脈</div>
-        </a>
+          <a href="https://www.tenlong.com.tw/products/9789864348039" target="_blank"
+             style="display: flex; flex-direction: column; align-items: center">
+            <img src="assets/promotion/rxjs.webp" width="160px" alt="打通 RxJS 任督二脈 - 好評熱售中！" />
+            <div>打通 RxJS 任督二脈</div>
+          </a>
         </mat-nav-list>
       </div>
     </div>
