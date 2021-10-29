@@ -2,12 +2,14 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatDrawerContent } from '@angular/material/sidenav';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { PlatformService } from '../platform.service';
 import { SiteMetaService } from './site-meta.service';
 import { SitePostService } from './site-post.service';
+
+declare let gtag: Function;
 
 @Component({
   selector: 'app-root',
@@ -46,11 +48,11 @@ export class AppComponent implements OnInit {
     private platformService: PlatformService,
     private siteMetaService: SiteMetaService,
     private sitePostService: SitePostService,
-    private breakpointObserver: BreakpointObserver,
-    private matIconRegistry: MatIconRegistry) {
+    private matIconRegistry: MatIconRegistry,
+    private breakpointObserver: BreakpointObserver) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationStart)
-    ).subscribe(_ => {
+    ).subscribe(url => {
       this.siteMetaService.resetMeta({
         title: '',
         description: '個人學習程式設計、系統開發和讀書的經驗及心得。',
@@ -59,6 +61,14 @@ export class AppComponent implements OnInit {
       });
       if (this.matDrawerContent) {
         this.matDrawerContent.scrollTo({ top: 0, left: 0 });
+      }
+    });
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(url => {
+      if (!this.platformService.isServer) {
+        gtag('event', 'page_view', { 'page_path': url });
       }
     });
   }

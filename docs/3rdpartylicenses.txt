@@ -66,6 +66,9 @@ MIT
 @angular/router
 MIT
 
+@nguniversal/common
+MIT
+
 entities
 BSD-2-Clause
 Copyright (c) Felix Böhm
