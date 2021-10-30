@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "postinstall": "npm link builders && npm run build:builders",
-    "copy:docs": "npx shx cp -r ./dist/blog/browser/* ./docs && npx shx touch ./docs/.nojekyll",
+    "copy:docs": "npx shx cp -r ./dist/blog/browser/* ./docs",
     "prerender": "ng run blog:prerender",
     "prerender:pages": "ng run blog:prerender --routes-file pages.txt --configuration static",
     "dev:ssr": "ng run blog:serve-ssr",
