@@ -23,7 +23,7 @@ export class BlogArchivesComponent implements OnInit {
 
   yearPostsCount$ = this.totalPosts$.pipe(
     map(posts => posts.reduce((prev, curr) => {
-      const year = new Date(curr.date).getFullYear().toString();
+      const year = curr.date.substr(1, 4);
       if (!prev[year]) {
         prev[year] = 0;
       }

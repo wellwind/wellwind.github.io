@@ -35,7 +35,10 @@ export const parseMarkdownMeta = (markdownContent: string, slug: string) => {
     return <MarkdownMeta>{
       slug: slug,
       title: yamlMeta.title,
-      date: yamlMeta.date,
+      date: new Date(yamlMeta.date.getTime() + 8 * 60 * 60 * 1000)
+        .toISOString()
+        .slice(0, 19)
+        .replace(/T/g, ' '),
       categories: typeof yamlMeta.category === 'string' ? [yamlMeta.category] : yamlMeta.category,
       tags: yamlMeta.tags,
       draft: !!yamlMeta.draft,

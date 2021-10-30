@@ -1,7 +1,7 @@
 export interface MarkdownMeta {
   slug: string;
   title: string;
-  date: Date;
+  date: string;
   categories: string[];
   tags: string[];
   draft?: boolean;

@@ -1,6 +1,8 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
 import { readdirSync, writeFileSync } from 'fs';
+import { descend, prop, sortWith, take } from 'ramda';
+import { MarkdownMeta } from '../../../utils';
 import { getMarkdownMeta } from '../../../utils/get-markdown-meta';
 import { Feed } from 'feed';
 
@@ -17,10 +19,12 @@ async function generateRss(options: Options, context: BuilderContext): Promise<B
 
   context.logger.info(`Generate 📒 ${rssPath}.`);
 
-  const posts = readdirSync(markdownPostsPath, { withFileTypes: true })
+  const allPosts = readdirSync(markdownPostsPath, { withFileTypes: true })
     .filter(dirent => dirent.isFile() && dirent.name.endsWith('.md'))
     .map(dirent => dirent.name)
-    .map(fileName => getMarkdownMeta(markdownPostsPath, fileName));
+    .map(fileName => getMarkdownMeta(markdownPostsPath, fileName))
+
+  const posts = take(20, sortWith([descend(prop('date'))], allPosts)) as MarkdownMeta[];
 
   const siteUrl = 'https://fullstackladder.dev/';
   const feed = new Feed({
@@ -39,7 +43,7 @@ async function generateRss(options: Options, context: BuilderContext): Promise<B
   });
 
   posts.forEach(post => {
-    const dateFormatted = new Date(post.date).toISOString().slice(0, 10).replace(/-/g, '/');
+    const dateFormatted = post.date.substr(0, 10).replace(/-/g, '/');
 
     feed.addItem({
       title: post.title,
