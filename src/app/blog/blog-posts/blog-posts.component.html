@@ -2,7 +2,7 @@
   <mat-card class="blog-post">
     <mat-card-title class="blog-post-title">
       <a
-        [routerLink]="['/blog/', (post.date | date:'yyyy'), (post.date | date:'MM'), (post.date | date:'dd'), post.slug]">{{ post.title }}</a>
+        [routerLink]="post | postDateAsPath">{{ post.title }}</a>
     </mat-card-title>
 
     <mat-card-subtitle class="blog-post-subtitle">
@@ -15,7 +15,7 @@
 
     <mat-card-footer>
       <button
-        [routerLink]="['/blog/', (post.date | date:'yyyy'), (post.date | date:'MM'), (post.date | date:'dd'), post.slug]"
+        [routerLink]="post | postDateAsPath"
         mat-raised-button
         color="primary">
         <mat-icon>read_more</mat-icon>

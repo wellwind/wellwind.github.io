@@ -35,7 +35,7 @@ export const parseMarkdownMeta = (markdownContent: string, slug: string) => {
     return <MarkdownMeta>{
       slug: slug,
       title: yamlMeta.title,
-      date: new Date(yamlMeta.date.getTime() + 8 * 60 * 60 * 1000)
+      date: new Date(yamlMeta.date)
         .toISOString()
         .slice(0, 19)
         .replace(/T/g, ' '),

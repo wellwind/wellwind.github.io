@@ -50,7 +50,7 @@
 
         <ng-template #postLink let-post="post">
           <a
-            [routerLink]="['/blog/', (post.date | date:'yyyy'), (post.date | date:'MM'), (post.date | date:'dd'), post.slug]">
+            [routerLink]="post | postDateAsPath">
             {{ post.title }}
           </a>
         </ng-template>

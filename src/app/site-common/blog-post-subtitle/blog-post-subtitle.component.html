@@ -1,7 +1,7 @@
 <ng-container *ngIf="postMeta">
   <span class="blog-post-published">
     <mat-icon>date_range</mat-icon>
-    <span>{{ postMeta.date | date: 'yyyy-MM-dd'}}</span>
+    <span>{{ postMeta.date.slice(0, 10) }}</span>
   </span>
 
   <ng-container *ngIf="(postMeta.categories || []).length > 0">

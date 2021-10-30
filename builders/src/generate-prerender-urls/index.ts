@@ -39,8 +39,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
   context.logger.info(`Generating post pages.`);
 
   // single post
-  const postPages = posts.map(post => `/blog/${new Date(post.date)
-    .toISOString()
+  const postPages = posts.map(post => `/blog/${post.date
     .slice(0, 10)
     .replace(/-/g, '/')}/${post.slug}`);
   urls.push(...postPages);

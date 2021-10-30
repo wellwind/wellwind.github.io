@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
           result.push(...relatePosts.map(post => ({
             type: '文章',
             text: post.title,
-            link: `/blog/${new Date(post.date).toISOString().slice(0, 10).replace(/-/g, '/')}/${post.slug}`,
+            link: `/blog/${post.date.slice(0, 10).replace(/-/g, '/')}/${post.slug}`,
             toString: () => ''
           })));
         }
