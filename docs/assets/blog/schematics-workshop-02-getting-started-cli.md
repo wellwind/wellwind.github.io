@@ -5,7 +5,7 @@ tags:
   - Schematics
 ---
 
-上篇文章我們介紹了[Schematics 的基礎](https://wellwind.idv.tw/blog/2019/11/30/schematics-workshop-01-intro/)今天我們來快速學學如何撰寫第一個 Schematics。
+上篇文章我們介紹了[Schematics 的基礎](https://fullstackladder.dev/blog/2019/11/30/schematics-workshop-01-intro/)今天我們來快速學學如何撰寫第一個 Schematics。
 
 <!-- more -->
 

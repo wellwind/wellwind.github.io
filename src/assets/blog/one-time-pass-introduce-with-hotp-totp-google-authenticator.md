@@ -62,7 +62,7 @@ Google也提供了[Google Authenticator](https://github.com/google/google-authen
 
 以下是使用otplib做的一個簡單DEMO
 
-[DEMO網址](http://wellwind.idv.tw/OneTimePasswordDemo/) | [GitHub](https://github.com/wellwind/OneTimePasswordDemo)
+[DEMO網址](https://fullstackladder.dev/OneTimePasswordDemo/) | [GitHub](https://github.com/wellwind/OneTimePasswordDemo)
 
 {% asset_img otplib-demo.png %}
 

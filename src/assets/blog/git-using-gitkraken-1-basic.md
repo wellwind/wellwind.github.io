@@ -195,6 +195,6 @@ GitKraken雖然是商業軟體，但是免費版就已經包含了很多強大�
 
 明天我們來談談比較進階的GitKraken特色，像是衝突處理、GitFlow等等吧！
 
--   [[Git]GitKraken 強大的剛剛好的Git GUI神器(2)進階篇-GitFlow、Commit Template和衝突管理](https://wellwind.idv.tw/blog/2018/04/04/git-using-gitkraken-2-advanced/)
--   [[Git]GitKraken 強大的剛剛好的Git GUI神器(3)遠端篇](https://wellwind.idv.tw/blog/2018/04/05/git-using-gitkraken-3-remote/)
+-   [[Git]GitKraken 強大的剛剛好的Git GUI神器(2)進階篇-GitFlow、Commit Template和衝突管理](https://fullstackladder.dev/blog/2018/04/04/git-using-gitkraken-2-advanced/)
+-   [[Git]GitKraken 強大的剛剛好的Git GUI神器(3)遠端篇](https://fullstackladder.dev/blog/2018/04/05/git-using-gitkraken-3-remote/)
 

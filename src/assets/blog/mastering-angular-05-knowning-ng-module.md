@@ -98,7 +98,7 @@ export class MainModule { }
 
 # bootstrap
 
-在前兩天介紹[應用程式啟動過程](https://wellwind.idv.tw/blog/2018/10/18/mastering-angular-03-application-start/)時，我們已經學過 `bootstrap: []` 了，簡單來說， `bootstrap : []` 裡面的元件會自動被啟動。
+在前兩天介紹[應用程式啟動過程](https://fullstackladder.dev/blog/2018/10/18/mastering-angular-03-application-start/)時，我們已經學過 `bootstrap: []` 了，簡單來說， `bootstrap : []` 裡面的元件會自動被啟動。
 
 放在 bootstrap: [] 中的元件，會自動被視為放入 `entryComponents: []` 之中。
 

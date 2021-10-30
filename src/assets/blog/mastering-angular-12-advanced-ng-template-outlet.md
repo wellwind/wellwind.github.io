@@ -155,7 +155,7 @@ export class AppComponent implements AfterViewInit {
 
 {% note info %}
 
-如果不知道為什麼要在 `ngAfterViewInit` 取得這些 directives，可以回去看看之前[介紹生命週期](https://wellwind.idv.tw/blog/2018/10/19/mastering-angular-04-life-cycles/)的文章
+如果不知道為什麼要在 `ngAfterViewInit` 取得這些 directives，可以回去看看之前[介紹生命週期](https://fullstackladder.dev/blog/2018/10/19/mastering-angular-04-life-cycles/)的文章
 
 {% endnote %}
 

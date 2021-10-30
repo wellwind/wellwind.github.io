@@ -79,7 +79,7 @@ export class AppComponent implements OnInit {
 
 # 顯示動態載入模組中的元件
 
-除了動態建立載入的模組外，更常見的是建立模組內的元件並顯示在畫面上，在這部分在之前的文章「[動態載入元件(簡易版)](https://wellwind.idv.tw/blog/2018/10/28/mastering-angular-14-dynamic-component-loader/)」我們介紹過使用[ngComponentOutlet](https://angular.io/api/common/NgComponentOutlet)，能幫助我們節省非常多時間。 `ngComponentOutlet` 有四個可用屬性如下圖：
+除了動態建立載入的模組外，更常見的是建立模組內的元件並顯示在畫面上，在這部分在之前的文章「[動態載入元件(簡易版)](https://fullstackladder.dev/blog/2018/10/28/mastering-angular-14-dynamic-component-loader/)」我們介紹過使用[ngComponentOutlet](https://angular.io/api/common/NgComponentOutlet)，能幫助我們節省非常多時間。 `ngComponentOutlet` 有四個可用屬性如下圖：
 
 {% asset_img 06.jpg %}
 
@@ -147,7 +147,7 @@ export class AppComponent implements OnInit {
 # 參考資源
 
 - [Dynamic import()](https://developers.google.com/web/updates/2017/11/dynamic-import)
-- [[Angular 大師之路] 動態載入元件 (簡易版)](https://wellwind.idv.tw/blog/2018/10/28/mastering-angular-14-dynamic-component-loader/)
+- [[Angular 大師之路] 動態載入元件 (簡易版)](https://fullstackladder.dev/blog/2018/10/28/mastering-angular-14-dynamic-component-loader/)
 - [NgComponentOutlet 文件](https://angular.io/api/common/NgComponentOutlet)
 - [使用 Complier 產生 module factory (原始碼)](https://github.com/angular/angular/blob/72ecc453639eae017f75653c9004adc406ed2ee6/packages/router/src/router_config_loader.ts#L54)
 - [NgComponentOutlet 產生元件的方法(原始碼)](https://github.com/angular/angular/blob/8.0.0/packages/common/src/directives/ng_component_outlet.ts#L107-L109)

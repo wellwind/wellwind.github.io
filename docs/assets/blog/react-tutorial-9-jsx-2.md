@@ -58,7 +58,7 @@ var button4 = <input type="button" disabled={false} />;
 
 # class與for屬性
 
-還記得我們在「[從TodoList範例學習React(1)-基本架構](http://wellwind.idv.tw/blog/2016/03/13/react-tutorial-5-react-basic-and-todolist-scaffold/)」提過的嗎？class和for是HTML標準的屬性，但因為在JSX中會編譯成JavaScript的關係，偏偏class和for又是JavaScript的保留字，因此我們必須用**className和htmlFor**來取代它
+還記得我們在「[從TodoList範例學習React(1)-基本架構](https://fullstackladder.dev/blog/2016/03/13/react-tutorial-5-react-basic-and-todolist-scaffold/)」提過的嗎？class和for是HTML標準的屬性，但因為在JSX中會編譯成JavaScript的關係，偏偏class和for又是JavaScript的保留字，因此我們必須用**className和htmlFor**來取代它
 
 ```javascript
 { /* 使用className取代class */ }

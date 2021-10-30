@@ -17,7 +17,7 @@ tags:
 
 {% asset_img 0.png %}
 
-從程式中可以看到我們使用Angular CLI建立的components都已經在這裡的`declarations: []`宣告了，如果你還記得的話，在[之前講到Service時](http://wellwind.idv.tw/blog/2017/02/03/angular-tutorial-10-service/)，我們也曾手動將TodoListService加入AppModules的`providers: []`中，另外還有**BrowserModule、FormsModule**這些宣告，則是Angular中內建可用的modules，少了這些modules，我們就沒有像是**ngIf、nfFor和ngModel**這類的好東西可用哩。
+從程式中可以看到我們使用Angular CLI建立的components都已經在這裡的`declarations: []`宣告了，如果你還記得的話，在[之前講到Service時](https://fullstackladder.dev/blog/2017/02/03/angular-tutorial-10-service/)，我們也曾手動將TodoListService加入AppModules的`providers: []`中，另外還有**BrowserModule、FormsModule**這些宣告，則是Angular中內建可用的modules，少了這些modules，我們就沒有像是**ngIf、nfFor和ngModel**這類的好東西可用哩。
 
 看到這些內建的modules也給了我們一些啟發，我們可以藉由將程式封裝成一組一組的modules，就可以把它分享出去給別人使用囉！這在團隊中有共用的一些元件、程式時非常有用，我們可以把共用的程式抽出來封裝到modules裡面，然後上傳到private git中，再使用npm指定git路徑安裝，就能在不同專案間共享程式碼啦！甚至可以把你的心血公開上傳到npm，讓全世界一起使用！聽起來就很熱血阿！！
 

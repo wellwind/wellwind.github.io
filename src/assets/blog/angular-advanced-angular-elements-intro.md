@@ -39,7 +39,7 @@ Angular Elements的功能放在[@angular/elements](https://www.npmjs.com/package
 
 Angular Elements有兩個主要的方向可以應用：
 
-1.  **動態產生元件**：之前我們介紹過，在Angular中要動態產生元件必須透過[Dynamic Component Loader的技巧](https://wellwind.idv.tw/blog/2017/06/21/angular-advanced-dynamic-component-with-component-factory-resolver/)來達成，但在單純的web應用上時，我們可以改成使用Angular Elements的方式，直接操作DOM，來降低原來動態元件的開發複雜度
+1.  **動態產生元件**：之前我們介紹過，在Angular中要動態產生元件必須透過[Dynamic Component Loader的技巧](https://fullstackladder.dev/blog/2017/06/21/angular-advanced-dynamic-component-with-component-factory-resolver/)來達成，但在單純的web應用上時，我們可以改成使用Angular Elements的方式，直接操作DOM，來降低原來動態元件的開發複雜度
 2.  **混合靜態網頁**：有時候，我們只是想要在靜態網頁掛上一些類似widget的小工具，這可能就是最適合使用Angular Elements的時機了！
 3.  **套件共用**：想想未來或許整個Angular Material都變成Custom Elements...(流口水)
 

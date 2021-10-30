@@ -104,7 +104,7 @@ rxjs-spy的tag方法支援chain和pipeable兩種，因此上面程式也可寫�
 
 接下來我們完全不會再去動到任何的程式碼，全部事情都在瀏覽器的console運作，因此如果你懶得寫上面的程式，可以直接到以下網址試玩：
 
-http://wellwind.idv.tw/angular-debugging-with-rxjs/
+https://fullstackladder.dev/angular-debugging-with-rxjs/
 
 {% note info %}
 

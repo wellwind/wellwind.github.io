@@ -8,7 +8,7 @@ tags:
   - Component Harness
 ---
 
-在前一篇文章中我們介紹「[如何透過 Angular Material Component Harness](https://wellwind.idv.tw/blog/2020/02/08/angular-material-component-harnesses/)」來測試 Angular Material 的相關元件，省去許多自己使用 `querySelector` 的方式找到元件的麻煩，也可以避免未來元件改版破壞結構的麻煩，今天我們來看看如何替我們自己寫好的元件也設計對應的 Component Harnss，讓未來使用元件的人也能寫出更強健的測試程式碼！
+在前一篇文章中我們介紹「[如何透過 Angular Material Component Harness](https://fullstackladder.dev/blog/2020/02/08/angular-material-component-harnesses/)」來測試 Angular Material 的相關元件，省去許多自己使用 `querySelector` 的方式找到元件的麻煩，也可以避免未來元件改版破壞結構的麻煩，今天我們來看看如何替我們自己寫好的元件也設計對應的 Component Harnss，讓未來使用元件的人也能寫出更強健的測試程式碼！
 
 <!-- more -->
 

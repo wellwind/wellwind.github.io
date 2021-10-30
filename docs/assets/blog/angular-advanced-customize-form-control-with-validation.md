@@ -8,7 +8,7 @@ tags:
     - Validator
 ---
 
-在之前的文章「[讓自訂的Component可以使用ngModel的方法](https://wellwind.idv.tw/blog/2017/03/20/angular-advanced-customize-component-with-ngmodel/)」我們提到可以替Component加入NG_VALUE_ACCESSOR及實作ControlValueAccessor，來讓我們的Component成為客製化的表單控制項，並能夠使用`[(ngModel)]`達到two way binding的效果；既然成為了表單控制項，當然就該能享有驗證(Validation)的好處，以及在表單變化時得到一些額外的class支援，讓我們在設計上能夠有彈性！今天就要來如何讓別人在使用我們的表單控制項時能夠及時得知表單的內部驗證狀態(**NG_VALIDATORS和NG_ASYNC_VALIDATORS**)。
+在之前的文章「[讓自訂的Component可以使用ngModel的方法](https://fullstackladder.dev/blog/2017/03/20/angular-advanced-customize-component-with-ngmodel/)」我們提到可以替Component加入NG_VALUE_ACCESSOR及實作ControlValueAccessor，來讓我們的Component成為客製化的表單控制項，並能夠使用`[(ngModel)]`達到two way binding的效果；既然成為了表單控制項，當然就該能享有驗證(Validation)的好處，以及在表單變化時得到一些額外的class支援，讓我們在設計上能夠有彈性！今天就要來如何讓別人在使用我們的表單控制項時能夠及時得知表單的內部驗證狀態(**NG_VALIDATORS和NG_ASYNC_VALIDATORS**)。
 
 <!-- more -->
 

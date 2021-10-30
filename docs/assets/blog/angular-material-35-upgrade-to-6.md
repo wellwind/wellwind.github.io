@@ -42,7 +42,7 @@ Angular CLI 6 之後的專案架構有一些變化，如果想要升級舊的專
 
 # 安裝 Angular Material
 
-如果你看過我之前的文章[[Angular Material完全攻略]環境設定 & 安裝 ＆ Hello World](https://wellwind.idv.tw/blog/2017/12/20/angular-material-02-installation/)，或自己曾經安裝過Angular Material 5的話，應該有印象那是多麽麻煩的一件事情，而在 Angular CLI 6 以及 Schematics 的強力支援下，現在要安裝 Angular Material 6，只剩下一行指令的事情了！
+如果你看過我之前的文章[[Angular Material完全攻略]環境設定 & 安裝 ＆ Hello World](https://fullstackladder.dev/blog/2017/12/20/angular-material-02-installation/)，或自己曾經安裝過Angular Material 5的話，應該有印象那是多麽麻煩的一件事情，而在 Angular CLI 6 以及 Schematics 的強力支援下，現在要安裝 Angular Material 6，只剩下一行指令的事情了！
 
 只需要透過 `ng add @angular/material` ，所有事情一次搞定！
 

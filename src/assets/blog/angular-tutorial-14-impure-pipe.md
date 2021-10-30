@@ -9,7 +9,7 @@ tags:
     - Impure Pipe
     - AsyncPipe
 ---
-前兩篇文章我們已經認識了[Pipe的使用方法](http://wellwind.idv.tw/blog/2017/02/06/angular-tutorial-12-pipe-basic/)以及[如何自訂Pipe](http://wellwind.idv.tw/blog/2017/02/09/angular-tutorial-13-customize-pipe/)，基本上已經非常實用了，今天在Pipe的最後一篇要稍微深入的解釋自訂Pipe的一個小參數：**pure**。
+前兩篇文章我們已經認識了[Pipe的使用方法](https://fullstackladder.dev/blog/2017/02/06/angular-tutorial-12-pipe-basic/)以及[如何自訂Pipe](https://fullstackladder.dev/blog/2017/02/09/angular-tutorial-13-customize-pipe/)，基本上已經非常實用了，今天在Pipe的最後一篇要稍微深入的解釋自訂Pipe的一個小參數：**pure**。
 
 <!-- more -->
 

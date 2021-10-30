@@ -222,7 +222,7 @@ import { [元件名稱]Harness } from '@angular/material/[元件]/testing';
 
 ## 撰寫自己的 Component Harness
 
-Component Harness 是一個非常好的概念，而且 Angular CDK 也提供了基本的 API 實作，若是專門撰寫通用元件的開發人員，強烈建議為所有的元件撰寫對應的 Component Harness，只需要繼承 [ComponentHarness](https://material.angular.io/cdk/test-harnesses/api#ComponentHarness)，並實做一些方法，就可以開始使用。可以參考[文件說明](https://material.angular.io/cdk/test-harnesses/overview#api-for-component-harness-authors)，也可以參考文章「[替我們的元件設計 Component Harness](https://wellwind.idv.tw/blog/2020/03/08/angular-material-writing-your-own-component-harness/)」。
+Component Harness 是一個非常好的概念，而且 Angular CDK 也提供了基本的 API 實作，若是專門撰寫通用元件的開發人員，強烈建議為所有的元件撰寫對應的 Component Harness，只需要繼承 [ComponentHarness](https://material.angular.io/cdk/test-harnesses/api#ComponentHarness)，並實做一些方法，就可以開始使用。可以參考[文件說明](https://material.angular.io/cdk/test-harnesses/overview#api-for-component-harness-authors)，也可以參考文章「[替我們的元件設計 Component Harness](https://fullstackladder.dev/blog/2020/03/08/angular-material-writing-your-own-component-harness/)」。
 
 ## 根據不同平台撰寫 Component Harness 環境
 

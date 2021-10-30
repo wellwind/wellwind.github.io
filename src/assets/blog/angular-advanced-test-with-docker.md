@@ -91,7 +91,7 @@ docker run -it \
 
 答案當然是不行啦！
 
-這時候我們也可以直接選擇把測試環境改成不依賴瀏覽器的狀態，例如[使用Jest來測試](https://wellwind.idv.tw/blog/2017/08/13/angular-advanced-testing-with-jest/)，或是改為使用[chromium](https://www.chromium.org/)並且設定headless模式，讓執行測試時，不直接開啟視窗，具體該如何做呢？我們可以直接改Dockerfile，把`chromium`及`chromium-chromedriver`裝起來。完整Dockerfile如下：
+這時候我們也可以直接選擇把測試環境改成不依賴瀏覽器的狀態，例如[使用Jest來測試](https://fullstackladder.dev/blog/2017/08/13/angular-advanced-testing-with-jest/)，或是改為使用[chromium](https://www.chromium.org/)並且設定headless模式，讓執行測試時，不直接開啟視窗，具體該如何做呢？我們可以直接改Dockerfile，把`chromium`及`chromium-chromedriver`裝起來。完整Dockerfile如下：
 
 ```dockerfile
 FROM node:8.9-alpine

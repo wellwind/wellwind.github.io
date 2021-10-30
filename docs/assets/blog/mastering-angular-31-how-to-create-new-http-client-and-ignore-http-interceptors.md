@@ -7,7 +7,7 @@ tags:
   - HTTP_INTECEPTORS
 ---
 
-我們都知道在 Angular 中如果想要透過 ajax 呼叫 API，可以透過 HttpClient 服務來達成，同時在此之前我們也提過可以[使用 HTTP_INTERCEPTORS 來攔截處理所有的 HTTP 請求](https://wellwind.idv.tw/blog/2018/11/01/mastering-angular-17-http-interceptors/)。但有時候我們會希望不要透過 `HTTP_INTERCEPTORS`，幫我們處理那麼多事情，這有辦法解決嗎？今天就來介紹兩種方式來解決這個問題！
+我們都知道在 Angular 中如果想要透過 ajax 呼叫 API，可以透過 HttpClient 服務來達成，同時在此之前我們也提過可以[使用 HTTP_INTERCEPTORS 來攔截處理所有的 HTTP 請求](https://fullstackladder.dev/blog/2018/11/01/mastering-angular-17-http-interceptors/)。但有時候我們會希望不要透過 `HTTP_INTERCEPTORS`，幫我們處理那麼多事情，這有辦法解決嗎？今天就來介紹兩種方式來解決這個問題！
 
 <!-- more -->
 

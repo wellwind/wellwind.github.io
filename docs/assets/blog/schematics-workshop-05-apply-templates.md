@@ -5,7 +5,7 @@ tags:
   - Schematics
 ---
 
-在學會[撰寫第一個 Schematics](https://wellwind.idv.tw/blog/2019/12/01/schematics-workshop-02-getting-started-cli/) 後，我們已經了解該如何使用 `tree` 來產生檔案，但有時候難免會遇到一些狀況，需要一次產生較多有關連的檔案，例如 Angular 的 component，預設就會產生 4 個相關連的檔案，雖然我們也能將這些檔案逐一用 `tree` 產生，但若能有個預設的範本，產生時只要置換裡面的一些變數就好，維護起來將會更加容易！今天就來看看如何在 Schematics 內使用某個來源範本產生檔案吧！
+在學會[撰寫第一個 Schematics](https://fullstackladder.dev/blog/2019/12/01/schematics-workshop-02-getting-started-cli/) 後，我們已經了解該如何使用 `tree` 來產生檔案，但有時候難免會遇到一些狀況，需要一次產生較多有關連的檔案，例如 Angular 的 component，預設就會產生 4 個相關連的檔案，雖然我們也能將這些檔案逐一用 `tree` 產生，但若能有個預設的範本，產生時只要置換裡面的一些變數就好，維護起來將會更加容易！今天就來看看如何在 Schematics 內使用某個來源範本產生檔案吧！
 
 <!-- more -->
 

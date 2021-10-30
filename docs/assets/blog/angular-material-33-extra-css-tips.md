@@ -13,7 +13,7 @@ tags:
 
 ## 透過Angular Material使用Material Design中的顏色
 
-[昨天的文章在介紹自訂theme時](https://wellwind.idv.tw/blog/2018/01/19/angular-material-32-custom-theme/)，我們提到了內建顏色的`$mat-XXXX`變數，這些變數的實際原始碼看起來如下：
+[昨天的文章在介紹自訂theme時](https://fullstackladder.dev/blog/2018/01/19/angular-material-32-custom-theme/)，我們提到了內建顏色的`$mat-XXXX`變數，這些變數的實際原始碼看起來如下：
 
 {% asset_img 01-mat-red-sample.png %}
 

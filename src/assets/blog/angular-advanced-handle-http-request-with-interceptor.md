@@ -37,7 +37,7 @@ View的程式碼也很簡單：
 
 我們使用HttpClient抓取了一隻網路上的API，並把它顯示在畫面上，這是非常基本且常用的情境。但實際上我們很容易遇到以下的狀況：
 
-1.  取得API前需要認證：所以可能需要在RequestHeader上加入一些驗證資訊如[JWT Token](https://wellwind.idv.tw/blog/2016/11/28/jwt-auth-with-asp-netweb-api/)等等。
+1.  取得API前需要認證：所以可能需要在RequestHeader上加入一些驗證資訊如[JWT Token](https://fullstackladder.dev/blog/2016/11/28/jwt-auth-with-asp-netweb-api/)等等。
 2.  需要一個公用的API錯誤處理介面：例如401和403的錯誤需要跳轉到登入頁面，其他內部共用的錯誤訊息處理等等。
 
 以上兩個狀況極有可能是一個專案內數十甚至數百隻以上API都需要進行一樣的行為，如此一來在每一隻API處理時都加入同樣程式的話，只會是一個糟糕的設計。

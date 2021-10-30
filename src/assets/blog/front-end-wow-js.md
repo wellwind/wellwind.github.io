@@ -5,7 +5,7 @@ category: "前端軍火庫"
 tags:
     - WOW.js
 ---
-[上一篇文章](http://wellwind.idv.tw/blog/2016/12/04/front-end-animate-css/)中我們介紹了Animate.css這個強大的動畫CSS library，不過Animate.css主要是專注在處理動畫的部分，該在什麼時機點讓動畫呈現就不是重點了，因此若是直接在HTML上加上呈現動畫的class，會出現一個問題就是：「儘管要呈現動畫的標籤不在畫面上，而是在整個HTML頁面很下方的地方，但當網頁loading完成後，依然會立刻執行動畫效果，也因此在畫面下方的動畫就會因為早就跑完而看不見了。」
+[上一篇文章](https://fullstackladder.dev/blog/2016/12/04/front-end-animate-css/)中我們介紹了Animate.css這個強大的動畫CSS library，不過Animate.css主要是專注在處理動畫的部分，該在什麼時機點讓動畫呈現就不是重點了，因此若是直接在HTML上加上呈現動畫的class，會出現一個問題就是：「儘管要呈現動畫的標籤不在畫面上，而是在整個HTML頁面很下方的地方，但當網頁loading完成後，依然會立刻執行動畫效果，也因此在畫面下方的動畫就會因為早就跑完而看不見了。」
 
 這其實是一件蠻可惜的事情，精心設計的呈現效果卻因為提早出現而變成沒有效果；這時候就需要JavaScript的輔助來讓動畫在捲動到標籤出現時才呈現了，而[WOW.js](http://mynameismatthieu.com/WOW/index.html)就是一個簡單的好幫手。
 

@@ -60,7 +60,7 @@ export const plusOne = ()
 
 這個 operator 內容很簡單，將輸入的資料加一而已，主要是拿來測試整個資料流是否能依照我們設計的 operator 流動。
 
-另外，我們在前幾天[實戰介紹「自動完成」功能](https://wellwind.idv.tw/blog/2020/10/16/mastering-rxjs-31-practicing-autocomplete-search-sort-pagination/)時，有透過組合好幾個 operators 來讓資料查詢不要那麼頻繁，我們也將它抽成一個比較複雜一點的 operator 來測試看看：
+另外，我們在前幾天[實戰介紹「自動完成」功能](https://fullstackladder.dev/blog/2020/10/16/mastering-rxjs-31-practicing-autocomplete-search-sort-pagination/)時，有透過組合好幾個 operators 來讓資料查詢不要那麼頻繁，我們也將它抽成一個比較複雜一點的 operator 來測試看看：
 
 ```typescript
 export const debounceInput = () 
@@ -180,7 +180,7 @@ it('單獨測試一個 operator', () => {
 
 Scheduler 是用來「安排」事件發生時機點的工具，而 TestScheduler 就是其中一種，這種 Scheduler 可以幫助我們處理測試中遇到的各種問題。
 
-關於 Scheduler，可以參考之前的文章「[[RxJS] 認識 Scheduler](https://wellwind.idv.tw/blog/2020/10/19/mastering-rxjs-34-introduce-scheduler-of-rxjs/)」
+關於 Scheduler，可以參考之前的文章「[[RxJS] 認識 Scheduler](https://fullstackladder.dev/blog/2020/10/19/mastering-rxjs-34-introduce-scheduler-of-rxjs/)」
 
 {% endnote %}
 

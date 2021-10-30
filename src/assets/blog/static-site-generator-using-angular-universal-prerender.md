@@ -14,7 +14,7 @@ tags:
 <!-- more -->
 
 * 範例程式：https://github.com/wellwind/ngx-universal-prerender-demo
-* Live Demo：https://wellwind.idv.tw/ngx-universal-prerender-demo/
+* Live Demo：https://fullstackladder.dev/ngx-universal-prerender-demo/
   * 可以檢視任一個頁面的原始碼，所有內容都是預先產生好的！
 
 # Angular Universal 超快速入門
@@ -139,8 +139,6 @@ npm run prerender -- --routes-file post-routes.txt
 最後讓我們延伸這些功能，實作一個簡單的靜態內容產生器，將寫好的 markdown 都轉成靜態頁面！
 
 由於中間還是不少技術細節，以下為經過多次嘗試後的結論，大致說明幾個重要步驟和需要注意的部分。
-
-
 
 ## 前置重要準備
 
@@ -324,12 +322,6 @@ export class PostResolver implements Resolve<string> {
   component: PostComponent,
 }
 ```
-
-{% note info %}
-
-特地使用 resolver 在 Prerender 下最大的好處是，靜態檔案產生後，不會因為資料重新下載需要覆蓋而造成畫面閃爍
-
-{% endnote %}
 
 ## 取得 resolver 的資料並顯示
 

@@ -9,7 +9,7 @@ tags:
   - "CLI Builder API"
 ---
 
-Angular CLI 可以幫助我們透過 `ng` 指令完成許多繁雜的工作，像是啟動開發用的伺服器 (`ng serve`)、將 Angular 專案見製成純前端網站 (`ng build`) 、或是進行單元測試 (`ng test`) 等等，這些指令其實背後都是一段又一段的程式，再搭配 Angular 的 CLI Builder API 整合起來的，而透過 CLI Builder API 也可以幫助我們將一些專案內經常運行的程式也整合到 Angular CLI 內，甚至可以藉此擴充原本內建的 Angular CLI 指令，今天就來看一下如何使用 CLI Builder API 吧！
+Angular CLI 可以幫助我們透過 `ng` 指令完成許多繁雜的工作，像是啟動開發用的伺服器 (`ng serve`)、將 Angular 專案建置成純前端網站 (`ng build`) 、或是進行單元測試 (`ng test`) 等等，這些指令其實背後都是一段又一段的程式，再搭配 Angular 的 CLI Builder API 整合起來的，而透過 CLI Builder API 也可以幫助我們將一些專案內經常運行的程式也整合到 Angular CLI 內，甚至可以藉此擴充原本內建的 Angular CLI 指令，今天就來看一下如何使用 CLI Builder API 吧！
 
 <!-- more -->
 

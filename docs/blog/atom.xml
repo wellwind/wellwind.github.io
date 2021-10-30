@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 30 Oct 2021 11:36:48 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 30 Oct 2021 12:44:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -14,7 +14,7 @@
             <link>https://fullstackladder.dev/2021/10/23/learn-angular-cli-builders</link>
             <guid>https://fullstackladder.dev/2021/10/23/learn-angular-cli-builders</guid>
             <pubDate>Sat, 23 Oct 2021 04:12:56 GMT</pubDate>
-            <description><![CDATA[<p>Angular CLI 可以幫助我們透過 <code>ng</code> 指令完成許多繁雜的工作，像是啟動開發用的伺服器 (<code>ng serve</code>)、將 Angular 專案見製成純前端網站 (<code>ng build</code>) 、或是進行單元測試 (<code>ng test</code>) 等等，這些指令其實背後都是一段又一段的程式，再搭配 Angular 的 CLI Builder API 整合起來的，而透過 CLI Builder API 也可以幫助我們將一些專案內經常運行的程式也整合到 Angular CLI 內，甚至可以藉此擴充原本內建的 Angular CLI 指令，今天就來看一下如何使用 CLI Builder API 吧！</p>
+            <description><![CDATA[<p>Angular CLI 可以幫助我們透過 <code>ng</code> 指令完成許多繁雜的工作，像是啟動開發用的伺服器 (<code>ng serve</code>)、將 Angular 專案建置成純前端網站 (<code>ng build</code>) 、或是進行單元測試 (<code>ng test</code>) 等等，這些指令其實背後都是一段又一段的程式，再搭配 Angular 的 CLI Builder API 整合起來的，而透過 CLI Builder API 也可以幫助我們將一些專案內經常運行的程式也整合到 Angular CLI 內，甚至可以藉此擴充原本內建的 Angular CLI 指令，今天就來看一下如何使用 CLI Builder API 吧！</p>
 ]]></description>
         </item>
         <item>

@@ -17,7 +17,7 @@ tags:
 
 # 安裝Angular CLI並產生Angular專案
 
-安裝Angular CLI動作非常簡單，[前一篇](http://wellwind.idv.tw/blog/angular-tutorial-1-hello-world/)文章也介紹過了，基本上只需要確認~~node的版本是4.x.x以上，npm須為3.x.x以上~~(**總之版本越高越好**)即可透過以下指令安裝Angular CLI
+安裝Angular CLI動作非常簡單，[前一篇](https://fullstackladder.dev/blog/angular-tutorial-1-hello-world/)文章也介紹過了，基本上只需要確認~~node的版本是4.x.x以上，npm須為3.x.x以上~~(**總之版本越高越好**)即可透過以下指令安裝Angular CLI
 
 ```shell
 npm install -g @angular/cli

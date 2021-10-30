@@ -218,7 +218,7 @@ export class MyAppComponent {
 
 # strictTemplates 檢查下使用 async pipe
 
-過去我們介紹過[使用 async pipe 搭配 Observable 物件](https://wellwind.idv.tw/blog/2018/11/11/mastering-angular-27-async-pipe/)的開發技巧，在元件中宣告 Observable 物件，但不做訂閱，而是等到畫面產生時，由 async pipe 幫助我們訂閱，這種寫法過去的習慣在 `strictTemplates` 下會產生一些問題，例如：
+過去我們介紹過[使用 async pipe 搭配 Observable 物件](https://fullstackladder.dev/blog/2018/11/11/mastering-angular-27-async-pipe/)的開發技巧，在元件中宣告 Observable 物件，但不做訂閱，而是等到畫面產生時，由 async pipe 幫助我們訂閱，這種寫法過去的習慣在 `strictTemplates` 下會產生一些問題，例如：
 
 ```typescript
 @Component({
@@ -324,4 +324,4 @@ todoList$ = this.getTodoList()
 * [noImplictAny](https://www.typescriptlang.org/tsconfig#noImplicitAny)
 * [strictPropertyInitialization](https://www.typescriptlang.org/tsconfig#strictPropertyInitialization)
 * [strictTemplates](https://angular.io/guide/angular-compiler-options#stricttemplates)
-* [[Angular 大師之路] 認識 AsyncPipe (1) - 基本使用技巧](https://wellwind.idv.tw/blog/2018/11/11/mastering-angular-27-async-pipe/)
+* [[Angular 大師之路] 認識 AsyncPipe (1) - 基本使用技巧](https://fullstackladder.dev/blog/2018/11/11/mastering-angular-27-async-pipe/)

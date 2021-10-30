@@ -10,7 +10,7 @@ tags:
   - Commit Template
 ---
 
-昨天我們簡單的說明了[GitKraken的基本功能](https://wellwind.idv.tw/blog/2018/04/03/git-using-gitkraken-1-basic/)，今天我們來介紹如何在GitKraken中一些其他的功能，包含GitFlow開發流程、Commit Template和衝突的處理方式
+昨天我們簡單的說明了[GitKraken的基本功能](https://fullstackladder.dev/blog/2018/04/03/git-using-gitkraken-1-basic/)，今天我們來介紹如何在GitKraken中一些其他的功能，包含GitFlow開發流程、Commit Template和衝突的處理方式
 
 <!-- more -->
 

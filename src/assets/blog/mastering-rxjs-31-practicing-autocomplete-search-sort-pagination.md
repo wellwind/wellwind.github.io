@@ -176,7 +176,7 @@ keyword$
 
 如果不明白這幾個 operators 的差別，請先看過之前寫的文章：
 
-[[RxJS] 轉換類型 Operators (2) - switchMap / concatMap / mergeMap / exhaustMap](https://wellwind.idv.tw/blog/2020/10/04/mastering-rxjs-19-switchmap-concatmap-mergemap-exhaustmap/)
+[[RxJS] 轉換類型 Operators (2) - switchMap / concatMap / mergeMap / exhaustMap](https://fullstackladder.dev/blog/2020/10/04/mastering-rxjs-19-switchmap-concatmap-mergemap-exhaustmap/)
 
 {% endnote %}
 
@@ -225,7 +225,7 @@ keyword$
 
 `distinct` 和 `distinctUntilChanged` 的差別，可以參考之前寫的文章：
 
-[[RxJS] 過濾類型 Operators (4) - distinct / distinctUntilChanged / distinctUntilKeyChanged](https://wellwind.idv.tw/blog/2020/10/09/mastering-rxjs-24-distinct-distinctuntilchanged-distinctuntilkeychanged/)
+[[RxJS] 過濾類型 Operators (4) - distinct / distinctUntilChanged / distinctUntilKeyChanged](https://fullstackladder.dev/blog/2020/10/09/mastering-rxjs-24-distinct-distinctuntilchanged-distinctuntilkeychanged/)
 
 {% endnote %}
 
@@ -328,7 +328,7 @@ const keyword$ = fromEvent(document.querySelector('#keyword'), 'input').pipe(
 
 關於 `share()` 和 `shareReplay()` 背後默默做的事情及差異，可以參考之前的文章：
 
-[[RxJS] Multicast 類 Operator (1) - multicast / publish / refCount / share / shareReplay](https://wellwind.idv.tw/blog/2020/10/15/mastering-rxjs-30-multicast-publish-refcount-share-sharereplay/)
+[[RxJS] Multicast 類 Operator (1) - multicast / publish / refCount / share / shareReplay](https://fullstackladder.dev/blog/2020/10/15/mastering-rxjs-30-multicast-publish-refcount-share-sharereplay/)
 
 {% endnote %}
 
