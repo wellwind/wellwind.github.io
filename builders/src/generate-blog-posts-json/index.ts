@@ -16,7 +16,7 @@ async function generateBlogPostsJson(options: Options, context: BuilderContext):
   const markdownPostsPath = options.markdownPostsPath;
   const targetJsonPath = options.targetJsonPath;
 
-  context.logger.info(`Generate ${targetJsonPath} from 📃 markdown files in ${markdownPostsPath}`);
+  context.logger.info(`📃 Generate ${targetJsonPath} from markdown files in ${markdownPostsPath}`);
 
   const posts = readdirSync(markdownPostsPath, { withFileTypes: true })
     .filter(dirent => dirent.isFile() && dirent.name.endsWith('.md'))

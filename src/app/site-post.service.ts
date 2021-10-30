@@ -1,19 +1,35 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { ascend, descend, prop, sortWith } from 'ramda';
-import { combineLatest } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { combineLatest, iif, of } from 'rxjs';
+import { map, shareReplay, switchMap, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { PlatformService } from '../platform.service';
 import { PostMeta, PostMetaWithSlug } from './post-meta.interface';
+
+const _cacheBlogPostsKey = makeStateKey('blog-posts.json');
 
 @Injectable({
   providedIn: 'root'
 })
 export class SitePostService {
 
-  public postsMeta$ = this.httpClient
-    .get<{ [keg: string]: PostMeta }>(`${environment.url}assets/blog-posts.json`)
-    .pipe(shareReplay(1))
+  public postsMeta$ = iif(
+    () => !!this.state.get<{ [keg: string]: PostMeta } | null>(_cacheBlogPostsKey, null),
+    of(this.state.get<{ [keg: string]: PostMeta } | null>(_cacheBlogPostsKey, null)!),
+    this.httpClient
+      .get<{ [keg: string]: PostMeta }>(`${environment.url}assets/blog-posts.json`)
+      .pipe(
+        tap(json => {
+          if (this.platformService.isServer) {
+            this.state.set<{ [keg: string]: PostMeta }>(_cacheBlogPostsKey, json)
+          }
+        })
+      )
+  ).pipe(
+    shareReplay(1)
+  );
 
   public postCategories$ = this.postsMeta$
     .pipe(
@@ -75,6 +91,6 @@ export class SitePostService {
         }, {} as { [key: string]: PostMetaWithSlug[] }))
     )
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private state: TransferState, private platformService: PlatformService) {
   }
 }

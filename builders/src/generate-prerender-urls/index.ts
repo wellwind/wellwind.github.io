@@ -27,7 +27,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
     '/blog/archives'
   ];
 
-  context.logger.info(`Generate ${urlsPath}.`);
+  context.logger.info(`🔁 Generate ${urlsPath}.`);
 
   const posts = readdirSync(markdownPostsPath, { withFileTypes: true })
     .filter(dirent => dirent.isFile() && dirent.name.endsWith('.md'))
@@ -36,7 +36,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
 
   //#region Post pages
 
-  context.logger.info(`Generating post pages.`);
+  context.logger.info(`📝 Generating post pages.`);
 
   // single post
   const postPages = posts.map(post => `/blog/${post.date
@@ -53,7 +53,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
 
   //#region Category pages
 
-  context.logger.info(`Generating category pages.`);
+  context.logger.info(`📁 Generating category pages.`);
 
   // categories page
   const categoriesInPosts = posts
@@ -80,7 +80,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
 
   //#region Tag pages
 
-  context.logger.info(`Generating tag pages.`);
+  context.logger.info(`🏷  Generating tag pages.`);
 
   const tagsInPosts = posts
     .reduce((prev, curr) => ([...prev, ...(curr.tags || [])]), [] as string[])
@@ -106,7 +106,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
 
   //#region Archive pages
 
-  context.logger.info(`Generating 📁 archive pages.`);
+  context.logger.info(`🪣  Generating archive pages.`);
 
   // archive page
   const archivePageCount = getPageCount(posts);
@@ -117,6 +117,6 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
 
   writeFileSync(urlsPath, urls.join('\n'));
 
-  context.logger.info('✅ Done');
+  context.logger.info('✅ Done.');
   return { success: true };
 }
