@@ -68,6 +68,7 @@
 /blog/2016/11/27/angular-tutorial-7-css-process
 /blog/2016/12/31/angular-tutorial-8-ngclass
 /blog/2017/01/02/angular-tutorial-9-ngfor-vars
+/blog/2021/10/31/angular-universal-transfer-state
 /blog/2018/12/15/angular-universal-with-firebase
 /blog/2017/01/08/ansible-windows-rsync-continuous-delivery
 /blog/2016/09/15/codewars-online-kata-collection
@@ -270,7 +271,6 @@
 /blog/categories/第-12-屆鐵人賽/page/4
 /blog/categories/React速成班
 /blog/categories/RxJS
-/blog/categories/Angular-進階議題
 /blog/categories/Machine-Learning-機器學習
 /blog/categories/Asp.Net-WebApi
 /blog/tags/C#
@@ -284,6 +284,7 @@
 /blog/tags/Angular/page/5
 /blog/tags/Angular/page/6
 /blog/tags/Angular/page/7
+/blog/tags/Angular/page/8
 /blog/tags/Angular8
 /blog/tags/Dynamic-Import
 /blog/tags/Lazy-Loading
@@ -381,6 +382,10 @@
 /blog/tags/NgFor
 /blog/tags/Angular-Universal
 /blog/tags/Server-Side-Rendering
+/blog/tags/TransferState
+/blog/tags/ServerTransferStateModule
+/blog/tags/BrowserTransferStateModule
+/blog/tags/TransferHttpCacheModule
 /blog/tags/Firebase
 /blog/tags/Firebase-Functions
 /blog/tags/Firebase-Hosting

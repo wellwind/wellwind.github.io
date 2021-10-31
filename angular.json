@@ -27,8 +27,8 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "CNAME",
-              ".nojekyll",
+              "src/CNAME",
+              "src/.nojekyll",
               "src/favicon.ico",
               "src/assets"
             ],

@@ -1,10 +1,11 @@
 ---
 title: "[Angular Universal] 使用 Prerender 建立自己的 Static Site Generator"
 date: 2021-10-16 13:32:39
-category: "Angular 進階議題"
+category: "Angular進階議題"
 tags:
   - Angular
   - Angular Universal
+  - Server Side Rendering
   - Prerender
   - Static Site Generator
 ---

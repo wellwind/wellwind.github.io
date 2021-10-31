@@ -4,11 +4,21 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 30 Oct 2021 12:44:38 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 31 Oct 2021 06:47:15 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Angular Universal] 使用 TransferState 解決畫面閃爍問題]]></title>
+            <link>https://fullstackladder.dev/2021/10/31/angular-universal-transfer-state</link>
+            <guid>https://fullstackladder.dev/2021/10/31/angular-universal-transfer-state</guid>
+            <pubDate>Sun, 31 Oct 2021 07:00:00 GMT</pubDate>
+            <description><![CDATA[<p>透過 Angular Universal 可以輕易達成 SSR 伺服器端渲染的效果，不過對於伺服器端產生的內容，到了 client 依然會重新進行產生，對於比較複雜的非同步處理如 HTTP 呼叫，就會發生重複呼叫，甚至照成畫面閃爍的問題。</p>
+<p>針對這個問題，Angular 提出了 Transfer State (狀態轉移) 的做法，將 server 抓取資料的狀態移轉到 client，讓 client 可以直接使用這些狀態資料，而不是重新產生，以避免畫面閃爍等問題。</p>
+<p>今天就來看看 Transfer State 的使用方式吧！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[透過 CLI Builder API 加強 Angular CLI 功能]]></title>
             <link>https://fullstackladder.dev/2021/10/23/learn-angular-cli-builders</link>
@@ -165,14 +175,6 @@
             <guid>https://fullstackladder.dev/2020/10/08/mastering-rxjs-23-skip-skiplast-skipuntil-skipwhile</guid>
             <pubDate>Thu, 08 Oct 2020 10:00:00 GMT</pubDate>
             <description><![CDATA[<p>昨天介紹的 <code>take</code> 系列是用來決定要「拿哪些資料」，今天來介紹 <code>skip</code> 系列，越來決定「忽略哪些資料」。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[RxJS] 過濾類型 Operators (2) - take / takeLast / takeUntil / takeWhile]]></title>
-            <link>https://fullstackladder.dev/2020/10/07/mastering-rxjs-22-take-takelast-takeuntil-takewhile</link>
-            <guid>https://fullstackladder.dev/2020/10/07/mastering-rxjs-22-take-takelast-takeuntil-takewhile</guid>
-            <pubDate>Wed, 07 Oct 2020 10:00:00 GMT</pubDate>
-            <description><![CDATA[<p>今天來介紹 <code>take</code> 系列的各種過濾類型 operators。</p>
 ]]></description>
         </item>
     </channel>

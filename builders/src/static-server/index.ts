@@ -20,7 +20,7 @@ function staticServer(options: Options, context: BuilderContext): Observable<Bui
   connect()
     .use(cors())
     .use(serveStatic(fileDir))
-    .listen(port, () => context.logger.info(`Server running on ${port}...`));
+    .listen(port, () => context.logger.info(`💻 Server running on ${port}...`));
 
   return new BehaviorSubject({ success: true });
 }
