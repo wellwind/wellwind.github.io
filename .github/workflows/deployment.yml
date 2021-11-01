@@ -34,8 +34,13 @@ jobs:
         github_token: ${{ github.token }}
         publish_dir: ./docs
         publish_branch: gh-pages
-        commit_message: Publish site at $(date +'%Y-%m-%dT%H:%M:%S')
 
+    - name: Purge Cloudflare Cache
+      uses: jakejarvis/cloudflare-purge-action@master
+      env:
+        CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+        CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+        
     - name: Telegram Notify
       if: always()
       uses: appleboy/telegram-action@master
