@@ -82,20 +82,20 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
 
     this.highlightCode();
 
-    if (this.comments && this.comments.nativeElement) {
-      const element = this.comments.nativeElement;
-      const scriptTag = document.createElement('script');
-
-      scriptTag.setAttribute('src', 'https://utteranc.es/client.js');
-      scriptTag.setAttribute('repo', 'wellwind/wellwind.github.io');
-      scriptTag.setAttribute('issue-term', 'title');
-      scriptTag.setAttribute('label', 'comment');
-      scriptTag.setAttribute('theme', 'github-light');
-      scriptTag.setAttribute('crossorigin', 'anonymous');
-      scriptTag.setAttribute('async', '');
-
-      element.appendChild(scriptTag);
-    }
+    // if (this.comments && this.comments.nativeElement) {
+    //   const element = this.comments.nativeElement;
+    //   const scriptTag = document.createElement('script');
+    //
+    //   scriptTag.setAttribute('src', 'https://utteranc.es/client.js');
+    //   scriptTag.setAttribute('repo', 'wellwind/wellwind.github.io');
+    //   scriptTag.setAttribute('issue-term', 'title');
+    //   scriptTag.setAttribute('label', 'comment');
+    //   scriptTag.setAttribute('theme', 'github-light');
+    //   scriptTag.setAttribute('crossorigin', 'anonymous');
+    //   scriptTag.setAttribute('async', '');
+    //
+    //   element.appendChild(scriptTag);
+    // }
   }
 
   highlightCode() {

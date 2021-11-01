@@ -9,6 +9,7 @@ import { PostDateAsPathPipe } from './post-date-as-path.pipe';
 import { SlugifyPipe } from './slugify.pipe';
 import { PaginationComponent } from './pagination/pagination.component';
 import { UnslugifyPipe } from './unslugify.pipe';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UnslugifyPipe } from './unslugify.pipe';
     UnslugifyPipe,
     PaginationComponent,
     UnslugifyPipe,
-    BlogPostSubtitleComponent],
+    BlogPostSubtitleComponent,
+    CommentComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -31,7 +33,8 @@ import { UnslugifyPipe } from './unslugify.pipe';
     UnslugifyPipe,
     PaginationComponent,
     UnslugifyPipe,
-    BlogPostSubtitleComponent
+    BlogPostSubtitleComponent,
+    CommentComponent
   ]
 })
 export class SiteCommonModule {

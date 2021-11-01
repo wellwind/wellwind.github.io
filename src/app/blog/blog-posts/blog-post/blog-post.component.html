@@ -59,7 +59,9 @@
       <mat-divider></mat-divider>
 
       <h1>有任何問題或建議嗎？歡迎留言給我</h1>
-      <div class="blog-post-comments" #comments></div>
+      <div class="blog-post-comments" #comments>
+        <app-comment class="blog-post-comments"></app-comment>
+      </div>
     </div>
 
     <ng-container *ngIf="!isServer">
