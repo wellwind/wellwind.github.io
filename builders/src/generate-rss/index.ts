@@ -47,8 +47,8 @@ async function generateRss(options: Options, context: BuilderContext): Promise<B
 
     feed.addItem({
       title: post.title,
-      id: `${siteUrl}${dateFormatted}/${post.slug}`,
-      link: `${siteUrl}${dateFormatted}/${post.slug}`,
+      id: `${siteUrl}blog/${dateFormatted}/${post.slug}`,
+      link: `${siteUrl}blog/${dateFormatted}/${post.slug}`,
       description: post.summary,
       date: new Date(post.date),
     });
