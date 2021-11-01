@@ -1,5 +1,5 @@
 ---
-title: "[GitHubActions] 發送 Telegram 訊息"
+title: "[GitHub Actions] 發送 Telegram 訊息"
 date: 2021/11/01 16:27:00
 category: "GitHub Actions Snippets"
 tags:
