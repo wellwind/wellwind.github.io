@@ -23,7 +23,7 @@ export class BlogArchivesComponent implements OnInit {
 
   yearPostsCount$ = this.totalPosts$.pipe(
     map(posts => posts.reduce((prev, curr) => {
-      const year = curr.date.substr(1, 4);
+      const year = curr.date.substr(0, 4);
       if (!prev[year]) {
         prev[year] = 0;
       }
@@ -40,6 +40,7 @@ export class BlogArchivesComponent implements OnInit {
     switchMap(posts => this.yearPostsCount$
       .pipe(
         map(yearPostsCount => posts.reduce((prev, curr) => {
+          console.log(yearPostsCount);
           const year = curr.date.slice(0, 4);
 
           let yearPosts = prev.find(item => item.year === year);
