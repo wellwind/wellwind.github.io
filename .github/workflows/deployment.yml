@@ -33,7 +33,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ github.token }}
-        publish_dir: ./docs
+        publish_dir: ./dist/blog/browser
         publish_branch: gh-pages
 
     - name: Purge Cloudflare Cache
