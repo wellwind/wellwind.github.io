@@ -1,7 +1,7 @@
-name: Send Telegram Message on comments.
+name: Send Telegram Message on discussions comment.
 
 on:
-  issue_comment:
+  discussion_comment:
     types: [ created ]
 
 jobs:
