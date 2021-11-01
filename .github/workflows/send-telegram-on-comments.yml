@@ -17,7 +17,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             From: ${{ github.event.sender.login }}
-            Title: ${{ github.event.issue.title }}
+            Title: ${{ github.event.discussion.title }}
             Link: ${{ github.event.comment.html_url }}
             Body:
             ${{ github.event.comment.body }}
