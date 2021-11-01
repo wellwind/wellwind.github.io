@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { PlatformService } from '../../../platform.service';
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.scss']
 })
-export class CommentComponent implements OnDestroy {
+export class CommentComponent implements AfterViewInit, OnDestroy {
 
   subscription = new Subscription();
 
@@ -18,9 +18,6 @@ export class CommentComponent implements OnDestroy {
     private elementRef: ElementRef<HTMLElement>,
     private platformService: PlatformService) {
 
-    if (this.platformService.isServer) {
-      return;
-    }
     this.subscription.add(
       this.router.events.pipe(
         filter(event => event instanceof NavigationStart)
@@ -45,6 +42,11 @@ export class CommentComponent implements OnDestroy {
   }
 
   generateComment() {
+
+    if (this.platformService.isServer) {
+      return;
+    }
+
     const element = this.elementRef.nativeElement;
 
     const scriptTag = document.createElement('script');
