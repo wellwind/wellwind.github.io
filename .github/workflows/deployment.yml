@@ -34,3 +34,13 @@ jobs:
         github_token: ${{ github.token }}
         publish_dir: ./docs
         publish_branch: gh-pages
+
+    - name: Telegram Notify
+      if: always()
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_CHAT_ID }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          New Deployment
+          Status: ${{ job.status }}
