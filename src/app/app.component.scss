@@ -62,11 +62,8 @@
   min-width: 240px;
   max-width: 240px;
 
-  &.server-sidebar {
-    @media (min-width: 600px) and (max-width: 959.98px) {
-      display: none;
-    }
-    @media (max-width: 599.98px) {
+  @media (max-width: 959.98px) {
+    &.server-sidebar {
       display: none;
     }
   }

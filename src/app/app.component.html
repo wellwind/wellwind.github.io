@@ -14,8 +14,7 @@
 
   <div
     class="search-bar"
-    [class.server-sidebar]="isServer"
-    *ngIf="!(isSmallScreen$ | async)">
+    *ngIf="!(isSmallScreen$ | async) && !isServer">
     <input
       autocomplete="off"
       type="text"

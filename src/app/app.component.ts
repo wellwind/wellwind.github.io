@@ -11,6 +11,7 @@ import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators'
 import { slugify } from '../../utils/slugify';
 import { environment } from '../environments/environment';
 import { PlatformService } from '../platform.service';
+import { PostMetaWithSlug } from './post-meta.interface';
 import { SiteMetaService } from './site-meta.service';
 import { SitePostService } from './site-post.service';
 
@@ -60,26 +61,45 @@ export class AppComponent implements OnInit {
     )])
     .pipe(
       map(([posts, keywordString]) => {
+        const filterPostBy = (keyword: string) => (post: PostMetaWithSlug) =>
+          post.title.toLowerCase().indexOf(keyword.toLowerCase()) >= 0
+          || post.summary.toLowerCase().indexOf(keyword.toLowerCase()) >= 0;
+
         let result = [];
 
         let searchType = 'any';
+        let searchField = '';
+        let searchFrom = '';
         let keyword = '';
         const chunks = keywordString.split(':');
-        if (chunks.length > 1) {
+        if (chunks.length > 2) {
+          searchType = 'post';
+          searchField = chunks[0];
+          searchFrom = chunks[1];
+          keyword = chunks[2];
+        } else if (chunks.length > 1) {
           searchType = chunks[0].toLowerCase();
           keyword = chunks[1];
         } else {
           keyword = chunks[0];
         }
-        console.log(keyword);
 
         if (searchType === 'any' || searchType === 'post') {
           const relatePosts = posts
-            .filter(post => post.title.toLowerCase().indexOf(keyword.toLowerCase()) >= 0)
+            .filter(post => {
+              const filterKeywordFn = filterPostBy(keyword);
+              if (searchField === 'category') {
+                return filterKeywordFn(post) && !!(post.categories || []).find((category) => category.toLowerCase().indexOf(searchFrom.toLowerCase()) >= 0);
+              } else if (searchField === 'tag') {
+                return filterKeywordFn(post) && !!(post.tags || []).find((tag) => tag.toLowerCase().indexOf(searchFrom.toLowerCase()) >= 0);
+              } else {
+                return filterKeywordFn(post);
+              }
+            })
             .sort((postA, postB) =>
               postA.title.toLowerCase().indexOf(keyword.toLowerCase()) - postB.title.toLowerCase().indexOf(keyword.toLowerCase()))
           result.push(...relatePosts.map(post => ({
-            type: '文章',
+            type: `${searchField}${searchField ? ':' : ''}${searchFrom}${searchFrom ? ':' : ''}文章`,
             text: post.title,
             link: `/blog/${post.date.slice(0, 10).replace(/-/g, '/')}/${post.slug}`,
             toString: () => ''
@@ -90,7 +110,9 @@ export class AppComponent implements OnInit {
           const allCategories = posts
             .reduce((curr, post) => ([...new Set([...curr, ...post.categories || []])]), [] as string[])
 
-          const relatedCategories = allCategories.filter((category: string) => category.toLowerCase().indexOf(keyword.toLowerCase()) >= 0)
+          const relatedCategories = allCategories.filter((category: string) =>
+            category.toLowerCase().indexOf(keyword.toLowerCase()) >= 0
+          )
             .sort((categoryA, categoryB) =>
               categoryA.toLowerCase().indexOf(keyword.toLowerCase()) - categoryB.toLowerCase().indexOf(keyword.toLowerCase()))
           result.push(...relatedCategories.map(category => ({
@@ -120,7 +142,6 @@ export class AppComponent implements OnInit {
         return result;
       })
     )
-
 
   constructor(
     private router: Router,
