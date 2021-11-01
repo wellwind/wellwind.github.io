@@ -27,17 +27,14 @@ jobs:
         npm install
         npm run serve:assets &
         npm run build:blog
-        
-    - name: Set current date as env variable
-      run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-      
+
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ github.token }}
         publish_dir: ./docs
         publish_branch: gh-pages
-        commit_message: Publish site at ${{ NOW }}
+        commit_message: Publish site at $(date +'%Y-%m-%dT%H:%M:%S')
 
     - name: Telegram Notify
       if: always()
