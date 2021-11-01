@@ -17,6 +17,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - if: startsWith(github.event.issue.author.login, 'utterances-bot') = 'true'
+      - if: startsWith(github.event.issue.author.login, 'utterances-bot') == 'true'
         name: Close Issue
         uses: peter-evans/close-issue@v1
