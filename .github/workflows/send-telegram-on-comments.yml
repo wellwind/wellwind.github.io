@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: hmarr/debug-action@v2
       - name: send telegram message on comment opened
         uses: appleboy/telegram-action@master
         with:
