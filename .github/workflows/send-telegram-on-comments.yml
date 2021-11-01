@@ -1,8 +1,5 @@
-# This is a basic workflow to help you get started with Actions
+name: Send Telegram Message on comments.
 
-name: CI
-
-# Controls when the workflow will run
 on:
   issue_comment:
     types: [ created ]
