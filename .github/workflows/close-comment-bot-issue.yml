@@ -18,6 +18,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - run: echo ${{ startsWith(github.event.issue.user.login, 'utterances-bot') }}
-      - if: startsWith(github.event.issue.user.login, 'utterances-bot') == 'true'
+      - if: startsWith(github.event.issue.user.login, 'utterances-bot') == true
         name: Close Issue
         uses: peter-evans/close-issue@v1
