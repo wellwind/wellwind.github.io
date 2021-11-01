@@ -33,7 +33,14 @@
 
 <mat-drawer-container class="drawer-container">
 
-  <mat-drawer class="sidebar" mode="side" [opened]="menuOpen$ | async" disableClose>
+  <mat-drawer
+    class="sidebar"
+    [class.server-sidebar]="isServer"
+    [mode]="(isSmallScreen$ | async) ? 'over' : 'side'"
+    [disableClose]="(isSmallScreen$ | async) ? false : true"
+    [opened]="menuOpen$ | async"
+    (closed)="menuOpen$.next(false)"
+  >
     <div class="post-statics">
       <div class="statics-block">
         <a routerLink="/blog/archives">
