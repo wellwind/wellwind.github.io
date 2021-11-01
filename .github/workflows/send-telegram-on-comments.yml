@@ -1,7 +1,7 @@
-name: Send Telegram Message on comments.
+name: Send Telegram Message on discussions comment.
 
 on:
-  issue_comment:
+  discussion_comment:
     types: [ created ]
 
 jobs:
@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: hmarr/debug-action@v2
       - name: send telegram message on comment opened
         uses: appleboy/telegram-action@master
         with:
@@ -16,7 +17,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             From: ${{ github.event.sender.login }}
-            Title: ${{ github.event.issue.title }}
+            Title: ${{ github.event.discussion.title }}
             Link: ${{ github.event.comment.html_url }}
             Body:
             ${{ github.event.comment.body }}
