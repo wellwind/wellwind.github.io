@@ -8,7 +8,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "postinstall": "npm link builders && npm run build:builders",
-    "copy:docs": "npx shx cp -r ./dist/blog/browser/* ./docs",
     "prerender": "ng run blog:prerender",
     "prerender:pages": "ng run blog:prerender --routes-file pages.txt --configuration static",
     "dev:ssr": "ng run blog:serve-ssr",
@@ -20,7 +19,7 @@
     "build:blog-posts-json": "ng run blog:generate-blog-posts-json",
     "build:urls": "ng run blog:generate-prerender-urls",
     "build:rss": "ng run blog:generate-rss",
-    "build:blog": "npm run build:blog-posts-json && npm run build:urls && npm run prerender:pages && npm run build:rss -- --rss-path ./dist/blog/browser/blog/atom.xml && npm run copy:docs"
+    "build:blog": "npm run build:blog-posts-json && npm run build:urls && npm run prerender:pages && npm run build:rss -- --rss-path ./dist/blog/browser/blog/atom.xml"
   },
   "private": true,
   "dependencies": {
