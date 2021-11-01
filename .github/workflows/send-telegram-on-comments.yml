@@ -7,17 +7,11 @@ on:
   issue_comment:
     types: [ created ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   sendMessage:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Log
-        uses: hmarr/debug-action@v2
       - name: send telegram message on comment opened
         uses: appleboy/telegram-action@master
         with:
