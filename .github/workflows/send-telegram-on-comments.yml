@@ -4,9 +4,6 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  issues: 
-    types: [ opened ]
   issue_comment:
     types: [ created ]
 
@@ -25,4 +22,8 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: "Comment"
+          message: |
+            From: ${{ gihbub.comment.user.login }}
+            Title: ${{ github.issue.title }}
+            Body:
+            ${{ github.comment.body }}
