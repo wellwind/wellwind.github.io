@@ -23,7 +23,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            From: ${{ gihbub.comment.user.login }}
+            From: ${{ github.comment.user.login }}
             Title: ${{ github.issue.title }}
             Body:
             ${{ github.comment.body }}
