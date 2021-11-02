@@ -14,7 +14,7 @@
     "serve:ssr": "node dist/blog/server/main.js",
     "build:ssr": "ng build && ng run blog:server",
     "serve:assets": "ng run blog:static-server --path ./src --port 4201",
-    "serve:blog": "ng run blog:static-server --path ./docs --port 4202",
+    "serve:blog": "ng run blog:static-server --path ./dist/blog/browser --port 4202",
     "build:builders": "cd builders && npx tsc",
     "build:blog-posts-json": "ng run blog:generate-blog-posts-json",
     "build:urls": "ng run blog:generate-prerender-urls",

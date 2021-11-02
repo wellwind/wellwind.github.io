@@ -109,6 +109,9 @@
 /blog/2018/04/03/git-using-gitkraken-1-basic
 /blog/2018/04/04/git-using-gitkraken-2-advanced
 /blog/2018/04/05/git-using-gitkraken-3-remote
+/blog/2021/11/01/github-actions-auto-close-bot-issue
+/blog/2021/11/01/github-actions-print-events
+/blog/2021/11/01/github-actions-send-telegram
 /blog/2016/09/16/github-projects-using-kanban
 /blog/2021/06/21/how-to-survive-in-angular-12-strict-mode-using-async-pipe
 /blog/2014/09/29/jquery-unobtrusive-dynamic-add-validate
@@ -259,6 +262,7 @@
 /blog/categories/前端軍火庫/page/3
 /blog/categories/前端軍火庫/page/4
 /blog/categories/Git
+/blog/categories/GitHub-Actions-Snippets
 /blog/categories/打通-RxJS-任督二脈
 /blog/categories/打通-RxJS-任督二脈/page/1
 /blog/categories/打通-RxJS-任督二脈/page/2
@@ -414,6 +418,7 @@
 /blog/tags/GitGUI
 /blog/tags/GitFlow
 /blog/tags/Commit-Template
+/blog/tags/GitHub-Actions
 /blog/tags/GitHub
 /blog/tags/GitHub-Projects
 /blog/tags/Kanban
