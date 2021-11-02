@@ -131,6 +131,8 @@
   }
 }
 
-.main-content.server {
-  margin-left: 240px;
+@media (max-width: 959.98px) {
+  .main-content.server {
+    margin-left: 0 !important;
+  }
 }
