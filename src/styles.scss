@@ -149,6 +149,7 @@ a {
       &:hover {
         text-decoration: none;
       }
+
       font-size: 16px;
     }
 
@@ -238,6 +239,16 @@ a {
   top: 0;
   z-index: 101;
   margin-bottom: 8px;
+
+  @media (max-width: 959.98px) {
+    h1 {
+      font-size: 24px !important;
+    }
+
+    h2 {
+      display: none !important;
+    }
+  }
 
   h1 {
     font-size: 36px;
