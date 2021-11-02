@@ -37,6 +37,10 @@
       border: 0;
       padding: 8px;
     }
+
+    @media (max-width: 959.98px) {
+      display: none !important;
+    }
   }
 }
 
