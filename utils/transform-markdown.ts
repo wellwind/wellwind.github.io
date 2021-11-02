@@ -20,6 +20,11 @@ export const transformMarkdown = (content: string, slug: string) => markdown
   .replace(
     /\{% asset_img (.*?)\s(.*?)%\}/g,
     `<img src="./assets/blog/${slug}/$1" alt="$2" title="$2" />`)
+  // lazy loading 圖片
+  .replace(
+    /<img(.*)\/>/,
+    `<img$1 loading="lazy" />`
+  )
   // {% note %} 轉換
   .replace(
     /<p>{% note (.*?) %}<\/p>(.*?)<p>{% endnote %}<\/p>/gs,
