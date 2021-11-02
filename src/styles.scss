@@ -164,7 +164,8 @@ a {
   line-height: 24px;
 
   img {
-    max-width: 100%;
+    max-width: calc(100% - 12px);
+    padding: 6px;
     border: 0.5px solid rgba(0, 0, 0, 0.2);
     display: block;
     margin: 0 auto;
