@@ -1,0 +1,123 @@
+<mat-toolbar color="primary" class="toolbar mat-elevation-z6" xmlns="http://www.w3.org/1999/html">
+  <button mat-icon-button (click)="menuOpen$.next(!menuOpen$.value)">
+    <mat-icon *ngIf="menuOpen$ | async">menu_open</mat-icon>
+    <mat-icon *ngIf="!(menuOpen$ | async)">menu</mat-icon>
+  </button>
+  <h1>
+    <a class="header-link" routerLink="/">
+      <span class="header-link-1">全端開發</span>
+      <span class="header-link-2">人員天梯</span>
+    </a>
+  </h1>
+
+  <div class="spacer"></div>
+
+  <div
+    class="search-bar"
+    *ngIf="!(isSmallScreen$ | async) && !isServer">
+    <input
+      autocomplete="off"
+      type="text"
+      class="search-input"
+      matInput
+      placeholder="搜尋..."
+      [formControl]="searchKeyword"
+      [matAutocomplete]="auto"
+    >
+    <mat-autocomplete #auto="matAutocomplete" panelWidth="auto" (optionSelected)="selectSuggestItem($event)">
+      <mat-option *ngFor="let item of suggestList$ | async" [value]="item">
+        <span class="suggest-item-type">{{ item.type }}</span>
+        <span class="suggest-item-text">{{ item.text }}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+</mat-toolbar>
+
+<mat-drawer-container class="drawer-container">
+
+  <mat-drawer
+    class="sidebar"
+    [class.server-sidebar]="isServer"
+    [mode]="(isSmallScreen$ | async) ? 'over' : 'side'"
+    [disableClose]="(isSmallScreen$ | async) ? false : true"
+    [opened]="menuOpen$ | async"
+    (closed)="menuOpen$.next(false)"
+  >
+    <div class="post-statics">
+      <div class="statics-block">
+        <a routerLink="/blog/archives">
+          <div class="counter">{{ postCount$ | async}}</div>
+          <div class="description">文章</div>
+        </a>
+      </div>
+      <div class="statics-block">
+        <a routerLink="/blog/categories">
+          <div class="counter">{{ categoryCount$ | async }}</div>
+          <div class="description">分類</div>
+        </a>
+      </div>
+      <div class="statics-block">
+        <a routerLink="/blog/tags">
+          <div class="counter">{{ tagCount$ | async }}</div>
+          <div class="description">標籤</div>
+        </a>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div>
+      <div class="section-title">好書推薦</div>
+      <div class="section-content">
+        <mat-nav-list>
+          <a href="https://www.tenlong.com.tw/products/9789864348039"
+             target="_blank"
+             rel="noreferrer"
+             width="160px"
+             style="display: flex; flex-direction: column; align-items: center">
+            <img src="assets/promotion/rxjs.webp" width="160px" alt="打通 RxJS 任督二脈 - 好評熱售中！" />
+            <div>打通 RxJS 任督二脈</div>
+          </a>
+        </mat-nav-list>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-nav-list>
+      <a
+        *ngFor="let item of menuItems"
+        mat-list-item
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.link === '/blog' }"
+        [routerLink]="item.link">
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <span class="link-text">{{ item.text }}</span>
+      </a>
+    </mat-nav-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-nav-list>
+      <a mat-list-item href="/blog/atom.xml" target="_blank" rel="noreferrer">
+        <mat-icon>rss_feed</mat-icon>
+        <span class="link-text">RSS</span>
+      </a>
+      <a mat-list-item href="https://github.com/wellwind/" target="_blank" rel="noreferrer">
+        <mat-icon fontSet="fontawesome" fontIcon="fa-github"></mat-icon>
+        <span class="link-text">GitHub</span>
+      </a>
+      <a mat-list-item href="https://www.facebook.com/fullstackledder" target="_blank" rel="noreferrer">
+        <mat-icon fontSet="fontawesome" fontIcon="fa-facebook"></mat-icon>
+        <span class="link-text">Facebook</span>
+      </a>
+    </mat-nav-list>
+
+  </mat-drawer>
+
+  <mat-drawer-content class="main-content" [class.server]="isServer" #matDrawerContent>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+
+</mat-drawer-container>
+
