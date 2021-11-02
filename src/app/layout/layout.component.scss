@@ -63,6 +63,8 @@
   max-width: 240px;
 
   @media (max-width: 959.98px) {
+    min-width: 320px;
+    max-width: 320px;
     &.server-sidebar {
       display: none;
     }
