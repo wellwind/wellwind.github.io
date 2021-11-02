@@ -1,5 +1,6 @@
 import { UrlTree, DefaultUrlSerializer } from '@angular/router';
 
+//ref: https://github.com/angular/angular/issues/16051
 export class TrailingSlashUrlSerializer extends DefaultUrlSerializer {
   serialize(tree: UrlTree): string {
     return this._withTrailingSlash(super.serialize(tree));
