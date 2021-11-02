@@ -20,13 +20,14 @@
     </mat-card-content>
 
     <mat-card-footer>
-      <button
+      <a
+        class="read-more"
         [routerLink]="post | postDateAsPath"
         mat-raised-button
         color="primary">
         <mat-icon>read_more</mat-icon>
         <span>繼續閱讀</span>
-      </button>
+      </a>
     </mat-card-footer>
   </mat-card>
 

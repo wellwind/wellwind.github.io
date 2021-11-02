@@ -145,7 +145,10 @@ a {
     justify-content: center;
     margin-bottom: 0;
 
-    button {
+    a.read-more {
+      &:hover {
+        text-decoration: none;
+      }
       font-size: 16px;
     }
 
