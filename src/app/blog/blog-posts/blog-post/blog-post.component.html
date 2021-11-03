@@ -64,15 +64,13 @@
       </div>
     </div>
 
-    <ng-container *ngIf="!isServer">
-      <div class="blog-post-toc" *ngIf="!(hideToc$ | async)">
-        <app-blog-post-toc [contentElement]="content"></app-blog-post-toc>
-      </div>
+    <div class="blog-post-toc">
+      <app-blog-post-toc [contentElement]="content"></app-blog-post-toc>
+    </div>
 
-      <button mat-fab color="default" class="go-comment" (click)="goComment(comments)" matTooltip="留言">
-        <mat-icon>comment</mat-icon>
-      </button>
-    </ng-container>
+    <button mat-fab color="default" class="go-comment" (click)="goComment(comments)" matTooltip="留言">
+      <mat-icon>comment</mat-icon>
+    </button>
 
   </div>
 </ng-container>

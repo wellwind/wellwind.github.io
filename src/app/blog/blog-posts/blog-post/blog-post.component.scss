@@ -14,6 +14,9 @@
 
   .blog-post-toc {
     flex: 19%;
+    @media (max-width: 959.98px) {
+      display: none;
+    }
   }
 
   .blog-post-prev-next {
