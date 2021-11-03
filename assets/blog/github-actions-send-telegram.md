@@ -16,7 +16,7 @@ tags:
 # 取得 Chat Id
 
 * 網址輸入 `https://api.telegram.org/bot{{ token }}/getUpdates`，可以得到聊天訊息的 chat id
-* Char Id 為 `result[0].message.chat.id`
+* Chat Id 為 `result[0].message.chat.id`
 * 如果沒有資料，先隨意傳個訊息給建立好的 bot，就可以看到訊息更新了
 
 # GitHub Action 發送 Telegram 訊息
