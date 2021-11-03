@@ -1,9 +1,9 @@
 <div class="toc-list">
   <div class="toc-item level0">文章大綱</div>
   <div
-    class="toc-item level{{head.level}}"
+    *ngFor="let head of headings$ | async"
     [class.active]="head.active"
-    *ngFor="let head of headings">
+    class="toc-item level{{head.level}}">
     <a href="#" (click)="goTo(head, $event)">{{ head.text }}</a>
   </div>
 </div>
