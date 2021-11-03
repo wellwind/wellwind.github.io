@@ -177,6 +177,7 @@ a {
   code {
     background: $code-background-color;
     padding: 2px;
+    border-radius: 3px;
   }
 
   pre {
@@ -192,7 +193,6 @@ a {
     padding: 1em;
 
     code {
-      border-radius: 3px;
       padding: 0 !important;
       word-break: break-word;
     }
