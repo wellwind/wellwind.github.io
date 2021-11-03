@@ -5,6 +5,7 @@
   position: fixed;
   margin: 0 24px;
   height: calc(100vh - 64px - 64px - 32px - 20px);
+  overflow: scroll;
 
   &::-webkit-scrollbar {
     height: 4px;
