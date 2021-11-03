@@ -10,7 +10,7 @@ tags:
 
 # 申請 Telegram Token
 
-* 跟 [@BotFater](https://t.me/BotFather) 私訊取得 token
+* 跟 [@BotFather](https://t.me/BotFather) 私訊取得 token
 * 輸入 `/newbot` 並依照提示輸入資料，最終取得 token
 
 # 取得 Chat Id
