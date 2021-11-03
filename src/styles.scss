@@ -174,6 +174,11 @@ a {
     margin: 0 auto;
   }
 
+  code {
+    background: $code-background-color;
+    padding: 2px;
+  }
+
   pre {
     font-size: 14px;
     line-height: 21px;
@@ -184,13 +189,13 @@ a {
     margin: 16px auto;
     overflow-x: auto;
     white-space: pre-wrap;
-  }
+    padding: 1em;
 
-  code {
-    background: $code-background-color;
-    border-radius: 3px;
-    padding: 3px;
-    word-break: break-word;
+    code {
+      border-radius: 3px;
+      padding: 0 !important;
+      word-break: break-word;
+    }
   }
 
   .note {
