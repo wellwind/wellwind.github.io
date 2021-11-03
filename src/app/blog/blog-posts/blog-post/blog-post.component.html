@@ -1,6 +1,6 @@
 <ng-container *ngIf="postMeta$ | async as postMeta">
   <div class="blog-post-container">
-    <div class="blog-post" [class.blog-post-overview]="!isServer && !(hideToc$ | async)">
+    <div class="blog-post blog-post-overview">
       <div class="blog-post-title">
         <h1>{{ postMeta.title }}</h1>
       </div>

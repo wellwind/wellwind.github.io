@@ -31,8 +31,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
     tap(() => this.highlightCode())
   );
 
-  hideToc$ = this.platformService.isSmallAndMediumScreen$;
-
   previousPost$ = combineLatest([this.postMeta$, this.sitePostService.postsMetaWithSlugAndSortAsc$]).pipe(
     map(([currentPostMeta, allPostsMeta]) => {
       const found = allPostsMeta.filter(post => new Date(post.date) < new Date(currentPostMeta.date));

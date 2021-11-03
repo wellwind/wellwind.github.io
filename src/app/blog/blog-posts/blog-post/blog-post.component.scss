@@ -10,12 +10,15 @@
 
   .blog-post-overview {
     flex: 80%;
+    @media (max-width: 1279.98px) {
+      flex: 100% !important;
+    }
   }
 
   .blog-post-toc {
     flex: 19%;
-    @media (max-width: 959.98px) {
-      display: none;
+    @media (max-width: 1279.98px) {
+      display: none !important;
     }
   }
 

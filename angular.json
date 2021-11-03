@@ -167,7 +167,7 @@
           "configurations": {
             "development": {
               "browserTarget": "blog:build:development",
-              "serverTarget": "blog:server:development"
+              "serverTarget": "blog:server:static"
             },
             "production": {
               "browserTarget": "blog:build:production",
