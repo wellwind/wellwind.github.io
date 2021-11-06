@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import '@angular/material/theming';
 
 $primary-color: map-get($mat-indigo, 500);
 $primary-text-color: map-get($mat-gray, 900);
