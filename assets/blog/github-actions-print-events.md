@@ -1,6 +1,6 @@
 ---
 title: "[GitHub Actions] 印出事件相關資訊"
-date: 2021/11/01 16:37:00
+date: 2021-11-01 16:37:00
 category: "GitHub Actions Snippets"
 tags:
   - "GitHub Actions"
