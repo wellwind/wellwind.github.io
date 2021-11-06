@@ -34,8 +34,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   previousPost$ = combineLatest([this.postMeta$, this.sitePostService.postsMetaWithSlugAndSortAsc$]).pipe(
     map(([currentPostMeta, allPostsMeta]) => {
       const found = allPostsMeta.filter(post => new Date(post.date) < new Date(currentPostMeta.date));
-      console.log(currentPostMeta.date);
-      console.log(found);
       if (found) {
         return found[found.length - 1];
       }
@@ -46,8 +44,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   nextPost$ = combineLatest([this.postMeta$, this.sitePostService.postsMetaWithSlugAndSortAsc$]).pipe(
     map(([currentPostMeta, allPostsMeta]) => {
       const found = allPostsMeta.filter(post => new Date(post.date) > new Date(currentPostMeta.date));
-      console.log(currentPostMeta.date);
-      console.log(found);
       if (found) {
         return found[0];
       }
