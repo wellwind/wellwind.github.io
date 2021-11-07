@@ -13,7 +13,7 @@ tags:
   - TransferHttpCacheModule
 ---
 
-透過 Angular Universal 可以輕易達成 SSR 伺服器端渲染的效果，不過對於伺服器端產生的內容，到了 client 依然會重新進行產生，對於比較複雜的非同步處理如 HTTP 呼叫，就會發生重複呼叫，甚至照成畫面閃爍的問題。
+透過 Angular Universal 可以輕易達成 SSR 伺服器端渲染的效果，不過對於伺服器端產生的內容，到了 client 依然會重新進行產生，對於比較複雜的非同步處理如 HTTP 呼叫，就會發生重複呼叫，甚至造成畫面閃爍的問題。
 
 針對這個問題，Angular 提出了 Transfer State (狀態轉移) 的做法，將 server 抓取資料的狀態移轉到 client，讓 client 可以直接使用這些狀態資料，而不是重新產生，以避免畫面閃爍等問題。
 
