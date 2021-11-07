@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]設計一個部落格(1) - Grid List"
+title: "[Angular Material 完全攻略]設計一個部落格(1) - Grid List"
 date: 2018-01-03 17:06:38
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular Material
   - Material Design

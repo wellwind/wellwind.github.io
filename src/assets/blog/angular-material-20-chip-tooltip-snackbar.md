@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]設計一個部落格(5) - Chip、Tooltip、Snackbar"
+title: "[Angular Material 完全攻略]設計一個部落格(5) - Chip、Tooltip、Snackbar"
 date: 2018-01-07 18:05:24
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material

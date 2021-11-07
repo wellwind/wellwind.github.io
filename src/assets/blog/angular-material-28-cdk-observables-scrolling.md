@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]Angular CDK(4) - Observables、Scrolling"
+title: "[Angular Material 完全攻略]Angular CDK(4) - Observables、Scrolling"
 date: 2018-01-15 20:10:10
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material

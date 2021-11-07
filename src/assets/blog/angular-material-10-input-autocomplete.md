@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]打造問卷頁面(2) - Input、Autocomplete"
+title: "[Angular Material 完全攻略]打造問卷頁面(2) - Input、Autocomplete"
 date: 2017-12-28 20:10:48
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular Material
   - Material Design

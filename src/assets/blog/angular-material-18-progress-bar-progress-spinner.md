@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]設計一個部落格(3) - Progress Bar、Progress Spinner"
+title: "[Angular Material 完全攻略]設計一個部落格(3) - Progress Bar、Progress Spinner"
 date: 2018-01-05 18:00:12
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular Material
   - Material Design

@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]Angular CDK(1) - 基礎介紹"
+title: "[Angular Material 完全攻略]Angular CDK(1) - 基礎介紹"
 date: 2018-01-12 20:01:45
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material

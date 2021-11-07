@@ -1,7 +1,7 @@
 ---
-title:  "[Angular Material完全攻略]環境設定 & 安裝 ＆ Hello World"
+title:  "[Angular Material 完全攻略]環境設定 & 安裝 ＆ Hello World"
 date: 2017-12-20 20:33:28
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular
   - Angular Material

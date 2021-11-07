@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]Angular CDK(7) - Coercion、Platform"
+title: "[Angular Material 完全攻略]Angular CDK(7) - Coercion、Platform"
 date: 2018-01-18 19:56:25
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material

@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]打造基本後台(1) - SideNav"
+title: "[Angular Material 完全攻略]打造基本後台(1) - SideNav"
 date: 2017-12-23 12:33:12
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular Material
   - Material Design

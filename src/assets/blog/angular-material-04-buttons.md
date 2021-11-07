@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]MatButton、MatButtonToggle和MatRipple"
+title: "[Angular Material 完全攻略]MatButton、MatButtonToggle和MatRipple"
 date: 2017-12-22 17:35:13
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular Material
   - Material Design

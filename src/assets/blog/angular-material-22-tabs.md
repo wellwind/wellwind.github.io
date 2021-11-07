@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]收件夾頁面(2) - Tabs"
+title: "[Angular Material 完全攻略]收件夾頁面(2) - Tabs"
 date: 2018-01-09 18:28:12
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material

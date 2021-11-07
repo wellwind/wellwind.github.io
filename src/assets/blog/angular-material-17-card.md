@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]設計一個部落格(2) - Card"
+title: "[Angular Material 完全攻略]設計一個部落格(2) - Card"
 date: 2018-01-04 13:06:38
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular Material
   - Material Design

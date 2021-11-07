@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]收件夾頁面(4) - Table (進階功能)"
+title: "[Angular Material 完全攻略]收件夾頁面(4) - Table (進階功能)"
 date: 2018-01-11 11:23:40
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material
