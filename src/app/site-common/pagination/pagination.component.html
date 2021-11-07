@@ -1,7 +1,7 @@
 <button
   *ngIf="currentPage > 1"
   mat-stroked-button
-  class="pagination-button pagination-first"
+  class="pagination-button pagination-prev pagination-icon"
   [routerLink]="[linkBase, currentPage - 1]"
   matTooltip="上一頁"
 >
@@ -18,12 +18,12 @@
   </button>
 </ng-container>
 
-<mat-icon *ngIf="currentPage > 3">more_horiz</mat-icon>
+<mat-icon *ngIf="currentPage > 3" class="more-icon">more_horiz</mat-icon>
 
 <ng-container *ngIf="currentPage > 2">
   <button
     mat-stroked-button
-    class="pagination-button pagination-first"
+    class="pagination-button pagination-prev"
     [routerLink]="[linkBase, currentPage - 1]"
     [matTooltip]="'第 ' + (currentPage - 1) + ' 頁'">
     {{ currentPage - 1 }}
@@ -41,19 +41,19 @@
 <ng-container *ngIf="currentPage < totalPage - 1">
   <button
     mat-stroked-button
-    class="pagination-button"
+    class="pagination-button pagination-next"
     [routerLink]="[linkBase, currentPage + 1]"
     [matTooltip]="'第 ' + (currentPage + 1) + ' 頁'">
     {{ currentPage + 1 }}
   </button>
 </ng-container>
 
-<mat-icon *ngIf="currentPage < totalPage - 2">more_horiz</mat-icon>
+<mat-icon *ngIf="currentPage < totalPage - 2" class="more-icon">more_horiz</mat-icon>
 
 <ng-container *ngIf="currentPage < totalPage">
   <button
     mat-stroked-button
-    class="pagination-button"
+    class="pagination-button pagination-last"
     [routerLink]="[linkBase, totalPage]"
     matTooltip="最後一頁"
   >
@@ -64,7 +64,7 @@
 <button
   *ngIf="currentPage < totalPage"
   mat-stroked-button
-  class="pagination-button"
+  class="pagination-button pagination-next pagination-icon"
   [routerLink]="[linkBase, currentPage + 1]"
   matTooltip="下一頁">
   <mat-icon>navigate_next</mat-icon>

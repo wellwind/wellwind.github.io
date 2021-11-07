@@ -5,8 +5,25 @@
 
 .pagination-button {
   margin: 0 8px;
+  @media (max-width: 599.98px) {
+    margin: 0 4px;
+  }
 }
 
 .mat-raised-button, .mat-stroked-button {
   min-width: 32px;
+}
+
+@media (max-width: 599.98px) {
+  .pagination-button {
+    margin: 0 4px !important;
+  }
+
+  .more-icon, .pagination-first, .pagination-last {
+    display: none !important;
+  }
+
+  .pagination-icon {
+    max-width: 64px;
+  }
 }
