@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]透過Module組織管理你的程式"
+title: "[Angular 速成班]透過Module組織管理你的程式"
 date: 2017-02-18 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
   - Angular CLI
   - Angular

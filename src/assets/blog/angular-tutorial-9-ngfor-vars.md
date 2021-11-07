@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]使用NgFor的5個特別變數，讓資料更有變化"
+title: "[Angular 速成班]使用NgFor的5個特別變數，讓資料更有變化"
 date: 2017-01-02 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - Angular
     - NgFor

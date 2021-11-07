@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]來寫個TodoApp(2)-認識Angular的4種data binding機制"
+title: "[Angular 速成班]來寫個TodoApp(2)-認識Angular的4種data binding機制"
 date: 2016-11-12 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - Angular
     - TypeScript

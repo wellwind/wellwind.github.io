@@ -1,13 +1,13 @@
 ---
-title: "[Angular速成班]用Angular CLI節省你的開發時間"
+title: "[Angular 速成班]用Angular CLI節省你的開發時間"
 date: 2016-10-01 21:45:02
-category: Angular速成班
+category: Angular 速成班
 tags:
     - Angular
     - Angular CLI
 ---
 
-**Angular CLI**是隨著Angular發展時一併產生的一個指令列工具，一樣基於「習慣取代配置」的優良傳統，我們可以用Angular CLI快速產生開發Angular程式時所需要的檔案範本，另外也包含了軟體開發生命週期會用到的**bundle, lint, unit test, end to end test**等功能，也全都包在Angular CLI裡面了，因此透過Angular CLI工具，我們可以大幅節省許多準備檔案的時間！由於之後的Angular速成班教學中我們也會大量使用Angular CLI來產生相關需要的檔案，因此今天就先來簡單介紹一下Angular CLI這個強大的產生器功能。
+**Angular CLI**是隨著Angular發展時一併產生的一個指令列工具，一樣基於「習慣取代配置」的優良傳統，我們可以用Angular CLI快速產生開發Angular程式時所需要的檔案範本，另外也包含了軟體開發生命週期會用到的**bundle, lint, unit test, end to end test**等功能，也全都包在Angular CLI裡面了，因此透過Angular CLI工具，我們可以大幅節省許多準備檔案的時間！由於之後的Angular 速成班教學中我們也會大量使用Angular CLI來產生相關需要的檔案，因此今天就先來簡單介紹一下Angular CLI這個強大的產生器功能。
 
 <!-- more -->
 

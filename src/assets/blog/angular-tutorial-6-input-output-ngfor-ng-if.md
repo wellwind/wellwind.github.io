@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]來寫個TodoApp(3)-學習@Input, @output, ngFor和ngIf"
+title: "[Angular 速成班]來寫個TodoApp(3)-學習@Input, @output, ngFor和ngIf"
 date: 2016-11-20 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - Angular
     - TypeScript

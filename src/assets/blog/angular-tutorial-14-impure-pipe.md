@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]使用Pipe輕鬆改變view上的顯示內容(3)-Impure Pipe參數：關於Pipe最重要的小事"
+title: "[Angular 速成班]使用Pipe輕鬆改變view上的顯示內容(3)-Impure Pipe參數：關於Pipe最重要的小事"
 date: 2017-02-12 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - "@Pipe"
     - Angular

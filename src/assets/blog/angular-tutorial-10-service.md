@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]使用Service完成MVC架構的最後一塊拼圖"
+title: "[Angular 速成班]使用Service完成MVC架構的最後一塊拼圖"
 date: 2017-02-03 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - Angular
     - Service
