@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]開發Ajax程式不可或缺的重要關鍵—Http Module"
+title: "[Angular 速成班]開發Ajax程式不可或缺的重要關鍵—Http Module"
 date: 2017-02-04 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - Angular
     - HttpModule

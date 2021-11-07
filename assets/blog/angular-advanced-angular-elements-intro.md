@@ -1,7 +1,7 @@
 ---
-title: "[Angular進階議題] Angular Elements 簡介"
+title: "[Angular 進階議題] Angular Elements 簡介"
 date: 2018-05-08 20:30:33
-category: "Angular進階議題"
+category: "Angular 進階議題"
 tags:
   - Angular
   - Angular 6

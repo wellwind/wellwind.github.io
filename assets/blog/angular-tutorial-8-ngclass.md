@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]使用NgClass動態為HTML element加入class"
+title: "[Angular 速成班]使用NgClass動態為HTML element加入class"
 date: 2016-12-31 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - Angular
     - NgClass

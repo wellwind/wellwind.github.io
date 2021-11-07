@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]學習Angular Material的正確姿勢"
+title: "[Angular Material 完全攻略]學習Angular Material的正確姿勢"
 date: 2018-01-21 19:00:03
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material

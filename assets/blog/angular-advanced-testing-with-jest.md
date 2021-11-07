@@ -1,7 +1,7 @@
 ---
-title: "[Angular進階議題]Karma + Jasmine跑測試太慢？試試看Jest吧！"
+title: "[Angular 進階議題]Karma + Jasmine跑測試太慢？試試看Jest吧！"
 date: 2017-08-13 11:11:11
-category: "Angular進階議題"
+category: "Angular 進階議題"
 tags:
     - Angular
     - Jest

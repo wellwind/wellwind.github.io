@@ -1,5 +1,5 @@
 ---
-title: "[Angular進階議題] 在客製化表單控制項增加驗證(valid)結果"
+title: "[Angular 進階議題] 在客製化表單控制項增加驗證(valid)結果"
 date: 2017-09-23 18:28:09
 tags:
     - Angular

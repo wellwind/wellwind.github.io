@@ -1,7 +1,7 @@
 ---
-title: "[React速成班]有錢沒錢，選個編輯器好過年(3)-用Sublime Text 3開發React支援Highlight"
+title: "[React 速成班]有錢沒錢，選個編輯器好過年(3)-用Sublime Text 3開發React支援Highlight"
 date: 2016-03-11 16:26:56
-category: "React速成班"
+category: "React 速成班"
 tags:
     - React
     - Sublime Text

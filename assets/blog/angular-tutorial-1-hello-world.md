@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]簡介&Hello World!!"
+title: "[Angular 速成班]簡介&Hello World!!"
 date: 2016-09-28 21:25:41
-category: Angular速成班
+category: Angular 速成班
 tags:
     - Angular
     - Angular CLI

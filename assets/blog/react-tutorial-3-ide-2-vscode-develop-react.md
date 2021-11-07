@@ -1,7 +1,7 @@
 ---
-title: "[React速成班]有錢沒錢，選個編輯器好過年(2)-用Visual Studio Code開發React支援Highlight, IntelliSense]"
+title: "[React 速成班]有錢沒錢，選個編輯器好過年(2)-用Visual Studio Code開發React支援Highlight, IntelliSense]"
 date: 2016-03-06 16:12:21
-category: React速成班
+category: React 速成班
 tags:
     - React
     - Visual Studio Code

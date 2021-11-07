@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]使用attribute directive擴充元件屬性"
+title: "[Angular 速成班]使用attribute directive擴充元件屬性"
 date: 2017-02-14 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - Angular
     - Directive

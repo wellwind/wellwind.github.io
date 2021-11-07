@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]打造問卷頁面(4) - Select"
+title: "[Angular Material 完全攻略]打造問卷頁面(4) - Select"
 date: 2017-12-30 19:41:48
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular Material
   - Material Design

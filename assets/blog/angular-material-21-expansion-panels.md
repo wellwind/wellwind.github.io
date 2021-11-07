@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]收件夾頁面(1) - Expansion Panels"
+title: "[Angular Material 完全攻略]收件夾頁面(1) - Expansion Panels"
 date: 2018-01-08 12:54:09
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material

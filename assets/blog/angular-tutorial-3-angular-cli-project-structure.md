@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]了解Angular CLI產生的專案目錄結構"
+title: "[Angular 速成班]了解Angular CLI產生的專案目錄結構"
 date: 2016-10-15 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - Angular CLI
     - Angular

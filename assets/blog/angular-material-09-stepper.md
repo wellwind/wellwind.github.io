@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]打造問卷頁面(1) - Stepper"
+title: "[Angular Material 完全攻略]打造問卷頁面(1) - Stepper"
 date: 2017-12-27 20:04:48
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular Material
   - Material Design

@@ -1,7 +1,7 @@
 ---
-title: "[React速成班]從TodoList範例學習React(3)-透過實作AddTodoForm學習state"
+title: "[React 速成班]從TodoList範例學習React(3)-透過實作AddTodoForm學習state"
 date: 2016-04-03 16:49:51
-category: React速成班
+category: React 速成班
 tags:
     - React
     - state

@@ -1,7 +1,7 @@
 ---
-title: "[React速成班]從TodoList範例學習React(1)-基本架構"
+title: "[React 速成班]從TodoList範例學習React(1)-基本架構"
 date: 2016-03-13 16:33:29
-category: React速成班
+category: React 速成班
 tags:
     - React
 ---

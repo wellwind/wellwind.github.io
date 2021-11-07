@@ -1,5 +1,5 @@
 ---
-title: "[Angular進階議題]使用HttpInterceptort為HttpClient Request打點前後大小事"
+title: "[Angular 進階議題]使用HttpInterceptort為HttpClient Request打點前後大小事"
 date: 2017-10-29 11:57:12
 tags:
     - Angular

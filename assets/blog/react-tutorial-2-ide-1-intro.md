@@ -1,7 +1,7 @@
 ---
-title: "[React速成班]有錢沒錢，選個編輯器好過年(1)-介紹篇"
+title: "[React 速成班]有錢沒錢，選個編輯器好過年(1)-介紹篇"
 date: 2016-03-06 16:00:33
-category: React速成班
+category: React 速成班
 tags:
     - React
     - IDE

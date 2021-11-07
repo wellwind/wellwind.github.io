@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]打造問卷頁面(6) - Checkbox、Radio和Slide Toggle"
+title: "[Angular Material 完全攻略]打造問卷頁面(6) - Checkbox、Radio和Slide Toggle"
 date: 2018-01-01 20:06:38
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Angular Material
   - Material Design

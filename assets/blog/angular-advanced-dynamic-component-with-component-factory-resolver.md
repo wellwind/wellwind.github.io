@@ -1,7 +1,7 @@
 ---
-title: "[Angular進階議題]使用ComponentFactoryResolver動態產生Component"
+title: "[Angular 進階議題]使用ComponentFactoryResolver動態產生Component"
 date: 2017-06-21 11:11:11
-category: "Angular進階議題"
+category: "Angular 進階議題"
 tags:
     - Angular
     - ComponentFactoryResolver

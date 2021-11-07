@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]Angular CDK(3) - Bidirectionality、Layout"
+title: "[Angular Material 完全攻略]Angular CDK(3) - Bidirectionality、Layout"
 date: 2018-01-14 19:25:08
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material

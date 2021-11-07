@@ -1,7 +1,7 @@
 ---
-title: "[Angular Material完全攻略]雜項技巧(1) - 自己的theme自己設計"
+title: "[Angular Material 完全攻略]雜項技巧(1) - 自己的theme自己設計"
 date: 2018-01-19 18:12:36
-category: "Angular Material完全攻略"
+category: "Angular Material 完全攻略"
 tags:
   - Material Design
   - Angular Material

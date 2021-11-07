@@ -1,7 +1,7 @@
 ---
-title: "[Angular速成班]來寫個TodoApp(1)-基本原理與架構"
+title: "[Angular 速成班]來寫個TodoApp(1)-基本原理與架構"
 date: 2016-10-18 11:11:11
-category: "Angular速成班"
+category: "Angular 速成班"
 tags:
     - Angular CLI
     - Angular
