@@ -20,7 +20,7 @@
     "build:urls": "ng run blog:generate-prerender-urls",
     "build:rss": "ng run blog:generate-rss",
     "build:minify-html": "ng run blog:minify-rendered-files",
-    "build:blog": "npm run build:blog-posts-json && npm run build:urls && npm run prerender:pages && npm run build:rss -- --rss-path ./dist/blog/browser/blog/atom.xml",
+    "build:blog": "npm run build:blog-posts-json && npm run build:urls && npm run prerender:pages && npm run build:minify-html && npm run build:rss -- --rss-path ./dist/blog/browser/blog/atom.xml",
     "build:deploy": "npx concurrently \"npm run serve:assets\" \"npm run build:blog\" --kill-others"
   },
   "private": true,
