@@ -21,6 +21,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
   const urlsPath = options.urlsPath;
 
   const urls = [
+    '/query',
     '/blog',
     '/blog/categories',
     '/blog/tags',

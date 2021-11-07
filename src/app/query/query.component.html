@@ -1,17 +1,19 @@
-<mat-toolbar class="search-header mat-elevation-z4">
-  <h1>{{ searchKeyword$ | async }}</h1>
-  <h2>搜尋結果</h2>
-</mat-toolbar>
+<ng-container *ngIf="searchResult$ | async as searchResult">
+  <mat-toolbar class="search-header mat-elevation-z4">
+    <h1>{{ searchKeyword$ | async }}</h1>
+    <h2>搜尋結果</h2>
+  </mat-toolbar>
 
-<mat-card>
-  <mat-card-content>
-    <mat-nav-list>
-      <mat-list-item *ngFor="let item of searchResult$ | async">
-        <a matLine [routerLink]="item.link" class="search-result">
-          <span class="search-result-type">{{ item.type }}</span>
-          <span class="search-result-title">{{ item.text }}</span>
-        </a>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-card-content>
-</mat-card>
+  <mat-card>
+    <mat-card-content>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let item of searchResult">
+          <a matLine [routerLink]="item.link" class="search-result">
+            <span class="search-result-type">{{ item.type }}</span>
+            <span class="search-result-title">{{ item.text }}</span>
+          </a>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
