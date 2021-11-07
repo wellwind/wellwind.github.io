@@ -15,11 +15,8 @@
     }
   }
 
-  .blog-post-toc {
-    flex: 19%;
-    @media (max-width: 1279.98px) {
-      display: none !important;
-    }
+  .blog-post-liker-coin {
+    margin-top: 16px;
   }
 
   .blog-post-prev-next {
@@ -62,6 +59,13 @@
       &.next {
         justify-content: flex-end;
       }
+    }
+  }
+
+  .blog-post-toc {
+    flex: 19%;
+    @media (max-width: 1279.98px) {
+      display: none !important;
     }
   }
 }
