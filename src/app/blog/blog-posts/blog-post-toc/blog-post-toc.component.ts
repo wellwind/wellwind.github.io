@@ -1,5 +1,5 @@
 import { ContentObserver } from '@angular/cdk/observers';
-import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map, startWith, switchMap, tap } from 'rxjs/operators';
@@ -160,7 +160,7 @@ export class BlogPostTocComponent implements OnInit, AfterViewInit, OnDestroy {
 
   goTo(target: Heading, event: MouseEvent) {
     event.preventDefault();
-    const containerElement = findMainContentContainer(this.contentElement);
+    const containerElement = findMainContentContainer(this._contentElement);
     if (containerElement && target.element) {
       scrollTo(target.element.offsetTop - 20, containerElement);
     }
