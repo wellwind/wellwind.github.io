@@ -1,6 +1,7 @@
 ---
 title: "[Angular 大師之路] 如何忽略 HTTP_INTERCEPTORS"
 date: 2019-01-06 20:59:46
+category: "Angular 大師之路"
 tags:
   - HttpClient
   - HttpBackend

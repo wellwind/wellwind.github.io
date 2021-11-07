@@ -1,7 +1,7 @@
 ---
-title: "[Angular進階議題]讓自訂的Component可以使用ngModel的方法"
+title: "[Angular 進階議題]讓自訂的Component可以使用ngModel的方法"
 date: 2017-03-20 11:11:11
-category: "Angular進階議題"
+category: "Angular 進階議題"
 tags:
     - Component
     - NG_VALUE_ACCESSOR

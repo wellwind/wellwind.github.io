@@ -1,5 +1,5 @@
 ---
-title: "[Angular進階議題]使用Docker測試Angular專案(包含Unit Test與E2E Test)"
+title: "[Angular 進階議題]使用Docker測試Angular專案(包含Unit Test與E2E Test)"
 date: 2018-03-06 21:09:32
 tags:
   - Angular

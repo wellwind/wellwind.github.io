@@ -2,7 +2,7 @@
 title: "[Angular Universal] 使用 TransferState 解決畫面閃爍問題"
 date: 2021-10-31 15:00:00
 category:
-  - "Angular進階議題"
+  - "Angular 進階議題"
 tags:
   - Angular
   - Angular Universal

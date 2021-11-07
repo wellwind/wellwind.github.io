@@ -1,7 +1,7 @@
 ---
-title: "[Angular進階議題]使用shareReplay operator避免ajax時async pipe重複發request的問題"
+title: "[Angular 進階議題]使用shareReplay operator避免ajax時async pipe重複發request的問題"
 date: 2017-08-10 11:11:11
-category: "Angular進階議題"
+category: "Angular 進階議題"
 tags:
     - RxJS
     - Angular
