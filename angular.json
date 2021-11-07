@@ -221,6 +221,12 @@
             "rssPath": "rss.xml"
           }
         },
+        "minify-rendered-files": {
+          "builder": "@wellwind/blog-builder:minify-html-files",
+          "options": {
+            "targetPath": "dist/blog/browser"
+          }
+        },
         "static-server": {
           "builder": "@wellwind/blog-builder:static-server"
         }

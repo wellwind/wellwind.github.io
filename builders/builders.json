@@ -19,6 +19,11 @@
       "implementation": "./dist/builders/src/generate-rss/index.js",
       "schema": "./src/generate-rss/schema.json",
       "description": "Generate rss file."
+    },
+    "minify-html-files": {
+      "implementation": "./dist/builders/src/minify-html-files/index.js",
+      "schema": "./src/minify-html-files/schema.json",
+      "description": "Minify html files."
     }
   }
 }
