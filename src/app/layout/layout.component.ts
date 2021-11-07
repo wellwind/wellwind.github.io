@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatDrawerContent } from '@angular/material/sidenav';
 import { NavigationStart, Router } from '@angular/router';
@@ -90,5 +90,14 @@ export class LayoutComponent implements OnInit {
     const item = event.option.value as { link: string };
     await this.router.navigateByUrl(item.link);
     this.searchKeyword.setValue('');
+  }
+
+  async goSearchPage(autocomplete: MatAutocomplete) {
+    if (this.searchKeyword.value) {
+      await this.router.navigate(
+        ['query'],
+        { queryParams: { q: this.searchKeyword.value } });
+      autocomplete._isOpen = false;
+    }
   }
 }

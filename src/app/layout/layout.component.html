@@ -22,8 +22,11 @@
       matInput
       accesskey="/"
       placeholder="搜尋... ( Alt + / )"
+      #input
+      (keyup.enter)="goSearchPage(auto);input.blur();trigger.closePanel()"
       [formControl]="searchKeyword"
       [matAutocomplete]="auto"
+      #trigger="matAutocompleteTrigger"
     >
     <mat-autocomplete #auto="matAutocomplete" panelWidth="auto" (optionSelected)="selectSuggestItem($event)">
       <mat-option *ngFor="let item of suggestList$ | async" [value]="item">
@@ -75,7 +78,8 @@
              target="_blank"
              rel="noreferrer"
              style="display: flex; flex-direction: column; align-items: center">
-            <img src="assets/promotion/rxjs.webp" width="160px" height="224px" alt="打通 RxJS 任督二脈 - 好評熱售中！" loading="lazy" />
+            <img src="assets/promotion/rxjs.webp" width="160px" height="224px" alt="打通 RxJS 任督二脈 - 好評熱售中！"
+                 loading="lazy" />
             <div>打通 RxJS 任督二脈</div>
           </a>
         </mat-nav-list>
