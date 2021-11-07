@@ -1,0 +1,10 @@
+<OpenSearchDescription
+  xmlns="http://a9.com/-/spec/opensearch/1.1/"
+  xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>全端開發人員天梯</ShortName>
+  <Description>個人學習程式設計、系統開發和讀書的經驗及心得。</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image height="16" width="16" type="image/vnd.microsoft.icon">https://fullstackladder.dev/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://fullstackladder.dev/query/?q={searchTerms}"/>
+  <moz:SearchForm>https://fullstackladder.dev/query</moz:SearchForm>
+</OpenSearchDescription>

@@ -1,6 +1,15 @@
 import { slugify } from '../../utils/slugify';
 import { PostMetaWithSlug } from './post-meta.interface';
 
+const searchFieldMapping = {
+  tag: '標籤',
+  category: '分類'
+}
+
+const getSearchFieldName = (fieldName: string) => {
+  return (searchFieldMapping as any)[fieldName] || '';
+}
+
 export const searchPosts = (posts: PostMetaWithSlug[], keywordString: string) => {
   const filterPostBy = (keyword: string) => (post: PostMetaWithSlug) =>
     post.title.toLowerCase().indexOf(keyword.toLowerCase()) >= 0
@@ -40,7 +49,7 @@ export const searchPosts = (posts: PostMetaWithSlug[], keywordString: string) =>
       .sort((postA, postB) =>
         postA.title.toLowerCase().indexOf(keyword.toLowerCase()) - postB.title.toLowerCase().indexOf(keyword.toLowerCase()))
     result.push(...relatePosts.map(post => ({
-      type: `${searchField}${searchField ? ':' : ''}${searchFrom}${searchFrom ? ':' : ''}文章`,
+      type: `${getSearchFieldName(searchField)}${searchField ? ':' : ''}${searchFrom}${searchFrom ? ';' : ''}文章`,
       text: post.title,
       link: `/blog/${post.date.slice(0, 10).replace(/-/g, '/')}/${post.slug}`,
       toString: () => ''

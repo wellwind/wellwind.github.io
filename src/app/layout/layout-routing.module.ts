@@ -8,13 +8,17 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: 'blog',
+        loadChildren: () => import('../blog/blog.module').then(m => m.BlogModule)
+      },
+      {
+        path: 'query',
+        loadChildren: () => import('../query/query.module').then(m => m.QueryModule)
+      },
+      {
         path: '',
         redirectTo: 'blog',
         pathMatch: 'full',
-      },
-      {
-        path: 'blog',
-        loadChildren: () => import('../blog/blog.module').then(m => m.BlogModule)
       }
     ]
   }

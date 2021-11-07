@@ -29,6 +29,7 @@
             "assets": [
               "src/CNAME",
               "src/.nojekyll",
+              "src/opensearch.xml",
               "src/favicon.ico",
               "src/assets"
             ],
