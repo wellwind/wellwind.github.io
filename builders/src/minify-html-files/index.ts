@@ -20,7 +20,6 @@ async function minifyHtmlFiles(options: Options, context: BuilderContext): Promi
         removeComments: true,
         minifyJS: true,
         minifyCSS: true,
-        collapseInlineTagWhitespace: true,
         collapseWhitespace: true
       });
     fs.writeFileSync(filePath, result);
