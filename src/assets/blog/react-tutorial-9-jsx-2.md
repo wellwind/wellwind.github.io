@@ -1,7 +1,7 @@
 ---
-title: "[React速成班]深入JSX(2)-使用技巧"
+title: "[React 速成班]深入JSX(2)-使用技巧"
 date: 2016-05-20 21:08:51
-category: React速成班
+category: React 速成班
 tags:
     - React
     - JSX

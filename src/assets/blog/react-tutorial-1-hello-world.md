@@ -1,7 +1,7 @@
 ---
-title: "[React速成班]前言&Hello World!"
+title: "[React 速成班]前言&Hello World!"
 date: 2016-03-04 15:40:42
-category: React速成班
+category: React 速成班
 tags:
     - React
     - Hello World

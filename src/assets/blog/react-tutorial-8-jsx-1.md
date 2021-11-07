@@ -1,7 +1,7 @@
 ---
-title: "[React速成班]深入JSX(1)-基本篇"
+title: "[React 速成班]深入JSX(1)-基本篇"
 date: 2016-04-10 20:59:12
-category: React速成班
+category: React 速成班
 tags:
     - React
     - JSX
