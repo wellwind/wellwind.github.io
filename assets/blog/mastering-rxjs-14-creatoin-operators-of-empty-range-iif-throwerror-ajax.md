@@ -128,7 +128,7 @@ range(3, 4).subscribe(data => console.log(`range 範例: ${data}`));
 ```typescript
 import { iif, of, EMPTY } from 'rxjs';
 
-const emitHelloIfEven = (data) => {
+const emitOneIfEven = (data) => {
   return iif(() => data % 2 === 0, of('Hello'), EMPTY);
 };
 
@@ -231,7 +231,7 @@ source$.subscribe(data => console.log(data));
 - `range`：用一定範圍內的數值資料作為事件的資料。
 - `iif`：依照第一個參數的條件，決定要使用不同的 Observable 資料流。
 - `throwError`：讓 Observable 發生錯誤。
-- `ajax`：呼叫一個 HTTP 請求作為 Observsble 的事件資料。
+- `ajax`：呼叫一個 HTTP 請求作為 Observable 的事件資料。
 
 # 相關資源
 
