@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "GenerateBlogPost",
+  "title": "Generate Blog Post",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the post.",
+      "type": "string"
+    },
+    "draft": {
+      "type": "boolean",
+
+      "description": "Is draft."
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

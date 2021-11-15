@@ -146,7 +146,7 @@ return chain[mergeWith(templateSource)];
 接著我們就可以試著用指令從範本建立檔案啦！例如使用以下指令：
 
 ```shell
-schematics .:exercise-3 --name=Mike --path=folder --dry-run=false
+generate-post .:exercise-3 --name=Mike --path=folder --dry-run=false
 ```
 
 成果如下圖

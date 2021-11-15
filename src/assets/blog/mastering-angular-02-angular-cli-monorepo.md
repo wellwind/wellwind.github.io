@@ -93,7 +93,7 @@ Angular CLI 基本上已經成為開發 Angular 應用程式的標準配備了�
 - `schematics`：Angular CLI 建立程式骨架的來源是使用 `@angular-devkit/schematics` 套件，而 `schematics: {}` 中可以設定相關指令預設的選項，例如我們希望建立出來的元件都使用 scss
 
 - ```json
-  "@schematics/angular:component": {
+  "@generate-post/angular:component": {
     "styleext": "scss"
   }
   ```

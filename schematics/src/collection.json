@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "generate-post": {
+      "description": "A blank schematic.",
+      "factory": "./generate-post/index#generatePost",
+      "schema": "./generate-post/schema.json"
+    }
+  }
+}
