@@ -198,7 +198,7 @@ source$.pipe(mergeAll(1));
 
 # combineAll
 
-`combineAll` 和 `combineLateset` 非常類似，都是把資料流的資料組合在一起，規則是每當有資料流發生新事件值時，將這個事件值和其他資料流最後一次的事件值組合起來。
+`combineAll` 和 `combineLatest` 非常類似，都是把資料流的資料組合在一起，規則是每當有資料流發生新事件值時，將這個事件值和其他資料流最後一次的事件值組合起來。
 
 `combineLatest` 需要明確指定要組合哪些 Observable，而 `combineAll` 則適用在來源不明確的 Observable of Observable 的情境；另外因為來源並不明確，因此必須等到整個 Observable 結束，明確知道所有要組合的 Observable 後，才會進行相關動作。
 
