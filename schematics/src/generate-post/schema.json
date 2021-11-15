@@ -10,8 +10,8 @@
     },
     "draft": {
       "type": "boolean",
-
-      "description": "Is draft."
+      "description": "Is draft.",
+      "default": true
     }
   },
   "required": [

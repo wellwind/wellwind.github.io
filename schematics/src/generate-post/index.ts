@@ -34,10 +34,10 @@ export function generatePost(options: GeneratePostOptions): Rule {
 
     const fileContent = `---
 title: "${options.name}"
-date: ${isoDateTime}
-category: ""
+date: ${isoDateTime.substr(0, 19).replace('T', ' ')}
+category:
 tags:
-  -
+draft: ${options.draft}
 ---
 
 <!-- more -->
@@ -50,7 +50,7 @@ tags:
     tree.create(assetsKeepFile, '');
 
     _context.logger.info('✅ Done');
-    
+
     return tree;
   };
 }
