@@ -27,7 +27,7 @@ tags:
 很多時候，我們會希望使用 `schematics` 指令產生檔案時，能夠使用參數來控制產出的內容，讓程式更有彈性，基本上這是很容易的一件事情，只需要使用 `--key=value` 的格式加在指令後面即可：
 
 ```shell
-schematics .:exercise-2 --name=Mike
+generate-post .:exercise-2 --name=Mike
 ```
 
 這個參數預設會被加入我們建立好的 `index.ts` 內預設的 function 的 `_option` 參數中，我們可以試著把這個變數印出來：

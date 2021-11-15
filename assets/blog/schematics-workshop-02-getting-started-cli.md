@@ -16,7 +16,7 @@ tags:
 要開始撰寫 Schematics，首先需要安裝 [@angular-devkit/schematics-cli](https://www.npmjs.com/package/@angular-devkit/schematics-cli)，這部份對於現在大部分前端開發人員應該都沒有難度才對：
 
 ```shell
-npm install -g @angular-devkit/schematics-cli
+npm install -g @angular-devkit/generate-post-cli
 ```
 
 ## 建立一個空的 Schematics 專案
@@ -24,7 +24,7 @@ npm install -g @angular-devkit/schematics-cli
 安裝完 Schematics CLI 後，就可以輕鬆地透過指令產生一個基本的 Schematics 專案啦！
 
 ```shell
-schematics blank --name=schematics-workshop
+generate-post blank --name=generate-post-workshop
 ```
 
 之後就會看到這樣的畫面，有使用過 Angular CLI 產生程式碼的話應該會覺得這畫面很熟悉
@@ -36,7 +36,7 @@ schematics blank --name=schematics-workshop
 剛才的指令我們使用 schematics 這個命令，加上 `blank`  參數來建立一個空的 Schematics 專案，另外我們也可以使用 `schematic` 指令，來建立包含一些基本範例檔案的專案：
 
 ```shell
-schematics schematic --name=schematics-workshop-with-samples
+generate-post schematic --name=generate-post-workshop-with-samples
 ```
 
 為了方便進行，接下來我們都用空白的 Scheamtics 專案來說明。
@@ -52,7 +52,7 @@ schematics schematic --name=schematics-workshop-with-samples
 不用多說，這是現在前端開發人員都認得的套件設定檔，而在這個套件設定檔內，有一個 `schematics` 的設定
 
 ```json
-"schematics": "./src/collection.json"
+"generate-post": "./src/collection.json"
 ```
 
 看到這個設定，就代表這是一個 Schematics 專案啦！未來在使用 Schematics CLI 時，都會從 `package.json` 內的 `schematics` 設定來判斷是否為 Schematics 專案，同時去找出有哪些可使用的產生器
@@ -63,11 +63,11 @@ schematics schematic --name=schematics-workshop-with-samples
 
 ```json
 {
-  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "$schema": "../node_modules/@angular-devkit/generate-post/collection-schema.json",
   "schematics": {
     "schematics-workshop": {
       "description": "A blank schematic.",
-      "factory": "./schematics-workshop/index#schematicsWorkshop"
+      "factory": "./generate-post-workshop/index#schematicsWorkshop"
     }
   }
 }
@@ -139,7 +139,7 @@ export function schematicsWorkshop(_options: any): Rule {
 接著就可以使用以下指令執行我們寫好的程式囉：
 
 ```shell
-schematics .:schematics-workshop
+generate-post .:generate-post-workshop
 ```
 
 這裡可以分成三個部分，第一個是執行 `schematics` 這支程式，而後面的 `.:schematics-workshop` 參數，實際上的規則為`套件名稱:Schematics名稱`，也就是代表目前 Schematics 專案 (`.`) 下的 `schematics-workshop` (名稱設定在 `collection.json`) 這支 Schematics 程式。
@@ -157,7 +157,7 @@ schematics .:schematics-workshop
 若想真的看看改變檔案系統的結果，可以加上 `--dry-run=false` 參數，關閉 dry run 模式
 
 ```shell
-schematics .:schematics-workshop --dry-run=false
+generate-post .:generate-post-workshop --dry-run=false
 ```
 
 結果如下：
