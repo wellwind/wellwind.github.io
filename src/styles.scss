@@ -178,6 +178,7 @@ a {
     background: $code-background-color;
     padding: 2px;
     border-radius: 3px;
+    font-family: consolas, monospace;
   }
 
   pre {
@@ -195,7 +196,6 @@ a {
     code {
       padding: 0 !important;
       word-break: break-word;
-      font-family: consolas, monospace
     }
   }
 
