@@ -55,7 +55,7 @@ source$.subscribe(data => console.log(`Observable 第二次訂閱: ${data}`));
 
 # Hot Observable
 
-Subject 系列產生出來的資料流都是屬於 Hot Observable，一樣的先來回顧 Hot Observable 的使用方式：
+Subject 系列產生出來的資料流都是屬於 Hot Observable，一樣的先來回顧 Subject 的使用方式：
 
 ```typescript
 const source$ = new Subject();
