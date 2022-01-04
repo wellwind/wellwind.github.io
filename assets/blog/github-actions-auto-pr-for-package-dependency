@@ -28,6 +28,16 @@ on:
     types: [opened, reopened]
 ```
 
+另外值得注意的是，bot 發送的 body 內容很長會造成 Telegram 訊息發不出去，可以考慮保留 link 就好，不要加入 body，訊息範本：
+
+```yaml
+message: |
+  Author: ${{ github.event.pull_request.user.login }}
+  Title: ${{ github.event.pull_request.title }}
+  Link: ${{ github.event.pull_request.html_url }}
+  Merge branch: from ${{ github.event.pull_request.head.ref }} to ${{ github.event.pull_request.base.ref }}
+```
+
 # 相關資源
 
 * [Dependabot](https://github.com/dependabot)
