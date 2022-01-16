@@ -4,11 +4,21 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Tue, 04 Jan 2022 14:56:22 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 16 Jan 2022 07:18:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Angular 大師之路] 在動態的 HTML 中動態產生元件]]></title>
+            <link>https://fullstackladder.dev/blog/2022/01/16/dynamic-create-component-without-template</link>
+            <guid>https://fullstackladder.dev/blog/2022/01/16/dynamic-create-component-without-template</guid>
+            <pubDate>Sun, 16 Jan 2022 13:12:26 GMT</pubDate>
+            <description><![CDATA[<p>在之前的文章中我們曾經提到過「動態建立元件」的方法，透過建立一個 directive，並決定這個 directive 的樣版上要呈現成什麼元件，之後將元件產生在 directive 所屬的樣版上。</p>
+<p>這麼做很棒，不過還是有一個缺點，就是一定需要在樣板 HTML 上掛上這個 directive，才能產生動態的元件，雖然大部分情境都足夠了，但當遇到甚至連 HTML 都是完全自定義不是寫死在程式內的，如果需要由後端 API 回傳 HTML 內容，並在回傳的 HTML 特定位置放置元件，就會有困難。</p>
+<p>今天就來看看這種動態的 HTML 內如何插入一個元件！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[GitHub Actions] 當有套件建議更新時自動發送 PR]]></title>
             <link>https://fullstackladder.dev/blog/2022/01/14/github-actions-auto-pr-for-package-dependency</link>
@@ -163,14 +173,6 @@
             <guid>https://fullstackladder.dev/blog/2020/10/14/mastering-rxjs-29-catcherror-finalize-retry-retrywhen</guid>
             <pubDate>Wed, 14 Oct 2020 18:00:00 GMT</pubDate>
             <description><![CDATA[<p>今天來介紹一些跟「錯誤處理」有關的 operators。在使用 RxJS 時，資料流是透過 <code>pipe</code> 及各式各樣的 <code>operators</code> 在處理，且很多時候是非同步的，因此大多時候發生錯誤並不能單純的使用 <code>try...catch</code> 方式處理，就需要透過這些錯誤處理相關的 operators 來幫忙囉！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[RxJS] 工具類型 Operators (1) - tap / toArray / delay / delayWhen]]></title>
-            <link>https://fullstackladder.dev/blog/2020/10/13/mastering-rxjs-28-tap-toarray-delay-delaywhen</link>
-            <guid>https://fullstackladder.dev/blog/2020/10/13/mastering-rxjs-28-tap-toarray-delay-delaywhen</guid>
-            <pubDate>Tue, 13 Oct 2020 18:00:00 GMT</pubDate>
-            <description><![CDATA[<p>今天要介紹的是「工具類型」的 Operators，也都不太困難，很好理解，繼續輕鬆學習吧！</p>
 ]]></description>
         </item>
     </channel>
