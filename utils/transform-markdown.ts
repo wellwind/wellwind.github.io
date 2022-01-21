@@ -1,6 +1,7 @@
 import * as markdownIt from 'markdown-it';
 
 const markdown = markdownIt({
+  html: true,
   linkify: true,
   typographer: true
 });
