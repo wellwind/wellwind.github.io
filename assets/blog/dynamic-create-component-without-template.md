@@ -130,7 +130,7 @@ constructor(private applicationRef: ApplicationRef);
  this.applicationRef.attachView(componentRef.hostView);
  ```
 
-##將動態產生的元件畫面放到指定的 DOM 中
+## 將動態產生的元件畫面放到指定的 DOM 中
 
 在元件動態產生後，也已經有它的 HTML 樣版結構了，只是此時畫面都還是存在記憶體中，因此我們要做的事情就是將這個樣版加入需要的位置上：
 
