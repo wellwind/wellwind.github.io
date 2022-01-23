@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Fri, 21 Jan 2022 11:35:17 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 23 Jan 2022 07:38:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[開箱文] 圖像 Angular 開發入門：打造高靈活度的網頁應用程式]]></title>
+            <link>https://fullstackladder.dev/blog/2022/01/23/angular-book-review-9789864349821</link>
+            <guid>https://fullstackladder.dev/blog/2022/01/23/angular-book-review-9789864349821</guid>
+            <pubDate>Sun, 23 Jan 2022 13:29:23 GMT</pubDate>
+            <description><![CDATA[<p>難得的出現了一本 Angular 的繁體中文書籍，而且是台灣人自己寫的，不是翻譯版，今天就來開箱一下這本「圖像 Angular 開發入門：打造高靈活度的網頁應用程式」！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Webpack] 分析產生後的 bundle 內容]]></title>
             <link>https://fullstackladder.dev/blog/2022/01/21/analysis-webpack-bundle-size</link>
@@ -165,16 +173,6 @@
             <guid>https://fullstackladder.dev/blog/2020/10/16/mastering-rxjs-31-practicing-autocomplete-search-sort-pagination</guid>
             <pubDate>Fri, 16 Oct 2020 18:00:00 GMT</pubDate>
             <description><![CDATA[<p>今天我們用實際的例子來練習各種 RxJS operators 的組合運用！在一般的應用程式裡面，資料查詢應該算是非常常見的情境了，我們就實際使用資料查詢的功能做範例，加上各種變化，來練習一些 operators 的實際使用吧！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[RxJS] Multicast 類 Operator (1) - multicast / publish / refCount / share / shareReplay]]></title>
-            <link>https://fullstackladder.dev/blog/2020/10/15/mastering-rxjs-30-multicast-publish-refcount-share-sharereplay</link>
-            <guid>https://fullstackladder.dev/blog/2020/10/15/mastering-rxjs-30-multicast-publish-refcount-share-sharereplay</guid>
-            <pubDate>Thu, 15 Oct 2020 18:00:00 GMT</pubDate>
-            <description><![CDATA[<p>還記得之前我們介紹過 Cold Observable v.s. Hot Observable 嗎？</p>
-<p>Cold Observable 和觀察者 (Observer) 是一對一的關係，也就是每次產生訂閱時，都會是一個全新的資料流。而 Hot Observable 和觀察者則是一對多的關係，也就是每次產生訂閱時，都會使用「同一份資料流」，而今天要介紹的 operators 目的就是將 Cold Observable 轉成 Hot Observable，讓原來的資料流可以共用。</p>
-<p>今天的觀念會比較複雜一點，打起精神繼續看下去吧！</p>
 ]]></description>
         </item>
     </channel>
