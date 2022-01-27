@@ -89,11 +89,11 @@ intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEven
         // 使用 request.context.get 取得執定的 HttpContextToken
         // 並根據 token 內容決定如何進一步執行程式
         
-        if(request.context.get(SUPRESS_401_MESSAGE)) {
+        if(!request.context.get(SUPRESS_401_MESSAGE)) {
           alert('登入逾時或權限不足，請重新登入');          
         }
 
-        if(request.context.get(SUPRESS_401_REDIRECT)) {
+        if(!request.context.get(SUPRESS_401_REDIRECT)) {
           this.router.navigateByUrl('/login');          
         }
       }
