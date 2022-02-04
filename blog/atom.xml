@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Fri, 04 Feb 2022 11:03:45 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 04 Feb 2022 12:00:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Inno Setup] 包裝安裝檔時顯示中文]]></title>
+            <link>https://fullstackladder.dev/blog/2022/02/03/inno-setup-utf8-chinese-support</link>
+            <guid>https://fullstackladder.dev/blog/2022/02/03/inno-setup-utf8-chinese-support</guid>
+            <pubDate>Thu, 03 Feb 2022 18:59:52 GMT</pubDate>
+            <description><![CDATA[<p>Inno Setup 內建多種語言的安裝檔，不過內建不支援繁體中文，雖然文件上有非官方語言包可以下載，但還是有一些地雷在，這篇文章就簡單記錄一下。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Inno Setup] 使用精靈產生的腳本解說]]></title>
             <link>https://fullstackladder.dev/blog/2022/02/03/inno-setup-script-explain</link>
@@ -23,6 +31,17 @@
             <guid>https://fullstackladder.dev/blog/2022/02/02/inno-setup-quick-start</guid>
             <pubDate>Wed, 02 Feb 2022 14:51:01 GMT</pubDate>
             <description><![CDATA[<p><a href="https://jrsoftware.org/isinfo.php">Inno Setup</a> 是一套<a href="https://github.com/jrsoftware/issrc">開源</a>但功能強大且完整的 Windows 安裝程式，透過 Inno Setup 可以幫助我們將開發好的程式打包並壓縮成一個安裝檔，提供給使用者快速安裝；在打包成安裝檔的過程中我們會撰寫一些腳本來處理中間的安裝過程，因此在安裝的過程中是可以高度客製化的，今天就來快速看一下如何使用 InnoSetup 打包出一份安裝檔。</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Visual Studio Code 小技巧] 將檔案已指定編碼儲存]]></title>
+            <link>https://fullstackladder.dev/blog/2022/01/31/visual-studio-code-tips-save-encoding</link>
+            <guid>https://fullstackladder.dev/blog/2022/01/31/visual-studio-code-tips-save-encoding</guid>
+            <pubDate>Mon, 31 Jan 2022 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>以下說明如何使用 Visual Studio Code 來將文字檔編碼進行轉換。</p>
+<p>範例如圖，目前是一個 Big5 編碼的文字檔：</p>
+<p><img src="./assets/blog/visual-studio-code-tips-save-encoding/01.png" alt="" title=""  loading="lazy" /></p>
+<p>我們想轉換成 UTF-8，該如何處理呢？</p>
 ]]></description>
         </item>
         <item>
@@ -156,23 +175,6 @@
             <pubDate>Tue, 20 Oct 2020 18:00:00 GMT</pubDate>
             <description><![CDATA[<p>今天我們來聊聊如何撰寫測試程式來確保寫出來的 RxJS 如我們所想的一般運作，也就是撰寫測試程式碼！撰寫測試程式是軟體開發中非常重要的一環，雖然不是所有程式碼都一定要有對應的測試程式，但良好的測試程式卻可以幫助我們撰寫住更加穩固的程式碼。</p>
 <p>至於到底該怎麼測試 RxJS？撰寫 RxJS 測試程式時又有什麼需要注意的呢？就讓我們繼續看下去吧！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[RxJS] 認識 Scheduler]]></title>
-            <link>https://fullstackladder.dev/blog/2020/10/19/mastering-rxjs-34-introduce-scheduler-of-rxjs</link>
-            <guid>https://fullstackladder.dev/blog/2020/10/19/mastering-rxjs-34-introduce-scheduler-of-rxjs</guid>
-            <pubDate>Mon, 19 Oct 2020 18:00:00 GMT</pubDate>
-            <description><![CDATA[<p>今天我們來認識一下 RxJS 的 Scheduler，雖然在一般使用 RxJS 開發應用程式時幾乎不會用到 Scheduler，但 Scheduler 可以說是控制 RxJS 至關重要的角色，偶爾也有可能會需要使用 Scheduler 來調整事件發生時機！</p>
-<p>到底什麼是 Scheduler？就讓我們繼續看下去吧！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[RxJS] 如何設計自己的 RxJS Operators]]></title>
-            <link>https://fullstackladder.dev/blog/2020/10/18/mastering-rxjs-33-how-to-customize-operators</link>
-            <guid>https://fullstackladder.dev/blog/2020/10/18/mastering-rxjs-33-how-to-customize-operators</guid>
-            <pubDate>Sun, 18 Oct 2020 18:00:00 GMT</pubDate>
-            <description><![CDATA[<p>今天我們來聊點輕鬆(?)的主題 - 「如何設計出自己的 RxJS Operators」吧！</p>
 ]]></description>
         </item>
     </channel>
