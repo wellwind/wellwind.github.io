@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Thu, 27 Jan 2022 09:36:02 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 04 Feb 2022 08:23:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[使用 Inno Setup 快速包裝 Windows 安裝檔]]></title>
+            <link>https://fullstackladder.dev/blog/2022/02/02/inno-setup-quick-start</link>
+            <guid>https://fullstackladder.dev/blog/2022/02/02/inno-setup-quick-start</guid>
+            <pubDate>Wed, 02 Feb 2022 14:51:01 GMT</pubDate>
+            <description><![CDATA[<p><a href="https://jrsoftware.org/isinfo.php">Inno Setup</a> 是一套<a href="https://github.com/jrsoftware/issrc">開源</a>但功能強大且完整的 Windows 安裝程式，透過 Inno Setup 可以幫助我們將開發好的程式打包並壓縮成一個安裝檔，提供給使用者快速安裝；在打包成安裝檔的過程中我們會撰寫一些腳本來處理中間的安裝過程，因此在安裝的過程中是可以高度客製化的，今天就來快速看一下如何使用 InnoSetup 打包出一份安裝檔。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[開箱文] 圖像 Angular 開發入門：打造高靈活度的網頁應用程式]]></title>
             <link>https://fullstackladder.dev/blog/2022/01/23/angular-book-review-9789864349821</link>
@@ -165,14 +173,6 @@
             <guid>https://fullstackladder.dev/blog/2020/10/17/mastering-rxjs-32-implement-flux-pattern-with-rxjs</guid>
             <pubDate>Sat, 17 Oct 2020 18:00:00 GMT</pubDate>
             <description><![CDATA[<p>使用 React 作為前端架構的朋友對於 Flux 應該都不陌生，React 也內建了 Flux 讓我們可以直接使用，同時也有許多其他的 library 以這個架構為基礎設計，並應用在各種前端框架下，如 <a href="https://redux.js.org/">Redux</a> (for React)、<a href="https://ngrx.io/">NgRx</a> (for Angular) 和 <a href="https://vuex.vuejs.org/">Vuex</a> (for Vue) 等等。可以見得它是多麽重要的東西，今天我們來嘗試實際使用 RxJS 來實作一下這種架構，也藉此多認識一下 Flux Pattern 的重要觀念。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[RxJS] 實戰練習 - 自動完成 / 搜尋 / 排序 / 分頁]]></title>
-            <link>https://fullstackladder.dev/blog/2020/10/16/mastering-rxjs-31-practicing-autocomplete-search-sort-pagination</link>
-            <guid>https://fullstackladder.dev/blog/2020/10/16/mastering-rxjs-31-practicing-autocomplete-search-sort-pagination</guid>
-            <pubDate>Fri, 16 Oct 2020 18:00:00 GMT</pubDate>
-            <description><![CDATA[<p>今天我們用實際的例子來練習各種 RxJS operators 的組合運用！在一般的應用程式裡面，資料查詢應該算是非常常見的情境了，我們就實際使用資料查詢的功能做範例，加上各種變化，來練習一些 operators 的實際使用吧！</p>
 ]]></description>
         </item>
     </channel>
