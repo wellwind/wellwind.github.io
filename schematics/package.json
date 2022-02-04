@@ -1,5 +1,5 @@
 {
-  "name": "site-schschematics",
+  "name": "@wellwind/blog-schematics",
   "version": "0.0.0",
   "description": "A blank schematics",
   "scripts": {
