@@ -76,6 +76,12 @@ Inno Setup 提供兩種方式來建立腳本，一種是從頭開始自行撰寫
 
 選擇安裝檔可使用的介面語言，Inno Setup 內建多種語言，預設是沒有繁體中文的，之後再說明一下如何設定繁體中文的安裝檔。
 
+{% asset_img 09.png %}
+
+## Inno Setup Preprocessor
+
+這個步驟可以選擇是否要將一些設定參數透過 `#define` 宣告成全域的變數，因為把共用的資料抽成變數了，之後要修改交本會比較簡單，建議這個步驟一定要勾選起來。
+
 {% asset_img 10.png %}
 
 ## Compiler Settings
