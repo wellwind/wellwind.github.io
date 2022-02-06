@@ -89,7 +89,7 @@ CI 過程中如果還有其他需要發佈的內容，都可以丟到這個目�
 
 {% endnote %}
 
-以及使用 [Publish build artifacts](https://docs.microsoft.com/zh-tw/azure/devops/pipelines/tasks/utility/publish-build-artifacts?view=azure-devops&WT.mc_id=DOP-MVP-500373) 這個 Task 來發佈安裝檔。
+以及使用 [Publish build artifacts](https://docs.microsoft.com/zh-tw/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&WT.mc_id=DOP-MVP-500373&tabs=yaml) 這個 Task 來發佈安裝檔。
 
 ```yaml
 - task: PublishBuildArtifacts@1
