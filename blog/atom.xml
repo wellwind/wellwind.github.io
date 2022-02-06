@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 06 Feb 2022 09:25:42 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 06 Feb 2022 10:15:44 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Inno Setup] CI 時自動產生安裝檔（以 Azure DevOps 為例）]]></title>
+            <link>https://fullstackladder.dev/blog/2022/02/06/inno-setup-continuous-integration-with-azure-devops</link>
+            <guid>https://fullstackladder.dev/blog/2022/02/06/inno-setup-continuous-integration-with-azure-devops</guid>
+            <pubDate>Sun, 06 Feb 2022 18:06:42 GMT</pubDate>
+            <description><![CDATA[<p>透過 Inno Setup 打包安裝檔非常方便，由於都是腳本指令，加上 Inno Setup 本身也支援以 CLI 的方式執行，因此要搭配 CI/CD 是完全可行的，本篇就以 <a href="https://azure.microsoft.com/en-us/services/devops/?WT.mc_id=DOP-MVP-500373">Azure DevOps</a> 為例，說明一下使用 Inno Setup 打包安裝檔需要注意的一些事項。</p>
+<p>以下為使用 Pipeline as code 的方式說明，因此都是 yaml 設定檔，當然如果使用 Classic editor 的話，也都可以找到對應的 task</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Inno Setup] 安裝時設定環境變數 (Registry)]]></title>
             <link>https://fullstackladder.dev/blog/2022/02/06/inno-setup-environment-path-registry-by-code</link>
@@ -165,15 +174,6 @@
             <guid>https://fullstackladder.dev/blog/2021/07/10/luxon-display-format-with-utc</guid>
             <pubDate>Sat, 10 Jul 2021 19:33:07 GMT</pubDate>
             <description><![CDATA[<p><a href="https://moment.github.io/luxon">Luxon</a> 是一套輕巧但強大的時間處理 library，可以幫助我們快速解析來源時間字串，並處理好時區問題，不過預設處理時區有時候也會帶來一些困擾，今天就筆記一下如何用 Luxon 來處理各種時區問題。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Angular 大師之路] Angular 12 預設開啟 strict mode 的生存之道]]></title>
-            <link>https://fullstackladder.dev/blog/2021/06/21/how-to-survive-in-angular-12-strict-mode-using-async-pipe</link>
-            <guid>https://fullstackladder.dev/blog/2021/06/21/how-to-survive-in-angular-12-strict-mode-using-async-pipe</guid>
-            <pubDate>Mon, 21 Jun 2021 08:44:59 GMT</pubDate>
-            <description><![CDATA[<p>Angular 12 預設在建立專案時，現在預設會開啟 <a href="https://angular.io/guide/strict-mode">strict mode</a> 了，strict mode 會加上一些 TypeScript team 建議的檢查，以及 Angular 額外加入的檢查；這代表在不改變設定的情況下，撰寫 Angular 程式將會需要花費更多的心力去處理各種型別的宣告，以避免在 compile 階段發生錯誤。</p>
-<p>雖然感覺起來會越來越難寫，但往好處想，這些 strict mode 的檢查，都是為了減少程式在執行階段可能會發生的錯誤，減少非預期錯誤的可能性，也會減少許多 bug 發生的機會，讓我們寫出品質更好的程式碼，也省去更多 debug 的時間浪費！因此花些時間投資在寫出通過 strict mode 檢查的程式碼我覺得是很值得的，今天就來說幾個 strict mode 下容易發生的錯誤以及生存方法。</p>
 ]]></description>
         </item>
     </channel>
