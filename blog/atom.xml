@@ -4,11 +4,28 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Fri, 04 Feb 2022 12:00:45 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 06 Feb 2022 09:25:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Inno Setup] 安裝時設定環境變數 (Registry)]]></title>
+            <link>https://fullstackladder.dev/blog/2022/02/06/inno-setup-environment-path-registry-by-code</link>
+            <guid>https://fullstackladder.dev/blog/2022/02/06/inno-setup-environment-path-registry-by-code</guid>
+            <pubDate>Sun, 06 Feb 2022 14:46:04 GMT</pubDate>
+            <description><![CDATA[<p>有些時候，我們的程式會提供 CLI 指令給使用者，讓使用者可以自行下指令進行一些自動化的操作，這些 CLI 當然也都是執行檔，為了執行方便我們可以將程式位置加入 <code>Path</code> 環境變數，讓使用者可以直接輸入指令，而不用知道程式的所在位置。</p>
+<p>在 Inno Setup 該如何做到安裝時自動把指令路徑加入 <code>path</code> 環境變數呢？</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Inno Setup] 讓程式在系統登入時自動開啟執行]]></title>
+            <link>https://fullstackladder.dev/blog/2022/02/05/inno-setup-install-with-startup</link>
+            <guid>https://fullstackladder.dev/blog/2022/02/05/inno-setup-install-with-startup</guid>
+            <pubDate>Sat, 05 Feb 2022 15:00:39 GMT</pubDate>
+            <description><![CDATA[<p>很多時候我們會希望常用程式能在登入時自動開啟執行，這麼一來可以省去我們手動去開啟程式的時間；當使用 Inno Setup 打包安裝檔時，我們也可以將程式設定成開機自動執行。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Inno Setup] 包裝安裝檔時顯示中文]]></title>
             <link>https://fullstackladder.dev/blog/2022/02/03/inno-setup-utf8-chinese-support</link>
@@ -157,24 +174,6 @@
             <pubDate>Mon, 21 Jun 2021 08:44:59 GMT</pubDate>
             <description><![CDATA[<p>Angular 12 預設在建立專案時，現在預設會開啟 <a href="https://angular.io/guide/strict-mode">strict mode</a> 了，strict mode 會加上一些 TypeScript team 建議的檢查，以及 Angular 額外加入的檢查；這代表在不改變設定的情況下，撰寫 Angular 程式將會需要花費更多的心力去處理各種型別的宣告，以避免在 compile 階段發生錯誤。</p>
 <p>雖然感覺起來會越來越難寫，但往好處想，這些 strict mode 的檢查，都是為了減少程式在執行階段可能會發生的錯誤，減少非預期錯誤的可能性，也會減少許多 bug 發生的機會，讓我們寫出品質更好的程式碼，也省去更多 debug 的時間浪費！因此花些時間投資在寫出通過 strict mode 檢查的程式碼我覺得是很值得的，今天就來說幾個 strict mode 下容易發生的錯誤以及生存方法。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[C#] Rx.NET 筆記 (不定時更新)]]></title>
-            <link>https://fullstackladder.dev/blog/2021/04/17/notes-for-rx-net</link>
-            <guid>https://fullstackladder.dev/blog/2021/04/17/notes-for-rx-net</guid>
-            <pubDate>Sat, 17 Apr 2021 09:47:02 GMT</pubDate>
-            <description><![CDATA[<p>最近在專案中開始使用 <a href="http://Rx.NET">Rx.NET</a> 了，剛開始有些不太適應，不過大致熟悉後，寫起來還是很過癮，不輸給使用 RxJS，以下做一些簡單的筆記，讓對 <a href="http://Rx.NET">Rx.NET</a> 有興趣的朋友能快速上手。</p>
-<p>因為之前都是寫 RxJS 居多，也會有一些跟 RxJS 的比較，不過主軸還是以 <a href="http://Rx.NET">Rx.NET</a> 為主。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[RxJS] 如何替 RxJS 撰寫測試 - 一般測試與彈珠圖測試方法]]></title>
-            <link>https://fullstackladder.dev/blog/2020/10/20/mastering-rxjs-35-how-to-test-rxjs-with-marble-diagrams</link>
-            <guid>https://fullstackladder.dev/blog/2020/10/20/mastering-rxjs-35-how-to-test-rxjs-with-marble-diagrams</guid>
-            <pubDate>Tue, 20 Oct 2020 18:00:00 GMT</pubDate>
-            <description><![CDATA[<p>今天我們來聊聊如何撰寫測試程式來確保寫出來的 RxJS 如我們所想的一般運作，也就是撰寫測試程式碼！撰寫測試程式是軟體開發中非常重要的一環，雖然不是所有程式碼都一定要有對應的測試程式，但良好的測試程式卻可以幫助我們撰寫住更加穩固的程式碼。</p>
-<p>至於到底該怎麼測試 RxJS？撰寫 RxJS 測試程式時又有什麼需要注意的呢？就讓我們繼續看下去吧！</p>
 ]]></description>
         </item>
     </channel>

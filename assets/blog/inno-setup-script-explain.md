@@ -185,7 +185,12 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 ```
 
-用來設定應用程式的關聯 Icon，這邊的第二行最後的 `Tasks: desktopicon` 對應到 `[Task]` 區塊的 `Name: "desktopicon"` 設定。
+用來設定應用程式的**捷徑**，也就是除了程式主要安裝的目錄外，還有可以在哪些位置安裝捷徑，來開啟指定程式，設定包含
+
+- `Name`：捷徑名稱
+- `Filename`：捷徑實際檔案位置
+
+第二行最後的 `Tasks: desktopicon` 對應到 `[Task]` 區塊的 `Name: "desktopicon"` 設定。
 
 代表 `desktopicon` 這條設定在安裝過程中有被勾起來時，才執行目前這一行的設定，也就是真的在桌面建立捷徑。
 
