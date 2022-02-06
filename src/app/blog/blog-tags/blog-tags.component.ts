@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { PostMetaWithSlug } from '../../post-meta.interface';
+import { SiteMetaService } from '../../site-meta.service';
 
 @Component({
   selector: 'app-blog-tags',
@@ -18,10 +19,16 @@ export class BlogTagsComponent implements OnInit {
     map(tags => Math.max(...Object.values(tags).map(posts => posts.length)))
   )
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private siteMetaService: SiteMetaService) {
   }
 
   ngOnInit(): void {
+    this.siteMetaService.resetMeta({
+      title: '標籤',
+      description: '顯示所有標籤',
+      keywords: [''],
+      type: 'website'
+    });
   }
 
 }

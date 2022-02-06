@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { PostMetaWithSlug } from '../../post-meta.interface';
+import { SiteMetaService } from '../../site-meta.service';
 
 @Component({
   selector: 'app-blog-categories',
@@ -14,10 +15,16 @@ export class BlogCategoriesComponent implements OnInit {
     map(data => data.categories as { [key: string]: PostMetaWithSlug[] })
   );
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private siteMetaService: SiteMetaService) {
   }
 
   ngOnInit(): void {
+    this.siteMetaService.resetMeta({
+      title: '分類',
+      description: '顯示所有分類',
+      keywords: [''],
+      type: 'website'
+    });
   }
 
 }

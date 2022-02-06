@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { PostMetaWithSlug } from '../../../post-meta.interface';
+import { SiteMetaService } from '../../../site-meta.service';
 import { getPagePosts } from '../../get-page-posts';
 
 const PAGE_SIZE = 10;
@@ -39,10 +40,18 @@ export class BlogCategoriesPostsComponent implements OnInit {
     map((posts) => Math.ceil(Object.keys(posts).length / PAGE_SIZE))
   );
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private siteMetaService: SiteMetaService) {
   }
 
   ngOnInit(): void {
+    this.categorySlug$.subscribe(category => {
+      this.siteMetaService.resetMeta({
+        title: `分類：${category}`,
+        description: `${category} 相關文章`,
+        keywords: [category || ''],
+        type: 'website'
+      });
+    });
   }
 
 }
