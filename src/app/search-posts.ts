@@ -10,7 +10,25 @@ const getSearchFieldName = (fieldName: string) => {
   return (searchFieldMapping as any)[fieldName] || '';
 }
 
+export const searchPostsByDateRange = (start?: Date, end?: Date) => (posts: PostMetaWithSlug[]) => {
+  return posts.filter(post => {
+    const postDate = new Date(post.date);
+    return (start ? postDate >= new Date(start) : true) && (end ? postDate <= new Date(end) : true);
+  });
+}
+
 export const searchPosts = (posts: PostMetaWithSlug[], keywordString: string) => {
+
+  if (!keywordString) {
+    return posts.map(post => ({
+      type: '文章',
+      text: post.title,
+      date: post.date,
+      link: `/blog/${post.date.slice(0, 10).replace(/-/g, '/')}/${post.slug}`,
+      toString: () => ''
+    }));
+  }
+
   const filterPostBy = (keyword: string) => (post: PostMetaWithSlug) =>
     post.title.toLowerCase().indexOf(keyword.toLowerCase()) >= 0
     || post.summary.toLowerCase().indexOf(keyword.toLowerCase()) >= 0;
@@ -51,6 +69,7 @@ export const searchPosts = (posts: PostMetaWithSlug[], keywordString: string) =>
     result.push(...relatePosts.map(post => ({
       type: `${getSearchFieldName(searchField)}${searchField ? ':' : ''}${searchFrom}${searchFrom ? ';' : ''}文章`,
       text: post.title,
+      date: post.date,
       link: `/blog/${post.date.slice(0, 10).replace(/-/g, '/')}/${post.slug}`,
       toString: () => ''
     })));
@@ -68,6 +87,7 @@ export const searchPosts = (posts: PostMetaWithSlug[], keywordString: string) =>
     result.push(...relatedCategories.map(category => ({
       type: '分類',
       text: category,
+      date: '',
       link: `/blog/categories/${slugify(category)}`,
       toString: () => ''
     })));
@@ -84,6 +104,7 @@ export const searchPosts = (posts: PostMetaWithSlug[], keywordString: string) =>
     result.push(...relatedTags.map(tag => ({
       type: '標籤',
       text: tag,
+      date: '',
       link: `/blog/tags/${slugify(tag)}`,
       toString: () => ''
     })));
