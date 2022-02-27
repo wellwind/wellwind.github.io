@@ -6,6 +6,8 @@ tags:
   - "GitHub Actions"
 ---
 
+GitHub 非常的貼心，經常會發送一些 PR 或 issue 告訴我們目前的程式有漏洞有修補，或是我們自己寫的 bot，希望能在指定的條件下自動關閉，此時可以使用 [Close Issue]((https://github.com/marketplace/actions/close-issue)) 這個 GitHub Action，再搭配 `if` 條件判斷，來自動關掉一些 bot 所開的 issue。
+
 <!-- more -->
 
 ```yaml
