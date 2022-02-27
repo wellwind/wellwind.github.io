@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 06 Feb 2022 13:15:43 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 27 Feb 2022 15:38:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[如何將 Word/Excel 等檔案內容貼到網頁上]]></title>
+            <link>https://fullstackladder.dev/blog/2022/02/14/how-to-paste-word-excel-to-web</link>
+            <guid>https://fullstackladder.dev/blog/2022/02/14/how-to-paste-word-excel-to-web</guid>
+            <pubDate>Mon, 14 Feb 2022 22:36:33 GMT</pubDate>
+            <description><![CDATA[<p>源自前陣子我們家業務問的問題：「客戶原來的系統能將 Excel 儲存格內容貼到網頁上，我們辦得到嗎？」。</p>
+<p>實際上當然是肯定的，但還真的沒有特別嘗試過該如何做到，花了點時間研究發現也沒那麼困難，也把一些種點整理一下，以免以後自己忘記。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Inno Setup] CI 時自動產生安裝檔（以 Azure DevOps 為例）]]></title>
             <link>https://fullstackladder.dev/blog/2022/02/06/inno-setup-continuous-integration-with-azure-devops</link>
@@ -119,7 +128,7 @@
             <link>https://fullstackladder.dev/blog/2021/11/01/github-actions-print-events</link>
             <guid>https://fullstackladder.dev/blog/2021/11/01/github-actions-print-events</guid>
             <pubDate>Mon, 01 Nov 2021 16:37:00 GMT</pubDate>
-            <description><![CDATA[<p>當使用 GitHub Actions 時，經常要針對來源事件去進行一些額外處理，導致要去查詢事件相關屬性，非常不方便，可以使用 [Debug action] 將相關資料印出，方便查找。</p>
+            <description><![CDATA[<p>當使用 GitHub Actions 時，經常要針對來源事件去進行一些額外處理，導致要去查詢事件相關屬性，非常不方便，可以使用 <a href="https://github.com/marketplace/actions/debug-action">Debug action</a> 將相關資料印出，方便查找。</p>
 ]]></description>
         </item>
         <item>
@@ -133,6 +142,8 @@
             <link>https://fullstackladder.dev/blog/2021/11/01/github-actions-auto-close-bot-issue</link>
             <guid>https://fullstackladder.dev/blog/2021/11/01/github-actions-auto-close-bot-issue</guid>
             <pubDate>Mon, 01 Nov 2021 15:02:02 GMT</pubDate>
+            <description><![CDATA[<p>GitHub 非常的貼心，經常會發送一些 PR 或 issue 告訴我們目前的程式有漏洞有修補，或是我們自己寫的 bot，希望能在指定的條件下自動關閉，此時可以使用 <a href="(https://github.com/marketplace/actions/close-issue)">Close Issue</a> 這個 GitHub Action，再搭配 <code>if</code> 條件判斷，來自動關掉一些 bot 所開的 issue。</p>
+]]></description>
         </item>
         <item>
             <title><![CDATA[[Angular Universal] 使用 TransferState 解決畫面閃爍問題]]></title>
@@ -166,14 +177,6 @@
             <guid>https://fullstackladder.dev/blog/2021/10/10/ramda-multiple-sort-using-sort-with</guid>
             <pubDate>Sun, 10 Oct 2021 12:21:01 GMT</pubDate>
             <description><![CDATA[<p>多欄位排序是一件不太困難，但也有點麻煩的事情，雖然 JavaScript 本身提供的 <code>sort()</code> 就可以達到目標，但寫起來就是醜醜的，而透過 Ramda 的 <code>sortWith()</code> 就簡單得多，而且更加好閱讀，今天就來如何使用 <code>sortWith()</code> 打造更好閱讀的排序程式。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Luxon] 顯示 UTC 時間而非當地時間]]></title>
-            <link>https://fullstackladder.dev/blog/2021/07/10/luxon-display-format-with-utc</link>
-            <guid>https://fullstackladder.dev/blog/2021/07/10/luxon-display-format-with-utc</guid>
-            <pubDate>Sat, 10 Jul 2021 19:33:07 GMT</pubDate>
-            <description><![CDATA[<p><a href="https://moment.github.io/luxon">Luxon</a> 是一套輕巧但強大的時間處理 library，可以幫助我們快速解析來源時間字串，並處理好時區問題，不過預設處理時區有時候也會帶來一些困擾，今天就筆記一下如何用 Luxon 來處理各種時區問題。</p>
 ]]></description>
         </item>
     </channel>

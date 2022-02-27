@@ -45,7 +45,7 @@ Source: "dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ```
 
-##安裝檔輸出路徑
+## 安裝檔輸出路徑
 
 預設安裝檔產生的路徑為 `Output`（或自行設定 `OutputDir`），之後要記得複製到 `$(build.artifactstagingdirectory)`中，這是 Azure DevOps 內建的一個目錄路徑變數，通常打包出來的內容都會放在這裡，然後透過 Publish Artifact 這個 task 上傳，以供之後 Release Pipeline 使用。
 

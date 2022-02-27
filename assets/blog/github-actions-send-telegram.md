@@ -10,14 +10,18 @@ tags:
 
 # 申請 Telegram Token
 
-* 跟 [@BotFather](https://t.me/BotFather) 私訊取得 token
-* 輸入 `/newbot` 並依照提示輸入資料，最終取得 token
+要能自動發訊息給 Telegram，首先要先申請 Telegram，過程還蠻簡單的
+
+1. 跟 [@BotFather](https://t.me/BotFather) 私訊取得 token
+2. 輸入 `/newbot` 並依照提示輸入資料，最終取得 token
+
+{% asset_img 01.png %}
 
 # 取得 Chat Id
 
-* 網址輸入 `https://api.telegram.org/bot{{ token }}/getUpdates`，可以得到聊天訊息的 chat id
-* Chat Id 為 `result[0].message.chat.id`
-* 如果沒有資料，先隨意傳個訊息給建立好的 bot，就可以看到訊息更新了
+1. 網址輸入 `https://api.telegram.org/bot{{ token }}/getUpdates`，可以得到聊天訊息的 chat id
+2. Chat Id 為 `result[0].message.chat.id`
+3. 如果沒有資料，先隨意傳個訊息給建立好的 bot，就可以看到訊息更新了
 
 # GitHub Action 發送 Telegram 訊息
 
