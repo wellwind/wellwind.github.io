@@ -4,11 +4,22 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 27 Feb 2022 15:38:28 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 28 Feb 2022 04:45:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Angular 進階議題] 減少 moment.js 造成 bundle 檔案過大的問題]]></title>
+            <link>https://fullstackladder.dev/blog/2022/02/26/reduce-moment-bundle-size-in-angular</link>
+            <guid>https://fullstackladder.dev/blog/2022/02/26/reduce-moment-bundle-size-in-angular</guid>
+            <pubDate>Sat, 26 Feb 2022 18:34:27 GMT</pubDate>
+            <description><![CDATA[<p><a href="https://momentjs.com/">momentjs</a>，可以說是最多人使用的老牌 JavaScript 時間處理類別庫；當然，隨著技術的進步，momentjs 也有不少議題被提出，其中最大的問題就是檔案太過龐大了，且隨著現在前端技術的發展，我們經常使用 webpack 等工具將前端程式進行打包，同時過濾 (tree shaking) 要不要的程式，以減少整體檔案大小。</p>
+<p>而 momentjs 由於原始設計的關係，在做 tree shaking 的時候會無法移除掉用不到的 API，同時還有龐大的語系檔，嚴重影響最終 bundle 檔案大小。</p>
+<p>抱怨歸抱怨，momentjs 還是非常多人在用，因此只能盡量的做到減少大小，至少不要把龐大的語系檔一起 bundle 進來。</p>
+<p>Angular 過去是將 webpack 整個封裝起來的，而隨著版本推移，現在也能自訂 webpack 了，今天就來看一下如何在 Angular 中自訂 webpack，同時移除 momentjs 中過大的語系檔。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[如何將 Word/Excel 等檔案內容貼到網頁上]]></title>
             <link>https://fullstackladder.dev/blog/2022/02/14/how-to-paste-word-excel-to-web</link>
@@ -169,14 +180,6 @@
             <guid>https://fullstackladder.dev/blog/2021/10/16/static-site-generator-using-angular-universal-prerender</guid>
             <pubDate>Sat, 16 Oct 2021 13:32:39 GMT</pubDate>
             <description><![CDATA[<p>隨著 Angular 不斷的改版，原來難用且功能差強人意的 <a href="https://angular.io/guide/universal">Angular Universal</a> 在不知不覺已經變得相當完整及強大，搭配 <a href="https://angular.io/guide/prerendering">Prerender</a> 功能，不用再依靠如 Hexo、Scully 等工具，要刻出屬於自己的 Static Site Generator (靜態網站產生器) 也變得相當容易，今天就來簡單看一下 Angular Universal 現在變得多麼簡單，且透過 Prerender 功能來打造一個簡單的 Static Site Generator 吧！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Ramda] 使用 sortWith 輕鬆達成多欄位排序條件]]></title>
-            <link>https://fullstackladder.dev/blog/2021/10/10/ramda-multiple-sort-using-sort-with</link>
-            <guid>https://fullstackladder.dev/blog/2021/10/10/ramda-multiple-sort-using-sort-with</guid>
-            <pubDate>Sun, 10 Oct 2021 12:21:01 GMT</pubDate>
-            <description><![CDATA[<p>多欄位排序是一件不太困難，但也有點麻煩的事情，雖然 JavaScript 本身提供的 <code>sort()</code> 就可以達到目標，但寫起來就是醜醜的，而透過 Ramda 的 <code>sortWith()</code> 就簡單得多，而且更加好閱讀，今天就來如何使用 <code>sortWith()</code> 打造更好閱讀的排序程式。</p>
 ]]></description>
         </item>
     </channel>
