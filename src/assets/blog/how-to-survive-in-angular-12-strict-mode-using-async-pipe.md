@@ -264,7 +264,11 @@ export class MyAppComponent {
 
 但我們呼叫 API 存取資料時，使用的是非同步的 Observable 物件，所以一開始一定不會訂閱到任何資料啊！
 
-解決的方式很簡單，使用 `startWith` operator，即可在訂閱發生時立刻給予一個起始事件，讓 async pipe 訂閱時立刻可以得到資料，就不會發生錯誤了：
+解決的方式很簡單，分成幾種，可以依照喜好自行決定
+
+## 使用 startWith operator
+
+使用 `startWith` operator，即可在訂閱發生時立刻給予一個起始事件，讓 async pipe 訂閱時立刻可以得到資料，就不會發生錯誤了：
 
 ```typescript
 // import { startWith } from 'rxjs/operators';
@@ -302,6 +306,8 @@ todoList$ = this.getTodoList()
 
 {% endnote %}
 
+## 使用 ngIf
+
 另外一種簡單易懂的處理方式是，用 `ngIf` 來檢查資料是否為 `null` 或 `undefined`：
 
 ```html
@@ -311,6 +317,26 @@ todoList$ = this.getTodoList()
 ```
 
 這種寫法就如同我們在 TypeScript 會自己寫 `if` 判斷資料是否為 `null` 或 `undefined` 一樣，更加簡單；不過要注意的是，如果元件有很多屬性都會用到 Observable + async pipe 的話，就會出現巢狀的 `ngIf`。
+
+## 使用 or 運算子
+
+在 JavaScript 中，我們可以使用 or 運算子 (`||`)，當前面的條件為 falsy 時，就去看後面的條件，藉此在資料為 falsy 時取得預設值
+
+```javascript
+let a = null
+let b = a || 'data';
+
+console.log(b);
+// data
+```
+
+而在 async pipe 收到訂閱資料前，一定會收到 `null`，因此可以主動設定一個預設值即可。
+
+```html
+<my-component [data]="(data$ | async) || []"></my-component>
+```
+
+如此一來當 async pipe 還沒收到訂閱資料時，就會傳入預設的資料到元件內，算是一種調整最小又簡單易懂的方式。
 
 # 本日小結
 
