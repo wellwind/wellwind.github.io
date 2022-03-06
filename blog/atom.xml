@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Wed, 02 Mar 2022 07:28:54 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 06 Mar 2022 14:05:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[node.js] 打造美觀的互動式 CLI 介面]]></title>
+            <link>https://fullstackladder.dev/blog/2022/03/06/node-packages-to-create-beauty-cli</link>
+            <guid>https://fullstackladder.dev/blog/2022/03/06/node-packages-to-create-beauty-cli</guid>
+            <pubDate>Sun, 06 Mar 2022 20:00:33 GMT</pubDate>
+            <description><![CDATA[<p>前陣子在 Youtube 上看到了一部影片，介紹了好幾個 node.js 的套件，來幫助我們打造漂亮的 CLI，才後知後覺的發現一直在使用的 Angular CLI、Schematics 等等，許多由 node.js 開發的 CLI 工具，背後那些美觀的畫面都是基於這些套件，而不是自己刻的，所以整理了一下這些套件的介紹與示範！</p>
+<p><img src="./assets/blog/node-packages-to-create-beauty-cli/00.png" alt="" title=""  loading="lazy" /></p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Angular 進階議題] 減少 moment.js 造成 bundle 檔案過大的問題]]></title>
             <link>https://fullstackladder.dev/blog/2022/02/26/reduce-moment-bundle-size-in-angular</link>
@@ -172,14 +181,6 @@
             <guid>https://fullstackladder.dev/blog/2021/10/23/learn-angular-cli-builders</guid>
             <pubDate>Sat, 23 Oct 2021 12:12:56 GMT</pubDate>
             <description><![CDATA[<p>Angular CLI 可以幫助我們透過 <code>ng</code> 指令完成許多繁雜的工作，像是啟動開發用的伺服器 (<code>ng serve</code>)、將 Angular 專案建置成純前端網站 (<code>ng build</code>) 、或是進行單元測試 (<code>ng test</code>) 等等，這些指令其實背後都是一段又一段的程式，再搭配 Angular 的 CLI Builder API 整合起來的，而透過 CLI Builder API 也可以幫助我們將一些專案內經常運行的程式也整合到 Angular CLI 內，甚至可以藉此擴充原本內建的 Angular CLI 指令，今天就來看一下如何使用 CLI Builder API 吧！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Angular Universal] 使用 Prerender 建立自己的 Static Site Generator]]></title>
-            <link>https://fullstackladder.dev/blog/2021/10/16/static-site-generator-using-angular-universal-prerender</link>
-            <guid>https://fullstackladder.dev/blog/2021/10/16/static-site-generator-using-angular-universal-prerender</guid>
-            <pubDate>Sat, 16 Oct 2021 13:32:39 GMT</pubDate>
-            <description><![CDATA[<p>隨著 Angular 不斷的改版，原來難用且功能差強人意的 <a href="https://angular.io/guide/universal">Angular Universal</a> 在不知不覺已經變得相當完整及強大，搭配 <a href="https://angular.io/guide/prerendering">Prerender</a> 功能，不用再依靠如 Hexo、Scully 等工具，要刻出屬於自己的 Static Site Generator (靜態網站產生器) 也變得相當容易，今天就來簡單看一下 Angular Universal 現在變得多麼簡單，且透過 Prerender 功能來打造一個簡單的 Static Site Generator 吧！</p>
 ]]></description>
         </item>
     </channel>
