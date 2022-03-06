@@ -3,6 +3,11 @@ title: "[node.js] 打造美觀的互動式 CLI 介面"
 date: 2022-03-06 20:00:33
 category: "前端軍火庫"
 tags:
+  - "chalk"
+  - "gradient-string"
+  - "figlet.js"
+  - "inquirer.js"
+  - "nanospinner"
 ---
 
 前陣子在 Youtube 上看到了一部影片，介紹了好幾個 node.js 的套件，來幫助我們打造漂亮的 CLI，才後知後覺的發現一直在使用的 Angular CLI、Schematics 等等，許多由 node.js 開發的 CLI 工具，背後那些美觀的畫面都是基於這些套件，而不是自己刻的，所以整理了一下這些套件的介紹與示範！
