@@ -31,7 +31,8 @@ async function generateBlogPostsJson(options: Options, context: BuilderContext):
         date: markdownMeta!.date,
         categories: markdownMeta!.categories,
         tags: markdownMeta!.tags,
-        summary: markdownMeta!.summary
+        summary: markdownMeta!.summary,
+        ogImage: markdownMeta!.ogImage
       }
     }), {} as any)
 

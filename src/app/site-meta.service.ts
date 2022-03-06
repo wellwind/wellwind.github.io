@@ -9,7 +9,7 @@ export class SiteMetaService {
   constructor(private title: Title, private meta: Meta) {
   }
 
-  resetMeta(options: { title: string, description: string, keywords: string[], type: 'website' | 'article' }) {
+  resetMeta(options: { title: string, description: string, keywords: string[], type: 'website' | 'article', ogImage?: string }) {
     const siteName = '全端開發人員天梯'
     const pageTitle = `${options.title}${options.title ? ' | ' : ''}${siteName}`;
     this.title.setTitle(pageTitle);
@@ -22,6 +22,7 @@ export class SiteMetaService {
       { property: 'og:site_name', content: siteName },
       { property: 'og:description', content: options.description },
       { property: 'og:locale', content: 'zh-tw' },
+      { name: 'og:image', content: options.ogImage || '' },
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:title', content: pageTitle },
       { name: 'twitter:description', content: options.description }

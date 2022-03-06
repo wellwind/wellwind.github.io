@@ -6,6 +6,8 @@ const markdown = markdownIt({
   typographer: true
 });
 
+export const getContentPath = (slug: string) => `./assets/blog/${slug}`;
+
 export const transformMarkdown = (content: string, slug: string) => markdown
   // 轉成基本的 HTML
   .render(content)

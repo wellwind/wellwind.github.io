@@ -4,6 +4,7 @@ export interface MarkdownMeta {
   date: string;
   categories: string[];
   tags: string[];
+  ogImage?: string;
   draft?: boolean;
   summary: string;
   content: string;

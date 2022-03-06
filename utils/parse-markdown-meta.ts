@@ -1,7 +1,7 @@
 import * as yaml from 'js-yaml';
 import { MarkdownMeta } from './markdown-meta';
 import { MarkdownYamlMeta } from './parse-markdown-meta.interface';
-import { transformMarkdown } from './transform-markdown';
+import { getContentPath, transformMarkdown } from './transform-markdown';
 
 const markdownYamlMetaPattern = /^(?:\-\-\-)(.*?)(?:\-\-\-|\.\.\.)/s
 
@@ -41,6 +41,7 @@ export const parseMarkdownMeta = (markdownContent: string, slug: string) => {
         .replace(/T/g, ' '),
       categories: typeof yamlMeta.category === 'string' ? [yamlMeta.category] : yamlMeta.category,
       tags: yamlMeta.tags,
+      ogImage: yamlMeta.ogImage ? `${getContentPath(slug)}/${yamlMeta.ogImage}` : undefined,
       draft: !!yamlMeta.draft,
       summary: transformMarkdown(summary, slug),
       content: transformMarkdown(content, slug),

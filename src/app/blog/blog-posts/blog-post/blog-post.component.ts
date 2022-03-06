@@ -68,7 +68,8 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
           .replace(/<[^>]*>/gm, '')
           .replace(/\n/g, '')
           .trim(),
-        keywords: postMeta.tags || []
+        keywords: postMeta.tags || [],
+        ogImage: postMeta.ogImage
       });
     });
   }

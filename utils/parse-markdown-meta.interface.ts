@@ -3,5 +3,6 @@ export interface MarkdownYamlMeta {
   date: Date;
   category: string[] | string;
   tags: string[];
+  ogImage?: string;
   draft?: boolean;
 }
