@@ -103,8 +103,14 @@ Promise.resolve('B')
 
 那麼為什麼稍早的程式中 `setTimeout` 執行順序跟我們想的不一樣呢？這是因為所謂的「等待區」在 JavaScript 處理中其實會有兩種：
 
-- Microtask queue：如 `Promise` 或 node.js 中的 `process.nextTick`，都會丟到 microtask queue 中。
-- Macrotask queue：如 `setTimeout` 或 `requestAnimationFrame`，都會丟到 marcotask queue 中。
+- M**i**crotask queue：如 `Promise` 或 node.js 中的 `process.nextTick`，都會丟到 microtask queue 中。
+- M**a**crotask queue：如 `setTimeout` 或 `requestAnimationFrame`，都會丟到 marcotask queue 中。
+
+{% noteinfo %}
+
+差一個字母就差很多
+
+{% endnote %}
 
 JavaScript 在同步執行完畢時，會先將所有的 microtask queue 中的程式執行完畢，確認清空 microtask queue 的工作後，再處理下一個 macrotask queue 中的工作，也因此同時有 `Promise` 和 `setTimeout()` 呼叫時，`promise` 會進入 microtask queue 而 `setTimeout` 則進入 macrotask queue，所以 `Promise` 的程式會先進行處理，之後才處理 `setTimeout` 的程式。
 
@@ -114,7 +120,7 @@ JavaScript 在同步執行完畢時，會先將所有的 microtask queue 中的�
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-大方向是，microtask 會在每次 macrotask 結束前，想辦法清空，當清空後才會進行畫面渲染，接著處理下一次的 macrotask，因此 macrotask 作用在每次畫面渲染的前後，而 microtask 則不是。
+大方向是，在 macrotask queue 的每個工作結束前，會先清空目前 microtask queue 中的所有工作，之後才會進行畫面渲染，接著處理下一個 macrotask queue 中的工作，因此 macrotask queue 會作用在每次畫面渲染的前後，microtask 則不是。
 
 現在我們只要知道非同步運作有一個粒度小的 microtask 以及一個粒度大的 macrotask ，以及畫面渲染時機的不同，就足以幫助我們更加理解 RxJS 的 Scheduler 囉。
 
