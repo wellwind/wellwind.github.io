@@ -58,7 +58,7 @@ data: any = {};
 })
 ```
 
-另外如果成市內沒有宣告變數，卻在樣板上使用某個變數時，aot build 也不會過，這時候可以改成將 `this` 轉成 any 型別：
+另外如果程式內沒有宣告變數，卻在樣板上使用某個變數時，aot build 也不會過，這時候可以改成將 `this` 轉成 any 型別：
 
 ```typescript
 @Component({
