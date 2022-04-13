@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest, ReplaySubject } from 'rxjs';
+import { combineLatest } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { MarkdownMeta } from 'site-utils';
 import { PlatformService } from '../../../../platform.service';
@@ -21,9 +21,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   get isServer() {
     return this.platformService.isServer;
   }
-
-  displayLikerCoin$ = new ReplaySubject<boolean>(1);
-  likerCoinSrc$ = new ReplaySubject<SafeResourceUrl>();
 
   postMeta$ = this.route.data.pipe(
     map(data => data.content as MarkdownMeta)
@@ -74,16 +71,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
         keywords: postMeta.tags || [],
         ogImage: postMeta.ogImage
       });
-
-      if(!this.platformService.isServer){
-        this.displayLikerCoin$.next(false);
-        setTimeout(() => {
-          const likerCoinBase = 'https://button.like.co/in/embed/wellwind/button?referrer=';
-          const url = encodeURIComponent(location.href.split("?")[0].split("#")[0]);
-          this.likerCoinSrc$.next(this.domSanitizer.bypassSecurityTrustResourceUrl(`${likerCoinBase}${url}`));
-          this.displayLikerCoin$.next(true);
-        });
-      }
     });
   }
 

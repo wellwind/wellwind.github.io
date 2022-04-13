@@ -10,6 +10,7 @@ import { SlugifyPipe } from './slugify.pipe';
 import { PaginationComponent } from './pagination/pagination.component';
 import { UnslugifyPipe } from './unslugify.pipe';
 import { CommentComponent } from './comment/comment.component';
+import { LikerCoinComponent } from './liker-coin/liker-coin.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CommentComponent } from './comment/comment.component';
     PaginationComponent,
     UnslugifyPipe,
     BlogPostSubtitleComponent,
-    CommentComponent],
+    CommentComponent,
+    LikerCoinComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -34,7 +36,8 @@ import { CommentComponent } from './comment/comment.component';
     PaginationComponent,
     UnslugifyPipe,
     BlogPostSubtitleComponent,
-    CommentComponent
+    CommentComponent,
+    LikerCoinComponent
   ]
 })
 export class SiteCommonModule {
