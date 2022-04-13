@@ -136,6 +136,6 @@ npm install --save bootstrap
 
 # 單元回顧
 
-今天我們介紹了在Angular專案中設定CSS的兩種方法，一種是與各自的Component獨立設計，好處是關注點分離，能更加專注在目前Component的樣式設計上面；若要使用global的CSS，則把CSS路徑加入angular-cli.json即可，如此以來我們可以輕易整合各種第三方的css，讓開發美觀的畫面更加容易！
+今天我們介紹了在Angular專案中設定CSS的兩種方法，一種是與各自的Component獨立設計，好處是關注點分離，能更加專注在目前Component的樣式設計上面；若要使用global的CSS，則把CSS路徑加入angular-cli.json即可，如此一來我們可以輕易整合各種第三方的css，讓開發美觀的畫面更加容易！
 
 今天的程式碼在這裡: [https://github.com/wellwind/AngularDotblogsDemo/tree/CssDemo](https://github.com/wellwind/AngularDotblogsDemo/tree/CssDemo)
