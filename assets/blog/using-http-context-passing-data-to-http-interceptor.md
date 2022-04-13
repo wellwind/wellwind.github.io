@@ -125,7 +125,7 @@ this.httpClient.post<any>(
 );
 ```
 
-如此以來這次 API 呼叫時，就會將 `SUPRESS_401_MESSAGE` 和 `SUPRESS_401_REDIRECT` 的值設定為 `true`，而自訂的 HttpInterceptor 就可以根據這些 token 來決定該如何進一步處理了。
+如此一來這次 API 呼叫時，就會將 `SUPRESS_401_MESSAGE` 和 `SUPRESS_401_REDIRECT` 的值設定為 `true`，而自訂的 HttpInterceptor 就可以根據這些 token 來決定該如何進一步處理了。
 
 # 本日小結
 
