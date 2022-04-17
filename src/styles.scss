@@ -164,6 +164,10 @@ a {
   font-size: 16px;
   line-height: 24px;
 
+  p {
+    text-align: justify;
+  }
+
   img {
     max-width: calc(100% - 12px);
     width: auto;
@@ -178,7 +182,7 @@ a {
     background: $code-background-color;
     padding: 2px;
     border-radius: 3px;
-    font-family: Consolas;
+    font-family: 'Source Code Pro', monospace;
   }
 
   pre {
@@ -206,6 +210,8 @@ a {
     padding: 1em;
 
     p {
+      text-align: justify;
+
       &:first-child {
         margin-block-start: 0;
       }
