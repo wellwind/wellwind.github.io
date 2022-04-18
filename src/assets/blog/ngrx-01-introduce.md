@@ -205,7 +205,7 @@ NgRx 就是 SOP
 
 這個準則來自 2018 年的 Angular Connect 研討會，影片支援：
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/omnwu_etHTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="100%" style="min-height: 315px;" src="https://www.youtube.com/embed/omnwu_etHTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # NgRx 資料流
 
