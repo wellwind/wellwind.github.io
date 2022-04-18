@@ -35,3 +35,10 @@ export const transformMarkdown = (content: string, slug: string) => markdown
       const newContent = content.trim().replace(/^\s+|\s+$/g, '');
       return `</p><div class=\"note ${noteClass}\">${newContent}</div><p>`
     })
+  // {% youtube %} 轉換
+  .replace(
+    /<p>{% youtube (.*?) %}<\/p>/gs,
+    (match, youtubeId) => {
+      const newContent = content.trim().replace(/^\s+|\s+$/g, '');
+      return `</p><div class="embed-responsive embed-responsive-16by9"><iframe src="https://www.youtube.com/embed/${youtubeId}" title="YouTube video player" class="embed-responsive-item" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>`
+    });

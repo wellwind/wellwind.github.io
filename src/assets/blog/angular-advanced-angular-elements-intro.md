@@ -23,7 +23,7 @@ Angular Elements是Angular 6推出的一個重大功能，雖然還不盡完善�
 
 如果對於這個技術有興趣，也可以參考一下ng-conf 2018的影片：
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Z1gLFPLVJjY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+{% youtube Z1gLFPLVJjY %}
 
 ## Angular Elements的運作原理
 

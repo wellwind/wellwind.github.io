@@ -118,7 +118,7 @@ JavaScript 在同步執行完畢時，會先將所有的 microtask queue 中的�
 
 為什麼要切成這樣呢？中間有不少原因，還會牽扯到另一個大主題「event loop」，但這些不是今天的主題，因此就不花篇幅介紹了，有興趣可以看看以下影片 (有中文字幕)：
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{% youtube 8aGhZQkoFbQ %}
 
 大方向是，在 macrotask queue 的每個工作結束前，會先清空目前 microtask queue 中的所有工作，之後才會進行畫面渲染，接著處理下一個 macrotask queue 中的工作，因此 macrotask queue 會作用在每次畫面渲染的前後，microtask 則不是。
 

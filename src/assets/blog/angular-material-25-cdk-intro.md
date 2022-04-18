@@ -14,9 +14,7 @@ tags:
 
 CDK是**component development kit**的簡寫，顧名思義就是「**用來開發元件的工具**」，因此不難想像Angular CDK就是用來幫助我們開發各種元件的好用工具。建議讀者可以先看過2017年在奧蘭多的Angular Mix大會上的一段關於Angular CDK介紹的影片：
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kYDLlfpTLEA" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-
-https://www.youtube.com/watch?v=kYDLlfpTLEA
+{% youtube kYDLlfpTLEA %}
 
 -   [投影片](https://www.google.com/url?q=http://g.co/ng/mix17-cdk&sa=D&ust=1514819320781000&usg=AFQjCNGKIdtAGQjeTzzkY5H8GCO4ki-JTQ)
 -   [影片的範例原始碼](https://github.com/jelbourn/mix17-cdk-demo)
@@ -96,9 +94,7 @@ Components內主要就是在設計些常用元件時的輔助directive，替我�
 
 順便置入一下筆者前陣子在[線上Angular讀書會](https://www.facebook.com/groups/angularstudygroup/)介紹Angular CDK的影片
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZxY3QoGkLhQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-
-https://www.youtube.com/watch?v=ZxY3QoGkLhQ
+{% youtube ZxY3QoGkLhQ %}
 
 ## 相關資源
 
