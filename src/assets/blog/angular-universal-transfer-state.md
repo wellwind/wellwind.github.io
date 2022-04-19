@@ -122,7 +122,7 @@ export class AppModule { }
 
 ```
 
-再次使用 `npm run dev:ssr` 測試結果，可以發現畫面閃爍問題就消失了，並且也不會再前端重複抓取 API 資料。
+再次使用 `npm run dev:ssr` 測試結果，可以發現畫面閃爍問題就消失了，並且也不會在前端重複抓取 API 資料。
 
 ## 自定版：透過 TransferState 自定狀態
 

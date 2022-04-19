@@ -88,7 +88,7 @@ npm run dev:ssr
 
 # 使用 Prerender 功能
 
-使用 Angular Universal 的 SSR 功能雖然很方便，但也有個小缺點，就是一定要有一個能夠跑 node.js 的伺服器去執行 express server 來幫忙在伺服器端產生內容，但因為要在伺服器端進行運算所以通常這類主機都會比較貴一點，如果只是想做個小作品，或寫寫 blog，就顯得有點浪費；而不用在伺服器運算的主機就便宜很多，甚至像 GitHub Pages 就是個完全免費且廣受歡迎的一個選擇！
+使用 Angular Universal 的 SSR 功能雖然很方便，但也有個小缺點，就是一定要有一個能夠跑 node.js 的伺服器去執行 express server 來幫忙在伺服器端產生內容，但因為要在伺服器端進行運算所以通常這類主機都會比較貴一點，如果只是想做個小作品，或寫寫 blog，就顯得有點浪費；而不用在伺服器運算的主機就便宜很多，甚至像 [GitHub Pages](https://pages.github.com/)) 就是個完全免費且廣受歡迎的一個選擇！
 
 當然，這樣的情況下就必須在本地端先將網站內容全部轉換成靜態的網頁，再進行上傳，通常這種技術叫做「Prerender (預先產生)」；而當我們安裝 `@nguniversal/express-engine` 時，就已經將 prerender 功能也一併裝下來了，我們可以直接將所有網站頁面都轉換成靜態內容：
 
@@ -96,7 +96,7 @@ npm run dev:ssr
 npm run prerender
 ```
 
-此時除了把前端程式和後端程式打包好外，也會另外解析目前的路由設定，把所有可能的頁面都透過一樣的機制產生好，並講產生出來的靜態網頁內容也放到打包好的前端專案目錄內。
+此時除了把前端程式和後端程式打包好外，也會另外解析目前的路由設定，把所有可能的頁面都透過一樣的機制產生好，並將產生出來的靜態網頁內容也放到打包好的前端專案目錄內。
 
 {% asset_img 05.png %}
 
@@ -173,7 +173,7 @@ posts$ = this.httpClient.get('http://localhost:3000/assets/blog/posts.json');
 
 ### 為了抓取靜態內容的調整
 
-實際上線時，除了進入該頁時本來就會有靜態內容之外，其餘的過程還是會走 Angular 本身的處理，因此透過路由機制切換到其他頁面時，就不可能像 Prerender 時指定一個本地端的位置，因此要把 prerender 的環境也切出來，因此我們可以建立一個 `environment.ssr.ts` 來處理伺服器端地抓檔問題，並指定靜態檔案的來源：
+實際上線時，除了進入該頁時本來就會有靜態內容之外，其餘的過程還是會走 Angular 本身的處理，當透過路由機制切換到其他頁面時，就不可能像 Prerender 時指定一個本地端的位置，因此要把 prerender 的環境也切出來，我們可以建立一個 `environment.ssr.ts` 來處理伺服器端地抓檔問題，並指定靜態檔案的來源：
 
 ```typescript
 export const environment = {
@@ -280,7 +280,7 @@ export class PostsResolver implements Resolve<PostMeta[]> {
 }
 ```
 
-第二個是進入文章頁面時，抓取文章的 markdown 檔案，並將內容轉為 HTML (使用 markdown-it 套件)
+第二個是進入文章頁面時，抓取文章的 markdown 檔案，並將內容轉為 HTML (範例使用 [markdown-it](https://github.com/markdown-it/markdown-it) 套件)
 
 ```typescript
 @Injectable({ providedIn: 'root' })
@@ -304,7 +304,7 @@ export class PostResolver implements Resolve<string> {
 
 ```
 
-最後一個是抓取文章標題用的，之後可以拿來更改網站的 `<title>` 內容，已得到更好的 SEO 效果。
+最後一個是抓取文章標題用的，之後可以拿來更改網站的 `<title>` 內容，以得到更好的 SEO 效果。
 
 接著在路由設定加上這幾個 resolver
 
