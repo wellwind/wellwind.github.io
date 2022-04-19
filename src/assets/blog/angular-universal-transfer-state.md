@@ -152,7 +152,7 @@ export class AppModule { }
 
 {% note info %}
 
-如果以經加入過 `TransferHttpCacheModule`，則不需要加入 `BrowserTransferStateModule`
+如果已經加入過 `TransferHttpCacheModule`，則不需要加入 `BrowserTransferStateModule`
 
 {% endnote %}
 
