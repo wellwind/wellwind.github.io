@@ -83,7 +83,7 @@ class Teacher {
 const student = new Student();
 const teacher = new Teacher();
 
-teacber.setScore(100);
+teacher.setScore(100);
 console.log(student.getScore());
 console.log(teacher.getScore());
 
