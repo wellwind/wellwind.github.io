@@ -6,9 +6,10 @@ tags:
   - Git
   - GitKraken
   - GitGUI
+  - GitClient
 ---
 
-使用[GitKraken](https://www.gitkraken.com/invite/tTwhuFXM)作為個人管理的git工具已經有一年的時間了，最近也有機會開始推坑一些好友使用GitKraken，同時也讓他們用過就回不去了！
+使用[GitKraken](https://gitkraken.link/mikehuang)作為個人管理的git工具已經有一年的時間了，最近也有機會開始推坑一些好友使用GitKraken，同時也讓他們用過就回不去了！
 
 為了讓推坑更加順利，決定來寫幾篇關於GitKraken的介紹，宣揚一下這套強剛剛好的強大的git GUI！
 
