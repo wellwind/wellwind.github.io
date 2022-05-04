@@ -102,7 +102,7 @@ open、clone或init過的repository會被記錄下來，方便我們快速切換
 
 # 第一次commit
 
-接下來就讓我們實際來看看如何進行commit吧！當成是有異動時，GitKraken會自動追蹤目前的異動：
+接下來就讓我們實際來看看如何進行commit吧！當程式有異動時，GitKraken會自動追蹤目前的異動：
 
 {% asset_img 07.png %}
 
