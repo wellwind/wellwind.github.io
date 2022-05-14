@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Wed, 04 May 2022 01:13:08 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 14 May 2022 03:41:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[搶先體驗 Standalone Components / Directives / Pipes]]></title>
+            <link>https://fullstackladder.dev/blog/2022/05/14/angular-14-standalone-components-directives-pipe-preview</link>
+            <guid>https://fullstackladder.dev/blog/2022/05/14/angular-14-standalone-components-directives-pipe-preview</guid>
+            <pubDate>Sat, 14 May 2022 08:42:44 GMT</pubDate>
+            <description><![CDATA[<p>Angular 14 預計會推出一個重磅功能 - 「Standalone Components / Directives / Pipes」！這個功能允許我們「獨立」的使用 components、directives 和 pipes，不用再強制依靠 <code>@NgModule</code>。</p>
+<p>目前 Angular 14 已經推出 RC.0 了，這個版本內也包含了 Standalone 的開發人員預覽版本（developer preview of standalone），讓我們可以搶先體驗一下這種<strong>獨立使用元件</strong>的版本，這篇文章就來介紹一下為什麼要使用 Standalone 以及該如何使用。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[NgRx 速成班] 簡介 NgRx]]></title>
             <link>https://fullstackladder.dev/blog/2022/04/17/ngrx-01-introduce</link>
@@ -172,16 +181,6 @@
             <guid>https://fullstackladder.dev/blog/2021/11/01/github-actions-auto-close-bot-issue</guid>
             <pubDate>Mon, 01 Nov 2021 15:02:02 GMT</pubDate>
             <description><![CDATA[<p>GitHub 非常的貼心，經常會發送一些 PR 或 issue 告訴我們目前的程式有漏洞有修補，或是我們自己寫的 bot，希望能在指定的條件下自動關閉，此時可以使用 <a href="(https://github.com/marketplace/actions/close-issue)">Close Issue</a> 這個 GitHub Action，再搭配 <code>if</code> 條件判斷，來自動關掉一些 bot 所開的 issue。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Angular Universal] 使用 TransferState 解決畫面閃爍問題]]></title>
-            <link>https://fullstackladder.dev/blog/2021/10/31/angular-universal-transfer-state</link>
-            <guid>https://fullstackladder.dev/blog/2021/10/31/angular-universal-transfer-state</guid>
-            <pubDate>Sun, 31 Oct 2021 15:00:00 GMT</pubDate>
-            <description><![CDATA[<p>透過 Angular Universal 可以輕易達成 SSR 伺服器端渲染的效果，不過對於伺服器端產生的內容，到了 client 依然會重新進行產生，對於比較複雜的非同步處理如 HTTP 呼叫，就會發生重複呼叫，甚至造成畫面閃爍的問題。</p>
-<p>針對這個問題，Angular 提出了 Transfer State (狀態轉移) 的做法，將 server 抓取資料的狀態移轉到 client，讓 client 可以直接使用這些狀態資料，而不是重新產生，以避免畫面閃爍等問題。</p>
-<p>今天就來看看 Transfer State 的使用方式吧！</p>
 ]]></description>
         </item>
     </channel>

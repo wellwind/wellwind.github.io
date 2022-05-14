@@ -19,7 +19,7 @@ tags:
 
 # 關於GitKraken
 
-GitKraken是一套git的GUI管理工具，透過GUI的幫忙，省去們在進行版本管理的時候需要記憶指令的麻煩；由於是使用Electron最為基底開發，因此它也是一套跨平台的管理工具。
+GitKraken是一套git的GUI管理工具，透過GUI的幫忙，省去們在進行版本管理的時候需要記憶指令的麻煩；由於是使用Electron做為基底開發，因此它也是一套跨平台的管理工具。
 
 除了跨平台之外，GitKraken與目前知名的[TortoiseGit](https://tortoisegit.org/)等工具最大的差異是：這些知名的工具往往著重在可以透過GUI幫你執行多少指令，結果反而應為大多畫面而顯得雜亂；而GitKraken則是把「最常用」的指令透過GUI的設計，做到最容易理解及操作，因此雖然GitKraken支援的git指令比較少，但對於常用的指令如commit、merge或rebase等等，操作上卻更加容易！(事實上那麼多git指令，我們一般工作上又用得到多少呢？)
 
