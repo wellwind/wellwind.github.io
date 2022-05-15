@@ -94,19 +94,19 @@ const form = new FormGroup<PersonForm>({
 
 ```typescript
 this.form.get('address')!.value;
-this.form.controls['name'].value
+this.form.controls['name'].value;
 ```
 
 用字串取資料，打錯字是非常難控制的，強型別後 `controls` 屬性本身就能夠取得所有的屬性
 
 ```typescript
-this.form.controls.name.value
+this.form.controls.name.value;
 ```
 
 巢狀的一樣完全沒問題！
 
 ```typescript
-this.form.controls.address.controls.zip.value
+this.form.controls.address.controls.zip.value;
 ```
 
 編輯器設定正確的話的會自動提示
@@ -125,7 +125,7 @@ this.form.controls.address.controls.zip.value
 
 ## 動態表單
 
-過去我們可以用 `addControl`、`removeControl` 等方式來動態的加入或移除表單元件，不過當設定型別後，會因為屬性都已經確定了，因此會造成加入沒定義好的控制橡實，出現錯誤
+過去我們可以用 `addControl`、`removeControl` 等方式來動態的加入或移除表單元件，不過當設定型別後，會因為屬性都已經確定了，因此會造成加入沒定義好的控制項時，出現錯誤
 
 
 ```typescript
