@@ -58,8 +58,9 @@ export class CommentComponent implements AfterViewInit, OnDestroy {
     scriptTag.setAttribute('data-mapping', 'title');
     scriptTag.setAttribute('data-reactions-enabled', '1');
     scriptTag.setAttribute('data-emit-metadata', '0');
-    scriptTag.setAttribute('data-theme', 'light');
-    scriptTag.setAttribute('data-lang', 'en');
+    scriptTag.setAttribute('data-theme', localStorage.getItem('theme') === 'dark' ? 'dark_dimmed' : 'light');
+    scriptTag.setAttribute('data-lang', 'zh-TW');
+    scriptTag.setAttribute('data-loading', 'lazy')
     scriptTag.setAttribute('crossorigin', 'anonymous');
     scriptTag.setAttribute('async', '');
 
