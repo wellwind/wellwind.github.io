@@ -92,88 +92,107 @@
     display: block;
     overflow-x: auto;
     padding: 0.5em;
-    color: #c9d1d9;
+
+    color: #cdd9e5;
     background: #424242;
   }
+
   .hljs-comment,
   .hljs-punctuation {
-    color: #8b949e;
+    color: #768390;
   }
+
   .hljs-attr,
   .hljs-attribute,
   .hljs-meta,
   .hljs-selector-attr,
   .hljs-selector-class,
   .hljs-selector-id {
-    color: #79c0ff;
+    color: #6cb6ff;
   }
-  .hljs-doctag,
+
+  .hljs-variable,
   .hljs-literal,
   .hljs-number,
-  .hljs-variable {
-    color: #ffa657;
+  .hljs-doctag {
+    color: #f69d50;
   }
+
   .hljs-params {
-    color: #c9d1d9;
+    color: #cdd9e5;
   }
+
   .hljs-function {
-    color: #d2a8ff;
+    color: #dcbdfb;
   }
-  .hljs-built_in,
+
   .hljs-class,
   .hljs-tag,
-  .hljs-title {
-    color: #7ee787;
+  .hljs-title,
+  .hljs-built_in {
+    color: #8ddb8c;
   }
-  .hljs-builtin-name,
+
   .hljs-keyword,
+  .hljs-type,
+  .hljs-builtin-name,
   .hljs-meta-keyword,
   .hljs-template-tag,
-  .hljs-template-variable,
-  .hljs-type {
-    color: #ff7b72;
+  .hljs-template-variable {
+    color: #f47067;
   }
+
   .hljs-string,
   .hljs-undefined {
-    color: #a5d6ff;
+    color: #96d0ff;
   }
+
   .hljs-regexp {
-    color: #a5d6ff;
+    color: #96d0ff;
   }
+
   .hljs-symbol {
-    color: #79c0ff;
+    color: #6cb6ff;
   }
+
   .hljs-bullet {
-    color: #ffa657;
+    color: #f69d50;
   }
+
   .hljs-section {
-    color: #79c0ff;
-    font-weight: 700;
+    color: #6cb6ff;
+    font-weight: bold;
   }
-  .hljs-name,
+
   .hljs-quote,
-  .hljs-selector-pseudo,
-  .hljs-selector-tag {
-    color: #7ee787;
+  .hljs-name,
+  .hljs-selector-tag,
+  .hljs-selector-pseudo {
+    color: #8ddb8c;
   }
+
   .hljs-emphasis {
-    color: #ffa657;
+    color: #f69d50;
     font-style: italic;
   }
+
   .hljs-strong {
-    color: #ffa657;
-    font-weight: 700;
+    color: #f69d50;
+    font-weight: bold;
   }
+
   .hljs-deletion {
-    color: #ffa198;
-    background-color: #490202;
+    color: #ff938a;
+    background-color: #78191b;
   }
+
   .hljs-addition {
-    color: #7ee787;
-    background-color: #04260f;
+    color: #8ddb8c;
+    background-color: #113417;
   }
+
   .hljs-link {
-    color: #a5d6ff;
+    color: #96d0ff;
     font-style: underline;
   }
 }
