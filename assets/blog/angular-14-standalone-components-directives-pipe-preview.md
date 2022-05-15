@@ -2,10 +2,11 @@
 title: "搶先體驗 Standalone Components / Directives / Pipes"
 date: 2022-05-14 08:42:44
 category:
- - "Angular 大師之路"
+  - "Angular 大師之路"
 tags:
- - "Angular 14"
- - "Standalone"
+  - "Angular"
+  - "Angular 14"
+  - "Standalone"
 ogImage: 01.png
 ---
 

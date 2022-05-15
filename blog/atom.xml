@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 14 May 2022 03:41:30 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 May 2022 05:39:04 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[搶先體驗強型別表單（Strict Typed Reactive Forms）]]></title>
+            <link>https://fullstackladder.dev/blog/2022/05/15/angular-14-strict-typed-reactive-forms</link>
+            <guid>https://fullstackladder.dev/blog/2022/05/15/angular-14-strict-typed-reactive-forms</guid>
+            <pubDate>Sun, 15 May 2022 12:09:06 GMT</pubDate>
+            <description><![CDATA[<p>Angular 14 即將推出強型別的 Reactive Forms 表單功能，讓我們在開發過程中可以享受強型別定義帶來的好處，不用再擔心弱型別不小心打錯字等等問題，今天就來看一下如何使用強型別的表單功能！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[搶先體驗 Standalone Components / Directives / Pipes]]></title>
             <link>https://fullstackladder.dev/blog/2022/05/14/angular-14-standalone-components-directives-pipe-preview</link>
@@ -174,14 +182,6 @@
             <link>https://fullstackladder.dev/blog/2021/11/01/github-actions-send-telegram</link>
             <guid>https://fullstackladder.dev/blog/2021/11/01/github-actions-send-telegram</guid>
             <pubDate>Mon, 01 Nov 2021 16:27:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[[GitHub Actions] 自動關閉某個 bot 的 issues]]></title>
-            <link>https://fullstackladder.dev/blog/2021/11/01/github-actions-auto-close-bot-issue</link>
-            <guid>https://fullstackladder.dev/blog/2021/11/01/github-actions-auto-close-bot-issue</guid>
-            <pubDate>Mon, 01 Nov 2021 15:02:02 GMT</pubDate>
-            <description><![CDATA[<p>GitHub 非常的貼心，經常會發送一些 PR 或 issue 告訴我們目前的程式有漏洞有修補，或是我們自己寫的 bot，希望能在指定的條件下自動關閉，此時可以使用 <a href="(https://github.com/marketplace/actions/close-issue)">Close Issue</a> 這個 GitHub Action，再搭配 <code>if</code> 條件判斷，來自動關掉一些 bot 所開的 issue。</p>
-]]></description>
         </item>
     </channel>
 </rss>
