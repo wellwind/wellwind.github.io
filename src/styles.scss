@@ -32,219 +32,51 @@ $blog-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($blog-theme);
 
+$blog-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $blog-primary,
+    accent: $blog-accent,
+    warn: $blog-warn,
+  )
+));
+
+.dark-theme {
+  // Generates styles for all systems configured in the theme. In this case, color styles
+  // and the default density styles are generated. **Note** that this is a problem because it
+  // means that density styles are generated *again*, even though only the color should change.
+  @include mat.all-component-themes($blog-dark-theme);
+}
+
 /* You can add global styles to this file, and also import other style files */
+@import './hljs.scss';
 @import './variables';
-
-html, body {
-  height: 100%;
-  background: #fafafa;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, loto, noto sans tc, microsoft yahei, sans-serif;
-}
+@import './reset.scss';
+@import './blog-post.scss';
 
 .suggest-item-type {
   font-size: 12px;
   margin-right: 6px;
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
 }
 
 a {
-  color: $default-link-color;
+  color: var(--default-link-color);
   text-decoration: underline;
   transition: all 0.3s;
 
   &:hover {
-    color: $default-link-hover-color;
+    color: var(--default-link-hover-color);
     text-decoration: underline;
   }
 
   &:active {
-    color: $default-link-color;
+    color: var(--default-link-color);
   }
 }
 
-.mat-card.blog-post {
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.blog-post {
-  margin-bottom: 16px;
-
-  .blog-post-title {
-    a {
-      font-weight: 800;
-      color: $post-card-header-link-color;
-      text-decoration: none;
-      outline: 0;
-      transition: all 0.3s;
-
-      &:hover {
-        color: $post-card-header-link-hover-color;
-      }
-    }
-  }
-
-  .mat-card-subtitle {
-    margin-top: 16px !important;
-  }
-
-  .blog-post-subtitle {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-
-    .sub-divider {
-      margin: 0 8px;
-    }
-
-    .mat-icon {
-      margin-right: 8px;
-      position: relative;
-      top: -2px;
-    }
-
-    .blog-post-published {
-      line-height: 24px;
-      display: inline-flex;
-      flex-direction: row;
-      align-items: center;
-    }
-
-    .blog-post-categories {
-      margin-left: 8px;
-      line-height: 24px;
-      display: inline-flex;
-
-      .blog-post-category-link {
-        font-weight: 500;
-      }
-    }
-  }
-
-  .mat-card-content {
-    font-size: 16px;
-  }
-
-  .blog-post {
-    font-size: 16px;
-    line-height: 24px;
-    color: $post-card-content-text-color;
-  }
-
-  .mat-card-footer {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0;
-
-    a.read-more {
-      &:hover {
-        text-decoration: none;
-      }
-
-      font-size: 16px;
-    }
-
-    .mat-icon {
-      position: relative;
-      top: -1px;
-    }
-  }
-}
-
-.post-summary-content, .blog-post {
-  font-size: 16px;
-  line-height: 24px;
-
-  p {
-    text-align: justify;
-  }
-
-  img {
-    max-width: calc(100% - 12px);
-    width: auto;
-    height: auto;
-    padding: 6px;
-    border: 0.5px solid rgba(0, 0, 0, 0.2);
-    display: block;
-    margin: 0 auto;
-  }
-
-  code {
-    background: $code-background-color;
-    padding: 2px;
-    border-radius: 3px;
-    font-family: 'Source Code Pro', monospace;
-  }
-
-  pre {
-    font-size: 14px;
-    line-height: 21px;
-    background: $code-background-color;
-    border: .5px solid rgba(0, 0, 0, .2);
-    border-radius: 5px;
-    display: block;
-    margin: 16px auto;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    padding: 1em;
-
-    code {
-      padding: 0 !important;
-      word-break: break-word;
-    }
-  }
-
-  .note {
-    background: $note-background-color;
-    border: .5px solid rgba(0, 0, 0, .2);
-    border-radius: 3px;
-    padding: 1em;
-
-    p {
-      text-align: justify;
-
-      &:first-child {
-        margin-block-start: 0;
-      }
-
-      &:last-child {
-        margin-block-end: 0;
-      }
-    }
-
-    &.info {
-      border-left: 5px solid $note-info-border-color;
-    }
-
-    &.warning {
-      border-left: 5px solid $note-warning-border-color;
-    }
-
-    &.danger {
-      border-left: 5px solid $note-danger-border-color;
-    }
-  }
-}
-
-.blog-post-tags {
-  display: flex;
-  justify-content: center;
-
-  .blog-post-tag {
-    cursor: pointer;
-  }
-}
 
 .categories-header, .tags-header, .year-header, .search-header {
+  background-color: var(--sub-pages-header-background-color) !important;
   display: flex;
   align-items: baseline !important;
   position: sticky;
@@ -271,7 +103,7 @@ a {
 
   h2 {
     margin-left: 2px;
-    color: $secondary-text-color;
+    color: var(--secondary-text-color);
     top: 50%;
     position: relative;
     transform: translateY(-50%);

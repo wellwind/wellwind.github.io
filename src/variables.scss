@@ -1,32 +1,113 @@
-@import '@angular/material/theming';
+@import "@angular/material/theming";
 
-$primary-color: map-get($mat-indigo, 500);
-$primary-text-color: map-get($mat-gray, 900);
-$secondary-text-color: map-get($mat-gray, 500);
+:root {
+  $primary-color: map-get($mat-indigo, 500);
+  $primary-text-color: map-get($mat-gray, 900);
+  $secondary-text-color: map-get($mat-gray, 500);
+  $default-link-color: map-get($mat-indigo, 400);
+  $default-link-hover-color: map-get($mat-indigo, 600);
+  $sidebar-text-color: map-get($mat-gray, 600);
 
-$default-link-color: map-get($mat-indigo, 400);
-$default-link-hover-color: map-get($mat-indigo, 600);
+  --primary-color: #{$primary-color};
+  --primary-text-color: #{$primary-text-color};
+  --secondary-text-color: #{$secondary-text-color};
 
-$header-link-color-1: #ffffff;
-$header-link-color-2: #ffffff;
+  // header
+  --header-link-color: #ffffff;
 
-$sidebar-text-color: map-get($mat-gray, 600);
-$sidebar-highlight-text-color: $primary-color;
-$sidebar-highlight-bg-color: transparentize($sidebar-highlight-text-color, 0.85);
+  // link
+  --default-link-color: #{$default-link-color};
+  --default-link-hover-color: #{$default-link-hover-color};
 
-$post-card-header-link-color: $primary-text-color;
-$post-card-header-link-hover-color: $primary-color;
-$post-card-content-text-color: $primary-text-color;
+  // post card
+  --post-card-header-link-color: #{$primary-text-color};
+  --post-card-header-link-hover-color: #{$primary-color};
+  --post-card-content-text-color: #{$primary-text-color};
 
-$post-next-prev-text-color: $secondary-text-color;
+  // sidebar
+  --sidebar-text-color: #{$sidebar-text-color};
+  --sidebar-highlight-text-color: var(--primary-color);
+  --sidebar-highlight-bg-color: #{transparentize($primary-color, 0.85)};
 
-$code-background-color: map-get($mat-gray, 200);
+  // sub pages header
+  --sub-pages-header-background-color: #ffffff;
 
-$toc-header-color: $primary-text-color;
-$toc-indicator-color: map-get($mat-gray, 500);
-$toc-indicator-focus-color: $primary-color;
+  // post page
+  --post-next-prev-text-color: #{$secondary-text-color};
 
-$note-background-color: transparent;
-$note-info-border-color: map-get($mat-indigo, 500);
-$note-warning-border-color: map-get($mat-orange, 500);
-$note-danger-border-color: map-get($mat-pink, 500);
+  // page note
+  --note-background-color: transparent;
+  --note-border-color: rgba(0, 0, 0, 0.2);
+  --note-info-indicator-color: #{map-get($mat-indigo, 500)};
+  --note-warning-indicator-color: #{map-get($mat-orange, 500)};
+  --note-danger-indicator-color: #{map-get($mat-pink, 500)};
+
+  // toc
+  --toc-header-color: #{$primary-text-color};
+  --toc-indicator-color: #{map-get($mat-gray, 500)};
+  --toc-indicator-focus-color: #{$primary-color};
+
+  // code
+  --code-text-color: #{$primary-color};
+  --code-background-color: #{map-get($mat-gray, 200)};
+
+  // dark theme
+  .dark-theme {
+    $primary-color: map-get($mat-indigo, 200);
+    $primary-text-color: map-get($mat-gray, 100);
+    $secondary-text-color: map-get($mat-gray, 400);
+    $sidebar-text-color: map-get($mat-gray, 400);
+    $default-link-color: map-get($mat-indigo, 200);
+    $default-link-hover-color: map-get($mat-indigo, 100);
+
+    --primary-color: #{$primary-color};
+    --primary-text-color: #{$primary-text-color};
+    --secondary-text-color: #{$secondary-text-color};
+
+    // search
+    --search-input-background-color: #424242;
+    --search-input-text-color: #ffffff;
+
+    // link
+    --default-link-color: #{$default-link-color};
+    --default-link-hover-color: #{$default-link-hover-color};
+    .search-bar {
+      input.search-input {
+        color: var(--search-input-text-color);
+        background-color: var(--search-input-background-color);
+      }
+    }
+
+    // post card
+    --post-card-header-link-color: #{$primary-text-color};
+    --post-card-header-link-hover-color: #{$primary-color};
+    --post-card-content-text-color: #{$primary-text-color};
+
+    // sidebar
+    --sidebar-text-color: #{$sidebar-text-color};
+    --sidebar-highlight-text-color: var(--primary-color);
+    --sidebar-highlight-bg-color: #{transparentize($primary-color, 0.55)};
+
+    // sub pages header
+    --sub-pages-header-background-color: #424242;
+
+    // post page
+    --post-next-prev-text-color: #{$secondary-text-color};
+
+    // page note
+    --note-background-color: transparent;
+    --note-border-color: rgba(255, 255, 255, 0.3);
+    --note-info-indicator-color: #{map-get($mat-indigo, 500)};
+    --note-warning-indicator-color: #{map-get($mat-orange, 500)};
+    --note-danger-indicator-color: #{map-get($mat-pink, 500)};
+
+    // toc
+    --toc-header-color: #{$primary-text-color};
+    --toc-indicator-color: #{map-get($mat-gray, 500)};
+    --toc-indicator-focus-color: #{$primary-color};
+
+    // code
+    --code-text-color: #{$primary-color};
+    --code-background-color: #{map-get($mat-gray, 800)};
+  }
+}

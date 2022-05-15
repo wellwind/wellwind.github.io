@@ -1,5 +1,9 @@
 @import '../../variables';
 
+.search-page-container {
+  padding: 16px;
+}
+
 .search-result {
   display: flex !important;
   flex-direction: row;
@@ -11,20 +15,20 @@
   }
 
   .search-result-type {
-    color: $secondary-text-color;
+    color: var(--secondary-text-color);
     font-size: 14px;
     margin-right: 8px;
   }
 
   .search-result-title {
-    color: $primary-text-color;
+    color: var(--primary-text-color);
     font-size: 18px;
   }
 }
 
 .search-chip {
   color: white;
-  background: $primary-color;
+  background: var(--primary-color);
   margin: 2px;
   padding: 2px;
   border-radius: 4px;

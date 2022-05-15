@@ -1,4 +1,4 @@
-@import '../../variables';
+@import "../../variables";
 
 .toolbar {
   position: fixed;
@@ -6,21 +6,11 @@
 
   a.header-link {
     text-decoration: none;
+    color: var(--header-link-color);
 
-    .header-link-1 {
-      color: $header-link-color-1;
-
-      &:hover, &:active {
-        color: $header-link-color-1;
-      }
-    }
-
-    .header-link-2 {
-      color: $header-link-color-2;
-
-      &:hover, &:active {
-        color: $header-link-color-2;
-      }
+    &:hover,
+    &:active {
+      color: var(--header-link-color);
     }
   }
 
@@ -57,7 +47,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, .26);
+      background: rgba(0, 0, 0, 0.26);
     }
   }
 }
@@ -75,13 +65,13 @@
   }
 
   .section-title {
-    color: $sidebar-text-color;
+    color: var(--sidebar-text-color);
     font-size: 20px;
     padding-left: 16px;
   }
 
   .section-content {
-    color: $sidebar-text-color;
+    color: var(--sidebar-text-color);
     text-align: center;
   }
 
@@ -103,13 +93,13 @@
       }
 
       .counter {
-        color: $sidebar-highlight-text-color;
+        color: var(--sidebar-highlight-text-color);
         font-size: 24px;
         text-align: center;
       }
 
       .description {
-        color: $sidebar-text-color;
+        color: var(--sidebar-text-color);
         font-size: 16px;
         text-align: center;
       }
@@ -117,7 +107,7 @@
   }
 
   .mat-list-item {
-    color: $sidebar-text-color;
+    color: var(--sidebar-text-color);
 
     .mat-icon {
       padding-right: 8px;
@@ -131,8 +121,9 @@
     }
 
     &.active {
-      color: $sidebar-highlight-text-color;
-      background: $sidebar-highlight-bg-color;
+      color: var(--sidebar-highlight-text-color);
+      background: var(--sidebar-highlight-bg-color);
+      // background: $sidebar-highlight-bg-color;
     }
   }
 }

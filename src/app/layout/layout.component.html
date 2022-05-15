@@ -5,12 +5,16 @@
   </button>
   <h1>
     <a class="header-link" routerLink="/">
-      <span class="header-link-1">全端開發</span>
-      <span class="header-link-2">人員天梯</span>
+      <span class="header-link">全端開發人員天梯</span>
     </a>
   </h1>
 
   <div class="spacer"></div>
+
+  <button mat-icon-button (click)="theme$.next(theme$.value === 'light' ? 'dark' : 'light')">
+    <mat-icon *ngIf="(theme$ | async) === 'light'">light_mode</mat-icon>
+    <mat-icon *ngIf="(theme$ | async) !== 'light'">dark_mode</mat-icon>
+  </button>
 
   <div
     class="search-bar"
