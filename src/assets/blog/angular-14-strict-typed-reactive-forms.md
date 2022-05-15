@@ -7,6 +7,7 @@ tags:
   - "Angular"
   - "Angular 14"
   - "Strict Typed Reactive Forms"
+ogImage: 01.png
 ---
 
 Angular 14 即將推出強型別的 Reactive Forms 表單功能，讓我們在開發過程中可以享受強型別定義帶來的好處，不用再擔心弱型別不小心打錯字等等問題，今天就來看一下如何使用強型別的表單功能！
