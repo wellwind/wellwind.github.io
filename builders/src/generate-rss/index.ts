@@ -1,14 +1,27 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
+import { Feed } from 'feed';
 import { readdirSync, writeFileSync } from 'fs';
 import { descend, prop, sortWith, take } from 'ramda';
 import { MarkdownMeta } from '../../../utils';
 import { getMarkdownMeta } from '../../../utils/get-markdown-meta';
-import { Feed } from 'feed';
 
 interface Options extends JsonObject {
   markdownPostsPath: string;
+  postCount: number;
   rssPath: string;
+  rssConfig: {
+    siteUrl: string;
+    title: string;
+    description: string;
+    favicon: string;
+    copyright: string;
+    author: {
+      name: string;
+      email: string;
+      link: string;
+    }
+  }
 }
 
 export default createBuilder(generateRss);
@@ -24,22 +37,18 @@ async function generateRss(options: Options, context: BuilderContext): Promise<B
     .map(dirent => dirent.name)
     .map(fileName => getMarkdownMeta(markdownPostsPath, fileName))
 
-  const posts = take(20, sortWith([descend(prop('date'))], allPosts)) as MarkdownMeta[];
+  const posts = take(options.postCount, sortWith([descend(prop('date'))], allPosts)) as MarkdownMeta[];
 
-  const siteUrl = 'https://fullstackladder.dev/';
+  const siteUrl = options.rssConfig.siteUrl;
   const feed = new Feed({
-    title: '全端開發人員天梯',
-    description: '軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記',
+    title: options.rssConfig.title,
+    description: options.rssConfig.description,
     id: siteUrl,
     link: siteUrl,
     language: 'zh',
-    favicon: `${siteUrl}/favicon.ico`,
-    copyright: 'All rights reserved 2021, Mike Huang',
-    author: {
-      name: 'Mike Huang',
-      email: 'wellwind@gmail.com',
-      link: siteUrl
-    }
+    favicon: `${siteUrl}/${options.rssConfig.favicon}`,
+    copyright: options.rssConfig.copyright,
+    author: options.rssConfig.author
   });
 
   posts.forEach(post => {

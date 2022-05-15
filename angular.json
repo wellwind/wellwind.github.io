@@ -219,7 +219,20 @@
           "builder": "@wellwind/blog-builder:generate-rss",
           "options": {
             "markdownPostsPath": "src/assets/blog",
-            "rssPath": "rss.xml"
+            "postCount": 20,
+            "rssPath": "rss.xml",
+            "rssConfig": {
+              "siteUrl": "https://fullstackladder.dev/",
+              "title": "全端開發人員天梯",
+              "description": "軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記",
+              "favicon": "favicon.ico",
+              "copyright": "All rights reserved 2021, Mike Huang",
+              "author": {
+                "name": "Mike Huang",
+                "email": "wellwind@gmail.com",
+                "link": "https://fullstackladder.dev/"
+              }
+            }
           }
         },
         "minify-rendered-files": {
