@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 15 May 2022 15:01:52 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 21 May 2022 16:07:59 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[使用 inject() 簡化建構式注入的內容]]></title>
+            <link>https://fullstackladder.dev/blog/2022/05/21/angular-inject-usage-sample</link>
+            <guid>https://fullstackladder.dev/blog/2022/05/21/angular-inject-usage-sample</guid>
+            <pubDate>Sat, 21 May 2022 21:44:05 GMT</pubDate>
+            <description><![CDATA[<p>Angular 14 將加強原有的 <a href="https://angular.io/api/core/inject">inject</a> 功能，讓我們在元件的建構式內可以直接透過呼叫 <code>inject(...)</code> 取得原本所有可以在建構式注入的內容，這種做法可以大幅簡化原來建構式的程式，但也可能帶來一些問題，今天就來看一下神奇的 <code>inject()</code> 新用法。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[搶先體驗強型別表單（Strict Typed Reactive Forms）]]></title>
             <link>https://fullstackladder.dev/blog/2022/05/15/angular-14-strict-typed-reactive-forms</link>
@@ -176,12 +184,6 @@
             <pubDate>Mon, 01 Nov 2021 16:37:00 GMT</pubDate>
             <description><![CDATA[<p>當使用 GitHub Actions 時，經常要針對來源事件去進行一些額外處理，導致要去查詢事件相關屬性，非常不方便，可以使用 <a href="https://github.com/marketplace/actions/debug-action">Debug action</a> 將相關資料印出，方便查找。</p>
 ]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[GitHub Actions] 發送 Telegram 訊息]]></title>
-            <link>https://fullstackladder.dev/blog/2021/11/01/github-actions-send-telegram</link>
-            <guid>https://fullstackladder.dev/blog/2021/11/01/github-actions-send-telegram</guid>
-            <pubDate>Mon, 01 Nov 2021 16:27:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
