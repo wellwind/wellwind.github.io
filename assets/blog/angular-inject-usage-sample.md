@@ -17,7 +17,7 @@ Angular 14 將加強原有的 [inject](https://angular.io/api/core/inject) 功�
 先來看看古早的寫法：
 
 ```typescript
-// inject 從 @angular/core 注入，之後就不特別說明
+// inject 來自 @angular/core，之後就不特別說明
 import { inject } from '@angular/core';
 
 @Component( ... )
