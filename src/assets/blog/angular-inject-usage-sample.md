@@ -287,11 +287,12 @@ export const useTodoListStore = () => {
   `,
 })
 export class AppComponent {
+  // 全部需要的程式都包裝到 `useTodoListStore()` 內了
   todoListStore = useTodoListStore();
 }
 ```
 
-由於不用再注入 `TodoListStoreService` 了，加上元件內的畫面操作都跟公開出來的來源有關，因此在元件內就可以徹底將 `this` 從元件中移除，只剩下樣板而已，徹底簡化元件的程式！
+由於不用再注入 `TodoListStoreService` 了，加上元件內的畫面操作都跟公開出來的來源有關，因此在元件內就可以徹底將 `this` 從元件中移除，只剩下樣板而已，大幅度簡化元件本身的程式碼！
 
 # 本日小結
 
