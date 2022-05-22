@@ -265,7 +265,7 @@ export const useTodoListStore = () => {
   `,
 })
 export class AppComponent {
-  todoListStore = inject(TodoListStoreService);
+  todoListStore = useTodoListStore();
 }
 ```
 
