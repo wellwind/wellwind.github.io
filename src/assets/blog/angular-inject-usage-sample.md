@@ -57,6 +57,28 @@ export class ChildComponent {
 }
 ```
 
+{% note info %}
+
+在類別內宣告屬性同時給予初始值，最終會被 TypeScript 編譯成在建構式處理，因此
+
+```typescript
+export class ChildComponent {
+  title = 'test';
+}
+```
+
+實際上可以視為
+
+```typescript
+export class ChildComponent {
+  constructor() {
+    this.title = 'test';
+  }
+}
+```
+
+{% endnote %}
+
 不過在其他的方法內呼叫時，就會出現錯誤
 
 ```typescript
