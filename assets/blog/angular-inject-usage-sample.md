@@ -57,6 +57,28 @@ export class ChildComponent {
 }
 ```
 
+{% note info %}
+
+在類別內宣告屬性同時給予初始值，最終會被 TypeScript 編譯成在建構式處理，因此
+
+```typescript
+export class ChildComponent {
+  title = 'test';
+}
+```
+
+實際上可以視為
+
+```typescript
+export class ChildComponent {
+  constructor() {
+    this.title = 'test';
+  }
+}
+```
+
+{% endnote %}
+
 不過在其他的方法內呼叫時，就會出現錯誤
 
 ```typescript
@@ -265,11 +287,12 @@ export const useTodoListStore = () => {
   `,
 })
 export class AppComponent {
+  // 全部需要的程式都包裝到 `useTodoListStore()` 內了
   todoListStore = useTodoListStore();
 }
 ```
 
-由於不用再注入 `TodoListStoreService` 了，加上元件內的畫面操作都跟公開出來的來源有關，因此在元件內就可以徹底將 `this` 從元件中移除，只剩下樣板而已，徹底簡化元件的程式！
+由於不用再注入 `TodoListStoreService` 了，加上元件內的畫面操作都跟公開出來的來源有關，因此在元件內就可以徹底將 `this` 從元件中移除，只剩下樣板而已，大幅度簡化元件本身的程式碼！
 
 # 本日小結
 
