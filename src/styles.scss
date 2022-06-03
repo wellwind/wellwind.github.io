@@ -45,7 +45,7 @@ $blog-dark-theme: mat.define-dark-theme((
   // and the default density styles are generated. **Note** that this is a problem because it
   // means that density styles are generated *again*, even though only the color should change.
   background-color: #303030;
-  @include mat.all-component-themes($blog-dark-theme);
+  @include mat.all-component-colors($blog-dark-theme);
 }
 
 /* You can add global styles to this file, and also import other style files */
