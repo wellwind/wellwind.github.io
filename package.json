@@ -10,7 +10,7 @@
     "postinstall": "npm link ./builders && npm run build:builders && npm link ./schematics && npm run build:schematics",
     "generate-post": "ng g @wellwind/blog-schematics:generate-post",
     "prerender": "ng run blog:prerender",
-    "prerender:pages": "ng run blog:prerender --routes-file pages.txt --configuration static",
+    "prerender:pages": "ng run blog:prerender:static --routes-file pages.txt",
     "dev:ssr": "ng run blog:serve-ssr",
     "serve:ssr": "node dist/blog/server/main.js",
     "build:ssr": "ng build && ng run blog:server",
