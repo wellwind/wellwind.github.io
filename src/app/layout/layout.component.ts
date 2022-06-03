@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatDrawerContent } from '@angular/material/sidenav';
@@ -9,7 +9,7 @@ import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs
 import { PlatformService } from '../../platform.service';
 import { SitePostService } from '../site-post.service';
 
-
+type WebsiteTheme  = 'dark' | 'light' | null;
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -22,7 +22,7 @@ export class LayoutComponent implements OnInit {
     return this.platformService.isServer;
   }
 
-  theme$ = new BehaviorSubject<'dark' | 'light'>('dark');
+  theme$ = new BehaviorSubject<WebsiteTheme>('dark');
 
   menuOpen$ = new BehaviorSubject<boolean>(true);
   menuItems = [
@@ -46,7 +46,7 @@ export class LayoutComponent implements OnInit {
 
   isSmallScreen$ = this.platformService.isSmallScreen$;
 
-  searchKeyword = new UntypedFormControl();
+  searchKeyword = new FormControl<string>('');
 
   suggestList$ = combineLatest([
     this.sitePostService.postsMetaWithSlugAndSortDesc$,
@@ -57,7 +57,7 @@ export class LayoutComponent implements OnInit {
   ]).pipe(
     switchMap(([posts, keywordString]) =>
       defer(() => import('../search-posts').then((m) => m.searchPosts)).pipe(
-        map((searchFn) => searchFn(posts, keywordString))
+        map((searchFn) => searchFn(posts, keywordString || ''))
       )
     )
   );
@@ -109,10 +109,7 @@ export class LayoutComponent implements OnInit {
       return;
     }
 
-    const themeFromSetting = localStorage.getItem('theme') as
-      | 'dark'
-      | 'light'
-      | null;
+    const themeFromSetting = localStorage.getItem('theme') as WebsiteTheme;
     if (themeFromSetting) {
       this.theme$.next(themeFromSetting);
     } else if (
@@ -123,7 +120,7 @@ export class LayoutComponent implements OnInit {
     }
 
     this.theme$.subscribe(theme => {
-      localStorage.setItem('theme', theme);
+      localStorage.setItem('theme', theme || '');
       document.body.classList.remove('dark-theme');
       document.body.classList.remove('light-theme');
       document.body.classList.add(`${theme}-theme`);
