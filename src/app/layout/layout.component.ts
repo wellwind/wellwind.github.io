@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatDrawerContent } from '@angular/material/sidenav';
@@ -46,7 +46,7 @@ export class LayoutComponent implements OnInit {
 
   isSmallScreen$ = this.platformService.isSmallScreen$;
 
-  searchKeyword = new FormControl();
+  searchKeyword = new UntypedFormControl();
 
   suggestList$ = combineLatest([
     this.sitePostService.postsMetaWithSlugAndSortDesc$,
