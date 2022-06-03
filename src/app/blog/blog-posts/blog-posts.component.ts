@@ -24,7 +24,7 @@ export class BlogPostsComponent implements OnInit {
   );
 
   totalPage$ =  this.sitePostService.postsMeta$.pipe(
-    map((posts) => Math.ceil(Object.keys(posts).length / PAGE_SIZE))
+    map((posts) => Math.ceil(Object.keys(posts || {}).length / PAGE_SIZE))
   );
 
   constructor(private sitePostService: SitePostService, private route: ActivatedRoute) {

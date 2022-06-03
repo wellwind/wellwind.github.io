@@ -167,7 +167,7 @@ constructor(private transferState: TransferState) { }
 ```typescript
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 
-const key = makeStateKey('todos_cache_key');
+const key = makeStateKey<any[]>('todos_cache_key');
 ```
 
 設定狀態的範例：
@@ -187,7 +187,7 @@ this.state.set<any[]>(key, apiResult);
 
 ```typescript
 // 建立 cache server 狀態的 key
-const key = makeStateKey('assets/blog/posts.json');
+const key = makeStateKey<PostMeta[]>('assets/blog/posts.json');
 
 const cacheResult = this.state.get<PostMeta[]>(key, []);
 if (cacheResult.length > 0) {

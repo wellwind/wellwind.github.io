@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { ascend, descend, prop, sortWith } from 'ramda';
 import { combineLatest, iif, of } from 'rxjs';
-import { map, shareReplay, switchMap, tap } from 'rxjs/operators';
+import { map, shareReplay, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { PlatformService } from '../platform.service';
 import { PostMeta, PostMetaWithSlug } from './post-meta.interface';
 
-const _cacheBlogPostsKey = makeStateKey('blog-posts.json');
+type PostMetaCollection = { [keg: string]: PostMeta } | null;
+const _cacheBlogPostsKey = makeStateKey<PostMetaCollection>('blog-posts.json');
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,14 @@ const _cacheBlogPostsKey = makeStateKey('blog-posts.json');
 export class SitePostService {
 
   public postsMeta$ = iif(
-    () => !!this.state.get<{ [keg: string]: PostMeta } | null>(_cacheBlogPostsKey, null),
-    of(this.state.get<{ [keg: string]: PostMeta } | null>(_cacheBlogPostsKey, null)!),
+    () => !!this.state.get<PostMetaCollection>(_cacheBlogPostsKey, null),
+    of(this.state.get<PostMetaCollection>(_cacheBlogPostsKey, null)!),
     this.httpClient
-      .get<{ [keg: string]: PostMeta }>(`${environment.url}assets/blog-posts.json`)
+      .get<PostMetaCollection>(`${environment.url}assets/blog-posts.json`)
       .pipe(
         tap(json => {
           if (this.platformService.isServer) {
-            this.state.set<{ [keg: string]: PostMeta }>(_cacheBlogPostsKey, json)
+            this.state.set<PostMetaCollection>(_cacheBlogPostsKey, json)
           }
         })
       )
@@ -34,8 +35,8 @@ export class SitePostService {
   public postCategories$ = this.postsMeta$
     .pipe(
       map(posts => Object
-        .keys(posts)
-        .map(key => posts[key])
+        .keys(posts || {})
+        .map(key => (posts || {})[key])
         .reduce((categories, post) => ([...categories, ...post.categories || []]), [] as string[])
       )
     );
@@ -43,8 +44,8 @@ export class SitePostService {
   public postTags$ = this.postsMeta$
     .pipe(
       map(posts => Object
-        .keys(posts)
-        .map(key => posts[key])
+        .keys(posts || {})
+        .map(key => (posts || {})[key])
         .reduce((tags, post) => ([...tags, ...post.tags || []]), [] as string[])
       )
     );
@@ -52,8 +53,8 @@ export class SitePostService {
   public postsMetaWithSlug$ = this.postsMeta$
     .pipe(
       map(postsMeta => Object
-        .keys(postsMeta)
-        .map(key => ({ ...postsMeta[key], slug: key } as PostMetaWithSlug))
+        .keys((postsMeta || {}))
+        .map(key => ({ ...(postsMeta || {})[key], slug: key } as PostMetaWithSlug))
       )
     );
 

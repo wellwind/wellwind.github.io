@@ -1,6 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-import { slugify } from '../../../utils/slugify';
 import { PostMetaWithSlug } from '../post-meta.interface';
 
 @Pipe({
@@ -8,13 +6,12 @@ import { PostMetaWithSlug } from '../post-meta.interface';
 })
 export class PostDateAsPathPipe implements PipeTransform {
 
-  constructor(private domSanitizer: DomSanitizer) {
+  constructor() {
   }
 
   transform(post: PostMetaWithSlug): string[] {
     const dateFolder = post.date.slice(0, 10).replace(/-/g, '/');
     return ['/blog', ...dateFolder.split('/'), post.slug];
-    //  return this.domSanitizer.bypassSecurityTrustUrl(input.slice(0, 10).replace(/-/g, '/'));``
   }
 
 }

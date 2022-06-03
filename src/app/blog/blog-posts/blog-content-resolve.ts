@@ -24,7 +24,7 @@ export class BlogContentResolve implements Resolve<MarkdownMeta> {
   }
 
   private getMarkdownContent(slug: string) {
-    const key = makeStateKey(slug);
+    const key = makeStateKey<string>(slug);
 
     const content = this.state.get<string>(key, '');
     if (content) {

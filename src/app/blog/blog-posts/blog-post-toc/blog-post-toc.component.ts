@@ -1,8 +1,8 @@
 import { ContentObserver } from '@angular/cdk/observers';
-import { AfterViewInit, Component, Input, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { Observable, ReplaySubject } from 'rxjs';
-import { map, startWith, switchMap, tap } from 'rxjs/operators';
+import { map, startWith, switchMap } from 'rxjs/operators';
 import { PlatformService } from '../../../../platform.service';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
 
@@ -13,7 +13,7 @@ interface Heading {
   active: boolean
 }
 
-const HEADINGS_CACHE_KEY = makeStateKey('POST_TOC');
+const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
 
 @Component({
   selector: 'app-blog-post-toc',
