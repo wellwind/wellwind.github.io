@@ -33,7 +33,7 @@ export class LayoutComponent implements OnInit {
   ];
 
   postCount$ = this.sitePostService.postsMeta$.pipe(
-    map((posts) => Object.keys(posts).length)
+    map((posts) => Object.keys(posts || {}).length)
   );
 
   categoryCount$ = this.sitePostService.postCategories$.pipe(
