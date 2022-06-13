@@ -24,7 +24,7 @@ export interface Person {
   address: {
     zip: string;
   };
-  interest: { name: string }[];
+  interest: Array<{ name: string }>;
 }
 ```
 
