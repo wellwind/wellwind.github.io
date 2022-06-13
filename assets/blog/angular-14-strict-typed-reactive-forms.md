@@ -167,14 +167,14 @@ export interface Person {
   address: {
     zip: string;
   };
-  interest: { name: string }[];
+  interest: Array<{ name: string }>;
 }
 ```
 
 之後才去設計表單模型的型別，不過基本各個屬性名稱都是對應的，同樣的東西要再寫一遍，只是轉換成 `FormControl` 或 `FormArray` 等，也是蠻麻煩的，於是我嘗試寫了一個 TypeScript 的定義，來幫助我們把基本的資料模型型別轉成表單型別：
 
 ```typescript
-export type Unpacked<T> = T extends (infer U)[] ? U : T;
+export type Unpacked<T> = T extends Array<infer U> ? U : T;
 
 export type ToForm<OriginalType> = {
   [key in keyof OriginalType]
