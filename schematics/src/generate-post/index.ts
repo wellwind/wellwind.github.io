@@ -4,6 +4,7 @@ import * as path from 'path';
 
 interface GeneratePostOptions {
   name: string;
+  project: string;
   draft?: boolean;
 }
 
@@ -19,8 +20,7 @@ export function generatePost(options: GeneratePostOptions): Rule {
 
     // find source root
     const angularJson = JSON.parse(angularJsonContent.toString('UTF-8')!);
-    const defaultProject = angularJson['defaultProject'];
-    const projectSourceRoot = angularJson['projects'][defaultProject]['sourceRoot'];
+    const projectSourceRoot = angularJson['projects'][options.project]['sourceRoot'];
 
     // file name & path
     const dasherizeName = `${dasherize(options.name)}`;

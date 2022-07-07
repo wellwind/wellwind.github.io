@@ -8,6 +8,11 @@
       "description": "The name of the post.",
       "type": "string"
     },
+    "project": {
+      "description": "Project name contains posts",
+      "type": "string",
+      "default": "blog"
+    },
     "draft": {
       "type": "boolean",
       "description": "Is draft.",
