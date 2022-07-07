@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Mon, 13 Jun 2022 07:33:24 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 07 Jul 2022 01:35:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[如何在 Azure CloudShell 上傳/下載檔案]]></title>
+            <link>https://fullstackladder.dev/blog/2022/07/05/azure-cloudshell-upload-download-file</link>
+            <guid>https://fullstackladder.dev/blog/2022/07/05/azure-cloudshell-upload-download-file</guid>
+            <pubDate>Tue, 05 Jul 2022 18:51:20 GMT</pubDate>
+            <description><![CDATA[<p>Azure CloudShell 可以幫助我們直接在 Azure Portal 上直接下指令進行各種資源的操作，不過偶爾我們需要將地端的檔案上傳到 Azure CloudShell 或是需要將在 Azure CloudShell 上面的檔案下載下來，今天分享一些小技巧，讓我們可以輕鬆的在 Azure CloudShell 上傳/下載檔案。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[使用 inject() 簡化建構式注入的內容]]></title>
             <link>https://fullstackladder.dev/blog/2022/05/21/angular-inject-usage-sample</link>
@@ -175,14 +183,6 @@
             <guid>https://fullstackladder.dev/blog/2021/11/07/using-http-context-passing-data-to-http-interceptor</guid>
             <pubDate>Sun, 07 Nov 2021 15:00:00 GMT</pubDate>
             <description><![CDATA[<p>Angular 中的 HttpInterceptor 可以幫助我們攔截每個 HttpClient 送出的呼叫，幫助我們在呼叫前後打點各種大小事情，不過有時候我們反而希望 HttpInterctptor 不要自作主張幫我們處理太多事情，之前有些過一篇文章介紹<a href="https://fullstackladder.dev/blog/2019/01/06/mastering-angular-31-how-to-create-new-http-client-and-ignore-http-interceptors/">如何忽略 HTTP_INTERCEPTORS</a>，而到了 Angular 12 之後，則內建了 <a href="https://angular.io/api/common/http/HttpContext">HttpContext</a> 的功能，方便在程式中主動傳遞一些資料給我們自己設計的 HttpInterctptor，來達到一些更細緻的操作，這篇文章就來看一下 HttpContext 該如何使用。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[GitHub Actions] 印出事件相關資訊]]></title>
-            <link>https://fullstackladder.dev/blog/2021/11/01/github-actions-print-events</link>
-            <guid>https://fullstackladder.dev/blog/2021/11/01/github-actions-print-events</guid>
-            <pubDate>Mon, 01 Nov 2021 16:37:00 GMT</pubDate>
-            <description><![CDATA[<p>當使用 GitHub Actions 時，經常要針對來源事件去進行一些額外處理，導致要去查詢事件相關屬性，非常不方便，可以使用 <a href="https://github.com/marketplace/actions/debug-action">Debug action</a> 將相關資料印出，方便查找。</p>
 ]]></description>
         </item>
     </channel>
