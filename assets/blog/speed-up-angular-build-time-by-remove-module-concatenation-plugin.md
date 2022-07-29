@@ -72,11 +72,11 @@ Angular 使用 Webpack 進行建置程式的動作，但將它包裝起來了，
 
 ## 移除 ModuleConcatenationPlugin 優化
 
-在不斷建置的過程中，我發現了 Webpack 優化程式碼時有一個步驟特別慢，也就是使用 `ModuleConcatenationPlugin`，因此會在這裡卡住非常久的時間
+在不斷建置的過程中，我發現了 Webpack 優化程式碼時有一個步驟特別慢，也就是使用 `ModuleConcatenationPlugin`，在這裡 plugin 執行時會卡住非常久的時間
 
 {% asset_img 01.png %}
 
-這是個我之前沒看過的 plugin，於是查了一下 [ModuleConcatenationPlugin 的文件說明](https://webpack.js.org/plugins/module-concatenation-plugin/)，理解到了 Webpack 建置程式時，會將我們的每個 JavaScript 模組（注意當然不是 Angular 的 NgModule）都轉換成一個閉包（Closure），這雖然是很合理的一件事情，但其實是有優化空間的，`ModuleConcatenationPlugin` 就是嘗試將這些模組產生的閉包，合併到一個閉包內，如此一來就有機會產生更小，且執行速度更快的程式碼！這個功能在 production mode 是預設開啟的。
+我之前沒看過這個 plugin，於是查了一下 [ModuleConcatenationPlugin 的文件說明](https://webpack.js.org/plugins/module-concatenation-plugin/)，理解到了 Webpack 建置程式時，會將我們的每個 JavaScript 模組（注意當然不是 Angular 的 NgModule）都轉換成一個閉包（Closure），這雖然是很合理的一件事情，但其實是有優化空間的，`ModuleConcatenationPlugin` 就是嘗試將這些模組產生的閉包，合併到一個閉包內，如此一來就有機會產生更小，且執行速度更快的程式碼！這個功能在 production mode 是預設開啟的。
 
 這樣的優化聽起來很棒，但是在使用 lazy loading 後每個檔案也已經盡可能縮小了，再次想辦法縮小划算嗎？
 
