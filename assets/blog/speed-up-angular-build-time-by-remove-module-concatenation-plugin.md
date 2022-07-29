@@ -127,7 +127,7 @@ module.exports = {
 
 只要指定 `optimization.concatenateModules = false` 即可關閉使用 `ModuleConcatenationPlugin` 啦！
 
-經過實際測試，production build 時間從悲慘的 32分鐘 優化到 4分多鐘，跑了起次大概比原來都沒有 lazy loading 慢個數十秒而已！
+經過實際測試，production build 時間從悲慘的 32分鐘 優化到 4分多鐘，跑了幾次大概比原來都沒有 lazy loading 慢個數十秒而已！
 
 至於檔案大小呢？大致上 review 了一下幾乎沒有太大的變化，多數檔案大小都沒有改變，少數變大的檔案最多也就幾 kb 而已，這樣的代價真的是可以忽略。
 
