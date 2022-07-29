@@ -4,11 +4,21 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Thu, 07 Jul 2022 01:35:43 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 29 Jul 2022 03:25:44 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[移除 ModuleConcatenationPlugin 以加快 Angular 建置速度]]></title>
+            <link>https://fullstackladder.dev/blog/2022/07/29/speed-up-angular-build-time-by-remove-module-concatenation-plugin</link>
+            <guid>https://fullstackladder.dev/blog/2022/07/29/speed-up-angular-build-time-by-remove-module-concatenation-plugin</guid>
+            <pubDate>Fri, 29 Jul 2022 08:33:49 GMT</pubDate>
+            <description><![CDATA[<p>最近接手一個專案，需要將舊 Angular 9 專案加入之前客戶沒有實作的 lazy loading 功能，專案包含了將近 600 個頁面，之後還會增加。</p>
+<p>重構的過程是很順利的，不過在 lazy loading 架構完成後，卻出現了 production build 時間大幅增加的問題，花費了不少時間研究，總算是以較低的代價換回了 build 速度。</p>
+<p>這篇文章就來分享一下整個過程和結論。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[如何在 Azure CloudShell 上傳/下載檔案]]></title>
             <link>https://fullstackladder.dev/blog/2022/07/05/azure-cloudshell-upload-download-file</link>
@@ -175,14 +185,6 @@
             <guid>https://fullstackladder.dev/blog/2022/01/14/github-actions-auto-pr-for-package-dependency</guid>
             <pubDate>Fri, 14 Jan 2022 22:20:00 GMT</pubDate>
             <description><![CDATA[<p>今天從 <a href="https://jiaming0708.github.io/">Jimmy 哥</a> 那邊學到的新招，透過 <a href="https://github.com/dependabot">Dependabot</a> 及 GitHub Actions，可以在相依套件有更新時自動發送 PR。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[使用 HttpContext 傳遞資料給 HttpInterceptor]]></title>
-            <link>https://fullstackladder.dev/blog/2021/11/07/using-http-context-passing-data-to-http-interceptor</link>
-            <guid>https://fullstackladder.dev/blog/2021/11/07/using-http-context-passing-data-to-http-interceptor</guid>
-            <pubDate>Sun, 07 Nov 2021 15:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Angular 中的 HttpInterceptor 可以幫助我們攔截每個 HttpClient 送出的呼叫，幫助我們在呼叫前後打點各種大小事情，不過有時候我們反而希望 HttpInterctptor 不要自作主張幫我們處理太多事情，之前有些過一篇文章介紹<a href="https://fullstackladder.dev/blog/2019/01/06/mastering-angular-31-how-to-create-new-http-client-and-ignore-http-interceptors/">如何忽略 HTTP_INTERCEPTORS</a>，而到了 Angular 12 之後，則內建了 <a href="https://angular.io/api/common/http/HttpContext">HttpContext</a> 的功能，方便在程式中主動傳遞一些資料給我們自己設計的 HttpInterctptor，來達到一些更細緻的操作，這篇文章就來看一下 HttpContext 該如何使用。</p>
 ]]></description>
         </item>
     </channel>
