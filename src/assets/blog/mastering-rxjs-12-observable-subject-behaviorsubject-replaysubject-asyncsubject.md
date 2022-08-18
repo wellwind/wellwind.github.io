@@ -246,7 +246,7 @@ source$.subscribe(data => console.log(`ReplaySubject 第二次訂閱: ${data}`))
 
 {% asset_img 09.jpg %}
 
-第二次訂閱後還沒有任何事件發生，此時單純是靠 `BehaviorSubject` 把最近三次的資料重播，但目前只有兩次事件，所以只會收到兩次事件的資料；當事件繼續發生超過三次時，這時再訂閱就會收到完整 cache 的最近三次資料囉。
+第二次訂閱後還沒有任何事件發生，此時單純是靠 `ReplaySubject` 把最近三次的資料重播，但目前只有兩次事件，所以只會收到兩次事件的資料；當事件繼續發生超過三次時，這時再訂閱就會收到完整 cache 的最近三次資料囉。
 
 ```typescript
 source$.next(3);
