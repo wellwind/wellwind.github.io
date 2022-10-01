@@ -118,7 +118,7 @@ bug.setScore(-100); // -100
 class StudentStore {
   private store;
   
-  getStore() {
+  getScore() {
     return this.store;
   }
 

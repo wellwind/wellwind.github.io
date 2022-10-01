@@ -1,6 +1,7 @@
 ---
-title: "[Angular 大師之路 ] 使用 ng 物件幫助我們快速除錯"
+title: "[Angular 大師之路] 使用 ng 物件幫助我們快速除錯"
 date: 2020-02-07 21:07:15
+category: "Angular 大師之路"
 tags:
   - Angular
   - Angular 9

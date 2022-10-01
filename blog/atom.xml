@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Thu, 18 Aug 2022 09:34:15 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 01 Oct 2022 05:25:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[NgRx 速成班] 使用 NgRx Schematics 快速產生程式碼骨架]]></title>
+            <link>https://fullstackladder.dev/blog/2022/08/01/ngrx-02-schematics</link>
+            <guid>https://fullstackladder.dev/blog/2022/08/01/ngrx-02-schematics</guid>
+            <pubDate>Mon, 01 Aug 2022 11:47:42 GMT</pubDate>
+            <description><![CDATA[<p>在之前的文章「<a href="https://fullstackladder.dev/blog/2022/04/17/ngrx-01-introduce/">簡介 NgRx</a>」中我們間單的的解釋了 NgRx 的一些基本角色，每個角色都有他的工作，也代表著我們要把一件事情拆成多個角色去負責，每個角色都會有各自獨立的程式碼，我們可以使用 <a href="https://ngrx.io/guide/schematics">@ngrx/schematics</a> 套件來快速的幫助我們產生所有需要的程式碼！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[移除 ModuleConcatenationPlugin 以加快 Angular 建置速度]]></title>
             <link>https://fullstackladder.dev/blog/2022/07/29/speed-up-angular-build-time-by-remove-module-concatenation-plugin</link>
@@ -177,14 +185,6 @@
             <description><![CDATA[<p>在之前的文章中我們曾經提到過「動態建立元件」的方法，透過建立一個 directive，並決定這個 directive 的樣版上要呈現成什麼元件，之後將元件產生在 directive 所屬的樣版上。</p>
 <p>這麼做很棒，不過還是有一個缺點，就是一定需要在樣板 HTML 上掛上這個 directive，才能產生動態的元件，雖然大部分情境都足夠了，但當遇到甚至連 HTML 都是完全自定義不是寫死在程式內的，如果需要由後端 API 回傳 HTML 內容，並在回傳的 HTML 特定位置放置元件，就會有困難。</p>
 <p>今天就來看看這種動態的 HTML 內如何插入一個元件！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[GitHub Actions] 當有套件建議更新時自動發送 PR]]></title>
-            <link>https://fullstackladder.dev/blog/2022/01/14/github-actions-auto-pr-for-package-dependency</link>
-            <guid>https://fullstackladder.dev/blog/2022/01/14/github-actions-auto-pr-for-package-dependency</guid>
-            <pubDate>Fri, 14 Jan 2022 22:20:00 GMT</pubDate>
-            <description><![CDATA[<p>今天從 <a href="https://jiaming0708.github.io/">Jimmy 哥</a> 那邊學到的新招，透過 <a href="https://github.com/dependabot">Dependabot</a> 及 GitHub Actions，可以在相依套件有更新時自動發送 PR。</p>
 ]]></description>
         </item>
     </channel>
