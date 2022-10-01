@@ -21,7 +21,7 @@ ogImage: 00.jpg
 
 # 效能影響說明
 
-以我目前工作的電腦，直接 production build 客戶的程式，速度非常的快，只需要 *4四分鐘** 所有就可以建置完成，不過因為沒有 lazy loading，所以產生出來的 `main.js` 檔案高達 `35.5MB`！
+以我目前工作的電腦，直接 production build 客戶的程式，速度非常的快，只需要 **四分鐘** 左右就可以建置完成，不過因為沒有 lazy loading，所以產生出來的 `main.js` 檔案高達 `35.5MB`！
 
 這也是客戶的主要痛點，所有使用者一開始的載入速度都非常的慢，因此改成了 lazy loading，之後產出的 `main.js` 就直接減少到了 `2.5MB`，當然這還可以繼續優化，但不是今天的重點，重點是整個 production build 的速度從原來的 4分鐘 硬生生提高到了 **32分鐘**！
 
@@ -171,7 +171,7 @@ console.log(methodB());
 
 webpack 設定 `mode: 'production'`，然後比較加上 `optimization.concatenateModules = false` 前後的差異
 
-不是 production mode 產出的程式太長了，可以直接參考 [GitHub 上的檔案](https://github.com/wellwind/ModuleConcatenationPluginDemo/blob/master/dist/index.js)
+因為 production mode 產出的程式太長了，可以直接參考 [GitHub 上的檔案](https://github.com/wellwind/ModuleConcatenationPluginDemo/blob/master/dist/index.js)
 
 production mode 但取消 `ModuleConcatenationPlugin` 時，產生檔案如下（重新排版過）：
 
