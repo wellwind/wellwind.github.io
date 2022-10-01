@@ -20,18 +20,79 @@
             [routerLink]="['/blog/tags', tag | slugify]"
             color="primary"
             selected
-            *ngFor="let tag of postMeta.tags">
+            *ngFor="let tag of postMeta.tags"
+          >
             {{ tag }}
           </mat-chip>
         </mat-chip-list>
       </div>
 
       <div class="blog-post-liker-coin">
-        <div>如果您覺得我的文章有幫助，歡迎免費成為 LikeCoin 會員，幫我的文章拍手 5 次表示支持！</div>
-        <app-liker-coin likerId="wellwind" [refreshObservable]="postMeta$"></app-liker-coin>
+        <div>
+          如果您覺得我的文章有幫助，歡迎免費成為 LikeCoin 會員，幫我的文章拍手 5
+          次表示支持！
+        </div>
+        <app-liker-coin
+          likerId="wellwind"
+          [refreshObservable]="postMeta$"
+        ></app-liker-coin>
       </div>
 
       <mat-divider></mat-divider>
+
+      <!-- prev & next by categories -->
+      <ng-container
+        *ngFor="let categoryPrevNext of postCategoriesPrevNext$ | async"
+      >
+        <div class="flex items-center">
+          <mat-icon class="pr-1">folder_open</mat-icon>
+          <ng-container
+            *ngFor="let category of postMeta.categories; let last = last"
+          >
+            <a
+              class="blog-post-category-link"
+              [routerLink]="[
+                '/blog/categories',
+                categoryPrevNext.category | slugify
+              ]"
+              >{{ categoryPrevNext.category }}</a
+            >
+            <span class="sub-divider" *ngIf="!last">|</span>
+          </ng-container>
+        </div>
+
+        <div class="blog-post-prev-next">
+          <div class="blog-post-prev">
+            <ng-container *ngIf="categoryPrevNext.previousPost as post">
+              <div class="blog-post-prev-next-notify prev">
+                <mat-icon>chevron_left</mat-icon>
+                上一篇
+              </div>
+              <ng-container
+                *ngTemplateOutlet="postLink; context: { post: post }"
+              ></ng-container>
+            </ng-container>
+          </div>
+          <div class="blog-post-next">
+            <ng-container *ngIf="categoryPrevNext.nextPost as post">
+              <div class="blog-post-prev-next-notify next">
+                下一篇
+                <mat-icon>chevron_right</mat-icon>
+              </div>
+              <ng-container
+                *ngTemplateOutlet="postLink; context: { post: post }"
+              ></ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </ng-container>
+
+      <!-- prev & next by date -->
+      <div class="flex items-center">
+        <mat-icon class="pr-1">calendar_month</mat-icon>
+        <span>按照日期</span>
+      </div>
 
       <div class="blog-post-prev-next">
         <div class="blog-post-prev">
@@ -40,7 +101,9 @@
               <mat-icon>chevron_left</mat-icon>
               上一篇
             </div>
-            <ng-container *ngTemplateOutlet="postLink; context: {post: post}"></ng-container>
+            <ng-container
+              *ngTemplateOutlet="postLink; context: { post: post }"
+            ></ng-container>
           </ng-container>
         </div>
         <div class="blog-post-next">
@@ -49,35 +112,39 @@
               下一篇
               <mat-icon>chevron_right</mat-icon>
             </div>
-            <ng-container *ngTemplateOutlet="postLink; context: {post: post}"></ng-container>
+            <ng-container
+              *ngTemplateOutlet="postLink; context: { post: post }"
+            ></ng-container>
           </ng-container>
         </div>
-
-        <ng-template #postLink let-post="post">
-          <a
-            [routerLink]="post | postDateAsPath">
-            {{ post.title }}
-          </a>
-        </ng-template>
       </div>
 
+      <ng-template #postLink let-post="post">
+        <a [routerLink]="post | postDateAsPath">
+          {{ post.title }}
+        </a>
+      </ng-template>
       <mat-divider></mat-divider>
 
+      <!-- comments -->
       <h1>有任何問題或建議嗎？歡迎留言給我</h1>
       <div class="blog-post-comments" #comments>
         <app-comment class="blog-post-comments"></app-comment>
       </div>
     </div>
 
-
     <div class="blog-post-toc">
       <app-blog-post-toc [contentElement]="content"></app-blog-post-toc>
     </div>
 
-    <button mat-fab color="default" class="go-comment" (click)="goComment(comments)" matTooltip="留言">
+    <button
+      mat-fab
+      color="default"
+      class="go-comment"
+      (click)="goComment(comments)"
+      matTooltip="留言"
+    >
       <mat-icon>comment</mat-icon>
     </button>
-
   </div>
 </ng-container>
-
