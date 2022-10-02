@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 01 Oct 2022 05:38:18 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 02 Oct 2022 05:13:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[NgRx 速成班] 讀取狀態的基礎 Store & Selector]]></title>
+            <link>https://fullstackladder.dev/blog/2022/08/02/ngrx-03-store-selector</link>
+            <guid>https://fullstackladder.dev/blog/2022/08/02/ngrx-03-store-selector</guid>
+            <pubDate>Tue, 02 Aug 2022 10:30:00 GMT</pubDate>
+            <description><![CDATA[<p>對 NgRx 基本架構和程式碼有了一些概念後，接著來看一下如何將狀態讀取出來給程式使用，這會利用到 Store 與 Selector 兩個角色。</p>
+<p>基本的程式骨架再上一篇「<a href="/blog/2022/08/01/ngrx-02-schematics/">使用 NgRx Schematics 快速產生程式碼骨架</a>」已經說明過了，這邊將會直接沿用產生出來的程式骨架，繼續調整程式碼。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[NgRx 速成班] 使用 NgRx Schematics 快速產生程式碼骨架]]></title>
             <link>https://fullstackladder.dev/blog/2022/08/01/ngrx-02-schematics</link>
@@ -175,16 +184,6 @@
             <description><![CDATA[<p>Webpack 是強大的前端打包工具，可以幫助我們快速的將前端 JavaScript 程式及其用到的相關程式都打包成一個或數個 js 檔。同時也可以將不需要的程式透過 tree shaking 機制過濾掉。</p>
 <p>不過在前端的世界對於檔案大小是錙銖必較的，因此知道 webpack 到底打包了哪些程式，哪些程式是過濾不掉的，就非常重要了！</p>
 <p>好在 Webpack 提供了一個功能，讓我們能快速分析出打包的結果，到底包進哪些程式，程式大小等等清清楚楚，今天就來看看如何分析Webpack 打包後的結果。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Angular 大師之路] 在動態的 HTML 中動態產生元件]]></title>
-            <link>https://fullstackladder.dev/blog/2022/01/16/dynamic-create-component-without-template</link>
-            <guid>https://fullstackladder.dev/blog/2022/01/16/dynamic-create-component-without-template</guid>
-            <pubDate>Sun, 16 Jan 2022 13:12:26 GMT</pubDate>
-            <description><![CDATA[<p>在之前的文章中我們曾經提到過「動態建立元件」的方法，透過建立一個 directive，並決定這個 directive 的樣版上要呈現成什麼元件，之後將元件產生在 directive 所屬的樣版上。</p>
-<p>這麼做很棒，不過還是有一個缺點，就是一定需要在樣板 HTML 上掛上這個 directive，才能產生動態的元件，雖然大部分情境都足夠了，但當遇到甚至連 HTML 都是完全自定義不是寫死在程式內的，如果需要由後端 API 回傳 HTML 內容，並在回傳的 HTML 特定位置放置元件，就會有困難。</p>
-<p>今天就來看看這種動態的 HTML 內如何插入一個元件！</p>
 ]]></description>
         </item>
     </channel>

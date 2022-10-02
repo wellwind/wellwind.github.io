@@ -7,7 +7,7 @@ tags:
   - Angular
   - NgRx
   - Schematics
-ogImage: 00.png
+ogImage: 01.png
 ---
 
 在之前的文章「[簡介 NgRx](https://fullstackladder.dev/blog/2022/04/17/ngrx-01-introduce/)」中我們間單的的解釋了 NgRx 的一些基本角色，每個角色都有他的工作，也代表著我們要把一件事情拆成多個角色去負責，每個角色都會有各自獨立的程式碼，我們可以使用 [@ngrx/schematics](https://ngrx.io/guide/schematics) 套件來快速的幫助我們產生所有需要的程式碼！
