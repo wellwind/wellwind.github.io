@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Tue, 04 Oct 2022 02:19:27 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 07 Oct 2022 12:51:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Angular 大師之路] 透過 DI 容器修正第三方元件的 bug]]></title>
+            <link>https://fullstackladder.dev/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs</link>
+            <guid>https://fullstackladder.dev/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs</guid>
+            <pubDate>Fri, 07 Oct 2022 20:08:13 GMT</pubDate>
+            <description><![CDATA[<p>最進公司內某個專案遇到了一個 bug 是因為第三方套件的已知 bug 導致，但又不可能等人家修好 bug 我們才能處理，於是來詢問我的想法；其實這並不是一個很難的問題，尤其是在 Angular 這種完整個框架下，透過 DI 容器就可以輕易的達成，只是不一定想得到而已，由於大多數我們會使用到 Angular 的 DI 機制常常都是再進行一些組態設定，難得有個案例是用來修 bug 的，就用這篇文章來記錄一下！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[NgRx 速成班] 用 Effects 讓元件持續保持單純]]></title>
             <link>https://fullstackladder.dev/blog/2022/08/07/ngrx-05-effects</link>
@@ -172,17 +180,6 @@
             <guid>https://fullstackladder.dev/blog/2022/02/02/inno-setup-quick-start</guid>
             <pubDate>Wed, 02 Feb 2022 14:51:01 GMT</pubDate>
             <description><![CDATA[<p><a href="https://jrsoftware.org/isinfo.php">Inno Setup</a> 是一套<a href="https://github.com/jrsoftware/issrc">開源</a>但功能強大且完整的 Windows 安裝程式，透過 Inno Setup 可以幫助我們將開發好的程式打包並壓縮成一個安裝檔，提供給使用者快速安裝；在打包成安裝檔的過程中我們會撰寫一些腳本來處理中間的安裝過程，因此在安裝的過程中是可以高度客製化的，今天就來快速看一下如何使用 InnoSetup 打包出一份安裝檔。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Visual Studio Code 小技巧] 將檔案已指定編碼儲存]]></title>
-            <link>https://fullstackladder.dev/blog/2022/01/31/visual-studio-code-tips-save-encoding</link>
-            <guid>https://fullstackladder.dev/blog/2022/01/31/visual-studio-code-tips-save-encoding</guid>
-            <pubDate>Mon, 31 Jan 2022 12:00:00 GMT</pubDate>
-            <description><![CDATA[<p>以下說明如何使用 Visual Studio Code 來將文字檔編碼進行轉換。</p>
-<p>範例如圖，目前是一個 Big5 編碼的文字檔：</p>
-<p><img src="./assets/blog/visual-studio-code-tips-save-encoding/01.png" alt="" title=""  loading="lazy" /></p>
-<p>我們想轉換成 UTF-8，該如何處理呢？</p>
 ]]></description>
         </item>
     </channel>
