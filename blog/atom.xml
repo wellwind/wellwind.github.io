@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Fri, 07 Oct 2022 12:51:34 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 16 Oct 2022 03:28:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Chrome DevTools] 透過開發者工具動態切換暗黑模式]]></title>
+            <link>https://fullstackladder.dev/blog/2022/10/16/change-prefers-color-scheme-by-dev-tools</link>
+            <guid>https://fullstackladder.dev/blog/2022/10/16/change-prefers-color-scheme-by-dev-tools</guid>
+            <pubDate>Sun, 16 Oct 2022 10:47:15 GMT</pubDate>
+            <description><![CDATA[<p>Dark mode (暗黑模式) 已經逐漸成為現代網頁開發的主流，很多網站也都逐漸加入的對 dark mode 的支援，讓網站預設也可以跟著作業系統的深色或淺色模式自動切換</p>
+<p>雖然顏色偏好讓使用者體驗更好，但也確實增加了網站開發時期的負擔，我們必須同時測試兩種顏色模式的顯示效果，如果每次測試都要主動切換系統的模式，也未免太辛苦了！還好 Chrome DevTools 內建了主題切換，讓我們可以直接在開發工具切換目前網頁的顯示模式，大幅度的節省時間，今天就來看看如何在深色和淺色模式之間自由的切換！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Angular 大師之路] 透過 DI 容器修正第三方元件的 bug]]></title>
             <link>https://fullstackladder.dev/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs</link>
@@ -172,14 +181,6 @@
             <guid>https://fullstackladder.dev/blog/2022/02/03/inno-setup-script-explain</guid>
             <pubDate>Thu, 03 Feb 2022 15:42:20 GMT</pubDate>
             <description><![CDATA[<p>前一篇我們提到<a href="https://fullstackladder.dev/blog/2022/02/02/inno-setup-quick-start/">使用 Inno Setup 的腳本精靈來產生安裝檔腳本</a>，並編譯這個腳本來建立安裝檔，不過這個腳本精靈通常只會使用一次，因為產出的檔案是無法再次使用腳本精靈設定的，因此最終我們還是需要自行去維護這個腳本，今天就來看一下預設使用腳本精靈產生的內容有哪些，未來要維護或新增功能時就可以更容易上手了。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[使用 Inno Setup 快速包裝 Windows 安裝檔]]></title>
-            <link>https://fullstackladder.dev/blog/2022/02/02/inno-setup-quick-start</link>
-            <guid>https://fullstackladder.dev/blog/2022/02/02/inno-setup-quick-start</guid>
-            <pubDate>Wed, 02 Feb 2022 14:51:01 GMT</pubDate>
-            <description><![CDATA[<p><a href="https://jrsoftware.org/isinfo.php">Inno Setup</a> 是一套<a href="https://github.com/jrsoftware/issrc">開源</a>但功能強大且完整的 Windows 安裝程式，透過 Inno Setup 可以幫助我們將開發好的程式打包並壓縮成一個安裝檔，提供給使用者快速安裝；在打包成安裝檔的過程中我們會撰寫一些腳本來處理中間的安裝過程，因此在安裝的過程中是可以高度客製化的，今天就來快速看一下如何使用 InnoSetup 打包出一份安裝檔。</p>
 ]]></description>
         </item>
     </channel>
