@@ -5,6 +5,8 @@
 /blog/archives
 /blog/2009/07/20/MySQL-connector-NET-Parameters
 /blog/2022/01/21/analysis-webpack-bundle-size
+/blog/2022/05/14/angular-14-standalone-components-directives-pipe-preview
+/blog/2022/05/15/angular-14-strict-typed-reactive-forms
 /blog/2019/06/04/angular-8-dynamic-load-module
 /blog/2020/02/07/angular-9-ng-object-for-debugging
 /blog/2018/05/08/angular-advanced-angular-elements-intro
@@ -15,8 +17,10 @@
 /blog/2018/03/06/angular-advanced-test-with-docker
 /blog/2017/08/07/angular-advanced-testing-with-fakeasync-tick
 /blog/2017/08/13/angular-advanced-testing-with-jest
+/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs
 /blog/2017/08/10/angular-advanced-using-rxjs-sharereplay-operator-for-async-pipe
 /blog/2022/01/23/angular-book-review-9789864349821
+/blog/2022/05/21/angular-inject-usage-sample
 /blog/2017/12/19/angular-material-01-intro
 /blog/2017/12/20/angular-material-02-installation
 /blog/2017/12/21/angular-material-03-icon
@@ -74,6 +78,7 @@
 /blog/2021/10/31/angular-universal-transfer-state
 /blog/2018/12/15/angular-universal-with-firebase
 /blog/2017/01/08/ansible-windows-rsync-continuous-delivery
+/blog/2022/07/05/azure-cloudshell-upload-download-file
 /blog/2016/09/15/codewars-online-kata-collection
 /blog/2017/09/10/csharp-expando-object
 /blog/2016/05/22/csharp-observer-pattern-delegate-event
@@ -198,6 +203,11 @@
 /blog/2020/10/19/mastering-rxjs-34-introduce-scheduler-of-rxjs
 /blog/2020/10/20/mastering-rxjs-35-how-to-test-rxjs-with-marble-diagrams
 /blog/2017/03/02/native-script-with-angular-cli
+/blog/2022/04/17/ngrx-01-introduce
+/blog/2022/08/01/ngrx-02-schematics
+/blog/2022/08/02/ngrx-03-store-selector
+/blog/2022/08/03/ngrx-04-action-reducer
+/blog/2022/08/07/ngrx-05-effects
 /blog/2022/03/06/node-packages-to-create-beauty-cli
 /blog/2021/04/17/notes-for-rx-net
 /blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator
@@ -221,6 +231,7 @@
 /blog/2019/12/15/schematics-workshop-05-apply-templates
 /blog/2019/12/22/schematics-workshop-06-install-packages
 /blog/2020/01/01/schematics-workshop-07-local-test-schematics
+/blog/2022/07/29/speed-up-angular-build-time-by-remove-module-concatenation-plugin
 /blog/2016/08/29/ssms-intellisense-cache
 /blog/2016/04/29/ssms-set-delimiter-to-specflow
 /blog/2021/10/16/static-site-generator-using-angular-universal-prerender
@@ -260,6 +271,7 @@
 /blog/page/22
 /blog/page/23
 /blog/page/24
+/blog/page/25
 /blog/categories/前端軍火庫
 /blog/categories/前端軍火庫/page/1
 /blog/categories/前端軍火庫/page/2
@@ -279,6 +291,7 @@
 /blog/categories/Angular-速成班
 /blog/categories/Angular-速成班/page/1
 /blog/categories/Angular-速成班/page/2
+/blog/categories/Azure-小技巧
 /blog/categories/Git
 /blog/categories/GitHub-Actions-Snippets
 /blog/categories/前端錦囊
@@ -293,6 +306,7 @@
 /blog/categories/第-12-屆鐵人賽/page/2
 /blog/categories/第-12-屆鐵人賽/page/3
 /blog/categories/第-12-屆鐵人賽/page/4
+/blog/categories/NgRx-速成班
 /blog/categories/React-速成班
 /blog/categories/RxJS
 /blog/categories/Machine-Learning-機器學習
@@ -311,6 +325,10 @@
 /blog/tags/Angular/page/6
 /blog/tags/Angular/page/7
 /blog/tags/Angular/page/8
+/blog/tags/Angular/page/9
+/blog/tags/Angular-14
+/blog/tags/Standalone
+/blog/tags/Strict-Typed-Reactive-Forms
 /blog/tags/Angular8
 /blog/tags/Dynamic-Import
 /blog/tags/Lazy-Loading
@@ -344,6 +362,7 @@
 /blog/tags/RxJS/page/4
 /blog/tags/RxJS/page/5
 /blog/tags/AsyncPipe
+/blog/tags/inject
 /blog/tags/Angular-Material
 /blog/tags/Angular-Material/page/1
 /blog/tags/Angular-Material/page/2
@@ -418,6 +437,8 @@
 /blog/tags/Continuous-Delivery
 /blog/tags/Ansible
 /blog/tags/rsync
+/blog/tags/Azure
+/blog/tags/Azure-CloudShell
 /blog/tags/CodeWars
 /blog/tags/Kata
 /blog/tags/Dojo
@@ -440,6 +461,7 @@
 /blog/tags/Git
 /blog/tags/GitKraken
 /blog/tags/GitGUI
+/blog/tags/GitClient
 /blog/tags/GitFlow
 /blog/tags/Commit-Template
 /blog/tags/GitHub-Actions
@@ -606,6 +628,14 @@
 /blog/tags/Testing
 /blog/tags/Marble-Diagrams
 /blog/tags/NativeScript
+/blog/tags/NgRx
+/blog/tags/Redux
+/blog/tags/Schematics
+/blog/tags/Store
+/blog/tags/Selector
+/blog/tags/Action
+/blog/tags/Reducer
+/blog/tags/Effects
 /blog/tags/chalk
 /blog/tags/gradient-string
 /blog/tags/figlet.js
@@ -637,7 +667,7 @@
 /blog/tags/momentjs
 /blog/tags/rxjs-spy
 /blog/tags/debugging
-/blog/tags/Schematics
+/blog/tags/ModuleConcatenationPlugin
 /blog/tags/SSMS
 /blog/tags/IntelliSense
 /blog/tags/Cache
@@ -682,3 +712,4 @@
 /blog/archives/page/22
 /blog/archives/page/23
 /blog/archives/page/24
+/blog/archives/page/25
