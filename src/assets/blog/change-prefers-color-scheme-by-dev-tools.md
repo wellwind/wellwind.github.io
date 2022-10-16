@@ -6,6 +6,7 @@ category:
 tags:
   - "Chrome DevTools"
   - "DarkMode"
+ogImage: 04.png
 ---
 
 Dark mode (暗黑模式) 已經逐漸成為現代網頁開發的主流，很多網站也都逐漸加入的對 dark mode 的支援，讓網站預設也可以跟著作業系統的深色或淺色模式自動切換
