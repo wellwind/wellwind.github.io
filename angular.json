@@ -31,7 +31,12 @@
               "src/.nojekyll",
               "src/opensearch.xml",
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@builder.io/partytown/lib",
+                "output": "/~partytown"
+              }
             ],
             "styles": [
               "src/styles.scss"

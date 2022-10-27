@@ -38,6 +38,7 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/platform-server": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@builder.io/partytown": "^0.7.1",
     "@nguniversal/express-engine": "^14.0.0",
     "@wellwind/blog-builder": "file:builders",
     "@wellwind/blog-schematics": "file:schematics",
