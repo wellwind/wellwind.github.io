@@ -10,10 +10,13 @@
 
 <ng-container *ngIf="currentPage > 1">
   <button
+    role="button"
+    aria-label="第一頁"
     mat-stroked-button
     class="pagination-button pagination-first"
     [routerLink]="[linkBase, 1]"
-    matTooltip="第一頁">
+    matTooltip="第一頁"
+  >
     1
   </button>
 </ng-container>
@@ -22,36 +25,49 @@
 
 <ng-container *ngIf="currentPage > 2">
   <button
+    role="button"
+    [attr.aria-label]="'第 ' + (currentPage - 1) + ' 頁'"
     mat-stroked-button
     class="pagination-button pagination-prev"
     [routerLink]="[linkBase, currentPage - 1]"
-    [matTooltip]="'第 ' + (currentPage - 1) + ' 頁'">
+    [matTooltip]="'第 ' + (currentPage - 1) + ' 頁'"
+  >
     {{ currentPage - 1 }}
   </button>
 </ng-container>
 
 <button
+  role="button"
+  [attr.aria-label]="'第 ' + currentPage + ' 頁'"
   mat-raised-button
   color="primary"
   class="pagination-button"
-  [matTooltip]="'第 ' + currentPage + ' 頁'">
+  [matTooltip]="'第 ' + currentPage + ' 頁'"
+>
   {{ currentPage }}
 </button>
 
 <ng-container *ngIf="currentPage < totalPage - 1">
   <button
+    role="button"
+    [attr.aria-label]="'第 ' + (currentPage + 1) + ' 頁'"
     mat-stroked-button
     class="pagination-button pagination-next"
     [routerLink]="[linkBase, currentPage + 1]"
-    [matTooltip]="'第 ' + (currentPage + 1) + ' 頁'">
+    [matTooltip]="'第 ' + (currentPage + 1) + ' 頁'"
+  >
     {{ currentPage + 1 }}
   </button>
 </ng-container>
 
-<mat-icon *ngIf="currentPage < totalPage - 2" class="more-icon">more_horiz</mat-icon>
+<mat-icon *ngIf="currentPage < totalPage - 2" class="more-icon"
+  >more_horiz</mat-icon
+>
 
 <ng-container *ngIf="currentPage < totalPage">
   <button
+    role="button"
+    aria-label="最後一頁"
     mat-stroked-button
     class="pagination-button pagination-last"
     [routerLink]="[linkBase, totalPage]"
@@ -62,10 +78,13 @@
 </ng-container>
 
 <button
+  role="button"
+  aria-label="下一頁"
   *ngIf="currentPage < totalPage"
   mat-stroked-button
   class="pagination-button pagination-next pagination-icon"
   [routerLink]="[linkBase, currentPage + 1]"
-  matTooltip="下一頁">
+  matTooltip="下一頁"
+>
   <mat-icon>navigate_next</mat-icon>
 </button>
