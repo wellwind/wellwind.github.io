@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" class="toolbar mat-elevation-z6" xmlns="http://www.w3.org/1999/html">
-  <button mat-icon-button (click)="menuOpen$.next(!menuOpen$.value)">
+  <button role="button" aria-label="打開/收合選單" mat-icon-button (click)="menuOpen$.next(!menuOpen$.value)">
     <mat-icon *ngIf="menuOpen$ | async">menu_open</mat-icon>
     <mat-icon *ngIf="!(menuOpen$ | async)">menu</mat-icon>
   </button>
@@ -11,7 +11,7 @@
 
   <div class="spacer"></div>
 
-  <button mat-icon-button (click)="theme$.next(theme$.value === 'light' ? 'dark' : 'light')">
+  <button role="button" aria-label="深色/亮色模式" mat-icon-button (click)="theme$.next(theme$.value === 'light' ? 'dark' : 'light')">
     <mat-icon *ngIf="(theme$ | async) === 'light'">light_mode</mat-icon>
     <mat-icon *ngIf="(theme$ | async) !== 'light'">dark_mode</mat-icon>
   </button>
