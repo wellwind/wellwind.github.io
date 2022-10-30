@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 30 Oct 2022 06:38:46 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 30 Oct 2022 08:58:44 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[Tauri 初體驗：前端打造桌面應用程式的小巧快速新選擇]]></title>
+            <link>https://fullstackladder.dev/blog/2022/10/30/tauri-introduction</link>
+            <guid>https://fullstackladder.dev/blog/2022/10/30/tauri-introduction</guid>
+            <pubDate>Sun, 30 Oct 2022 14:56:12 GMT</pubDate>
+            <description><![CDATA[<p><a href="https://tauri.app/">Tauri</a> 放在我的待研究項目裡面已經有好一段時間了，原本有研究了一小斷時間，但因為環境準備太過複雜而暫時停止。</p>
+<p>最新忽然發現 Tauri 出到 v1.1，不再是 beta 版了，看了一下文件發現整體環境準備變得非常簡單，而且功能及文件也都非常完整了，就花了點時間研究一下，整理成以下筆記，也說說自己的體驗心得。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[使用 Client Credentials 來取得具有 Azure REST API 權限的 Access Token]]></title>
             <link>https://fullstackladder.dev/blog/2022/10/22/manipulate-azure-resource-using-client-credentials</link>
@@ -175,14 +184,6 @@
             <guid>https://fullstackladder.dev/blog/2022/02/05/inno-setup-install-with-startup</guid>
             <pubDate>Sat, 05 Feb 2022 15:00:39 GMT</pubDate>
             <description><![CDATA[<p>很多時候我們會希望常用程式能在登入時自動開啟執行，這麼一來可以省去我們手動去開啟程式的時間；當使用 Inno Setup 打包安裝檔時，我們也可以將程式設定成開機自動執行。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Inno Setup] 包裝安裝檔時顯示中文]]></title>
-            <link>https://fullstackladder.dev/blog/2022/02/03/inno-setup-utf8-chinese-support</link>
-            <guid>https://fullstackladder.dev/blog/2022/02/03/inno-setup-utf8-chinese-support</guid>
-            <pubDate>Thu, 03 Feb 2022 18:59:52 GMT</pubDate>
-            <description><![CDATA[<p>Inno Setup 內建多種語言的安裝檔，不過內建不支援繁體中文，雖然文件上有非官方語言包可以下載，但還是有一些地雷在，這篇文章就簡單記錄一下。</p>
 ]]></description>
         </item>
     </channel>

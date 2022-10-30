@@ -69,7 +69,7 @@ Angular 9 在今天 (2020/02/07) 正式推出了！在這個版本最重要的�
 - `ng.getInjector()`：取得元素、元件或 directive 的 injector
 - `ng.getListeners()`：取得元素目前被監聽的事件，如某個元件使用 `(click)="xxx()"`，透過 `ng.getListeners()` 即可知道該元素(or 元件) 目前有綁定 click 事件。需要注意的是，只有使用事件繫結或 `@HostListener` 的才會計算，自己使用如 `addEventListener()` 的不會被算進去。
 
-{%asset_img 06.jpg %}
+{% asset_img 06.jpg %}
 
 - `ng.getOwningComponent()`：取得元素屬於哪個元件內(取得父元件)
 - `ng.getRootComponents()`：取得某個元素或元件屬於哪個「根元件」
