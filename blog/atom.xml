@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 30 Oct 2022 09:07:43 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 30 Oct 2022 09:46:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -43,6 +43,14 @@
             <guid>https://fullstackladder.dev/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs</guid>
             <pubDate>Fri, 07 Oct 2022 20:08:13 GMT</pubDate>
             <description><![CDATA[<p>最進公司內某個專案遇到了一個 bug 是因為第三方套件的已知 bug 導致，但又不可能等人家修好 bug 我們才能處理，於是來詢問我的想法；其實這並不是一個很難的問題，尤其是在 Angular 這種完整個框架下，透過 DI 容器就可以輕易的達成，只是不一定想得到而已，由於大多數我們會使用到 Angular 的 DI 機制常常都是再進行一些組態設定，難得有個案例是用來修 bug 的，就用這篇文章來記錄一下！</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[目前我在 VS Code 中使用的 Git 相關擴充功能 (2022 版)]]></title>
+            <link>https://fullstackladder.dev/blog/2022/09/03/vscode-extensions-for-git-in-2022</link>
+            <guid>https://fullstackladder.dev/blog/2022/09/03/vscode-extensions-for-git-in-2022</guid>
+            <pubDate>Sat, 03 Sep 2022 17:01:48 GMT</pubDate>
+            <description><![CDATA[<p>分享一下目前我有在使用 Git 相關的 VS Code 擴充功能。</p>
 ]]></description>
         </item>
         <item>
@@ -176,14 +184,6 @@
             <pubDate>Sun, 06 Feb 2022 14:46:04 GMT</pubDate>
             <description><![CDATA[<p>有些時候，我們的程式會提供 CLI 指令給使用者，讓使用者可以自行下指令進行一些自動化的操作，這些 CLI 當然也都是執行檔，為了執行方便我們可以將程式位置加入 <code>Path</code> 環境變數，讓使用者可以直接輸入指令，而不用知道程式的所在位置。</p>
 <p>在 Inno Setup 該如何做到安裝時自動把指令路徑加入 <code>path</code> 環境變數呢？</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Inno Setup] 讓程式在系統登入時自動開啟執行]]></title>
-            <link>https://fullstackladder.dev/blog/2022/02/05/inno-setup-install-with-startup</link>
-            <guid>https://fullstackladder.dev/blog/2022/02/05/inno-setup-install-with-startup</guid>
-            <pubDate>Sat, 05 Feb 2022 15:00:39 GMT</pubDate>
-            <description><![CDATA[<p>很多時候我們會希望常用程式能在登入時自動開啟執行，這麼一來可以省去我們手動去開啟程式的時間；當使用 Inno Setup 打包安裝檔時，我們也可以將程式設定成開機自動執行。</p>
 ]]></description>
         </item>
     </channel>
