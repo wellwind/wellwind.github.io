@@ -111,9 +111,9 @@ fn greet(name: &str) -> String {
 }
 ```
 
-我們可以把 Rust 這部分想像是一個 API，只是並不是一般前端常見的 Web API，而是透過 [IPC](https://tauri.app/v1/references/architecture/inter-process-communication/) (Inter-Process Communication) 的方式與寫好的 Rust 溝通，更多細節可以參考文件的「[Calling Rust from the frontend](https://tauri.app/v1/guides/features/command/)」部分。
+我們可以把 Rust 這部分想像是一個 API，當然它不是一般前端常見的 Web API，而是透過 [IPC](https://tauri.app/v1/references/architecture/inter-process-communication/) (Inter-Process Communication) 的方式與寫好的 Rust 溝通，更多細節可以參考文件的「[Calling Rust from the frontend](https://tauri.app/v1/guides/features/command/)」部分。
 
-重要的是，因為可以與 Rust 溝通，所以我們可以使用作業系統的 API，例如讀取檔案等等。
+重要的是，因為具有與 Rust 溝通的能力，所以我們可以使用作業系統的 API，例如讀取檔案等等。
 
 ### 使用 JS/TS API
 
@@ -122,7 +122,7 @@ fn greet(name: &str) -> String {
 由於安全性考量，通常還需要做一些額外的設定，這些在文件中都有相關的說明，設定完後就可以直接使用相關的 API，例如：
 
 ```typescript
-import { readTextFile } from '@tauri-apps/api/fs';
+import { writeTextFile } from '@tauri-apps/api/fs';
 
 await writeTextFile('/tmp/temp.txt', 'Hello World!');
 ```
@@ -131,7 +131,7 @@ await writeTextFile('/tmp/temp.txt', 'Hello World!');
 
 我們不可能永遠都用 `tauri dev` 指令來執行程式，最終還是要打包成可以使用的執行檔，提供給他人使用。
 
-要打包成最終給他人使用的應用程式也很簡單，直接執行 `npm run tauri build` 即可，最終產生的結果會放在專案目錄的 `/src-tauri/target/release/bundle` 下。
+要打包成給他人使用的應用程式也很簡單，直接執行 `npm run tauri build` 即可，產生的結果會放在專案目錄的 `/src-tauri/target/release/bundle` 下。
 
 以 MacOS 來說，可以再往下找 `macos/{{name}}.app` 就是實際上的執行檔了：
 
