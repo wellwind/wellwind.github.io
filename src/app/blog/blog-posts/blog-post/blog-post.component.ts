@@ -107,7 +107,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    this.postCategoriesPrevNext$.subscribe(console.log);
     this.postMeta$.subscribe((postMeta) => {
       this.siteMetaService.resetMeta({
         title: postMeta.title,
