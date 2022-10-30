@@ -4,11 +4,21 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Thu, 27 Oct 2022 02:08:46 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 30 Oct 2022 06:38:46 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[使用 Client Credentials 來取得具有 Azure REST API 權限的 Access Token]]></title>
+            <link>https://fullstackladder.dev/blog/2022/10/22/manipulate-azure-resource-using-client-credentials</link>
+            <guid>https://fullstackladder.dev/blog/2022/10/22/manipulate-azure-resource-using-client-credentials</guid>
+            <pubDate>Sat, 22 Oct 2022 12:57:05 GMT</pubDate>
+            <description><![CDATA[<p>如果有在使用 Azure，一般會直接在 Azure Portal 上操作，或是透過 Azure CLI；但是如果要在程式中操作 Azure 資源，就需要透過 Azure REST API 來呼叫。</p>
+<p>Azure 當然也提供了許多 SDK 讓我們不需要花太多時間去研究 REST API，不過背後原理都是透過 REST API 呼叫，如果遇到使用的語言沒有對應的 SDK，還是必須自己用 REST API 來呼叫，因此研究一下背後的 API 還是很有價值的。</p>
+<p>這篇文章就來看一下如何透過 Client Credentials 的方式來呼叫 Azure REST API。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Chrome DevTools] 透過開發者工具動態切換暗黑模式]]></title>
             <link>https://fullstackladder.dev/blog/2022/10/16/change-prefers-color-scheme-by-dev-tools</link>
@@ -173,14 +183,6 @@
             <guid>https://fullstackladder.dev/blog/2022/02/03/inno-setup-utf8-chinese-support</guid>
             <pubDate>Thu, 03 Feb 2022 18:59:52 GMT</pubDate>
             <description><![CDATA[<p>Inno Setup 內建多種語言的安裝檔，不過內建不支援繁體中文，雖然文件上有非官方語言包可以下載，但還是有一些地雷在，這篇文章就簡單記錄一下。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Inno Setup] 使用精靈產生的腳本解說]]></title>
-            <link>https://fullstackladder.dev/blog/2022/02/03/inno-setup-script-explain</link>
-            <guid>https://fullstackladder.dev/blog/2022/02/03/inno-setup-script-explain</guid>
-            <pubDate>Thu, 03 Feb 2022 15:42:20 GMT</pubDate>
-            <description><![CDATA[<p>前一篇我們提到<a href="https://fullstackladder.dev/blog/2022/02/02/inno-setup-quick-start/">使用 Inno Setup 的腳本精靈來產生安裝檔腳本</a>，並編譯這個腳本來建立安裝檔，不過這個腳本精靈通常只會使用一次，因為產出的檔案是無法再次使用腳本精靈設定的，因此最終我們還是需要自行去維護這個腳本，今天就來看一下預設使用腳本精靈產生的內容有哪些，未來要維護或新增功能時就可以更容易上手了。</p>
 ]]></description>
         </item>
     </channel>
