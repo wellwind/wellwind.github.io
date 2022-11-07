@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 30 Oct 2022 14:31:09 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 07 Nov 2022 10:11:59 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[簡介 Modbus TCP]]></title>
+            <link>https://fullstackladder.dev/blog/2022/11/07/introduction-modbustcp</link>
+            <guid>https://fullstackladder.dev/blog/2022/11/07/introduction-modbustcp</guid>
+            <pubDate>Mon, 07 Nov 2022 18:01:16 GMT</pubDate>
+            <description><![CDATA[<p>Modbus 是在工業領域中廣泛使用的訊息交換規範，而 Modbus TCP 則是 Modbus 的一種實現，它使用 TCP/IP 作為傳輸層協定，因此可以透過網路傳輸。</p>
+<p>最近在著手開發一個跟工業相關的專案，需要透過 Modbus TCP 協定來取得設備上的資訊，這篇文章會紀錄一下 Modbus TCP 的基本概念及協定規格。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[Tauri 初體驗：前端打造桌面應用程式的小巧快速新選擇]]></title>
             <link>https://fullstackladder.dev/blog/2022/10/30/tauri-introduction</link>
@@ -175,15 +184,6 @@
             <pubDate>Sun, 06 Feb 2022 18:06:42 GMT</pubDate>
             <description><![CDATA[<p>透過 Inno Setup 打包安裝檔非常方便，由於都是腳本指令，加上 Inno Setup 本身也支援以 CLI 的方式執行，因此要搭配 CI/CD 是完全可行的，本篇就以 <a href="https://azure.microsoft.com/en-us/services/devops/?WT.mc_id=DOP-MVP-500373">Azure DevOps</a> 為例，說明一下使用 Inno Setup 打包安裝檔需要注意的一些事項。</p>
 <p>以下為使用 Pipeline as code 的方式說明，因此都是 yaml 設定檔，當然如果使用 Classic editor 的話，也都可以找到對應的 task</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Inno Setup] 安裝時設定環境變數 (Registry)]]></title>
-            <link>https://fullstackladder.dev/blog/2022/02/06/inno-setup-environment-path-registry-by-code</link>
-            <guid>https://fullstackladder.dev/blog/2022/02/06/inno-setup-environment-path-registry-by-code</guid>
-            <pubDate>Sun, 06 Feb 2022 14:46:04 GMT</pubDate>
-            <description><![CDATA[<p>有些時候，我們的程式會提供 CLI 指令給使用者，讓使用者可以自行下指令進行一些自動化的操作，這些 CLI 當然也都是執行檔，為了執行方便我們可以將程式位置加入 <code>Path</code> 環境變數，讓使用者可以直接輸入指令，而不用知道程式的所在位置。</p>
-<p>在 Inno Setup 該如何做到安裝時自動把指令路徑加入 <code>path</code> 環境變數呢？</p>
 ]]></description>
         </item>
     </channel>
