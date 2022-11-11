@@ -137,7 +137,13 @@ await writeTextFile('/tmp/temp.txt', 'Hello World!');
 
 {% asset_img 05.png %}
 
-可以看到這個行檔才 7.7MB！比起 Electron 隨便就 100MB 起跳來說，可以說是超級輕量阿！！
+可以看到這個執行檔才 7.7MB！比起 Electron 隨便就 100MB 起跳來說，可以說是超級輕量阿！！
+
+{% note danger %}
+
+Electron: 我的很大，你要忍一下～～
+
+{% endnote %}
 
 除了單純的 `*.app` 執行檔外，Tauri 也順便打包成了 `*.dmg` 檔，這是 Mac OS 的安裝檔格式。
 
