@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Fri, 11 Nov 2022 16:01:20 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 17 Nov 2022 12:32:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[使用 C# 撰寫 ModbucTCP client]]></title>
+            <link>https://fullstackladder.dev/blog/2022/11/12/modbustcp-client-using-csharp</link>
+            <guid>https://fullstackladder.dev/blog/2022/11/12/modbustcp-client-using-csharp</guid>
+            <pubDate>Sat, 12 Nov 2022 16:51:29 GMT</pubDate>
+            <description><![CDATA[<p>在之前的文章「簡介 Modbus TCP」我們簡單介紹了工業上常見且簡單的通訊方式，Modbus 以及 ModbucTCP，由於 ModbusTCP 本身非常簡單，因此就算不靠任何 library，只要懂得撰寫簡單的 TCP 程式就可以自己實作一個 ModbucTCP client，所以今天就以 C# 為例，實作一個簡單具有讀取功能的 ModbusTCP client。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[簡介 Modbus TCP]]></title>
             <link>https://fullstackladder.dev/blog/2022/11/07/introduction-modbustcp</link>
@@ -175,15 +183,6 @@
             <pubDate>Mon, 14 Feb 2022 22:36:33 GMT</pubDate>
             <description><![CDATA[<p>源自前陣子我們家業務問的問題：「客戶原來的系統能將 Excel 儲存格內容貼到網頁上，我們辦得到嗎？」。</p>
 <p>實際上當然是肯定的，但還真的沒有特別嘗試過該如何做到，花了點時間研究發現也沒那麼困難，也把一些種點整理一下，以免以後自己忘記。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Inno Setup] CI 時自動產生安裝檔（以 Azure DevOps 為例）]]></title>
-            <link>https://fullstackladder.dev/blog/2022/02/06/inno-setup-continuous-integration-with-azure-devops</link>
-            <guid>https://fullstackladder.dev/blog/2022/02/06/inno-setup-continuous-integration-with-azure-devops</guid>
-            <pubDate>Sun, 06 Feb 2022 18:06:42 GMT</pubDate>
-            <description><![CDATA[<p>透過 Inno Setup 打包安裝檔非常方便，由於都是腳本指令，加上 Inno Setup 本身也支援以 CLI 的方式執行，因此要搭配 CI/CD 是完全可行的，本篇就以 <a href="https://azure.microsoft.com/en-us/services/devops/?WT.mc_id=DOP-MVP-500373">Azure DevOps</a> 為例，說明一下使用 Inno Setup 打包安裝檔需要注意的一些事項。</p>
-<p>以下為使用 Pipeline as code 的方式說明，因此都是 yaml 設定檔，當然如果使用 Classic editor 的話，也都可以找到對應的 task</p>
 ]]></description>
         </item>
     </channel>
