@@ -5,7 +5,7 @@
 
 <ng-container *ngFor="let post of posts$ | async">
 
-  <mat-card class="blog-post">
+  <mat-card appearance="outlined" class="blog-post">
     <mat-card-title class="blog-post-title">
       <a
         [routerLink]="post | postDateAsPath">{{ post.title }}</a>
@@ -33,7 +33,7 @@
 
 </ng-container>
 
-<mat-card class="pagination">
+<mat-card appearance="outlined" class="pagination">
   <app-pagination
     linkBase="/blog/categories/{{ categorySlug$ | async }}/page"
     [currentPage]="(currentPage$ | async) || 1"

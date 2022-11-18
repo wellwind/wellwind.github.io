@@ -14,8 +14,8 @@
       <div class="blog-post" #content [innerHTML]="postContent$ | async"></div>
 
       <div class="blog-post-tags">
-        <mat-chip-list aria-label="Post Tags">
-          <mat-chip
+        <mat-chip-listbox aria-label="Post Tags">
+          <mat-chip-option
             class="blog-post-tag"
             [routerLink]="['/blog/tags', tag | slugify]"
             color="primary"
@@ -23,8 +23,8 @@
             *ngFor="let tag of postMeta.tags"
           >
             {{ tag }}
-          </mat-chip>
-        </mat-chip-list>
+          </mat-chip-option>
+        </mat-chip-listbox>
       </div>
 
       <div class="blog-post-liker-coin">
