@@ -1,6 +1,7 @@
 @import "@angular/material/theming";
 
 :root {
+  $background-color: #ffffff;
   $primary-color: map-get($mat-indigo, 500);
   $primary-text-color: map-get($mat-gray, 900);
   $secondary-text-color: map-get($mat-gray, 500);
@@ -8,6 +9,7 @@
   $default-link-hover-color: map-get($mat-indigo, 600);
   $sidebar-text-color: map-get($mat-gray, 600);
 
+  --background-color:#{$background-color};
   --primary-color: #{$primary-color};
   --primary-text-color: #{$primary-text-color};
   --secondary-text-color: #{$secondary-text-color};
@@ -30,7 +32,7 @@
   --sidebar-highlight-bg-color: #{transparentize($primary-color, 0.85)};
 
   // sub pages header
-  --sub-pages-header-background-color: #ffffff;
+  --sub-pages-header-background-color: #{$background-color};
 
   // post page
   --post-next-prev-text-color: #{$secondary-text-color};
@@ -53,6 +55,7 @@
 
   // dark theme
   .dark-theme {
+    $background-color: #424242;
     $primary-color: map-get($mat-indigo, 200);
     $primary-text-color: map-get($mat-gray, 100);
     $secondary-text-color: map-get($mat-gray, 400);
@@ -60,12 +63,13 @@
     $default-link-color: map-get($mat-indigo, 200);
     $default-link-hover-color: map-get($mat-indigo, 100);
 
+    --background-color:#{$background-color};
     --primary-color: #{$primary-color};
     --primary-text-color: #{$primary-text-color};
     --secondary-text-color: #{$secondary-text-color};
 
     // search
-    --search-input-background-color: #424242;
+    --search-input-background-color: #{$background-color};
     --search-input-text-color: #ffffff;
 
     // link

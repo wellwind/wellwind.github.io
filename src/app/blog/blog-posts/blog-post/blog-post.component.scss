@@ -9,9 +9,14 @@
   align-items: flex-start;
 
   .blog-post-overview {
+    padding: 0;
     flex: 80%;
     @media (max-width: 1279.98px) {
       flex: 100% !important;
+    }
+
+    .blog-post {
+      padding: 0;
     }
   }
 
@@ -79,4 +84,5 @@
   position: fixed;
   bottom: 32px;
   right: 96px;
+  background-color: var(--background-color);
 }

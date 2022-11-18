@@ -2,7 +2,7 @@
   <div class="blog-post-container">
     <div class="blog-post blog-post-overview">
       <div class="blog-post-title">
-        <h1>{{ postMeta.title }}</h1>
+        <h1 class="m-0">{{ postMeta.title }}</h1>
       </div>
 
       <div class="blog-post-subtitle">
@@ -18,8 +18,6 @@
           <mat-chip-option
             class="blog-post-tag"
             [routerLink]="['/blog/tags', tag | slugify]"
-            color="primary"
-            selected
             *ngFor="let tag of postMeta.tags"
           >
             {{ tag }}
