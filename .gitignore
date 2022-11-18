@@ -41,6 +41,7 @@ yarn-error.log
 testem.log
 /typings
 src/assets/blog-posts.json
+pages.txt
 
 # System Files
 .DS_Store
