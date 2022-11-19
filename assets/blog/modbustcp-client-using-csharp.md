@@ -12,7 +12,7 @@ tags:
 
 ## 建立 TCP 連線
 
-這是任何 TCP client 的基本，只要有，在 C# 內建了 TcpClient 類別可以直接使用
+這是任何 TCP client 的基本，在 C# 內建了 TcpClient 類別可以直接使用
 
 ```csharp
 // TcpClient 類別的來源
