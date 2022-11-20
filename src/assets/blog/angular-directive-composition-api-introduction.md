@@ -1,5 +1,5 @@
 ---
-title: "[Angular] Directive composition API 初體驗"
+title: "Directive composition API 初體驗"
 date: 2022-11-20 12:02:43
 category:
   - "Angular大師之路"
