@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 19 Nov 2022 03:40:13 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Nov 2022 07:20:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[Directive composition API 初體驗]]></title>
+            <link>https://fullstackladder.dev/blog/2022/11/20/angular-directive-composition-api-introduction</link>
+            <guid>https://fullstackladder.dev/blog/2022/11/20/angular-directive-composition-api-introduction</guid>
+            <pubDate>Sun, 20 Nov 2022 12:02:43 GMT</pubDate>
+            <description><![CDATA[<p>Angular v15 推出了新的 feature - <strong>directive composition API</strong>，可以方便我們更加容易組合出更複雜的 directive。</p>
+<p>這篇文章就讓我們來快速體驗一下 directive composition API 使用起來是什麼感覺！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[使用 C# 撰寫 ModbucTCP client]]></title>
             <link>https://fullstackladder.dev/blog/2022/11/12/modbustcp-client-using-csharp</link>
@@ -174,15 +183,6 @@
 <p>而 momentjs 由於原始設計的關係，在做 tree shaking 的時候會無法移除掉用不到的 API，同時還有龐大的語系檔，嚴重影響最終 bundle 檔案大小。</p>
 <p>抱怨歸抱怨，momentjs 還是非常多人在用，因此只能盡量的做到減少大小，至少不要把龐大的語系檔一起 bundle 進來。</p>
 <p>Angular 過去是將 webpack 整個封裝起來的，而隨著版本推移，現在也能自訂 webpack 了，今天就來看一下如何在 Angular 中自訂 webpack，同時移除 momentjs 中過大的語系檔。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[如何將 Word/Excel 等檔案內容貼到網頁上]]></title>
-            <link>https://fullstackladder.dev/blog/2022/02/14/how-to-paste-word-excel-to-web</link>
-            <guid>https://fullstackladder.dev/blog/2022/02/14/how-to-paste-word-excel-to-web</guid>
-            <pubDate>Mon, 14 Feb 2022 22:36:33 GMT</pubDate>
-            <description><![CDATA[<p>源自前陣子我們家業務問的問題：「客戶原來的系統能將 Excel 儲存格內容貼到網頁上，我們辦得到嗎？」。</p>
-<p>實際上當然是肯定的，但還真的沒有特別嘗試過該如何做到，花了點時間研究發現也沒那麼困難，也把一些種點整理一下，以免以後自己忘記。</p>
 ]]></description>
         </item>
     </channel>
