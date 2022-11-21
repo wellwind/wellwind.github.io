@@ -19,8 +19,8 @@
         >
 
         <mat-nav-list>
-          <mat-list-item *ngFor="let item of searchResult">
-            <a matLine [routerLink]="item.link" class="search-result">
+          <mat-list-item *ngFor="let item of searchResult"  [routerLink]="item.link">
+            <div matLine class="search-result">
               <span
                 *ngIf="
                   ((searchDateStart$ | async) || (searchDateEnd$ | async)) &&
@@ -31,7 +31,7 @@
               >
               <span class="search-result-type">{{ item.type }}</span>
               <span class="search-result-title">{{ item.text }}</span>
-            </a>
+            </div>
           </mat-list-item>
         </mat-nav-list>
       </mat-card-content>
