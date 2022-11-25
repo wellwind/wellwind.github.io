@@ -1,7 +1,7 @@
 <div class="search-page-container">
-  <ng-container *ngIf="searchResult$ | async as searchResult">
+  <ng-container *ngIf="searchResult$ | push as searchResult">
     <mat-toolbar class="search-header mat-elevation-z4">
-      <h1 *ngIf="searchKeyword$ | async as searchKeyword">
+      <h1 *ngIf="searchKeyword$ | push as searchKeyword">
         {{ searchKeyword }}
       </h1>
       <h2>搜尋結果</h2>
@@ -11,10 +11,10 @@
       <mat-card-content>
         <h2>共 {{ searchResult.length }} 篇文章</h2>
 
-        <span class="search-chip" *ngIf="searchDateStart$ | async as startDate"
+        <span class="search-chip" *ngIf="searchDateStart$ | push as startDate"
           >Start: {{ startDate | date: "yyyy-MM-dd" }}</span
         >
-        <span class="search-chip" *ngIf="searchDateEnd$ | async as endDate"
+        <span class="search-chip" *ngIf="searchDateEnd$ | push as endDate"
           >End: {{ endDate | date: "yyyy-MM-dd" }}</span
         >
 
@@ -23,7 +23,7 @@
             <div matLine class="search-result">
               <span
                 *ngIf="
-                  ((searchDateStart$ | async) || (searchDateEnd$ | async)) &&
+                  ((searchDateStart$ | push) || (searchDateEnd$ | push)) &&
                   item.type === '文章'
                 "
                 class="search-result-type"

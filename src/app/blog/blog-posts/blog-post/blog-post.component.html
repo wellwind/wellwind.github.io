@@ -1,4 +1,4 @@
-<ng-container *ngIf="postMeta$ | async as postMeta">
+<ng-container *ngIf="postMeta$ | push as postMeta">
   <div class="blog-post-container">
     <div class="blog-post blog-post-overview">
       <div class="blog-post-title">
@@ -11,7 +11,7 @@
 
       <mat-divider></mat-divider>
 
-      <div class="blog-post" #content [innerHTML]="postContent$ | async"></div>
+      <div class="blog-post" #content [innerHTML]="postContent$ | push"></div>
 
       <div class="blog-post-tags">
         <mat-chip-listbox aria-label="Post Tags">
@@ -40,7 +40,7 @@
 
       <!-- prev & next by categories -->
       <ng-container
-        *ngFor="let categoryPrevNext of postCategoriesPrevNext$ | async"
+        *ngFor="let categoryPrevNext of postCategoriesPrevNext$ | push"
       >
         <div class="flex items-center">
           <mat-icon class="pr-1">folder_open</mat-icon>
@@ -94,7 +94,7 @@
 
       <div class="blog-post-prev-next">
         <div class="blog-post-prev">
-          <ng-container *ngIf="previousPost$ | async as post">
+          <ng-container *ngIf="previousPost$ | push as post">
             <div class="blog-post-prev-next-notify prev">
               <mat-icon>chevron_left</mat-icon>
               上一篇
@@ -105,7 +105,7 @@
           </ng-container>
         </div>
         <div class="blog-post-next">
-          <ng-container *ngIf="nextPost$ | async as post">
+          <ng-container *ngIf="nextPost$ | push as post">
             <div class="blog-post-prev-next-notify next">
               下一篇
               <mat-icon>chevron_right</mat-icon>

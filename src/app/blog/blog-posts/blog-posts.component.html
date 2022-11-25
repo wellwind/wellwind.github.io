@@ -1,4 +1,4 @@
-<ng-container *ngFor="let post of posts$ | async">
+<ng-container *ngFor="let post of posts$ | push">
   <mat-card appearance="outlined" class="blog-post">
     <mat-card-title class="blog-post-title">
       <a
@@ -30,6 +30,6 @@
 <mat-card appearance="outlined" class="pagination">
   <app-pagination
     linkBase="/blog/page"
-    [currentPage]="(currentPage$ | async) || 1"
-    [totalPage]="(totalPage$ | async) || 1"></app-pagination>
+    [currentPage]="(currentPage$ | push) || 1"
+    [totalPage]="(totalPage$ | push) || 1"></app-pagination>
 </mat-card>

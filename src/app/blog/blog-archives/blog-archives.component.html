@@ -1,4 +1,4 @@
-<ng-container *ngFor="let yearPosts of posts$ | async">
+<ng-container *ngFor="let yearPosts of posts$ | push">
   <mat-toolbar class="year-header mat-elevation-z4">
     <h1>{{ yearPosts.year }}</h1>
     <h2>年 (共 {{ yearPosts.postCount }} 篇文章)</h2>
@@ -39,6 +39,6 @@
 <mat-card appearance="outlined" class="pagination">
   <app-pagination
     linkBase="/blog/archives/page"
-    [currentPage]="(currentPage$ | async) || 1"
-    [totalPage]="(totalPage$ | async) || 1"></app-pagination>
+    [currentPage]="(currentPage$ | push) || 1"
+    [totalPage]="(totalPage$ | push) || 1"></app-pagination>
 </mat-card>

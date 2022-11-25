@@ -1,3 +1,4 @@
+import { PushModule } from '@rx-angular/template/push';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -9,11 +10,8 @@ import { SiteCommonModule } from '../site-common/site-common.module';
 import { QueryRoutingModule } from './query-routing.module';
 import { QueryComponent } from './query.component';
 
-
 @NgModule({
-  declarations: [
-    QueryComponent
-  ],
+  declarations: [QueryComponent],
   imports: [
     CommonModule,
     QueryRoutingModule,
@@ -21,7 +19,8 @@ import { QueryComponent } from './query.component';
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
-  ]
+    MatListModule,
+    PushModule,
+  ],
 })
-export class QueryModule { }
+export class QueryModule {}
