@@ -57,7 +57,7 @@
   </div>
 </mat-toolbar>
 
-<mat-progress-bar *ngIf="pageLoading$ | async" mode="indeterminate" color="accent" class="absolute top-[64px]"></mat-progress-bar>
+<mat-progress-bar *ngIf="pageLoading$ | async" mode="indeterminate" color="accent" class="!fixed top-0 z-50"></mat-progress-bar>
 
 <mat-drawer-container class="drawer-container">
   <mat-drawer
