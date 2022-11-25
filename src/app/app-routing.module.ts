@@ -1,11 +1,21 @@
+import { LayoutComponent } from './layout/layout.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
   },
+  {
+    path: 'query',
+    loadChildren: () => import('./query/query.module').then(m => m.QueryModule)
+  },
+  {
+    path: '',
+    redirectTo: 'blog',
+    pathMatch: 'full',
+  }
 ];
 
 @NgModule({

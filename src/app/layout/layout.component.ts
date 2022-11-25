@@ -1,4 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { MarkdownMeta } from 'site-utils';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  ViewChild,
+  ɵAttributeMarker,
+  ɵdetectChanges,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
   MatAutocomplete,
@@ -19,6 +27,7 @@ import { PlatformService } from '../../platform.service';
 import { SitePostService } from '../site-post.service';
 
 type WebsiteTheme = 'dark' | 'light' | null;
+
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -80,6 +89,7 @@ export class LayoutComponent implements OnInit {
   );
 
   constructor(
+    protected cdr: ChangeDetectorRef,
     private router: Router,
     private platformService: PlatformService,
     private sitePostService: SitePostService,
@@ -90,6 +100,7 @@ export class LayoutComponent implements OnInit {
       .subscribe((url) => {
         if (this.matDrawerContent) {
           this.matDrawerContent.scrollTo({ top: 0, left: 0 });
+          this.cdr.detectChanges();
         }
       });
   }
@@ -104,6 +115,7 @@ export class LayoutComponent implements OnInit {
       });
 
     this.setTheme();
+    this.cdr.detectChanges();
   }
 
   async selectSuggestItem(event: MatAutocompleteSelectedEvent) {
@@ -141,6 +153,7 @@ export class LayoutComponent implements OnInit {
       document.body.classList.remove('dark-theme');
       document.body.classList.remove('light-theme');
       document.body.classList.add(`${theme}-theme`);
+      this.cdr.detectChanges();
     });
   }
 }

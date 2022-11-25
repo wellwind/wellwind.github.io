@@ -7,7 +7,7 @@
     role="button"
     aria-label="打開/收合選單"
     mat-icon-button
-    (click)="menuOpen$.next(!menuOpen$.value)"
+    (click)="menuOpen$.next(!menuOpen$.value); cdr.detectChanges()"
   >
     <mat-icon *ngIf="menuOpen$ | async">menu_open</mat-icon>
     <mat-icon *ngIf="!(menuOpen$ | async)">menu</mat-icon>
