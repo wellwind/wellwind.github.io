@@ -1,15 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import {
+  MatAutocomplete,
+  MatAutocompleteSelectedEvent,
+} from '@angular/material/autocomplete';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatDrawerContent } from '@angular/material/sidenav';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationStart, Router, NavigationEnd } from '@angular/router';
 import { BehaviorSubject, combineLatest, defer } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  switchMap,
+} from 'rxjs/operators';
 import { PlatformService } from '../../platform.service';
 import { SitePostService } from '../site-post.service';
 
-type WebsiteTheme  = 'dark' | 'light' | null;
+type WebsiteTheme = 'dark' | 'light' | null;
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -60,6 +69,14 @@ export class LayoutComponent implements OnInit {
         map((searchFn) => searchFn(posts, keywordString || ''))
       )
     )
+  );
+
+  pageLoading$ = this.router.events.pipe(
+    filter(
+      (event) =>
+        event instanceof NavigationStart || event instanceof NavigationEnd
+    ),
+    map((event) => event instanceof NavigationStart)
   );
 
   constructor(
@@ -119,11 +136,11 @@ export class LayoutComponent implements OnInit {
       this.theme$.next('light');
     }
 
-    this.theme$.subscribe(theme => {
+    this.theme$.subscribe((theme) => {
       localStorage.setItem('theme', theme || '');
       document.body.classList.remove('dark-theme');
       document.body.classList.remove('light-theme');
       document.body.classList.add(`${theme}-theme`);
-    })
+    });
   }
 }

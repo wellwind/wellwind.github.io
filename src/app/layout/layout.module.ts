@@ -10,14 +10,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 
 @NgModule({
-  declarations: [
-    LayoutComponent
-  ],
+  declarations: [LayoutComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
@@ -29,8 +28,9 @@ import { LayoutComponent } from './layout.component';
     MatAutocompleteModule,
     MatOptionModule,
     MatFormFieldModule,
+    MatProgressBarModule,
     ReactiveFormsModule,
-    MatInputModule
-  ]
+    MatInputModule,
+  ],
 })
-export class LayoutModule { }
+export class LayoutModule {}
