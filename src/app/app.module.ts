@@ -1,4 +1,3 @@
-import { LayoutComponent } from './layout/layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,8 +14,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UrlSerializer } from '@angular/router';
+import { PushModule } from '@rx-angular/template/push';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LayoutComponent } from './layout/layout.component';
 import { TrailingSlashUrlSerializer } from './trailing-slash-url-serializer';
 
 @NgModule({
@@ -40,6 +41,7 @@ import { TrailingSlashUrlSerializer } from './trailing-slash-url-serializer';
     MatProgressBarModule,
     ReactiveFormsModule,
     MatInputModule,
+    PushModule
   ],
   providers: [
     { provide: UrlSerializer, useClass: TrailingSlashUrlSerializer }

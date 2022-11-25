@@ -1,27 +1,24 @@
-import { MarkdownMeta } from 'site-utils';
 import {
   ChangeDetectorRef,
   Component,
   OnInit,
-  ViewChild,
-  ɵAttributeMarker,
-  ɵdetectChanges,
+  ViewChild
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
   MatAutocomplete,
-  MatAutocompleteSelectedEvent,
+  MatAutocompleteSelectedEvent
 } from '@angular/material/autocomplete';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatDrawerContent } from '@angular/material/sidenav';
-import { NavigationStart, Router, NavigationEnd } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, defer } from 'rxjs';
 import {
   debounceTime,
   distinctUntilChanged,
   filter,
   map,
-  switchMap,
+  switchMap
 } from 'rxjs/operators';
 import { PlatformService } from '../../platform.service';
 import { SitePostService } from '../site-post.service';

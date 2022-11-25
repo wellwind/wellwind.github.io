@@ -9,8 +9,8 @@
     mat-icon-button
     (click)="menuOpen$.next(!menuOpen$.value); cdr.detectChanges()"
   >
-    <mat-icon *ngIf="menuOpen$ | async">menu_open</mat-icon>
-    <mat-icon *ngIf="!(menuOpen$ | async)">menu</mat-icon>
+    <mat-icon *ngIf="menuOpen$ | push">menu_open</mat-icon>
+    <mat-icon *ngIf="!(menuOpen$ | push)">menu</mat-icon>
   </button>
   <h1>
     <a class="header-link" routerLink="/">
@@ -26,11 +26,11 @@
     mat-icon-button
     (click)="theme$.next(theme$.value === 'light' ? 'dark' : 'light')"
   >
-    <mat-icon *ngIf="(theme$ | async) === 'light'">light_mode</mat-icon>
-    <mat-icon *ngIf="(theme$ | async) !== 'light'">dark_mode</mat-icon>
+    <mat-icon *ngIf="(theme$ | push) === 'light'">light_mode</mat-icon>
+    <mat-icon *ngIf="(theme$ | push) !== 'light'">dark_mode</mat-icon>
   </button>
 
-  <div class="search-bar" *ngIf="!(isSmallScreen$ | async)">
+  <div class="search-bar" *ngIf="!(isSmallScreen$ | push)">
     <input
       autocomplete="off"
       type="text"
@@ -49,7 +49,7 @@
       panelWidth="auto"
       (optionSelected)="selectSuggestItem($event)"
     >
-      <mat-option *ngFor="let item of suggestList$ | async" [value]="item">
+      <mat-option *ngFor="let item of suggestList$ | push" [value]="item">
         <span class="suggest-item-type">{{ item.type }}</span>
         <span class="suggest-item-text">{{ item.text }}</span>
       </mat-option>
@@ -57,33 +57,33 @@
   </div>
 </mat-toolbar>
 
-<mat-progress-bar *ngIf="pageLoading$ | async" mode="indeterminate" color="accent" class="!fixed top-0 z-50"></mat-progress-bar>
+<mat-progress-bar *ngIf="pageLoading$ | push" mode="indeterminate" color="accent" class="!fixed top-0 z-50"></mat-progress-bar>
 
 <mat-drawer-container class="drawer-container">
   <mat-drawer
     class="sidebar"
     [class.server-sidebar]="isServer"
-    [mode]="(isSmallScreen$ | async) ? 'over' : 'side'"
-    [disableClose]="(isSmallScreen$ | async) ? false : true"
-    [opened]="menuOpen$ | async"
+    [mode]="(isSmallScreen$ | push) ? 'over' : 'side'"
+    [disableClose]="(isSmallScreen$ | push) ? false : true"
+    [opened]="menuOpen$ | push"
     (closed)="menuOpen$.next(false)"
   >
     <div class="post-statics">
       <div class="statics-block">
         <a routerLink="/blog/archives">
-          <div class="counter">{{ postCount$ | async }}</div>
+          <div class="counter">{{ postCount$ | push }}</div>
           <div class="description">文章</div>
         </a>
       </div>
       <div class="statics-block">
         <a routerLink="/blog/categories">
-          <div class="counter">{{ categoryCount$ | async }}</div>
+          <div class="counter">{{ categoryCount$ | push }}</div>
           <div class="description">分類</div>
         </a>
       </div>
       <div class="statics-block">
         <a routerLink="/blog/tags">
-          <div class="counter">{{ tagCount$ | async }}</div>
+          <div class="counter">{{ tagCount$ | push }}</div>
           <div class="description">標籤</div>
         </a>
       </div>
