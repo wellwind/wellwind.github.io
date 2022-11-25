@@ -7,7 +7,7 @@
   <script src="/~partytown/debug/partytown.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-P0RFGJSWLS"></script>
-  <script type="text/partytown">
+  <script async type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -37,6 +37,7 @@
     const theme = localStorage.getItem('theme');
     document.body.classList.add(`${theme}-theme`);
   </script>
+
   <app-root></app-root>
 </body>
 </html>
