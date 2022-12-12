@@ -33,11 +33,11 @@ Azure CloudShell 可以幫助我們直接在 Azure Portal 上直接下指令進�
 
 {% asset_img 04.png %}
 
-這裡面的內容會背當成網路磁碟掛載到 Azure CloudShell 的 `clouddrive` 目錄下
+這裡面的內容會被當成網路磁碟掛載到 Azure CloudShell 的 `clouddrive` 目錄下
 
 {% asset_img 05.png %}
 
-由於是一個 FileShare，因此我們也可以直接掛載成為本機的網路磁碟，點擊上放的「Connect」後，會根據不同的作業系統提示要如何掛載這個磁碟
+由於是一個 FileShare，因此我們也可以直接掛載成為本機的網路磁碟，點擊上方的「Connect」後，會根據不同的作業系統提示要如何掛載這個磁碟
 
 {% asset_img 06.png %}
 
