@@ -40,7 +40,7 @@
     "@angular/router": "^15.0.0",
     "@nguniversal/express-engine": "^15.0.0",
     "@rx-angular/cdk": "latest",
-    "@rx-angular/template": "^1.0.0-rc.4",
+    "@rx-angular/template": "^1.0.0-rc.5",
     "@wellwind/blog-builder": "file:builders",
     "@wellwind/blog-schematics": "file:schematics",
     "feed": "^4.2.2",
