@@ -23,6 +23,9 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.platformService.isServer) {
+      this.likerCoinSrc$.next(
+        this.domSanitizer.bypassSecurityTrustResourceUrl('')
+      );
       return;
     }
     this.subscription.add(
