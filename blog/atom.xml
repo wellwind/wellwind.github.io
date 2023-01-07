@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 07 Jan 2023 12:52:23 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 07 Jan 2023 13:13:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -84,7 +84,7 @@
             <link>https://fullstackladder.dev/blog/2022/09/17/load-test-by-k6</link>
             <guid>https://fullstackladder.dev/blog/2022/09/17/load-test-by-k6</guid>
             <pubDate>Sat, 17 Sep 2022 19:35:10 GMT</pubDate>
-            <description><![CDATA[<p>當系統預期有很多人同時上線時，可能會需要進行壓力測試。比起工具 Apache Jmeter 的高學習難度，k6 是一套很好的壓力測試工具，對於開發人員來說非常友善。</p>
+            <description><![CDATA[<p>當系統預期有很多人同時上線時，可能會需要進行壓力測試。比起老牌工具 Apache Jmeter 的高學習難度，k6 是一套很好的壓力測試工具，對於開發人員來說非常友善。</p>
 <p>本文將簡單介紹如何使用 k6 進行壓力測試。</p>
 ]]></description>
         </item>
