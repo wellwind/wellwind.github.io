@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Fri, 06 Jan 2023 15:30:28 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 07 Jan 2023 11:08:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -13,7 +13,7 @@
             <title><![CDATA[將 Blazor WebAssembly 整合進 Tauri 應用程式]]></title>
             <link>https://fullstackladder.dev/blog/2022/12/10/tauri-with-blazor-web-assembly</link>
             <guid>https://fullstackladder.dev/blog/2022/12/10/tauri-with-blazor-web-assembly</guid>
-            <pubDate>Sat, 10 Dec 2022 01:10:11 GMT</pubDate>
+            <pubDate>Sat, 10 Dec 2022 09:10:11 GMT</pubDate>
             <description><![CDATA[<p>Tauri 內建了很多前端的專案範本，但可惜的是沒有 Blazor WebAssembly 的範本，但 Tauri 架構本身已經考量得很完善了，只要最終產出是純前端的網站，任何應用程式都可以包裝到 Tauri 內，今天這篇文章就來說明一下如何將 Blazor WebAssembly 加到 Tauri 應用程式內。</p>
 ]]></description>
         </item>
@@ -21,7 +21,7 @@
             <title><![CDATA[Directive composition API 初體驗]]></title>
             <link>https://fullstackladder.dev/blog/2022/11/20/angular-directive-composition-api-introduction</link>
             <guid>https://fullstackladder.dev/blog/2022/11/20/angular-directive-composition-api-introduction</guid>
-            <pubDate>Sun, 20 Nov 2022 04:02:43 GMT</pubDate>
+            <pubDate>Sun, 20 Nov 2022 12:02:43 GMT</pubDate>
             <description><![CDATA[<p>Angular v15 推出了新的 feature - <strong>directive composition API</strong>，可以方便我們更加容易組合出更複雜的 directive。</p>
 <p>這篇文章就讓我們來快速體驗一下 directive composition API 使用起來是什麼感覺！</p>
 ]]></description>
@@ -30,7 +30,7 @@
             <title><![CDATA[使用 C# 撰寫 ModbucTCP client]]></title>
             <link>https://fullstackladder.dev/blog/2022/11/12/modbustcp-client-using-csharp</link>
             <guid>https://fullstackladder.dev/blog/2022/11/12/modbustcp-client-using-csharp</guid>
-            <pubDate>Sat, 12 Nov 2022 08:51:29 GMT</pubDate>
+            <pubDate>Sat, 12 Nov 2022 16:51:29 GMT</pubDate>
             <description><![CDATA[<p>在之前的文章「簡介 Modbus TCP」我們簡單介紹了工業上常見且簡單的通訊方式，Modbus 以及 ModbucTCP，由於 ModbusTCP 本身非常簡單，因此就算不靠任何 library，只要懂得撰寫簡單的 TCP 程式就可以自己實作一個 ModbucTCP client，所以今天就以 C# 為例，實作一個簡單具有讀取功能的 ModbusTCP client。</p>
 ]]></description>
         </item>
@@ -38,7 +38,7 @@
             <title><![CDATA[簡介 Modbus TCP]]></title>
             <link>https://fullstackladder.dev/blog/2022/11/07/introduction-modbustcp</link>
             <guid>https://fullstackladder.dev/blog/2022/11/07/introduction-modbustcp</guid>
-            <pubDate>Mon, 07 Nov 2022 10:01:16 GMT</pubDate>
+            <pubDate>Mon, 07 Nov 2022 18:01:16 GMT</pubDate>
             <description><![CDATA[<p>Modbus 是在工業領域中廣泛使用的訊息交換規範，而 Modbus TCP 則是 Modbus 的一種實現，它使用 TCP/IP 作為傳輸層協定，因此可以透過網路傳輸。</p>
 <p>最近在著手開發一個跟工業相關的專案，需要透過 Modbus TCP 協定來取得設備上的資訊，這篇文章會紀錄一下 Modbus TCP 的基本概念及協定規格。</p>
 ]]></description>
@@ -47,7 +47,7 @@
             <title><![CDATA[Tauri 初體驗：前端打造桌面應用程式的小巧快速新選擇]]></title>
             <link>https://fullstackladder.dev/blog/2022/10/30/tauri-introduction</link>
             <guid>https://fullstackladder.dev/blog/2022/10/30/tauri-introduction</guid>
-            <pubDate>Sun, 30 Oct 2022 06:56:12 GMT</pubDate>
+            <pubDate>Sun, 30 Oct 2022 14:56:12 GMT</pubDate>
             <description><![CDATA[<p><a href="https://tauri.app/">Tauri</a> 放在我的待研究項目裡面已經有好一段時間了，原本有研究了一小斷時間，但因為環境準備太過複雜而暫時停止。</p>
 <p>最新忽然發現 Tauri 出到 v1.1，不再是 beta 版了，看了一下文件發現整體環境準備變得非常簡單，而且功能及文件也都非常完整了，就花了點時間研究一下，整理成以下筆記，也說說自己的體驗心得。</p>
 ]]></description>
@@ -56,7 +56,7 @@
             <title><![CDATA[使用 Client Credentials 來取得具有 Azure REST API 權限的 Access Token]]></title>
             <link>https://fullstackladder.dev/blog/2022/10/22/manipulate-azure-resource-using-client-credentials</link>
             <guid>https://fullstackladder.dev/blog/2022/10/22/manipulate-azure-resource-using-client-credentials</guid>
-            <pubDate>Sat, 22 Oct 2022 04:57:05 GMT</pubDate>
+            <pubDate>Sat, 22 Oct 2022 12:57:05 GMT</pubDate>
             <description><![CDATA[<p>如果有在使用 Azure，一般會直接在 Azure Portal 上操作，或是透過 Azure CLI；但是如果要在程式中操作 Azure 資源，就需要透過 Azure REST API 來呼叫。</p>
 <p>Azure 當然也提供了許多 SDK 讓我們不需要花太多時間去研究 REST API，不過背後原理都是透過 REST API 呼叫，如果遇到使用的語言沒有對應的 SDK，還是必須自己用 REST API 來呼叫，因此研究一下背後的 API 還是很有價值的。</p>
 <p>這篇文章就來看一下如何透過 Client Credentials 的方式來呼叫 Azure REST API。</p>
@@ -66,7 +66,7 @@
             <title><![CDATA[[Chrome DevTools] 透過開發者工具動態切換暗黑模式]]></title>
             <link>https://fullstackladder.dev/blog/2022/10/16/change-prefers-color-scheme-by-dev-tools</link>
             <guid>https://fullstackladder.dev/blog/2022/10/16/change-prefers-color-scheme-by-dev-tools</guid>
-            <pubDate>Sun, 16 Oct 2022 02:47:15 GMT</pubDate>
+            <pubDate>Sun, 16 Oct 2022 10:47:15 GMT</pubDate>
             <description><![CDATA[<p>Dark mode (暗黑模式) 已經逐漸成為現代網頁開發的主流，很多網站也都逐漸加入的對 dark mode 的支援，讓網站預設也可以跟著作業系統的深色或淺色模式自動切換</p>
 <p>雖然顏色偏好讓使用者體驗更好，但也確實增加了網站開發時期的負擔，我們必須同時測試兩種顏色模式的顯示效果，如果每次測試都要主動切換系統的模式，也未免太辛苦了！還好 Chrome DevTools 內建了主題切換，讓我們可以直接在開發工具切換目前網頁的顯示模式，大幅度的節省時間，今天就來看看如何在深色和淺色模式之間自由的切換！</p>
 ]]></description>
@@ -75,7 +75,7 @@
             <title><![CDATA[[Angular 大師之路] 透過 DI 容器修正第三方元件的 bug]]></title>
             <link>https://fullstackladder.dev/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs</link>
             <guid>https://fullstackladder.dev/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs</guid>
-            <pubDate>Fri, 07 Oct 2022 12:08:13 GMT</pubDate>
+            <pubDate>Fri, 07 Oct 2022 20:08:13 GMT</pubDate>
             <description><![CDATA[<p>最進公司內某個專案遇到了一個 bug 是因為第三方套件的已知 bug 導致，但又不可能等人家修好 bug 我們才能處理，於是來詢問我的想法；其實這並不是一個很難的問題，尤其是在 Angular 這種完整個框架下，透過 DI 容器就可以輕易的達成，只是不一定想得到而已，由於大多數我們會使用到 Angular 的 DI 機制常常都是再進行一些組態設定，難得有個案例是用來修 bug 的，就用這篇文章來記錄一下！</p>
 ]]></description>
         </item>
@@ -83,7 +83,7 @@
             <title><![CDATA[[Visual Studio Code 小技巧] 改變檔案的換行符號]]></title>
             <link>https://fullstackladder.dev/blog/2022/09/10/change-crlf-in-vscode</link>
             <guid>https://fullstackladder.dev/blog/2022/09/10/change-crlf-in-vscode</guid>
-            <pubDate>Sat, 10 Sep 2022 13:12:52 GMT</pubDate>
+            <pubDate>Sat, 10 Sep 2022 21:12:52 GMT</pubDate>
             <description><![CDATA[<p>換行符號在不同的作業系統上有不同的表示方式，Windows 會使用 CRLF (a.k.a <code>\r\n</code>)，而 Linux 則是使用 LF (a.k.a <code>\n</code>)，這樣在不同的作業系統上，如果有人使用不同的換行符號，有時就會出現一些問題，所以我們需要在不同的作業系統上都使用相同的換行符號，這樣才能避免不同的問題。</p>
 <p>這篇文章就來說說如何用 VSCode 來改變檔案的換行符號。</p>
 ]]></description>
@@ -92,7 +92,7 @@
             <title><![CDATA[目前我在 VS Code 中使用的 Git 相關擴充功能 (2022 版)]]></title>
             <link>https://fullstackladder.dev/blog/2022/09/03/vscode-extensions-for-git-in-2022</link>
             <guid>https://fullstackladder.dev/blog/2022/09/03/vscode-extensions-for-git-in-2022</guid>
-            <pubDate>Sat, 03 Sep 2022 09:01:48 GMT</pubDate>
+            <pubDate>Sat, 03 Sep 2022 17:01:48 GMT</pubDate>
             <description><![CDATA[<p>分享一下目前我有在使用 Git 相關的 VS Code 擴充功能。</p>
 ]]></description>
         </item>
@@ -100,7 +100,7 @@
             <title><![CDATA[[NgRx 速成班] 用 Effects 讓元件持續保持單純]]></title>
             <link>https://fullstackladder.dev/blog/2022/08/07/ngrx-05-effects</link>
             <guid>https://fullstackladder.dev/blog/2022/08/07/ngrx-05-effects</guid>
-            <pubDate>Sun, 07 Aug 2022 01:01:34 GMT</pubDate>
+            <pubDate>Sun, 07 Aug 2022 09:01:34 GMT</pubDate>
             <description><![CDATA[<p>前幾天我們已經講 NgRx 狀態管理最重要的幾個核心角色 - Store、Selector、Action 和 Reducer 介紹過了；今天我們來講講 NgRx 另外一個很重要的角色 - Effects。</p>
 ]]></description>
         </item>
@@ -108,7 +108,7 @@
             <title><![CDATA[[NgRx 速成班] 更改狀態的基礎 Action & Reducer]]></title>
             <link>https://fullstackladder.dev/blog/2022/08/03/ngrx-04-action-reducer</link>
             <guid>https://fullstackladder.dev/blog/2022/08/03/ngrx-04-action-reducer</guid>
-            <pubDate>Wed, 03 Aug 2022 08:27:30 GMT</pubDate>
+            <pubDate>Wed, 03 Aug 2022 16:27:30 GMT</pubDate>
             <description><![CDATA[<p>上篇文章我們介紹了 <a href="2022/08/01/ngrx-02-schematics/">NgRx 的 Store 和 Selector</a>，這兩個角色主要是用來存放資料及讀取資料用的，接著我們來看看如何更新儲存的資料 - Action 和 Reducer。</p>
 <p>一樣的，基本的程式骨架已經在「<a href="/blog/2022/08/01/ngrx-02-schematics/">使用 NgRx Schematics 快速產生程式碼骨架</a>」建立，接下來將會直接沿用產生出來的程式骨架，繼續調整程式碼。</p>
 ]]></description>
@@ -117,7 +117,7 @@
             <title><![CDATA[[NgRx 速成班] 讀取狀態的基礎 Store & Selector]]></title>
             <link>https://fullstackladder.dev/blog/2022/08/02/ngrx-03-store-selector</link>
             <guid>https://fullstackladder.dev/blog/2022/08/02/ngrx-03-store-selector</guid>
-            <pubDate>Tue, 02 Aug 2022 02:30:00 GMT</pubDate>
+            <pubDate>Tue, 02 Aug 2022 10:30:00 GMT</pubDate>
             <description><![CDATA[<p>對 NgRx 基本架構和程式碼有了一些概念後，接著來看一下如何將狀態讀取出來給程式使用，這會利用到 Store 與 Selector 兩個角色。</p>
 <p>基本的程式骨架再上一篇「<a href="/blog/2022/08/01/ngrx-02-schematics/">使用 NgRx Schematics 快速產生程式碼骨架</a>」已經說明過了，這邊將會直接沿用產生出來的程式骨架，繼續調整程式碼。</p>
 ]]></description>
@@ -126,7 +126,7 @@
             <title><![CDATA[[NgRx 速成班] 使用 NgRx Schematics 快速產生程式碼骨架]]></title>
             <link>https://fullstackladder.dev/blog/2022/08/01/ngrx-02-schematics</link>
             <guid>https://fullstackladder.dev/blog/2022/08/01/ngrx-02-schematics</guid>
-            <pubDate>Mon, 01 Aug 2022 03:47:42 GMT</pubDate>
+            <pubDate>Mon, 01 Aug 2022 11:47:42 GMT</pubDate>
             <description><![CDATA[<p>在之前的文章「<a href="https://fullstackladder.dev/blog/2022/04/17/ngrx-01-introduce/">簡介 NgRx</a>」中我們間單的的解釋了 NgRx 的一些基本角色，每個角色都有他的工作，也代表著我們要把一件事情拆成多個角色去負責，每個角色都會有各自獨立的程式碼，我們可以使用 <a href="https://ngrx.io/guide/schematics">@ngrx/schematics</a> 套件來快速的幫助我們產生所有需要的程式碼！</p>
 ]]></description>
         </item>
@@ -134,7 +134,7 @@
             <title><![CDATA[移除 ModuleConcatenationPlugin 以加快 Angular 建置速度]]></title>
             <link>https://fullstackladder.dev/blog/2022/07/29/speed-up-angular-build-time-by-remove-module-concatenation-plugin</link>
             <guid>https://fullstackladder.dev/blog/2022/07/29/speed-up-angular-build-time-by-remove-module-concatenation-plugin</guid>
-            <pubDate>Fri, 29 Jul 2022 00:33:49 GMT</pubDate>
+            <pubDate>Fri, 29 Jul 2022 08:33:49 GMT</pubDate>
             <description><![CDATA[<p>最近接手一個專案，需要將舊 Angular 9 專案加入之前客戶沒有實作的 lazy loading 功能，專案包含了將近 600 個頁面，之後還會增加。</p>
 <p>重構的過程是很順利的，不過在 lazy loading 架構完成後，卻出現了 production build 時間大幅增加的問題，花費了不少時間研究，總算是以較低的代價換回了 build 速度。</p>
 <p>這篇文章就來分享一下整個過程和結論。</p>
@@ -144,7 +144,7 @@
             <title><![CDATA[如何在 Azure CloudShell 上傳/下載檔案]]></title>
             <link>https://fullstackladder.dev/blog/2022/07/05/azure-cloudshell-upload-download-file</link>
             <guid>https://fullstackladder.dev/blog/2022/07/05/azure-cloudshell-upload-download-file</guid>
-            <pubDate>Tue, 05 Jul 2022 10:51:20 GMT</pubDate>
+            <pubDate>Tue, 05 Jul 2022 18:51:20 GMT</pubDate>
             <description><![CDATA[<p>Azure CloudShell 可以幫助我們直接在 Azure Portal 上直接下指令進行各種資源的操作，不過偶爾我們需要將地端的檔案上傳到 Azure CloudShell 或是需要將在 Azure CloudShell 上面的檔案下載下來，今天分享一些小技巧，讓我們可以輕鬆的在 Azure CloudShell 上傳/下載檔案。</p>
 ]]></description>
         </item>
@@ -152,7 +152,7 @@
             <title><![CDATA[使用 inject() 簡化建構式注入的內容]]></title>
             <link>https://fullstackladder.dev/blog/2022/05/21/angular-inject-usage-sample</link>
             <guid>https://fullstackladder.dev/blog/2022/05/21/angular-inject-usage-sample</guid>
-            <pubDate>Sat, 21 May 2022 13:44:05 GMT</pubDate>
+            <pubDate>Sat, 21 May 2022 21:44:05 GMT</pubDate>
             <description><![CDATA[<p>Angular 14 將加強原有的 <a href="https://angular.io/api/core/inject">inject</a> 功能，讓我們在元件的建構式內可以直接透過呼叫 <code>inject(...)</code> 取得原本所有可以在建構式注入的內容，這種做法可以大幅簡化原來建構式的程式，但也可能帶來一些問題，今天就來看一下神奇的 <code>inject()</code> 新用法。</p>
 ]]></description>
         </item>
@@ -160,7 +160,7 @@
             <title><![CDATA[搶先體驗強型別表單（Strict Typed Reactive Forms）]]></title>
             <link>https://fullstackladder.dev/blog/2022/05/15/angular-14-strict-typed-reactive-forms</link>
             <guid>https://fullstackladder.dev/blog/2022/05/15/angular-14-strict-typed-reactive-forms</guid>
-            <pubDate>Sun, 15 May 2022 04:09:06 GMT</pubDate>
+            <pubDate>Sun, 15 May 2022 12:09:06 GMT</pubDate>
             <description><![CDATA[<p>Angular 14 即將推出強型別的 Reactive Forms 表單功能，讓我們在開發過程中可以享受強型別定義帶來的好處，不用再擔心弱型別不小心打錯字等等問題，今天就來看一下如何使用強型別的表單功能！</p>
 ]]></description>
         </item>
@@ -168,7 +168,7 @@
             <title><![CDATA[搶先體驗 Standalone Components / Directives / Pipes]]></title>
             <link>https://fullstackladder.dev/blog/2022/05/14/angular-14-standalone-components-directives-pipe-preview</link>
             <guid>https://fullstackladder.dev/blog/2022/05/14/angular-14-standalone-components-directives-pipe-preview</guid>
-            <pubDate>Sat, 14 May 2022 00:42:44 GMT</pubDate>
+            <pubDate>Sat, 14 May 2022 08:42:44 GMT</pubDate>
             <description><![CDATA[<p>Angular 14 預計會推出一個重磅功能 - 「Standalone Components / Directives / Pipes」！這個功能允許我們「獨立」的使用 components、directives 和 pipes，不用再強制依靠 <code>@NgModule</code>。</p>
 <p>目前 Angular 14 已經推出 RC.0 了，這個版本內也包含了 Standalone 的開發人員預覽版本（developer preview of standalone），讓我們可以搶先體驗一下這種<strong>獨立使用元件</strong>的版本，這篇文章就來介紹一下為什麼要使用 Standalone 以及該如何使用。</p>
 ]]></description>
@@ -177,7 +177,7 @@
             <title><![CDATA[[NgRx 速成班] 簡介 NgRx]]></title>
             <link>https://fullstackladder.dev/blog/2022/04/17/ngrx-01-introduce</link>
             <guid>https://fullstackladder.dev/blog/2022/04/17/ngrx-01-introduce</guid>
-            <pubDate>Sun, 17 Apr 2022 03:47:42 GMT</pubDate>
+            <pubDate>Sun, 17 Apr 2022 11:47:42 GMT</pubDate>
             <description><![CDATA[<p>NgRx 是一個強大，且功能完整的 Angular 狀態管理套件，在我們的應用程式越來越複雜的時候，它很適合用來管理一些全域的狀態，並透過適度的抽象化以及加入一定的規範，降低整體程式的耦合性，打造出更好維護及管理的程式碼。</p>
 <p>接下來的一系列文章將會介紹 NgRx 的核心精神，使用方式及相關工具。</p>
 ]]></description>
