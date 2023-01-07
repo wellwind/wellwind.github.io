@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 07 Jan 2023 13:13:22 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 07 Jan 2023 13:29:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -27,11 +27,11 @@
 ]]></description>
         </item>
         <item>
-            <title><![CDATA[使用 C# 撰寫 ModbucTCP client]]></title>
+            <title><![CDATA[使用 C# 撰寫 ModbusTCP client]]></title>
             <link>https://fullstackladder.dev/blog/2022/11/12/modbustcp-client-using-csharp</link>
             <guid>https://fullstackladder.dev/blog/2022/11/12/modbustcp-client-using-csharp</guid>
             <pubDate>Sat, 12 Nov 2022 16:51:29 GMT</pubDate>
-            <description><![CDATA[<p>在之前的文章「簡介 Modbus TCP」我們簡單介紹了工業上常見且簡單的通訊方式，Modbus 以及 ModbucTCP，由於 ModbusTCP 本身非常簡單，因此就算不靠任何 library，只要懂得撰寫簡單的 TCP 程式就可以自己實作一個 ModbucTCP client，所以今天就以 C# 為例，實作一個簡單具有讀取功能的 ModbusTCP client。</p>
+            <description><![CDATA[<p>在之前的文章「簡介 Modbus TCP」我們簡單介紹了工業上常見且簡單的通訊方式，Modbus 以及 ModbusTCP，由於 ModbusTCP 本身非常簡單，因此就算不靠任何 library，只要懂得撰寫簡單的 TCP 程式就可以自己實作一個 ModbusTCP client，所以今天就以 C# 為例，實作一個簡單具有讀取功能的 ModbusTCP client。</p>
 ]]></description>
         </item>
         <item>

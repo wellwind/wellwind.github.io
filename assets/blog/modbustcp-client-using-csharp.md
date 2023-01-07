@@ -1,12 +1,12 @@
 ---
-title: "使用 C# 撰寫 ModbucTCP client"
+title: "使用 C# 撰寫 ModbusTCP client"
 date: 2022-11-12 16:51:29
 category:
 tags:
   - ModbusTCP
 ---
 
-在之前的文章「簡介 Modbus TCP」我們簡單介紹了工業上常見且簡單的通訊方式，Modbus 以及 ModbucTCP，由於 ModbusTCP 本身非常簡單，因此就算不靠任何 library，只要懂得撰寫簡單的 TCP 程式就可以自己實作一個 ModbucTCP client，所以今天就以 C# 為例，實作一個簡單具有讀取功能的 ModbusTCP client。
+在之前的文章「簡介 Modbus TCP」我們簡單介紹了工業上常見且簡單的通訊方式，Modbus 以及 ModbusTCP，由於 ModbusTCP 本身非常簡單，因此就算不靠任何 library，只要懂得撰寫簡單的 TCP 程式就可以自己實作一個 ModbusTCP client，所以今天就以 C# 為例，實作一個簡單具有讀取功能的 ModbusTCP client。
 
 <!-- more -->
 
