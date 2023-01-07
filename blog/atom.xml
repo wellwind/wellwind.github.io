@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 07 Jan 2023 11:08:08 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 07 Jan 2023 12:52:23 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -77,6 +77,15 @@
             <guid>https://fullstackladder.dev/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs</guid>
             <pubDate>Fri, 07 Oct 2022 20:08:13 GMT</pubDate>
             <description><![CDATA[<p>最進公司內某個專案遇到了一個 bug 是因為第三方套件的已知 bug 導致，但又不可能等人家修好 bug 我們才能處理，於是來詢問我的想法；其實這並不是一個很難的問題，尤其是在 Angular 這種完整個框架下，透過 DI 容器就可以輕易的達成，只是不一定想得到而已，由於大多數我們會使用到 Angular 的 DI 機制常常都是再進行一些組態設定，難得有個案例是用來修 bug 的，就用這篇文章來記錄一下！</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[使用 k6 進行壓力測試]]></title>
+            <link>https://fullstackladder.dev/blog/2022/09/17/load-test-by-k6</link>
+            <guid>https://fullstackladder.dev/blog/2022/09/17/load-test-by-k6</guid>
+            <pubDate>Sat, 17 Sep 2022 19:35:10 GMT</pubDate>
+            <description><![CDATA[<p>當系統預期有很多人同時上線時，可能會需要進行壓力測試。比起工具 Apache Jmeter 的高學習難度，k6 是一套很好的壓力測試工具，對於開發人員來說非常友善。</p>
+<p>本文將簡單介紹如何使用 k6 進行壓力測試。</p>
 ]]></description>
         </item>
         <item>
@@ -171,15 +180,6 @@
             <pubDate>Sat, 14 May 2022 08:42:44 GMT</pubDate>
             <description><![CDATA[<p>Angular 14 預計會推出一個重磅功能 - 「Standalone Components / Directives / Pipes」！這個功能允許我們「獨立」的使用 components、directives 和 pipes，不用再強制依靠 <code>@NgModule</code>。</p>
 <p>目前 Angular 14 已經推出 RC.0 了，這個版本內也包含了 Standalone 的開發人員預覽版本（developer preview of standalone），讓我們可以搶先體驗一下這種<strong>獨立使用元件</strong>的版本，這篇文章就來介紹一下為什麼要使用 Standalone 以及該如何使用。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[NgRx 速成班] 簡介 NgRx]]></title>
-            <link>https://fullstackladder.dev/blog/2022/04/17/ngrx-01-introduce</link>
-            <guid>https://fullstackladder.dev/blog/2022/04/17/ngrx-01-introduce</guid>
-            <pubDate>Sun, 17 Apr 2022 11:47:42 GMT</pubDate>
-            <description><![CDATA[<p>NgRx 是一個強大，且功能完整的 Angular 狀態管理套件，在我們的應用程式越來越複雜的時候，它很適合用來管理一些全域的狀態，並透過適度的抽象化以及加入一定的規範，降低整體程式的耦合性，打造出更好維護及管理的程式碼。</p>
-<p>接下來的一系列文章將會介紹 NgRx 的核心精神，使用方式及相關工具。</p>
 ]]></description>
         </item>
     </channel>
