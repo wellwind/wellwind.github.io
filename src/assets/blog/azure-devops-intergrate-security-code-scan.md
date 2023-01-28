@@ -103,3 +103,9 @@ $newContent | Set-Content -Path '$(Build.ArtifactStagingDirectory)\output.sarif'
 ## 本日小結
 
 程式碼弱點掃描整合到 CI 是一件非常重要的工作，如此我們才能即時的知道程式碼是否有安全性漏洞，今天介紹了如何將 Security Code Scan 的掃描結果整合到 Azure Pipeline 中，以及如何在 build 完成後即時看到報告，最後的 Security Code Scan Task 則是大幅簡化了設定的麻煩，如果喜歡這個 Extension 的話別忘了留個五興好評！在掃描遇到什麼問題，也歡迎隨時提出來。
+
+## 相關資源
+
+* [Security Code Scan](https://security-code-scan.github.io/)
+* [Security Code Scan Task](https://marketplace.visualstudio.com/items?itemName=MikeHuang.scs-scan-task)
+* [SARIF SAST Scans Tab](https://marketplace.visualstudio.com/items?itemName=sariftools.scans&targetId=a3049b43-59dc-4090-9872-b69f38c1f4af)
