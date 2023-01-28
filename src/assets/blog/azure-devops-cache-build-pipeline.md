@@ -1,11 +1,12 @@
 ---
 title: "[Azure DevOps] 透過 cache 加快 CI pipeline 速度"
-date: 2023-12-17 12:04:50
+date: 2022-12-17 12:04:50
 category:
   - "Azure DevOps"
 tags:
   - "Azure DevOps"
   - "Pipeline caching"
+ogImage: 02.png
 ---
 
 在 CI 階段時，我們經常會需要針對專案內容安裝各種套件，不過其實套件內容也很少更動，但每次安裝都會花上不少時間，雖然都放著讓 CI 跑就好了，但還是免不了要等一段時間，好在 Azure DevOps 提供了 [Pipeline caching](https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&WT.mc_id=DOP-MVP-5003734) 功能，讓我們可以將套件內容先暫存起來，下次就不用再安裝了，加快 CI pipline 的速度，這篇文章就來介紹一下 Pipeline caching 的工能。
