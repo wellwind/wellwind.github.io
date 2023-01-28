@@ -4,11 +4,51 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 22 Jan 2023 08:11:26 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 28 Jan 2023 09:14:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Azure DevOps] 整合 Horusec 掃描結果]]></title>
+            <link>https://fullstackladder.dev/blog/2023/01/08/azure-devops-intergrate-horusec</link>
+            <guid>https://fullstackladder.dev/blog/2023/01/08/azure-devops-intergrate-horusec</guid>
+            <pubDate>Sun, 08 Jan 2023 10:40:05 GMT</pubDate>
+            <description><![CDATA[<p>之前在文章中介紹了「<a href="https://fullstackladder.dev/blog/2023/01/07/introduction-horusec/">Horusec</a>」這個強大的程式碼安全掃描工具，今天也來介紹一下如何整合到 Azure DevOps 的 CI pipeline 中。</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[使用 Horusec 對程式碼安全性進行掃描]]></title>
+            <link>https://fullstackladder.dev/blog/2023/01/07/introduction-horusec</link>
+            <guid>https://fullstackladder.dev/blog/2023/01/07/introduction-horusec</guid>
+            <pubDate>Sat, 07 Jan 2023 15:00:47 GMT</pubDate>
+            <description><![CDATA[<p><a href="https://github.com/ZupIT/horusec">Horusec</a> 是一套開源的程式碼靜態分析工具，他可以幫助我們對程式碼進行安全性掃描，並且支援許多常見的語言，功能非常強大。</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Azure DevOps] 整合 Security Code Scan 掃描結果]]></title>
+            <link>https://fullstackladder.dev/blog/2022/12/31/azure-devops-intergrate-security-code-scan</link>
+            <guid>https://fullstackladder.dev/blog/2022/12/31/azure-devops-intergrate-security-code-scan</guid>
+            <pubDate>Sat, 31 Dec 2022 13:10:08 GMT</pubDate>
+            <description><![CDATA[<p>之前文章介紹過「<a href="https://fullstackladder.dev/blog/2022/12/24/introduction-security-code-scan/">使用 Security Code Scan 為 .NET 應用程式進行程式碼安全性掃描</a>」，這篇文章接著來介紹一下如何在 Azure DevOps 的 CI pipeline 中整合 Security Code Scan 掃描結果。</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[使用 Security Code Scan 為 .NET 應用程式進行程式碼安全性掃描]]></title>
+            <link>https://fullstackladder.dev/blog/2022/12/24/introduction-security-code-scan</link>
+            <guid>https://fullstackladder.dev/blog/2022/12/24/introduction-security-code-scan</guid>
+            <pubDate>Sat, 24 Dec 2022 13:34:32 GMT</pubDate>
+            <description><![CDATA[<p><a href="https://security-code-scan.github.io/">Security Code Scan</a> 是一套針對 .NET 的程式碼靜態分析工具，他可以針對程式碼中的安全性問題進行掃描，並且提供了一些程式碼修正的建議。今天這篇文章就來介紹一下如何使用 Security Code Scan 來進行程式碼安全性掃描。</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Azure DevOps] 透過 cache 加快 CI pipeline 速度]]></title>
+            <link>https://fullstackladder.dev/blog/2022/12/17/azure-devops-cache-build-pipeline</link>
+            <guid>https://fullstackladder.dev/blog/2022/12/17/azure-devops-cache-build-pipeline</guid>
+            <pubDate>Sat, 17 Dec 2022 12:04:50 GMT</pubDate>
+            <description><![CDATA[<p>在 CI 階段時，我們經常會需要針對專案內容安裝各種套件，不過其實套件內容也很少更動，但每次安裝都會花上不少時間，雖然都放著讓 CI 跑就好了，但還是免不了要等一段時間，好在 Azure DevOps 提供了 <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&amp;WT.mc_id=DOP-MVP-5003734">Pipeline caching</a> 功能，讓我們可以將套件內容先暫存起來，下次就不用再安裝了，加快 CI pipline 的速度，這篇文章就來介紹一下 Pipeline caching 的工能。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[將 Blazor WebAssembly 整合進 Tauri 應用程式]]></title>
             <link>https://fullstackladder.dev/blog/2022/12/10/tauri-with-blazor-web-assembly</link>
@@ -137,49 +177,6 @@
             <guid>https://fullstackladder.dev/blog/2022/08/01/ngrx-02-schematics</guid>
             <pubDate>Mon, 01 Aug 2022 11:47:42 GMT</pubDate>
             <description><![CDATA[<p>在之前的文章「<a href="https://fullstackladder.dev/blog/2022/04/17/ngrx-01-introduce/">簡介 NgRx</a>」中我們間單的的解釋了 NgRx 的一些基本角色，每個角色都有他的工作，也代表著我們要把一件事情拆成多個角色去負責，每個角色都會有各自獨立的程式碼，我們可以使用 <a href="https://ngrx.io/guide/schematics">@ngrx/schematics</a> 套件來快速的幫助我們產生所有需要的程式碼！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[移除 ModuleConcatenationPlugin 以加快 Angular 建置速度]]></title>
-            <link>https://fullstackladder.dev/blog/2022/07/29/speed-up-angular-build-time-by-remove-module-concatenation-plugin</link>
-            <guid>https://fullstackladder.dev/blog/2022/07/29/speed-up-angular-build-time-by-remove-module-concatenation-plugin</guid>
-            <pubDate>Fri, 29 Jul 2022 08:33:49 GMT</pubDate>
-            <description><![CDATA[<p>最近接手一個專案，需要將舊 Angular 9 專案加入之前客戶沒有實作的 lazy loading 功能，專案包含了將近 600 個頁面，之後還會增加。</p>
-<p>重構的過程是很順利的，不過在 lazy loading 架構完成後，卻出現了 production build 時間大幅增加的問題，花費了不少時間研究，總算是以較低的代價換回了 build 速度。</p>
-<p>這篇文章就來分享一下整個過程和結論。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[如何在 Azure CloudShell 上傳/下載檔案]]></title>
-            <link>https://fullstackladder.dev/blog/2022/07/05/azure-cloudshell-upload-download-file</link>
-            <guid>https://fullstackladder.dev/blog/2022/07/05/azure-cloudshell-upload-download-file</guid>
-            <pubDate>Tue, 05 Jul 2022 18:51:20 GMT</pubDate>
-            <description><![CDATA[<p>Azure CloudShell 可以幫助我們直接在 Azure Portal 上直接下指令進行各種資源的操作，不過偶爾我們需要將地端的檔案上傳到 Azure CloudShell 或是需要將在 Azure CloudShell 上面的檔案下載下來，今天分享一些小技巧，讓我們可以輕鬆的在 Azure CloudShell 上傳/下載檔案。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[使用 inject() 簡化建構式注入的內容]]></title>
-            <link>https://fullstackladder.dev/blog/2022/05/21/angular-inject-usage-sample</link>
-            <guid>https://fullstackladder.dev/blog/2022/05/21/angular-inject-usage-sample</guid>
-            <pubDate>Sat, 21 May 2022 21:44:05 GMT</pubDate>
-            <description><![CDATA[<p>Angular 14 將加強原有的 <a href="https://angular.io/api/core/inject">inject</a> 功能，讓我們在元件的建構式內可以直接透過呼叫 <code>inject(...)</code> 取得原本所有可以在建構式注入的內容，這種做法可以大幅簡化原來建構式的程式，但也可能帶來一些問題，今天就來看一下神奇的 <code>inject()</code> 新用法。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[搶先體驗強型別表單（Strict Typed Reactive Forms）]]></title>
-            <link>https://fullstackladder.dev/blog/2022/05/15/angular-14-strict-typed-reactive-forms</link>
-            <guid>https://fullstackladder.dev/blog/2022/05/15/angular-14-strict-typed-reactive-forms</guid>
-            <pubDate>Sun, 15 May 2022 12:09:06 GMT</pubDate>
-            <description><![CDATA[<p>Angular 14 即將推出強型別的 Reactive Forms 表單功能，讓我們在開發過程中可以享受強型別定義帶來的好處，不用再擔心弱型別不小心打錯字等等問題，今天就來看一下如何使用強型別的表單功能！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[搶先體驗 Standalone Components / Directives / Pipes]]></title>
-            <link>https://fullstackladder.dev/blog/2022/05/14/angular-14-standalone-components-directives-pipe-preview</link>
-            <guid>https://fullstackladder.dev/blog/2022/05/14/angular-14-standalone-components-directives-pipe-preview</guid>
-            <pubDate>Sat, 14 May 2022 08:42:44 GMT</pubDate>
-            <description><![CDATA[<p>Angular 14 預計會推出一個重磅功能 - 「Standalone Components / Directives / Pipes」！這個功能允許我們「獨立」的使用 components、directives 和 pipes，不用再強制依靠 <code>@NgModule</code>。</p>
-<p>目前 Angular 14 已經推出 RC.0 了，這個版本內也包含了 Standalone 的開發人員預覽版本（developer preview of standalone），讓我們可以搶先體驗一下這種<strong>獨立使用元件</strong>的版本，這篇文章就來介紹一下為什麼要使用 Standalone 以及該如何使用。</p>
 ]]></description>
         </item>
     </channel>
