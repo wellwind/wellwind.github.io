@@ -81,13 +81,13 @@ JWK 和 JWKs 被設計來解決金鑰管理和交換的問題。它們提供了�
 
 當我們使用非對稱式演算法如 RS256 來產生 JWT token 簽章時，通常會使用私鑰產生簽章，同時我們可以將公鑰以 JWK 的格式發佈到網路上，其他人只需要使用公鑰就可以驗證我們的簽章是否正確了，這麼一來就可以在送到伺服器前提早驗證 JWT token 的合法性。
 
-## OpenID 的 wellknow 文件
+## OpenID 的 well-known 文件
 
-為了讓所有人都可以用統一的方式來完成認證作業，OpenID 規範了一份 wellknown 文件，讓我們可以從這份文件中取得這個認證提供者所有的公開資訊，其中包含了 `jwks_uri` 這個屬性，可以讓我們取得這個認證提供者所公開的金鑰資訊。
+為了讓所有人都可以用統一的方式來完成認證作業，OpenID 規範了一份 well-known 文件，讓我們可以從這份文件中取得這個認證提供者所有的公開資訊，其中包含了 `jwks_uri` 這個屬性，可以讓我們取得這個認證提供者所公開的金鑰資訊。
 
 這份文件的名稱的路徑也有明確規範，一定會是 `/.well-known/openid-configuration`，因此只要知道提供登入服務的位置，就很容易可以找到這份文件，同時如果服務提供者只要有正確實作，就可以輕易找到 JWK 的位置。
 
-至於這份文件會在哪裡呢？當我們得到 access token 時，一定會在 payload 中找到 issuer (`iss`)，這個 issuer 就是認證提供者的網址，因此 wellknown 文件一定會在 `{issuer}/.well-known/openid-configuration`。
+至於這份文件會在哪裡呢？當我們得到 access token 時，一定會在 payload 中找到 issuer (`iss`)，這個 issuer 就是認證提供者的網址，因此 well-known 文件一定會在 `{issuer}/.well-known/openid-configuration`。
 
 詳細規格可以參考 [OpenID 的完整規格](https://openid.net/specs/openid-connect-discovery-1_0.html)。
 
@@ -111,7 +111,7 @@ jwt.io 是怎麼幫我們找到 public key 來驗證的呢？
 
 接著我們可以看到 `iss` 內容為：`https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/`
 
-因此我們可以判斷 wellknown 文件位置為：[https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/.well-known/openid-configuration](https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/.well-known/openid-configuration)
+因此我們可以判斷 well-known 文件位置為：[https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/.well-known/openid-configuration](https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/.well-known/openid-configuration)
 
 在這份文件中，我們又可以找到 `jwks_uri` 屬性，內容為：[https://login.windows.net/common/discovery/keys](https://login.windows.net/common/discovery/keys)
 
