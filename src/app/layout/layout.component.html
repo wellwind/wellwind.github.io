@@ -14,7 +14,7 @@
   </button>
   <h1>
     <a class="header-link" routerLink="/">
-      <span class="header-link">全端開發人員天梯</span>
+      <span class="header-link text-2xl">全端開發人員天梯</span>
     </a>
   </h1>
 
@@ -24,6 +24,7 @@
     role="button"
     aria-label="深色/亮色模式"
     mat-icon-button
+    class="mr-2"
     (click)="theme$.next(theme$.value === 'light' ? 'dark' : 'light')"
   >
     <mat-icon *ngIf="(theme$ | push) === 'light'">light_mode</mat-icon>

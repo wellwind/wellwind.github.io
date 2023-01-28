@@ -19,7 +19,6 @@
   }
 
   .blog-post-title {
-    font-size: 24px;
     font-weight: 500;
     a {
       font-weight: 800;
@@ -40,6 +39,8 @@
 
   .mat-mdc-card-content {
     padding: 0;
+    font-size: 18px;
+    line-height: 28px;
   }
 
   .blog-post-subtitle {
@@ -58,6 +59,7 @@
     }
 
     .blog-post-published {
+      font-size: 18px;
       line-height: 24px;
       display: inline-flex;
       flex-direction: row;
@@ -75,12 +77,8 @@
     }
   }
 
-  .mat-mdc-card-content {
-    font-size: 16px;
-  }
-
   .blog-post {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 28px;
     color: var(--post-card-content-text-color);
   }
