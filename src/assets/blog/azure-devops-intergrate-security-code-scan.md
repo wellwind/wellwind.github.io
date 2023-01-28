@@ -1,6 +1,6 @@
 ---
 title: "[Azure DevOps] 整合 Security Code Scan 掃描結果"
-date: 2023-01-28 15:10:08
+date: 2022-12-31 13:10:08
 category:
   - "Azure DevOps"
 tags:
