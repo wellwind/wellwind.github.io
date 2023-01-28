@@ -17,7 +17,9 @@ JWT是Json Web Token的縮寫，詳細規範在[RFC7519](https://tools.ietf.org/
 JWT包含了三個部分，header、payload和signature，並使用"點"(` . `)將三個部分連結起來成為一個字串進行傳遞，因此一個完整的JWT字串看起來會像這樣
 
 {% note default %}  
+
 xxxxx.yyyyy.zzzzz  
+
 {% endnote %}  
 
 ## Header
