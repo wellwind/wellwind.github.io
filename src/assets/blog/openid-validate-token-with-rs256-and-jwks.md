@@ -8,6 +8,7 @@ tags:
   - "JTW"
   - "JTK"
   - "JWKs"
+ogImage: 01.png
 ---
 
 使用 JWT token 來進行身份認證已經是現在開發上的顯學了，常見的服務如 Microsoft 等透過 OAuth 2.0 登入後，有會拿到一組 JWT 格式的 access token，我們可以透過這個 token 去呼叫相關的 API 來取得想要得資料，但除了把 access token 丟給 API 外，我們有沒有其他方是可以驗證這個 token 是否有效呢？
