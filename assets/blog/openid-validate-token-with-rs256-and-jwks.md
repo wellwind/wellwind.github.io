@@ -117,6 +117,12 @@ jwt.io 是怎麼幫我們找到 public key 來驗證的呢？
 
 {% asset_img 02.png %}
 
+{% note info %}
+
+這種 key 通常異動頻率極低，因此如果要整合的提供者不多，也可以考慮把這些公鑰存下來，當做 `jwks_uri` 掛掉時的備援。
+
+{% endnote %}
+
 接著透過 JWT token header 記錄的 `kid`，就可以找到對應的公鑰資訊啦。
 
 {% asset_img 03.png %}
