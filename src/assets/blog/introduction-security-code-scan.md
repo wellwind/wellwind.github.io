@@ -4,6 +4,7 @@ date: 2022-12-24 13:34:32
 category:
 tags:
   - "Security Code Scan"
+  - "OWASP"
   - "SARIF"
   - "sarif-tools"
 ogImage: 00.png
