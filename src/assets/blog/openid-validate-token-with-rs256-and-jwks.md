@@ -5,8 +5,8 @@ category:
   - "OpenID"
 tags:
   - "OpenID"
-  - "JTW"
-  - "JTK"
+  - "JWT"
+  - "JWK"
   - "JWKs"
 ogImage: 01.png
 ---
@@ -87,7 +87,7 @@ JWK 和 JWKs 被設計來解決金鑰管理和交換的問題。它們提供了�
 
 這份文件的名稱的路徑也有明確規範，一定會是 `/.well-known/openid-configuration`，因此只要知道提供登入服務的位置，就很容易可以找到這份文件，同時如果服務提供者只要有正確實作，就可以輕易找到 JWK 的位置。
 
-至於這份文件會再哪裡呢？當我們得到 access token 時，一定會在 payload 中找到 issuer (`iss`)，這個 issuer 就是認證提供者的網址，因此 wellknown 文件一定會在 `{issuer}/.well-known/openid-configuration`。
+至於這份文件會在哪裡呢？當我們得到 access token 時，一定會在 payload 中找到 issuer (`iss`)，這個 issuer 就是認證提供者的網址，因此 wellknown 文件一定會在 `{issuer}/.well-known/openid-configuration`。
 
 詳細規格可以參考 [OpenID 的完整規格](https://openid.net/specs/openid-connect-discovery-1_0.html)。
 
