@@ -5,8 +5,8 @@ category:
   - "OpenID"
 tags:
   - "OpenID"
-  - "JTW"
-  - "JTK"
+  - "JWT"
+  - "JWK"
   - "JWKs"
 ogImage: 01.png
 ---
@@ -17,7 +17,15 @@ ogImage: 01.png
 
 <!-- more -->
 
-JWT 算是非常基礎，就不多做介紹了，而除了基本的 JWT 知識以外，我們還需要知道一些簡單的知識。
+## JWT 非對稱簽章
+
+JWT 算是非常基礎應該不用多說，不過今天的重點在如何進行簽章；一個 JWT token 包含三個部分，裡面各有今天主題需要的內容：
+
+1. **header**：包含簽章使用的演算法，一般常見最簡單的是 **HS256**，也就是只有一組金鑰做雜湊來產生簽章，要驗證簽章就一定要這組金鑰；另外一種常見的也是今天主題的重點：**RS256**，RS256 採用非對稱加密的方式，也就是分別會有公私鑰兩組金鑰，通常會在 server 端使用私鑰來簽章，而 client 端則使用公鑰來驗證簽章是否正確。
+2. **payload**：裡面包含整個 token 的主要資訊，其中會有 `iss`，也就是核發 token 的人，如果有照著 OpenID 規範來走，那從 `iss` 就可以延伸得知許多資訊，例如 `jwks_uri`，也就是公鑰的下載位置，省去我們查找每家驗證提供者文件的麻煩。
+3. **signature**：不用多說，就是簽章啦！每個 JWT token 之所以不容易被竄改，都是靠這個簽章運作的，簽章是針對 header 和 payload 所產生的唯一資訊，因此只要有一個地方被竄改，簽章就會不一樣，我們就會視為這是個不合法的 JWT token。
+
+而除了這些基本的 JWT 知識以外，我們還需要知道一些其他的知識。
 
 ## 簡介 JWK
 
@@ -81,13 +89,13 @@ JWK 和 JWKs 被設計來解決金鑰管理和交換的問題。它們提供了�
 
 當我們使用非對稱式演算法如 RS256 來產生 JWT token 簽章時，通常會使用私鑰產生簽章，同時我們可以將公鑰以 JWK 的格式發佈到網路上，其他人只需要使用公鑰就可以驗證我們的簽章是否正確了，這麼一來就可以在送到伺服器前提早驗證 JWT token 的合法性。
 
-## OpenID 的 wellknow 文件
+## OpenID 的 well-known 文件
 
-為了讓所有人都可以用統一的方式來完成認證作業，OpenID 規範了一份 wellknown 文件，讓我們可以從這份文件中取得這個認證提供者所有的公開資訊，其中包含了 `jwks_uri` 這個屬性，可以讓我們取得這個認證提供者所公開的金鑰資訊。
+為了讓所有人都可以用統一的方式來完成認證作業，OpenID 規範了一份 well-known 文件，讓我們可以從這份文件中取得這個認證提供者所有的公開資訊，其中包含了 `jwks_uri` 這個屬性，可以讓我們取得這個認證提供者所公開的金鑰資訊。
 
 這份文件的名稱的路徑也有明確規範，一定會是 `/.well-known/openid-configuration`，因此只要知道提供登入服務的位置，就很容易可以找到這份文件，同時如果服務提供者只要有正確實作，就可以輕易找到 JWK 的位置。
 
-至於這份文件會再哪裡呢？當我們得到 access token 時，一定會在 payload 中找到 issuer (`iss`)，這個 issuer 就是認證提供者的網址，因此 wellknown 文件一定會在 `{issuer}/.well-known/openid-configuration`。
+至於這份文件會在哪裡呢？當我們得到 access token 時，一定會在 payload 中找到 issuer (`iss`)，這個 issuer 就是認證提供者的網址，因此 well-known 文件一定會在 `{issuer}/.well-known/openid-configuration`。
 
 詳細規格可以參考 [OpenID 的完整規格](https://openid.net/specs/openid-connect-discovery-1_0.html)。
 
@@ -111,7 +119,7 @@ jwt.io 是怎麼幫我們找到 public key 來驗證的呢？
 
 接著我們可以看到 `iss` 內容為：`https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/`
 
-因此我們可以判斷 wellknown 文件位置為：[https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/.well-known/openid-configuration](https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/.well-known/openid-configuration)
+因此我們可以判斷 well-known 文件位置為：[https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/.well-known/openid-configuration](https://sts.windows.net/ea74227c-40ef-4402-bbce-564485994bec/.well-known/openid-configuration)
 
 在這份文件中，我們又可以找到 `jwks_uri` 屬性，內容為：[https://login.windows.net/common/discovery/keys](https://login.windows.net/common/discovery/keys)
 
@@ -142,3 +150,4 @@ JWT token 已經被廣泛運用在各種認證情境了，而 OpenID 進一步�
 - [OpenID 的完整規格](https://openid.net/specs/openid-connect-discovery-1_0.html)
 - [RFC 7515 - JWK](https://www.rfc-editor.org/rfc/rfc7517)
 - [OpenID Connect on the Microsoft identity platform](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-protocols-oidc?WT.mc_id=DOP-MVP-5003734#fetch-the-openid-configuration-document)
+- [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/)
