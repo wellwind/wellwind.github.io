@@ -21,6 +21,9 @@ export const transformMarkdown = (content: string, slug: string) => markdown
     })
   // 圖片轉換
   .replace(
+    /\{% asset_img (.*?)\s\((.*?)\)\s%\}/g,
+    `<img src="./assets/blog/${slug}/$1" $2 />`)
+  .replace(
     /\{% asset_img (.*?)\s(.*?)%\}/g,
     `<img src="./assets/blog/${slug}/$1" alt="$2" title="$2" />`)
   // lazy loading 圖片
