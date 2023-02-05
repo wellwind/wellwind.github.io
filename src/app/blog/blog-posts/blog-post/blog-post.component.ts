@@ -125,8 +125,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
     if (this.platformService.isServer) {
       return;
     }
-
-    this.highlightCode();
   }
 
   highlightCode() {
