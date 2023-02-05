@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 29 Jan 2023 02:43:29 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 05 Feb 2023 07:20:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[QuestPDF - 支援中文、免費好用的 C# PDF 產生器]]></title>
+            <link>https://fullstackladder.dev/blog/2023/02/05/introduction-quest-pdf</link>
+            <guid>https://fullstackladder.dev/blog/2023/02/05/introduction-quest-pdf</guid>
+            <pubDate>Sun, 05 Feb 2023 13:15:31 GMT</pubDate>
+            <description><![CDATA[<p>產生 PDF 的套件並不難找，有趣的是，.NET 的 PDF 套件免卻不多，最近找到一套 <a href="https://www.questpdf.com/">QuestPDF</a>，他的 API 設計非常漂亮，支援中文，並且免費開源，雖然不一定是最強大的套件，但對於一般產生 PDF 的工作，已經非常好用了。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[OpenID] 使用 RS256 與 JWKS 驗證 JWT token 有效性]]></title>
             <link>https://fullstackladder.dev/blog/2023/01/28/openid-validate-token-with-rs256-and-jwks</link>
@@ -169,15 +177,6 @@
             <pubDate>Wed, 03 Aug 2022 16:27:30 GMT</pubDate>
             <description><![CDATA[<p>上篇文章我們介紹了 <a href="2022/08/01/ngrx-02-schematics/">NgRx 的 Store 和 Selector</a>，這兩個角色主要是用來存放資料及讀取資料用的，接著我們來看看如何更新儲存的資料 - Action 和 Reducer。</p>
 <p>一樣的，基本的程式骨架已經在「<a href="/blog/2022/08/01/ngrx-02-schematics/">使用 NgRx Schematics 快速產生程式碼骨架</a>」建立，接下來將會直接沿用產生出來的程式骨架，繼續調整程式碼。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[NgRx 速成班] 讀取狀態的基礎 Store & Selector]]></title>
-            <link>https://fullstackladder.dev/blog/2022/08/02/ngrx-03-store-selector</link>
-            <guid>https://fullstackladder.dev/blog/2022/08/02/ngrx-03-store-selector</guid>
-            <pubDate>Tue, 02 Aug 2022 10:30:00 GMT</pubDate>
-            <description><![CDATA[<p>對 NgRx 基本架構和程式碼有了一些概念後，接著來看一下如何將狀態讀取出來給程式使用，這會利用到 Store 與 Selector 兩個角色。</p>
-<p>基本的程式骨架再上一篇「<a href="/blog/2022/08/01/ngrx-02-schematics/">使用 NgRx Schematics 快速產生程式碼骨架</a>」已經說明過了，這邊將會直接沿用產生出來的程式骨架，繼續調整程式碼。</p>
 ]]></description>
         </item>
     </channel>
