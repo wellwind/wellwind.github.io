@@ -7,7 +7,7 @@ tags:
 ogImage: 03.png
 ---
 
-產生 PDF 的套件並不難找，有趣的是，.NET 的 PDF 套件免卻不多，最近找到一套 [QuestPDF](https://www.questpdf.com/)，他的 API 設計非常漂亮，支援中文，並且免費開源，雖然不一定是最強大的套件，但對於一般產生 PDF 的工作，已經非常好用了。
+產生 PDF 的套件並不難找，有趣的是，.NET 的 PDF 套件免卻不多，最近找到一套 [QuestPDF](https://www.questpdf.com/)，它的 API 設計非常漂亮，支援中文，並且免費開源，雖然不一定是最強大的套件，但對於一般產生 PDF 的工作，已經非常好用了。
 
 <!-- more -->
 
@@ -455,13 +455,13 @@ QuestPDF 提供了一套非常棒的工具，可以讓我們在開發階段即�
 dotnet tool install QuestPDF.Previewer --global
 ```
 
-之後執行以下指令開啟 Previewer
+之後執行以下指令開啟 QuestPDF Previewer，預設會監聽 Port 12500
 
 ```sh
 questpdf-previewer
 ```
 
-也可以指定要監聽的 port 號，預設為 12500
+你也可以指定要監聽的 Port 號，例如 Port 12345
 
 ```sh
 questpdf-previewer 12345
@@ -480,7 +480,7 @@ var document = new InvoiceDocument(data);
 // 在 Previewer 中顯示產生的 PDF 內容
 document.ShowInPreviewer();
 
-// 指定 port 號
+// 指定 Port 號
 // document.ShowInPreviewer(12345);
 ```
 
