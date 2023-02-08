@@ -160,7 +160,7 @@
       <a
         *ngFor="let item of menuItems"
         mat-list-item
-        routerLinkActive="active"
+        routerLinkActive="text-[color:var(--sidebar-highlight-text-color)] bg-[color:var(--sidebar-highlight-bg-color)]"
         [routerLinkActiveOptions]="{ exact: item.link === '/blog' }"
         [routerLink]="item.link"
       >
