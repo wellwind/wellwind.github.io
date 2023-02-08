@@ -1,6 +1,6 @@
 <ng-container *ngIf="postMeta$ | push as postMeta">
-  <div class="blog-post-container">
-    <div class="blog-post blog-post-overview">
+  <div class="blog-post-container flex items-start">
+    <div class="blog-post blog-post-overview p-0 w-full xl:w-[80%]">
       <div class="blog-post-title">
         <h1 class="m-0 text-2xl md:text-3xl">{{ postMeta.title }}</h1>
       </div>
@@ -9,9 +9,9 @@
         <app-blog-post-subtitle [postMeta]="postMeta"></app-blog-post-subtitle>
       </div>
 
-      <mat-divider></mat-divider>
+      <mat-divider class="!my-2"></mat-divider>
 
-      <div class="blog-post" #content [innerHTML]="postContent$ | push"></div>
+      <div class="blog-post !p-0" #content [innerHTML]="postContent$ | push"></div>
 
       <!-- blog post tags -->
       <div aria-label="Post Tags" class="flex justify-center">
@@ -25,7 +25,7 @@
         </a>
       </div>
 
-      <div class="blog-post-liker-coin">
+      <div class="blog-post-liker-coin mt-4">
         <div>
           如果您覺得我的文章有幫助，歡迎免費成為 LikeCoin 會員，幫我的文章拍手 5
           次表示支持！
@@ -36,7 +36,7 @@
         ></app-liker-coin>
       </div>
 
-      <mat-divider></mat-divider>
+      <mat-divider class="!my-2"></mat-divider>
 
       <!-- prev & next by categories -->
       <ng-container
@@ -59,10 +59,10 @@
           </ng-container>
         </div>
 
-        <div class="blog-post-prev-next">
-          <div class="blog-post-prev">
+        <div class="blog-post-prev-next flex items-start">
+          <div class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start">
             <ng-container *ngIf="categoryPrevNext.previousPost as post">
-              <div class="blog-post-prev-next-notify prev">
+              <div class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start">
                 <mat-icon>chevron_left</mat-icon>
                 上一篇
               </div>
@@ -71,9 +71,9 @@
               ></ng-container>
             </ng-container>
           </div>
-          <div class="blog-post-next">
+          <div class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end">
             <ng-container *ngIf="categoryPrevNext.nextPost as post">
-              <div class="blog-post-prev-next-notify next">
+              <div class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end">
                 下一篇
                 <mat-icon>chevron_right</mat-icon>
               </div>
@@ -83,7 +83,7 @@
             </ng-container>
           </div>
         </div>
-        <mat-divider></mat-divider>
+        <mat-divider class="!my-2"></mat-divider>
       </ng-container>
 
       <!-- prev & next by date -->
@@ -92,10 +92,10 @@
         <span>按照日期</span>
       </div>
 
-      <div class="blog-post-prev-next">
-        <div class="blog-post-prev">
+      <div class="blog-post-prev-next flex items-start">
+        <div class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start">
           <ng-container *ngIf="previousPost$ | push as post">
-            <div class="blog-post-prev-next-notify prev">
+            <div class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start">
               <mat-icon>chevron_left</mat-icon>
               上一篇
             </div>
@@ -104,9 +104,9 @@
             ></ng-container>
           </ng-container>
         </div>
-        <div class="blog-post-next">
+        <div class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end">
           <ng-container *ngIf="nextPost$ | push as post">
-            <div class="blog-post-prev-next-notify next">
+            <div class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end">
               下一篇
               <mat-icon>chevron_right</mat-icon>
             </div>
@@ -118,11 +118,11 @@
       </div>
 
       <ng-template #postLink let-post="post">
-        <a [routerLink]="post | postDateAsPath">
+        <a class="w-full" [routerLink]="post | postDateAsPath">
           {{ post.title }}
         </a>
       </ng-template>
-      <mat-divider></mat-divider>
+      <mat-divider class="!my-2"></mat-divider>
 
       <!-- comments -->
       <h1>有任何問題或建議嗎？歡迎留言給我</h1>
@@ -131,7 +131,7 @@
       </div>
     </div>
 
-    <div class="blog-post-toc">
+    <div class="blog-post-toc hidden xl:block xl:w-[19%]">
       <app-blog-post-toc [contentElement]="content"></app-blog-post-toc>
     </div>
 
@@ -140,7 +140,7 @@
       aria-label="留個言吧"
       mat-fab
       color="default"
-      class="go-comment"
+      class="go-comment fixed bottom-8 right-24"
       (click)="goComment(comments)"
       matTooltip="留言"
     >
