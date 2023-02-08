@@ -5,24 +5,9 @@ import { BlogPostComponent } from './blog-post.component';
 
 const routes: Routes = [
   {
-    path: ':yyyy',
-    children: [
-      {
-        path: ':mm',
-        children: [
-          {
-            path: ':dd',
-            children: [
-              {
-                path: ':slug',
-                resolve: { content: BlogContentResolve },
-                component: BlogPostComponent,
-              },
-            ],
-          },
-        ],
-      },
-    ],
+    path: '',
+    resolve: { content: BlogContentResolve },
+    component: BlogPostComponent,
   },
 ];
 

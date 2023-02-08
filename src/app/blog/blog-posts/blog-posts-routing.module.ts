@@ -23,7 +23,6 @@ const routes: Routes = [
             children: [
               {
                 path: ':slug',
-                resolve: { content: BlogContentResolve },
                 loadChildren: () =>
                   import('./blog-post/blog-post.module').then(
                     (m) => m.BlogPostModule
