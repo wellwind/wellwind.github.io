@@ -13,16 +13,16 @@
 
       <div class="blog-post" #content [innerHTML]="postContent$ | push"></div>
 
-      <div class="blog-post-tags">
-        <mat-chip-listbox aria-label="Post Tags">
-          <mat-chip-option
-            class="blog-post-tag"
-            [routerLink]="['/blog/tags', tag | slugify]"
-            *ngFor="let tag of postMeta.tags"
-          >
-            {{ tag }}
-          </mat-chip-option>
-        </mat-chip-listbox>
+      <!-- blog post tags -->
+      <div aria-label="Post Tags" class="flex justify-center">
+        <a
+          *ngFor="let tag of postMeta.tags"
+          [routerLink]="['/blog/tags', tag | slugify]"
+          matRipple
+          class="text-white text-sm bg-blue-500 hover:bg-gray rounded-3xl px-3 py-2 m-1 no-underline hover:no-underline hover:text-white"
+        >
+          {{ tag }}
+        </a>
       </div>
 
       <div class="blog-post-liker-coin">
