@@ -5,7 +5,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SiteCommonModule } from '../site-common/site-common.module';
 
 import { QueryRoutingModule } from './query-routing.module';
 import { QueryComponent } from './query.component';
@@ -15,7 +14,6 @@ import { QueryComponent } from './query.component';
   imports: [
     CommonModule,
     QueryRoutingModule,
-    SiteCommonModule,
     MatCardModule,
     MatToolbarModule,
     MatIconModule,

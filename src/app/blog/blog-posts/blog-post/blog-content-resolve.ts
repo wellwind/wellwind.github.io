@@ -9,8 +9,8 @@ import {
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, timeout } from 'rxjs/operators';
 import { MarkdownMeta, parseMarkdownMeta } from 'site-utils';
-import { environment } from '../../../environments/environment';
-import { PlatformService } from '../../../platform.service';
+import { environment } from '../../../../environments/environment';
+import { PlatformService } from '../../../../platform.service';
 
 @Injectable({
   providedIn: 'root'

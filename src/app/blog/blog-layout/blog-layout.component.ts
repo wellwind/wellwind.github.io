@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { findMainContentContainer, scrollTo } from '../../../../utils';
+import { findMainContentContainer, scrollTo } from '../../../utils';
 
 @Component({
   selector: 'app-blog-layout',

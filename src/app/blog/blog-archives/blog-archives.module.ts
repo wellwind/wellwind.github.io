@@ -5,11 +5,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PushModule } from '@rx-angular/template/push';
-import { SiteCommonModule } from '../../site-common/site-common.module';
-
+import { BlogPostSubtitleModule } from './../../site-common/blog-post-subtitle/blog-post-subtitle.module';
+import { PaginationModule } from './../../site-common/pagination/pagination.module';
+import { PostDateAsPathModule } from 'src/app/site-common/post-date-as-path/post-date-as-path.module';
 import { BlogArchivesRoutingModule } from './blog-archives-routing.module';
 import { BlogArchivesComponent } from './blog-archives.component';
-
 
 @NgModule({
   declarations: [
@@ -18,9 +18,11 @@ import { BlogArchivesComponent } from './blog-archives.component';
   imports: [
     CommonModule,
     BlogArchivesRoutingModule,
+    PaginationModule,
+    BlogPostSubtitleModule,
+    PostDateAsPathModule,
     MatToolbarModule,
     MatCardModule,
-    SiteCommonModule,
     MatIconModule,
     MatButtonModule,
     PushModule

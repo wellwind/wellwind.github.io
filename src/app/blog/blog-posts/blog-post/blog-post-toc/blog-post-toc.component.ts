@@ -3,8 +3,8 @@ import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/cor
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
-import { PlatformService } from '../../../../platform.service';
-import { findMainContentContainer, scrollTo } from '../../../../utils';
+import { PlatformService } from '../../../../../platform.service';
+import { findMainContentContainer, scrollTo } from '../../../../../utils';
 
 interface Heading {
   text: string,
