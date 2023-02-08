@@ -1,9 +1,14 @@
-<div class="toc-list">
-  <div class="toc-item level0">文章大綱</div>
+<div class="toc-list flex flex-col">
+  <div class="toc-item level0 ml-2 font-extrabold">文章大綱</div>
   <div
     *ngFor="let head of headings$ | push"
     [class.active]="head.active"
-    class="toc-item level{{head.level}}">
-    <a href="#" (click)="goTo(head, $event)">{{ head.text }}</a>
+    class="toc-item transition-all text-sm leading-7 ml-2 level{{head.level}}">
+    <a
+      href="#"
+      (click)="goTo(head, $event)"
+      class="transition-all no-underline">
+      {{ head.text }}
+    </a>
   </div>
 </div>

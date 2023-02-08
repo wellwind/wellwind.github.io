@@ -22,20 +22,11 @@
 }
 
 .toc-list {
-  display: flex;
-  flex-direction: column;
-
   .toc-item {
-    transition: all 0.3s;
-    font-size: 14px;
-    line-height: 28px;
-    margin-left: 8px;
     border-left: 5px solid var(--toc-indicator-color);
 
     a {
-      transition: all 0.3s;
       color: var(--toc-indicator-color);
-      text-decoration: none;
 
       &:hover {
         color: var(--toc-indicator-focus-color);
@@ -51,9 +42,7 @@
     }
 
     &.level0 {
-      padding-left: 12px;
       color: var(--toc-header-color);
-      font-weight: 800;
     }
 
     @for $i from 1 through 6 {
