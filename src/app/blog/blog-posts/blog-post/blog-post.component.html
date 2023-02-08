@@ -62,7 +62,7 @@
         <div class="blog-post-prev-next flex items-start">
           <div class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start">
             <ng-container *ngIf="categoryPrevNext.previousPost as post">
-              <div class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start">
+              <div class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]">
                 <mat-icon>chevron_left</mat-icon>
                 上一篇
               </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end">
             <ng-container *ngIf="categoryPrevNext.nextPost as post">
-              <div class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end">
+              <div class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]">
                 下一篇
                 <mat-icon>chevron_right</mat-icon>
               </div>
@@ -95,7 +95,7 @@
       <div class="blog-post-prev-next flex items-start">
         <div class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start">
           <ng-container *ngIf="previousPost$ | push as post">
-            <div class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start">
+            <div class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]">
               <mat-icon>chevron_left</mat-icon>
               上一篇
             </div>
@@ -106,7 +106,7 @@
         </div>
         <div class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end">
           <ng-container *ngIf="nextPost$ | push as post">
-            <div class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end">
+            <div class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]">
               下一篇
               <mat-icon>chevron_right</mat-icon>
             </div>
@@ -140,7 +140,7 @@
       aria-label="留個言吧"
       mat-fab
       color="default"
-      class="go-comment !fixed bottom-8 right-24"
+      class="go-comment !fixed bottom-8 right-24 !bg-[color:var(--background-color)]"
       (click)="goComment(comments)"
       matTooltip="留言"
     >
