@@ -1,6 +1,6 @@
 <ng-container *ngIf="postMeta$ | push as postMeta">
-  <article class="blog-post-container flex items-start">
-    <div class="blog-post blog-post-overview w-full !p-0 xl:w-[80%]">
+  <div class="blog-post-container flex items-start">
+    <article class="blog-post blog-post-overview w-full !p-0 xl:w-[80%]">
       <header>
         <div class="blog-post-title">
           <h1 class="m-0 text-2xl md:text-3xl">{{ postMeta.title }}</h1>
@@ -155,7 +155,7 @@
           <app-comment class="blog-post-comments"></app-comment>
         </div>
       </footer>
-    </div>
+    </article>
 
     <div class="blog-post-toc hidden xl:block xl:w-[19%]">
       <app-blog-post-toc [contentElement]="content"></app-blog-post-toc>
@@ -172,5 +172,5 @@
     >
       <mat-icon>comment</mat-icon>
     </button>
-  </article>
+  </div>
 </ng-container>
