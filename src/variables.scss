@@ -60,8 +60,8 @@
     $primary-text-color: map-get($mat-gray, 100);
     $secondary-text-color: map-get($mat-gray, 400);
     $sidebar-text-color: map-get($mat-gray, 400);
-    $default-link-color: map-get($mat-indigo, 200);
-    $default-link-hover-color: map-get($mat-indigo, 100);
+    $default-link-color: #D4DAED;
+    $default-link-hover-color: lighten($default-link-color, 15%);
 
     --background-color:#{$background-color};
     --primary-color: #{$primary-color};
@@ -111,7 +111,7 @@
     --toc-indicator-focus-color: #{$primary-color};
 
     // code
-    --code-text-color: #{$primary-color};
+    --code-text-color: #D4DAED;
     --code-background-color: #{map-get($mat-gray, 800)};
   }
 }

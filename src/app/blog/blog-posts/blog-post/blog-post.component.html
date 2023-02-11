@@ -26,7 +26,7 @@
           *ngFor="let tag of postMeta.tags"
           [routerLink]="['/blog/tags', tag | slugify]"
           matRipple
-          class="text-white text-sm bg-blue-500 hover:bg-gray rounded-3xl px-3 py-2 m-1 no-underline hover:no-underline hover:text-white"
+          class="text-white text-sm bg-blue-800 hover:bg-blue-600 rounded-3xl px-3 py-2 m-1 no-underline hover:no-underline hover:text-white"
         >
           {{ tag }}
         </a>
