@@ -21,7 +21,7 @@ async function minifyHtmlFiles(options: Options, context: BuilderContext): Promi
         minifyJS: true,
         minifyCSS: true,
         collapseWhitespace: true
-      });
+      }).replace(/<!---->/g, '');
     fs.writeFileSync(filePath, result);
   }
 
