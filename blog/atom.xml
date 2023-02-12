@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 12 Feb 2023 12:34:49 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 12 Feb 2023 12:37:44 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -14,7 +14,7 @@
             <link>https://fullstackladder.dev/blog/2023/02/12/chat-gpt-prompts-generate-document-comment</link>
             <guid>https://fullstackladder.dev/blog/2023/02/12/chat-gpt-prompts-generate-document-comment</guid>
             <pubDate>Sun, 12 Feb 2023 20:16:45 GMT</pubDate>
-            <description><![CDATA[<p>是否要替程式碼加上註解，有很多不同的觀點，然而對於要開放給他人使用的屬性、函式或方法等，加上文件註解卻時可以有效的幫助其他人快速理解如何使用，同時也可以透過許多工具自動產生成文件，效益非常大。</p>
+            <description><![CDATA[<p>是否要提程式碼加上註解，有很多不同的觀點，然而對於要開放給他人使用的屬性、函式或方法等，加上文件註解卻時可以有效的幫助其他人快速理解如何使用，同時也可以透過許多工具自動產生成文件，效益非常大。</p>
 <p>不過要產生文件還是蠻麻煩的，好在我們可以把程式交給 ChatGPT，讓他幫我們產生文件註解，非常方便！</p>
 ]]></description>
         </item>
