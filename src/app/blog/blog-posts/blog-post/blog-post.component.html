@@ -50,11 +50,11 @@
         <ng-container
           *ngFor="let categoryPrevNext of postCategoriesPrevNext$ | push"
         >
-          <div class="flex items-center">
-            <mat-icon class="pr-1">folder_open</mat-icon>
-            <ng-container
-              *ngFor="let category of postMeta.categories; let last = last"
-            >
+          <ng-container
+            *ngIf="categoryPrevNext.previousPost || categoryPrevNext.nextPost"
+          >
+            <div class="flex items-center">
+              <mat-icon class="pr-1">folder_open</mat-icon>
               <a
                 class="blog-post-category-link"
                 [routerLink]="[
@@ -63,43 +63,42 @@
                 ]"
                 >{{ categoryPrevNext.category }}</a
               >
-              <span class="sub-divider px-2" *ngIf="!last">|</span>
-            </ng-container>
-          </div>
+            </div>
 
-          <div class="blog-post-prev-next flex items-start">
-            <div
-              class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
-            >
-              <ng-container *ngIf="categoryPrevNext.previousPost as post">
-                <div
-                  class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
-                >
-                  <mat-icon>chevron_left</mat-icon>
-                  上一篇
-                </div>
-                <ng-container
-                  *ngTemplateOutlet="postLink; context: { post: post }"
-                ></ng-container>
-              </ng-container>
+            <div class="blog-post-prev-next flex items-start">
+              <div
+                class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
+              >
+                <ng-container *ngIf="categoryPrevNext.previousPost as post">
+                  <div
+                    class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
+                  >
+                    <mat-icon>chevron_left</mat-icon>
+                    上一篇
+                  </div>
+                  <ng-container
+                    *ngTemplateOutlet="postLink; context: { post: post }"
+                  ></ng-container>
+                </ng-container>
+              </div>
+              <div
+                class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
+              >
+                <ng-container *ngIf="categoryPrevNext.nextPost as post">
+                  <div
+                    class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
+                  >
+                    下一篇
+                    <mat-icon>chevron_right</mat-icon>
+                  </div>
+                  <ng-container
+                    *ngTemplateOutlet="postLink; context: { post: post }"
+                  ></ng-container>
+                </ng-container>
+              </div>
             </div>
-            <div
-              class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
-            >
-              <ng-container *ngIf="categoryPrevNext.nextPost as post">
-                <div
-                  class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
-                >
-                  下一篇
-                  <mat-icon>chevron_right</mat-icon>
-                </div>
-                <ng-container
-                  *ngTemplateOutlet="postLink; context: { post: post }"
-                ></ng-container>
-              </ng-container>
-            </div>
-          </div>
-          <mat-divider class="!my-2"></mat-divider>
+            <mat-divider class="!my-2"></mat-divider>
+          </ng-container>
         </ng-container>
 
         <!-- prev & next by date -->
