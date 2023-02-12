@@ -10,7 +10,7 @@
       <ng-container *ngFor="let category of postMeta.categories; let last = last">
         <a class="blog-post-category-link"
           [routerLink]="['/blog/categories', category | slugify]">{{ category }}</a>
-        <span class="sub-divider" *ngIf="!last">|</span>
+        <span class="sub-divider px-1" *ngIf="!last">|</span>
       </ng-container>
     </span>
   </ng-container>

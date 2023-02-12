@@ -152,3 +152,9 @@ a {
     border: 0;
   }
 }
+
+@layer components {
+  blockquote {
+    @apply border-0 border-l-4 border-solid border-l-[color:var(--primary-color)] pl-4;
+  }
+}
