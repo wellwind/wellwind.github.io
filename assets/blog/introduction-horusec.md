@@ -5,11 +5,14 @@ category:
 tags:
   - "Horusec"
   - "OWASP"
+ogImage: "00.webp"
 ---
 
 [Horusec](https://github.com/ZupIT/horusec) 是一套開源的程式碼靜態分析工具，他可以幫助我們對程式碼進行安全性掃描，並且支援許多常見的語言，功能非常強大。
 
 <!-- more -->
+
+{% asset_img 00.webp (width=360) %}
 
 ## 安裝 Horusec
 
@@ -77,7 +80,7 @@ Horusec 提供了一個 [Visual Studio Code 的套件](https://marketplace.visua
 
 我們還可以透過套件來根據問題選擇修復或是排除，我們可以在掃描出來的弱點上點擊右鍵，選擇「False Positive」，代表這個弱點視誤判；也可以選擇「Risk Accept」，代表我接受了這個弱點的風險，不進行修復。
 
-{% asset_img 01.png %}
+{% asset_img 01.webp %}
 
 選擇完後，會將相關設定存在 `horusec-config.json` 中，之後再掃描時，可以加上 `--config-file-path=path/to/horusec-config.json`，就可以自動忽略掉我們選擇的弱點。
 
