@@ -4,11 +4,20 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 12 Feb 2023 12:19:52 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 12 Feb 2023 12:34:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[ChatGPT 咒語庫] 替程式碼加上文件註解]]></title>
+            <link>https://fullstackladder.dev/blog/2023/02/12/chat-gpt-prompts-generate-document-comment</link>
+            <guid>https://fullstackladder.dev/blog/2023/02/12/chat-gpt-prompts-generate-document-comment</guid>
+            <pubDate>Sun, 12 Feb 2023 20:16:45 GMT</pubDate>
+            <description><![CDATA[<p>是否要替程式碼加上註解，有很多不同的觀點，然而對於要開放給他人使用的屬性、函式或方法等，加上文件註解卻時可以有效的幫助其他人快速理解如何使用，同時也可以透過許多工具自動產生成文件，效益非常大。</p>
+<p>不過要產生文件還是蠻麻煩的，好在我們可以把程式交給 ChatGPT，讓他幫我們產生文件註解，非常方便！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[ChatGPT 咒語庫] 客製化英文字典]]></title>
             <link>https://fullstackladder.dev/blog/2023/02/12/chat-gpt-prompts-collection-english-dictionary</link>
@@ -169,14 +178,6 @@
             <guid>https://fullstackladder.dev/blog/2022/09/03/vscode-extensions-for-git-in-2022</guid>
             <pubDate>Sat, 03 Sep 2022 17:01:48 GMT</pubDate>
             <description><![CDATA[<p>分享一下目前我有在使用 Git 相關的 VS Code 擴充功能。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[NgRx 速成班] 用 Effects 讓元件持續保持單純]]></title>
-            <link>https://fullstackladder.dev/blog/2022/08/07/ngrx-05-effects</link>
-            <guid>https://fullstackladder.dev/blog/2022/08/07/ngrx-05-effects</guid>
-            <pubDate>Sun, 07 Aug 2022 09:01:34 GMT</pubDate>
-            <description><![CDATA[<p>前幾天我們已經講 NgRx 狀態管理最重要的幾個核心角色 - Store、Selector、Action 和 Reducer 介紹過了；今天我們來講講 NgRx 另外一個很重要的角色 - Effects。</p>
 ]]></description>
         </item>
     </channel>
