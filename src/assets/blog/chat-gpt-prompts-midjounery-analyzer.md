@@ -19,7 +19,7 @@ ogImage: "00.webp"
 
 ## 咒語
 
-{% asseet_img 00.webp (width=640) %}
+{% asset_img 00.webp (width=640) %}
 
 我的咒語原型是這樣的：
 
@@ -71,7 +71,7 @@ Please analyze the following [prompt] for generating images in Midjounery with E
 
 先看看使用中文的咒語，會得到什麼結果：
 
-{% asseet_img 01.webp %}
+{% asset_img 01.webp %}
 
 其實也很有幫助了，但我還是希望可以保留原始咒語的說明部分，但 ChatGPT 經常會直接幫我翻譯成中文。
 
