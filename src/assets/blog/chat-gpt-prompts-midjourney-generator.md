@@ -1,5 +1,5 @@
 ---
-title: "[ChatGPT 咒語庫] MidJourney 咒語產生器"
+title: "[ChatGPT 咒語庫] Midjourney 咒語產生器"
 date: 2023-02-13 12:57:21
 category:
   - "ChatGPT 咒語庫"
@@ -7,13 +7,13 @@ category:
 tags:
   - "ChatGPT"
   - "AI"
-  - "MidJourney"
+  - "Midjourney"
 ogImage: "00.webp"
 ---
 
-MidJourney 應該算適當前最熱門的 AI 繪圖軟體之一了！只要把我們想像的文字丟進去給 MidJourney，就能產出非常精美的圖片，雖然細節有時候還是會有問題，但至少對於我這種美術白癡來說，已經是非常好看了！
+Midjourney 應該算適當前最熱門的 AI 繪圖軟體之一了！只要把我們想像的文字丟進去給 Midjourney，就能產出非常精美的圖片，雖然細節有時候還是會有問題，但至少對於我這種美術白癡來說，已經是非常好看了！
 
-不過要能很好的跟 MidJourney 詠唱咒語，難度可是比 ChatGPT 高得多了，但也別低估 ChatGPT，我們可以透過 ChatGPT 幫助我們補強細節，讓 MidJourney 產生出更好的圖片！
+不過要能很好的跟 Midjourney 詠唱咒語，難度可是比 ChatGPT 高得多了，但也別低估 ChatGPT，我們可以透過 ChatGPT 幫助我們補強細節，讓 Midjourney 產生出更好的圖片！
 
 <!-- more -->
 
@@ -25,9 +25,9 @@ MidJourney 應該算適當前最熱門的 AI 繪圖軟體之一了！只要把�
 
 {% note info %}
 
-You will now act as a prompt generator for a generative AI called "MidJourney". MidJourney AI generates images based on given prompts. 
+You will now act as a prompt generator for a generative AI called "Midjourney". Midjourney AI generates images based on given prompts. 
 
-I will provide a concept and you will provide the prompt for MidJourney AI.
+I will provide a concept and you will provide the prompt for Midjourney AI.
 
 You will never alter the structure and formatting outlined below in any way and obey the following guidelines:
 
@@ -72,12 +72,12 @@ Please pay attention:
 
 {% endnote %}
 
-由於要跟 MidJourney 溝通，用英文還是會比較好，所以對 ChatGPT 詠唱的咒語也使用英文，比較不會產生意料之外的情境，有興趣可以自行翻譯成中文看看詳細內容，這邊列出幾個重點：
+由於要跟 Midjourney 溝通，用英文還是會比較好，所以對 ChatGPT 詠唱的咒語也使用英文，比較不會產生意料之外的情境，有興趣可以自行翻譯成中文看看詳細內容，這邊列出幾個重點：
 
-  * MidJourney 的咒語還是有一些公式可言的，主要會是 [描述], [補充], [風格], [參數] 的組合，所以這個咒語的 [1] 部分，是我們初步想要的描述，而 [2]、[3] 和 [4] 的部分就可以靠 ChatGPT 幫我們補充更多的細節，如環境、場景、感受等等。
+  * Midjourney 的咒語還是有一些公式可言的，主要會是 [描述], [補充], [風格], [參數] 的組合，所以這個咒語的 [1] 部分，是我們初步想要的描述，而 [2]、[3] 和 [4] 的部分就可以靠 ChatGPT 幫我們補充更多的細節，如環境、場景、感受等等。
   * [5] 的部分也是由 AI 幫我們決定風格，如果有自己喜好的風格，也可以在這裡修改
   * [6] 的部分則是 [5] 的補充
-  * 最後再加上給 MidJourney 的參數，一樣由 ChatGPT 自行決定；當然也可以再依照自己各人喜好去修改
+  * 最後再加上給 Midjourney 的參數，一樣由 ChatGPT 自行決定；當然也可以再依照自己各人喜好去修改
   * 之後再告訴 ChatGPT 該如何組合這些參數，以及要 ChatGPT 產出 4 個咒語，讓我們可以選擇
   * 最後則是一些希望 ChatGPT 產生詠唱咒語時要注意的重點
 
@@ -85,7 +85,7 @@ Please pay attention:
 
 {% asst_img 01.webp %}
 
-以下隨便挑了一個咒語去 MidJourney 詠唱吧！效果真的蠻好的
+以下隨便挑了一個咒語去 Midjourney 詠唱吧！效果真的蠻好的
 
 {% asset_img 02.webp %}
 
