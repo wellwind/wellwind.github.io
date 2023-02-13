@@ -29,12 +29,12 @@ ogImage: "00.webp"
 
 我將提供一段用於 Midjourney 生成圖片的[提示]，提示是由一系列的[說明]使用 "," 組合而成的，請幫我依照以下方向分析其中的內容
 
-[1] 整張圖片的主要概念描述；說明[提示]中有哪些[說明]屬於這個方向
-[2] 對概念描述的補充說明，如情緒、視角、光影和觀點等；說明[提示]中有哪些[說明]屬於這個方向
-[3] 對圖片背景的描述，一樣包含基本概念與補充說明，；說明[提示]中有哪些[說明]屬於這個方向；如果沒有對背景特別描述，直接回答「無」
-[4] 圖片的參考風格，例如使用哪個時代、畫家、軟體、動畫、遊戲等為主要風格來產生；說明[提示]中有哪些[說明]屬於這個方向
-[5] 圖片的其他參數說明，所有 --xxx 類型的都是產生參數，請說明參數的用途
-[6] 列出所有的 [說明]
+* [1] 整張圖片的主要概念描述；說明[提示]中有哪些[說明]屬於這個方向
+* [2] 對概念描述的補充說明，如情緒、視角、光影和觀點等；說明[提示]中有哪些[說明]屬於這個方向
+* [3] 對圖片背景的描述，一樣包含基本概念與補充說明，；說明[提示]中有哪些[說明]屬於這個方向；如果沒有對背景特別描述，直接回答「無」
+* [4] 圖片的參考風格，例如使用哪個時代、畫家、軟體、動畫、遊戲等為主要風格來產生；說明[提示]中有哪些[說明]屬於這個方向
+* [5] 圖片的其他參數說明，所有 --xxx 類型的都是產生參數，請說明參數的用途
+* [6] 列出所有的 [說明]
 
 以下是我要請你分析的 Midjourney 提示，請依照以上要求進行分析
 
@@ -54,12 +54,12 @@ Please ignore all previous instructions. From now on, communicate only in Englis
 
 I will provide a set of instructions, called a [prompt], for generating images in Midjourney. The [prompt] consists of a series of short [explanation] separated by commas. Please help me analyze the content of the [prompt] by answering the following questions in English:
 
-[1] What is the main concept of the image? Which [explanation] in the [prompt] relate to this concept?
-[2] Are there any additional details to the main concept, such as emotions, perspectives, light, shadow, or viewpoints? Which [explanation] in the [prompt] relate to these details?
-[3] Is there a background to the image? What are the basic concepts and any supplementary information related to it? Which [explanation] in the [prompt] relate to the background? If there is no specific background information, answer "none."
-[4] What is the reference style of the image? Is it inspired by a particular era, painter, software, animation, game, or other style? Which [explanation] in the [prompt] relate to the reference style?
-[5] Are there any other parameters for generating the image? Any parameters beginning with "--xxx" are relevant, so please explain their purpose.
-[6] List all of the explanations in the [prompt].
+* [1] What is the main concept of the image? Which [explanation] in the [prompt] relate to this concept?
+* [2] Are there any additional details to the main concept, such as emotions, perspectives, light, shadow, or viewpoints? Which [explanation] in the [prompt] relate to these details?
+* [3] Is there a background to the image? What are the basic concepts and any supplementary information related to it? Which [explanation] in the [prompt] relate to the background? If there is no specific background information, answer "none."
+* [4] What is the reference style of the image? Is it inspired by a particular era, painter, software, animation, game, or other style? Which [explanation] in the [prompt] relate to the reference style?
+* [5] Are there any other parameters for generating the image? Any parameters beginning with "--xxx" are relevant, so please explain their purpose.
+* [6] List all of the explanations in the [prompt].
 
 Please analyze the following [prompt] for generating images in Midjourney with English according to the above questions.
 
