@@ -84,6 +84,8 @@ Please pay attention:
 
 ## 咒語效果
 
+{% asset_img 01.webp %}
+
 以下隨便挑了一個咒語去 Midjourney 詠唱吧！效果真的蠻好的
 
 {% asset_img 02.webp %}
