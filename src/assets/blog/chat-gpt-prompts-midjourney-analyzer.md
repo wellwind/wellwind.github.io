@@ -1,5 +1,5 @@
 ---
-title: "[ChatGPT 咒語庫] Midjounery 咒語解析器"
+title: "[ChatGPT 咒語庫] MidJourney 咒語解析器"
 date: 2023-02-13 13:36:21
 category:
   - "ChatGPT 咒語庫"
@@ -7,13 +7,13 @@ category:
 tags:
   - "ChatGPT"
   - "AI"
-  - "Midjounery"
+  - "MidJourney"
 ogImage: "00.webp"
 ---
 
-前一篇文章我們提到可以[透過 ChatGPT 產生 Midjounery 咒語](https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjounery-generator/)，這讓我想到：「一直看人家的咒語來學習的效率可能有點低，是否能讓 ChatGPT 先幫我分析出幾個重要部分呢？」
+前一篇文章我們提到可以[透過 ChatGPT 產生 MidJourney 咒語](https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-generator/)，這讓我想到：「一直看人家的咒語來學習的效率可能有點低，是否能讓 ChatGPT 先幫我分析出幾個重要部分呢？」
 
-經過一些嘗試與調整，今天就來分享一下我用 ChatGPT 來分析與學習 Midjounery 咒語的咒語 🤔
+經過一些嘗試與調整，今天就來分享一下我用 ChatGPT 來分析與學習 MidJourney 咒語的咒語 🤔
 
 <!-- more -->
 
@@ -25,9 +25,9 @@ ogImage: "00.webp"
 
 {% note info %}
 
-請你扮演一個 Midjounery 分析專家，並從現在開始，以繁體中文進行溝通。
+請你扮演一個 MidJourney 分析專家，並從現在開始，以繁體中文進行溝通。
 
-我將提供一段用於 Midjounery 生成圖片的[提示]，提示是由一系列的[說明]使用 "," 組合而成的，請幫我依照以下方向分析其中的內容
+我將提供一段用於 MidJourney 生成圖片的[提示]，提示是由一系列的[說明]使用 "," 組合而成的，請幫我依照以下方向分析其中的內容
 
 [1] 整張圖片的主要概念描述；說明[提示]中有哪些[說明]屬於這個方向
 [2] 對概念描述的補充說明，如情緒、視角、光影和觀點等；說明[提示]中有哪些[說明]屬於這個方向
@@ -36,9 +36,9 @@ ogImage: "00.webp"
 [5] 圖片的其他參數說明，所有 --xxx 類型的都是產生參數，請說明參數的用途
 [6] 列出所有的 [說明]
 
-以下是我要請你分析的 Midjounery 提示，請依照以上要求進行分析
+以下是我要請你分析的 MidJourney 提示，請依照以上要求進行分析
 
-[[Midjounery 咒語]]
+[[MidJourney 咒語]]
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ ogImage: "00.webp"
 
 Please ignore all previous instructions. From now on, communicate only in English.
 
-I will provide a set of instructions, called a [prompt], for generating images in Midjounery. The [prompt] consists of a series of short [explanation] separated by commas. Please help me analyze the content of the [prompt] by answering the following questions in English:
+I will provide a set of instructions, called a [prompt], for generating images in MidJourney. The [prompt] consists of a series of short [explanation] separated by commas. Please help me analyze the content of the [prompt] by answering the following questions in English:
 
 [1] What is the main concept of the image? Which [explanation] in the [prompt] relate to this concept?
 [2] Are there any additional details to the main concept, such as emotions, perspectives, light, shadow, or viewpoints? Which [explanation] in the [prompt] relate to these details?
@@ -61,9 +61,9 @@ I will provide a set of instructions, called a [prompt], for generating images i
 [5] Are there any other parameters for generating the image? Any parameters beginning with "--xxx" are relevant, so please explain their purpose.
 [6] List all of the explanations in the [prompt].
 
-Please analyze the following [prompt] for generating images in Midjounery with English according to the above questions.
+Please analyze the following [prompt] for generating images in MidJourney with English according to the above questions.
 
-[[Midjounery 咒語]]
+[[MidJourney 咒語]]
 
 {% endnote %}
 
