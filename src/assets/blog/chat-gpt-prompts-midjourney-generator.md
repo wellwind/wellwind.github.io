@@ -59,6 +59,10 @@ The prompts you provide will be in English*.
 
 Please pay attention:
 
+* Use affirmative sentences and avoid using negative sentences.
+* Describe what you want clearly and avoid using abstract vocabulary.
+* Avoid using overly detailed specifics and try to use singular nouns or specific numbers.
+* Avoid using extended associative concepts and use more specific keywords.
 * Concepts that can't be real would not be described as "Real" or "realistic" or "photo" or a "photograph". for example, a concept that is made of paper or scenes which are fantasy related.
 * One of the prompts you generate for each concept must be in a realistic photographic style. you should also choose a lens type and size for it. Don't choose an artist for the realistic photography prompts.
 * Separate the different prompts with two new lines
@@ -74,9 +78,13 @@ Please pay attention:
 * 之後再告訴 ChatGPT 該如何組合這些參數，以及要 ChatGPT 產出 4 個咒語，讓我們可以選擇
 * 最後則是一些希望 ChatGPT 產生詠唱咒語時要注意的重點
 
+補充一下，Please pay attention 的前面四點，是我參考 [Midjourney 如何讓畫面精準呈現](https://blog.akanelee.me/2023/01/26/ai-midjouyney-tutorial-writing-prompts/)，然後把文章丟到 ChatGPT 總結成的重點清單，然後再翻譯成英文的結果，用 ChatGPT 濃縮重點也是很方便的！
+
+{% asset_img 04.webp %}
+
 ## 咒語效果
 
-{% asst_img 01.webp %}
+{% asset_img 01.webp %}
 
 以下隨便挑了一個咒語去 Midjourney 詠唱吧！效果真的蠻好的
 
