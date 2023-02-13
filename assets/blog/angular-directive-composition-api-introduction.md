@@ -2,7 +2,7 @@
 title: "Directive composition API 初體驗"
 date: 2022-11-20 12:02:43
 category:
-  - "Angular大師之路"
+  - "Angular 大師之路"
 tags:
   - "Angular"
   - "Angular 15"
@@ -16,7 +16,7 @@ Angular v15 推出了新的 feature - **directive composition API**，可以方�
 
 <!-- more -->
 
-# 基本情境
+## 基本情境
 
 想像一下，我們有個「可以變更背景顏色」的 directive
 
@@ -50,11 +50,11 @@ export class BgColorDirective {
 
 到了 Angular v15 以後，由於 directive componsition API 的關係，我們可以輕易的將 directive 「組合」到一個元件，或是 directive 了！
 
-# Directive composition API
+## Directive composition API
 
 話不多說，直接看看 directive composition API 該如何使用，在 `@Component` 和 `@Directive` 這兩個 decorator 上，現在都多了 `hostDirectives: []` 可以設定要組合的 directive。
 
-## 前提
+### 前提
 
 唯一要注意的是，如果要使用 directive composition API，那麼「被組合」的 directive「**必須是 standalone 的**」，因此在原來的 directive 一定加上 `standalone: true` 的設定：
 
@@ -72,7 +72,7 @@ export class BgColorDirective { ... }
 
 {% endnote %}
 
-## 使用
+### 使用
 
 接著就可以組合這個 directive 了
 
@@ -99,7 +99,7 @@ export class MyCompComponent { ... }
 
 很簡單吧！透過 directive composition API，我們可以輕易的將 directive 組合到元件上，直接在元件內就享用 directive 的功能，在某個元件如果確定要使用某個 directive 功能時，可以大幅簡化程式碼！
 
-## Inputs & Outputs
+### Inputs & Outputs
 
 Directive composition API 不僅是組合一個 directive 本身的功能而已，當 directive 有 inputs 或 outputs 時，也可以在 `hostDirectives: []` 中設定，把 directive **類別內**的 `@Inptut()` 或 `@Output()` 當做事元件自己的，例如我們的 `BgColorDirective` 有一個 `bgColor` 的 `@Input()`，希望在組合到 `MyCompComponent` 時也可以直接使用 `bgColor` 來對 directive 的行為設定，可以寫成：
 
@@ -179,7 +179,7 @@ export class MyCompComponent {
 
 在需要特別控制掛在身上的 directive 時，還蠻有用的。
 
-## directive 組合多個 directives
+### directive 組合多個 directives
 
 我們也可以在一個 directive 內透過 `hostDirective: []` 一次組合多個 directives，例如以下 directive 組合了 `BgColorDirective` 和 `TextColorDirective`：
 
@@ -210,7 +210,7 @@ export class TextBlockDirective { ... }
 
 未來我們在設計 directive 時，可以拆成許多功能單一個 directives，最後在透過 directive composition API 來組合出各種不同意圖的 directive 囉！
 
-## 組合的 directive 再組合到元件上
+### 組合的 directive 再組合到元件上
 
 這個組合好的 directive 可不可以再組合到元件上呢？是可以的，但有一些要注意的地方：
 
@@ -286,10 +286,10 @@ export class MyCompComponent { }
 
 我自己覺得這可能就是 Angular 一開始預期的設計了，但也沒非常有把握，就看未來文件如何補充了：如果你有更好的想法，也請告訴我 🙏
 
-# 本日小結
+## 本日小結
 
 組合 (composition) 是現在在前端越來越被重視的一種設計方式，具有將功能拆成比較小的單元，之後再組合起來的設計思維也會越來越重要！隨著不斷 Angular 不斷的改版，也可以看到許多新的 api 著重在更加輕量，更好組合為目標，directive composition API 就是其中一個例子，只要善用組合的設計思維，就能讓程式碼更加簡單元化，也會容易維護。
 
-# 相關資源
+## 相關資源
 
 - [Directive Composition API](https://angular.io/guide/directive-composition-api)
