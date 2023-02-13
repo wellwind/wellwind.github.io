@@ -4,27 +4,27 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Mon, 13 Feb 2023 07:54:44 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Feb 2023 07:57:44 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
         <item>
-            <title><![CDATA[[ChatGPT 咒語庫] MidJourney 咒語解析器]]></title>
+            <title><![CDATA[[ChatGPT 咒語庫] Midjourney 咒語解析器]]></title>
             <link>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-analyzer</link>
             <guid>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-analyzer</guid>
             <pubDate>Mon, 13 Feb 2023 13:36:21 GMT</pubDate>
-            <description><![CDATA[<p>前一篇文章我們提到可以<a href="https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-generator/">透過 ChatGPT 產生 MidJourney 咒語</a>，這讓我想到：「一直看人家的咒語來學習的效率可能有點低，是否能讓 ChatGPT 先幫我分析出幾個重要部分呢？」</p>
-<p>經過一些嘗試與調整，今天就來分享一下我用 ChatGPT 來分析與學習 MidJourney 咒語的咒語 🤔</p>
+            <description><![CDATA[<p>前一篇文章我們提到可以<a href="https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-generator/">透過 ChatGPT 產生 Midjourney 咒語</a>，這讓我想到：「一直看人家的咒語來學習的效率可能有點低，是否能讓 ChatGPT 先幫我分析出幾個重要部分呢？」</p>
+<p>經過一些嘗試與調整，今天就來分享一下我用 ChatGPT 來分析與學習 Midjourney 咒語的咒語 🤔</p>
 ]]></description>
         </item>
         <item>
-            <title><![CDATA[[ChatGPT 咒語庫] MidJourney 咒語產生器]]></title>
+            <title><![CDATA[[ChatGPT 咒語庫] Midjourney 咒語產生器]]></title>
             <link>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-generator</link>
             <guid>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-generator</guid>
             <pubDate>Mon, 13 Feb 2023 12:57:21 GMT</pubDate>
-            <description><![CDATA[<p>MidJourney 應該算適當前最熱門的 AI 繪圖軟體之一了！只要把我們想像的文字丟進去給 MidJourney，就能產出非常精美的圖片，雖然細節有時候還是會有問題，但至少對於我這種美術白癡來說，已經是非常好看了！</p>
-<p>不過要能很好的跟 MidJourney 詠唱咒語，難度可是比 ChatGPT 高得多了，但也別低估 ChatGPT，我們可以透過 ChatGPT 幫助我們補強細節，讓 MidJourney 產生出更好的圖片！</p>
+            <description><![CDATA[<p>Midjourney 應該算適當前最熱門的 AI 繪圖軟體之一了！只要把我們想像的文字丟進去給 Midjourney，就能產出非常精美的圖片，雖然細節有時候還是會有問題，但至少對於我這種美術白癡來說，已經是非常好看了！</p>
+<p>不過要能很好的跟 Midjourney 詠唱咒語，難度可是比 ChatGPT 高得多了，但也別低估 ChatGPT，我們可以透過 ChatGPT 幫助我們補強細節，讓 Midjourney 產生出更好的圖片！</p>
 ]]></description>
         </item>
         <item>
