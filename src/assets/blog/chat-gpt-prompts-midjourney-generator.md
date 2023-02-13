@@ -17,6 +17,8 @@ Midjourney 應該算適當前最熱門的 AI 繪圖軟體之一了！只要把�
 
 <!-- more -->
 
+另外，你也可以透過 [Midjourney 咒語解析器](https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-analyzer/) 來幫助自己學習課種 Midjourney 咒語。
+
 {% asset_img 00.webp (width=640) %}
 
 ## 咒語
