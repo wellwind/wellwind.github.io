@@ -66,25 +66,23 @@ Please pay attention:
 * Concepts that can't be real would not be described as "Real" or "realistic" or "photo" or a "photograph". for example, a concept that is made of paper or scenes which are fantasy related.
 * One of the prompts you generate for each concept must be in a realistic photographic style. you should also choose a lens type and size for it. Don't choose an artist for the realistic photography prompts.
 * Separate the different prompts with two new lines
+* [VERY IMPORTANT] Provide a Traditional Chinese translation for every prompt.
 
 {% endnote %}
 
 由於要跟 Midjourney 溝通，用英文還是會比較好，所以對 ChatGPT 詠唱的咒語也使用英文，比較不會產生意料之外的情境，有興趣可以自行翻譯成中文看看詳細內容，這邊列出幾個重點：
 
-* Midjourney 的咒語還是有一些公式可言的，主要會是 [描述], [補充], [風格], [參數] 的組合，所以這個咒語的 [1] 部分，是我們初步想要的描述，而 [2]、[3] 和 [4] 的部分就可以靠 ChatGPT 幫我們補充更多的細節，如環境、場景、感受等等。
-* [5] 的部分也是由 AI 幫我們決定風格，如果有自己喜好的風格，也可以在這裡修改
-* [6] 的部分則是 [5] 的補充
+* Midjourney 的咒語還是有一些公式的，主要是 [描述], [補充], [風格], [參數] 組合，所以這個咒語的 [1] 部分，是我們初步想要的**描述**，而 [2]、[3] 和 [4] 的部分就可以靠 ChatGPT 幫我們補充更多的細節，如環境、場景、感受等等。
+* [5] 和 [6] 的部分也是由 AI 幫我們決定風格，如果有自己喜好的風格，也可以在這裡修改
 * 最後再加上給 Midjourney 的參數，一樣由 ChatGPT 自行決定；當然也可以再依照自己各人喜好去修改
 * 之後再告訴 ChatGPT 該如何組合這些參數，以及要 ChatGPT 產出 4 個咒語，讓我們可以選擇
-* 最後則是一些希望 ChatGPT 產生詠唱咒語時要注意的重點
+* 最後則是一些希望 ChatGPT 產生詠唱咒語時要注意的重點，這邊特別請 ChatGPT 在用中文翻譯一下咒語，方便我們後續閱讀每個咒語的內容
 
 補充一下，Please pay attention 的前面四點，是我參考 [Midjourney 如何讓畫面精準呈現](https://blog.akanelee.me/2023/01/26/ai-midjouyney-tutorial-writing-prompts/)，然後把文章丟到 ChatGPT 總結成的重點清單，然後再翻譯成英文的結果，用 ChatGPT 濃縮重點也是很方便的！
 
 {% asset_img 04.webp %}
 
 ## 咒語效果
-
-{% asset_img 01.webp %}
 
 以下隨便挑了一個咒語去 Midjourney 詠唱吧！效果真的蠻好的
 
