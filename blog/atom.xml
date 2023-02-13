@@ -4,13 +4,22 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Mon, 13 Feb 2023 05:49:49 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Feb 2023 06:07:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
         <item>
-            <title><![CDATA[[ChatGPT 咒語庫] Midjounery 產生器]]></title>
+            <title><![CDATA[[ChatGPT 咒語庫] Midjounery 咒語解析器]]></title>
+            <link>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjounery-analyzer</link>
+            <guid>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjounery-analyzer</guid>
+            <pubDate>Mon, 13 Feb 2023 13:36:21 GMT</pubDate>
+            <description><![CDATA[<p>前一篇文章我們提到可以<a href="https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjounery-generator/">透過 ChatGPT 產生 Midjounery 咒語</a>，這讓我想到：「一直看人家的咒語來學習的效率可能有點低，是否能讓 ChatGPT 先幫我分析出幾個重要部分呢？」</p>
+<p>經過一些嘗試與調整，今天就來分享一下我用 ChatGPT 來分析與學習 Midjounery 咒語的咒語 🤔</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[ChatGPT 咒語庫] Midjounery 咒語產生器]]></title>
             <link>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjounery-generator</link>
             <guid>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjounery-generator</guid>
             <pubDate>Mon, 13 Feb 2023 12:57:21 GMT</pubDate>
@@ -170,15 +179,6 @@
             <pubDate>Sat, 17 Sep 2022 19:35:10 GMT</pubDate>
             <description><![CDATA[<p>當系統預期有很多人同時上線時，可能會需要進行壓力測試。比起老牌工具 Apache Jmeter 的高學習難度，k6 是一套很好的壓力測試工具，對於開發人員來說非常友善。</p>
 <p>本文將簡單介紹如何使用 k6 進行壓力測試。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Visual Studio Code 小技巧] 改變檔案的換行符號]]></title>
-            <link>https://fullstackladder.dev/blog/2022/09/10/change-crlf-in-vscode</link>
-            <guid>https://fullstackladder.dev/blog/2022/09/10/change-crlf-in-vscode</guid>
-            <pubDate>Sat, 10 Sep 2022 21:12:52 GMT</pubDate>
-            <description><![CDATA[<p>換行符號在不同的作業系統上有不同的表示方式，Windows 會使用 CRLF (a.k.a <code>\r\n</code>)，而 Linux 則是使用 LF (a.k.a <code>\n</code>)，這樣在不同的作業系統上，如果有人使用不同的換行符號，有時就會出現一些問題，所以我們需要在不同的作業系統上都使用相同的換行符號，這樣才能避免不同的問題。</p>
-<p>這篇文章就來說說如何用 VSCode 來改變檔案的換行符號。</p>
 ]]></description>
         </item>
     </channel>

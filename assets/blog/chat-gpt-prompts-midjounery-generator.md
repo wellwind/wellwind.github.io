@@ -1,5 +1,5 @@
 ---
-title: "[ChatGPT 咒語庫] Midjounery 產生器"
+title: "[ChatGPT 咒語庫] Midjounery 咒語產生器"
 date: 2023-02-13 12:57:21
 category:
   - "ChatGPT 咒語庫"
