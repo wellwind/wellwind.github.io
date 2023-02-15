@@ -11,7 +11,7 @@ tags:
 ogImage: "00.webp"
 ---
 
-Midjourney 應該算適當前最熱門的 AI 繪圖軟體之一了！只要把我們想像的文字丟進去給 Midjourney，就能產出非常精美的圖片，雖然細節有時候還是會有問題，但至少對於我這種美術白癡來說，已經是非常好看了！
+Midjourney 應該算是當前最熱門的 AI 繪圖軟體之一了！只要把我們想像的文字丟進去給 Midjourney，就能產出非常精美的圖片，雖然細節有時候還是會有問題 (例如經典的手指頭...)，但至少對於我這種美術白癡來說，已經是非常好看了！
 
 不過要能很好的跟 Midjourney 詠唱咒語，難度可是比 ChatGPT 高得多了，但也別低估 ChatGPT，我們可以透過 ChatGPT 幫助我們補強細節，讓 Midjourney 產生出更好的圖片！
 
@@ -76,7 +76,7 @@ Please pay attention:
 * [5] 和 [6] 的部分也是由 AI 幫我們決定風格，如果有自己喜好的風格，也可以在這裡修改
 * 最後再加上給 Midjourney 的參數，一樣由 ChatGPT 自行決定；當然也可以再依照自己各人喜好去修改
 * 之後再告訴 ChatGPT 該如何組合這些參數，以及要 ChatGPT 產出 4 個咒語，讓我們可以選擇
-* 最後則是一些希望 ChatGPT 產生詠唱咒語時要注意的重點，這邊特別請 ChatGPT 在用中文翻譯一下咒語，方便我們後續閱讀每個咒語的內容
+* 最後則是一些希望 ChatGPT 產生詠唱咒語時要注意的重點，這邊特別請 ChatGPT 再用中文翻譯一下咒語，方便我們後續閱讀每個咒語的內容
 
 補充一下，Please pay attention 的前面四點，是我參考 [Midjourney 如何讓畫面精準呈現](https://blog.akanelee.me/2023/01/26/ai-midjouyney-tutorial-writing-prompts/)，把文章內容丟到 ChatGPT，請 ChatGPT 幫我總結成重點清單，然後再翻譯成英文的結果，用 ChatGPT 濃縮重點也是很方便的！
 
