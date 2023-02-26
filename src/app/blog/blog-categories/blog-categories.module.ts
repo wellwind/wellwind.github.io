@@ -1,8 +1,8 @@
-import { BlogPostSubtitleModule } from './../../site-common/blog-post-subtitle/blog-post-subtitle.module';
-import { UnslugifyModule } from './../../site-common/unslugify/unslugify.module';
-import { PostDateAsPathModule } from '../../site-common/post-date-as-path/post-date-as-path.module';
-import { PaginationModule } from './../../site-common/pagination/pagination.module';
-import { SlugifyModule } from './../../site-common/slugify/slugify.module';
+
+
+
+
+
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,19 +16,14 @@ import { BlogCategoriesComponent } from './blog-categories.component';
 
 @NgModule({
     imports: [
-        CommonModule,
-        BlogCategoriesRoutingModule,
-        BlogPostSubtitleModule,
-        SlugifyModule,
-        UnslugifyModule,
-        PaginationModule,
-        PostDateAsPathModule,
-        MatCardModule,
-        MatIconModule,
-        MatButtonModule,
-        MatToolbarModule,
-        PushModule,
-        BlogCategoriesComponent, BlogCategoriesPostsComponent
-    ]
+    CommonModule,
+    BlogCategoriesRoutingModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    PushModule,
+    BlogCategoriesComponent, BlogCategoriesPostsComponent
+]
 })
 export class BlogCategoriesModule {}

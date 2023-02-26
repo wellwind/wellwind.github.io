@@ -5,25 +5,22 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PushModule } from '@rx-angular/template/push';
-import { BlogPostSubtitleModule } from './../../site-common/blog-post-subtitle/blog-post-subtitle.module';
-import { PaginationModule } from './../../site-common/pagination/pagination.module';
-import { PostDateAsPathModule } from 'src/app/site-common/post-date-as-path/post-date-as-path.module';
+
+
+
 import { BlogArchivesRoutingModule } from './blog-archives-routing.module';
 import { BlogArchivesComponent } from './blog-archives.component';
 
 @NgModule({
     imports: [
-        CommonModule,
-        BlogArchivesRoutingModule,
-        PaginationModule,
-        BlogPostSubtitleModule,
-        PostDateAsPathModule,
-        MatToolbarModule,
-        MatCardModule,
-        MatIconModule,
-        MatButtonModule,
-        PushModule,
-        BlogArchivesComponent
-    ]
+    CommonModule,
+    BlogArchivesRoutingModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    PushModule,
+    BlogArchivesComponent
+]
 })
 export class BlogArchivesModule { }
