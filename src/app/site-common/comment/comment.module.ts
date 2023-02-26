@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [CommentComponent],
-  exports: [CommentComponent],
-  imports: [
-    CommonModule
-  ]
+    exports: [CommentComponent],
+    imports: [
+        CommonModule,
+        CommentComponent
+    ]
 })
 export class CommentModule { }

@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { PostMetaWithSlug } from '../../post-meta.interface';
 import { getPagePosts } from '../get-page-posts';
+import { PushModule } from '@rx-angular/template/push';
+import { PostDateAsPathPipe } from '../../site-common/post-date-as-path/post-date-as-path.pipe';
+import { PaginationComponent } from '../../site-common/pagination/pagination.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle/blog-post-subtitle.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgFor } from '@angular/common';
 
 const PAGE_SIZE = 10;
 
 @Component({
-  selector: 'app-blog-archives',
-  templateUrl: './blog-archives.component.html',
-  styleUrls: ['./blog-archives.component.scss']
+    selector: 'app-blog-archives',
+    templateUrl: './blog-archives.component.html',
+    styleUrls: ['./blog-archives.component.scss'],
+    standalone: true,
+    imports: [NgFor, MatToolbarModule, MatCardModule, RouterLink, BlogPostSubtitleComponent, MatButtonModule, MatIconModule, PaginationComponent, PostDateAsPathPipe, PushModule]
 })
 export class BlogArchivesComponent implements OnInit {
 

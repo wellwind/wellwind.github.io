@@ -12,20 +12,18 @@ import { BlogArchivesRoutingModule } from './blog-archives-routing.module';
 import { BlogArchivesComponent } from './blog-archives.component';
 
 @NgModule({
-  declarations: [
-    BlogArchivesComponent
-  ],
-  imports: [
-    CommonModule,
-    BlogArchivesRoutingModule,
-    PaginationModule,
-    BlogPostSubtitleModule,
-    PostDateAsPathModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    PushModule
-  ]
+    imports: [
+        CommonModule,
+        BlogArchivesRoutingModule,
+        PaginationModule,
+        BlogPostSubtitleModule,
+        PostDateAsPathModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        PushModule,
+        BlogArchivesComponent
+    ]
 })
 export class BlogArchivesModule { }

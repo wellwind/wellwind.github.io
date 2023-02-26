@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { SitePostService } from '../../site-post.service';
 import { getPagePosts } from '../get-page-posts';
+import { PushModule } from '@rx-angular/template/push';
+import { PostDateAsPathPipe } from '../../site-common/post-date-as-path/post-date-as-path.pipe';
+import { PaginationComponent } from '../../site-common/pagination/pagination.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle/blog-post-subtitle.component';
+import { MatCardModule } from '@angular/material/card';
+import { NgFor } from '@angular/common';
 
 const PAGE_SIZE = 10;
 
 @Component({
-  selector: 'app-blog-posts',
-  templateUrl: './blog-posts.component.html',
-  styleUrls: ['./blog-posts.component.scss']
+    selector: 'app-blog-posts',
+    templateUrl: './blog-posts.component.html',
+    styleUrls: ['./blog-posts.component.scss'],
+    standalone: true,
+    imports: [NgFor, MatCardModule, RouterLink, BlogPostSubtitleComponent, MatButtonModule, MatIconModule, PaginationComponent, PostDateAsPathPipe, PushModule]
 })
 export class BlogPostsComponent implements OnInit {
 

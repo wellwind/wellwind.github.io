@@ -18,24 +18,22 @@ import { BlogTagsComponent } from './blog-tags.component';
 
 
 @NgModule({
-  declarations: [
-    BlogTagsComponent,
-    BlogPostTagSizePipe,
-    BlogTagPostsComponent
-  ],
-  imports: [
-    CommonModule,
-    BlogTagsRoutingModule,
-    BlogPostSubtitleModule,
-    SlugifyModule,
-    UnslugifyModule,
-    PostDateAsPathModule,
-    PaginationModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    PushModule
-  ]
+    imports: [
+        CommonModule,
+        BlogTagsRoutingModule,
+        BlogPostSubtitleModule,
+        SlugifyModule,
+        UnslugifyModule,
+        PostDateAsPathModule,
+        PaginationModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
+        PushModule,
+        BlogTagsComponent,
+        BlogPostTagSizePipe,
+        BlogTagPostsComponent
+    ]
 })
 export class BlogTagsModule { }

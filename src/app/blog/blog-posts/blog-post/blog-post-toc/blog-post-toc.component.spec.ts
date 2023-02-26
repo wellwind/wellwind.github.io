@@ -8,8 +8,8 @@ describe('BlogPostTocComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BlogPostTocComponent ]
-    })
+    imports: [BlogPostTocComponent]
+})
     .compileComponents();
   });
 

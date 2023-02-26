@@ -6,15 +6,13 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { BlogLayoutComponent } from './blog-layout/blog-layout.component';
 
 @NgModule({
-  declarations: [
-    BlogLayoutComponent,
-  ],
-  imports: [
-    CommonModule,
-    BlogRoutingModule,
-    MatIconModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        BlogRoutingModule,
+        MatIconModule,
+        MatButtonModule,
+        BlogLayoutComponent
+    ]
 })
 export class BlogModule {
 }

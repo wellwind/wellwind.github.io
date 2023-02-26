@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { combineLatest, defer, Observable } from 'rxjs';
 import { filter, map, startWith, switchMap, tap } from 'rxjs/operators';
 import { SitePostService } from '../site-post.service';
+import { PushModule } from '@rx-angular/template/push';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgIf, NgFor, DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-query',
-  templateUrl: './query.component.html',
-  styleUrls: ['./query.component.scss']
+    selector: 'app-query',
+    templateUrl: './query.component.html',
+    styleUrls: ['./query.component.scss'],
+    standalone: true,
+    imports: [NgIf, MatToolbarModule, MatCardModule, MatListModule, NgFor, RouterLink, DatePipe, PushModule]
 })
 export class QueryComponent implements OnInit {
   searchKeyword$ = this.route.queryParamMap.pipe(

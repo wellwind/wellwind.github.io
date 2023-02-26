@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'blogPostTagSize'
+    name: 'blogPostTagSize',
+    standalone: true
 })
 export class BlogPostTagSizePipe implements PipeTransform {
 

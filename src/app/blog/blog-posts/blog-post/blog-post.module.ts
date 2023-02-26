@@ -17,22 +17,22 @@ import { BlogPostRoutingModule } from './blog-post-routing.module';
 import { BlogPostComponent } from './blog-post.component';
 
 @NgModule({
-  declarations: [BlogPostComponent, BlogPostTocComponent],
-  imports: [
-    CommonModule,
-    BlogPostRoutingModule,
-    BlogPostSubtitleModule,
-    PostDateAsPathModule,
-    SlugifyModule,
-    CommentModule,
-    LikerCoinModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatTooltipModule,
-    MatRippleModule,
-    PushModule,
-  ]
+    imports: [
+        CommonModule,
+        BlogPostRoutingModule,
+        BlogPostSubtitleModule,
+        PostDateAsPathModule,
+        SlugifyModule,
+        CommentModule,
+        LikerCoinModule,
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        MatDividerModule,
+        MatTooltipModule,
+        MatRippleModule,
+        PushModule,
+        BlogPostComponent, BlogPostTocComponent
+    ]
 })
 export class BlogPostModule { }

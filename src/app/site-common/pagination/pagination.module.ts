@@ -7,14 +7,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [PaginationComponent],
-  exports: [PaginationComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-  ]
+    exports: [PaginationComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTooltipModule,
+        PaginationComponent
+    ]
 })
 export class PaginationModule { }

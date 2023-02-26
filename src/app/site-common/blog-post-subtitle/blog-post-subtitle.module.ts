@@ -6,8 +6,7 @@ import { SlugifyModule } from './../slugify/slugify.module';
 import { BlogPostSubtitleComponent } from './blog-post-subtitle.component';
 
 @NgModule({
-  declarations: [BlogPostSubtitleComponent],
-  exports: [BlogPostSubtitleComponent],
-  imports: [CommonModule, MatIconModule, RouterModule, SlugifyModule],
+    exports: [BlogPostSubtitleComponent],
+    imports: [CommonModule, MatIconModule, RouterModule, SlugifyModule, BlogPostSubtitleComponent]
 })
 export class BlogPostSubtitleModule {}

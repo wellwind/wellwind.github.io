@@ -15,20 +15,20 @@ import { BlogCategoriesRoutingModule } from './blog-categories-routing.module';
 import { BlogCategoriesComponent } from './blog-categories.component';
 
 @NgModule({
-  declarations: [BlogCategoriesComponent, BlogCategoriesPostsComponent],
-  imports: [
-    CommonModule,
-    BlogCategoriesRoutingModule,
-    BlogPostSubtitleModule,
-    SlugifyModule,
-    UnslugifyModule,
-    PaginationModule,
-    PostDateAsPathModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    PushModule,
-  ],
+    imports: [
+        CommonModule,
+        BlogCategoriesRoutingModule,
+        BlogPostSubtitleModule,
+        SlugifyModule,
+        UnslugifyModule,
+        PaginationModule,
+        PostDateAsPathModule,
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        MatToolbarModule,
+        PushModule,
+        BlogCategoriesComponent, BlogCategoriesPostsComponent
+    ]
 })
 export class BlogCategoriesModule {}

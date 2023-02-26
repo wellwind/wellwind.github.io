@@ -8,8 +8,8 @@ describe('LikerCoinComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LikerCoinComponent ]
-    })
+    imports: [LikerCoinComponent]
+})
     .compileComponents();
   });
 

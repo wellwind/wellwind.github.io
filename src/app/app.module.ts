@@ -21,31 +21,29 @@ import { LayoutComponent } from './layout/layout.component';
 import { TrailingSlashUrlSerializer } from './trailing-slash-url-serializer';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LayoutComponent
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatAutocompleteModule,
-    MatOptionModule,
-    MatFormFieldModule,
-    MatProgressBarModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    PushModule
-  ],
-  providers: [
-    { provide: UrlSerializer, useClass: TrailingSlashUrlSerializer }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        MatListModule,
+        MatAutocompleteModule,
+        MatOptionModule,
+        MatFormFieldModule,
+        MatProgressBarModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        PushModule,
+        LayoutComponent
+    ],
+    providers: [
+        { provide: UrlSerializer, useClass: TrailingSlashUrlSerializer }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

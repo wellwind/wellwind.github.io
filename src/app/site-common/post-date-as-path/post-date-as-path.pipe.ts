@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { PostMetaWithSlug } from '../../post-meta.interface';
 
 @Pipe({
-  name: 'postDateAsPath'
+    name: 'postDateAsPath',
+    standalone: true
 })
 export class PostDateAsPathPipe implements PipeTransform {
 

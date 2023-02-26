@@ -10,15 +10,15 @@ import { QueryRoutingModule } from './query-routing.module';
 import { QueryComponent } from './query.component';
 
 @NgModule({
-  declarations: [QueryComponent],
-  imports: [
-    CommonModule,
-    QueryRoutingModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
-    PushModule,
-  ],
+    imports: [
+        CommonModule,
+        QueryRoutingModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatListModule,
+        PushModule,
+        QueryComponent
+    ]
 })
 export class QueryModule {}

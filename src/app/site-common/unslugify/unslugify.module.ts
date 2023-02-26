@@ -5,10 +5,10 @@ import { UnslugifyPipe } from './unslugify.pipe';
 
 
 @NgModule({
-  declarations: [UnslugifyPipe],
-  exports: [UnslugifyPipe],
-  imports: [
-    CommonModule
-  ]
+    exports: [UnslugifyPipe],
+    imports: [
+        CommonModule,
+        UnslugifyPipe
+    ]
 })
 export class UnslugifyModule { }

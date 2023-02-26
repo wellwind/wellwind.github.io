@@ -12,18 +12,18 @@ import { BlogPostsRoutingModule } from './blog-posts-routing.module';
 import { BlogPostsComponent } from './blog-posts.component';
 
 @NgModule({
-  declarations: [BlogPostsComponent],
-  imports: [
-    CommonModule,
-    BlogPostsRoutingModule,
-    BlogPostSubtitleModule,
-    PostDateAsPathModule,
-    PaginationModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    MatRippleModule,
-    PushModule,
-  ],
+    imports: [
+        CommonModule,
+        BlogPostsRoutingModule,
+        BlogPostSubtitleModule,
+        PostDateAsPathModule,
+        PaginationModule,
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        MatRippleModule,
+        PushModule,
+        BlogPostsComponent
+    ]
 })
 export class BlogPostsModule {}

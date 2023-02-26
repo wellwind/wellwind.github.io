@@ -8,8 +8,8 @@ describe('PaginationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaginationComponent ]
-    })
+    imports: [PaginationComponent]
+})
     .compileComponents();
   });
 

@@ -5,9 +5,10 @@ import { filter } from 'rxjs/operators';
 import { PlatformService } from '../../../platform.service';
 
 @Component({
-  selector: 'app-comment',
-  templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.scss']
+    selector: 'app-comment',
+    templateUrl: './comment.component.html',
+    styleUrls: ['./comment.component.scss'],
+    standalone: true
 })
 export class CommentComponent implements AfterViewInit, OnDestroy {
 

@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [LikerCoinComponent],
-  exports: [LikerCoinComponent],
-  imports: [
-    CommonModule, PushModule
-  ]
+    exports: [LikerCoinComponent],
+    imports: [
+        CommonModule, PushModule,
+        LikerCoinComponent
+    ]
 })
 export class LikerCoinModule { }

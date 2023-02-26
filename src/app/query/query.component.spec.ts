@@ -8,8 +8,8 @@ describe('QueryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QueryComponent ]
-    })
+    imports: [QueryComponent]
+})
     .compileComponents();
   });
 
