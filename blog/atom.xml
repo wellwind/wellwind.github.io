@@ -4,11 +4,28 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 26 Feb 2023 07:49:41 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 05 Mar 2023 09:42:16 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[建立 Azure Bot Service 來測試 Bot Framework]]></title>
+            <link>https://fullstackladder.dev/blog/2023/02/19/create-azure-bot-service-for-testing-bot-framework</link>
+            <guid>https://fullstackladder.dev/blog/2023/02/19/create-azure-bot-service-for-testing-bot-framework</guid>
+            <pubDate>Sun, 19 Feb 2023 13:08:43 GMT</pubDate>
+            <description><![CDATA[<p>上一篇文章我們介紹了如何<a href="https://fullstackladder.dev/blog/2023/02/18/develop-chat-bot-using-microsoft-bot-framework/">使用 Microsoft Bot Framework SDK 打造跨平台聊天機器人</a>，今天我們來介紹一下如何使用 Azure Bot Service 來測試 Bot Framework，並且為未來發佈到各個平台做準備。</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[使用 Microsoft Bot Framework SDK 打造跨平台聊天機器人]]></title>
+            <link>https://fullstackladder.dev/blog/2023/02/18/develop-chat-bot-using-microsoft-bot-framework</link>
+            <guid>https://fullstackladder.dev/blog/2023/02/18/develop-chat-bot-using-microsoft-bot-framework</guid>
+            <pubDate>Sat, 18 Feb 2023 15:13:57 GMT</pubDate>
+            <description><![CDATA[<p>最近 AI 聊天機器人正夯，也出現不少整合 AI 到這種聊天機器人的服務，方便我們整合到 LINE、Slack 或是 Microsoft Teams。</p>
+<p>而微軟推出的 Azure Bot Service 以及 Microsoft Bot Framework，可以幫助我們用一套程式碼，就整合到多家不同的聊天平台，今天就來介紹一下如何使用 Microsoft Bot Framework SDK 打造跨平台聊天機器人。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[ChatGPT 咒語庫] Midjourney 咒語解析器]]></title>
             <link>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-analyzer</link>
@@ -162,23 +179,6 @@
             <pubDate>Sun, 16 Oct 2022 10:47:15 GMT</pubDate>
             <description><![CDATA[<p>Dark mode (暗黑模式) 已經逐漸成為現代網頁開發的主流，很多網站也都逐漸加入的對 dark mode 的支援，讓網站預設也可以跟著作業系統的深色或淺色模式自動切換</p>
 <p>雖然顏色偏好讓使用者體驗更好，但也確實增加了網站開發時期的負擔，我們必須同時測試兩種顏色模式的顯示效果，如果每次測試都要主動切換系統的模式，也未免太辛苦了！還好 Chrome DevTools 內建了主題切換，讓我們可以直接在開發工具切換目前網頁的顯示模式，大幅度的節省時間，今天就來看看如何在深色和淺色模式之間自由的切換！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Angular 大師之路] 透過 DI 容器修正第三方元件的 bug]]></title>
-            <link>https://fullstackladder.dev/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs</link>
-            <guid>https://fullstackladder.dev/blog/2022/10/07/angular-advanced-using-di-to-fix-third-party-bugs</guid>
-            <pubDate>Fri, 07 Oct 2022 20:08:13 GMT</pubDate>
-            <description><![CDATA[<p>最進公司內某個專案遇到了一個 bug 是因為第三方套件的已知 bug 導致，但又不可能等人家修好 bug 我們才能處理，於是來詢問我的想法；其實這並不是一個很難的問題，尤其是在 Angular 這種完整個框架下，透過 DI 容器就可以輕易的達成，只是不一定想得到而已，由於大多數我們會使用到 Angular 的 DI 機制常常都是再進行一些組態設定，難得有個案例是用來修 bug 的，就用這篇文章來記錄一下！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[使用 k6 進行壓力測試]]></title>
-            <link>https://fullstackladder.dev/blog/2022/09/17/load-test-by-k6</link>
-            <guid>https://fullstackladder.dev/blog/2022/09/17/load-test-by-k6</guid>
-            <pubDate>Sat, 17 Sep 2022 19:35:10 GMT</pubDate>
-            <description><![CDATA[<p>當系統預期有很多人同時上線時，可能會需要進行壓力測試。比起老牌工具 Apache Jmeter 的高學習難度，k6 是一套很好的壓力測試工具，對於開發人員來說非常友善。</p>
-<p>本文將簡單介紹如何使用 k6 進行壓力測試。</p>
 ]]></description>
         </item>
     </channel>
