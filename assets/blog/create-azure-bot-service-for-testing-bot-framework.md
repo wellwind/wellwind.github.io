@@ -15,6 +15,8 @@ ogImage: "00.webp"
 
 <!-- more -->
 
+{% asset_img 00.webp (width=640) %}
+
 ## 建立 Azure Bot Service
 
 透過 Azure Portal，我們很容易可以將一個 Azure Bot Service 加入我們的資源群組

@@ -16,6 +16,8 @@ ogImage: "00.webp"
 
 <!-- more -->
 
+{% asset_img 00.webp (width=640) %}
+
 ## Bot Framework SDK
 
 Bot Framework SDK 是微軟提供來打造對話機器人的相關模組，除了讓我們可以快速的開發對話機器人以外，也可以與微軟的 AI 服務平台 Azure Cognitive Service 整合；同時支援多種語言，包含 C#、JavaScript、Python 和 Java (不過 Python 和 Java 即將被退休了)。
