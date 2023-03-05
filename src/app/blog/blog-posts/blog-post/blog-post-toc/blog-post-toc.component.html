@@ -8,6 +8,7 @@
     <a
       href="#"
       (click)="goTo(head, $event)"
+      [class.!text-[color:var(--toc-indicator-focus-color)]]="head.active"
       class="transition-all no-underline text-[color:var(--toc-indicator-color)] hover:text-[color:var(--toc-indicator-focus-color)]"
     >
       {{ head.text }}
