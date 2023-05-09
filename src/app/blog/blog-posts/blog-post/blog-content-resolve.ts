@@ -1,11 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, timeout } from 'rxjs/operators';
 import { MarkdownMeta, parseMarkdownMeta } from 'site-utils';
@@ -15,7 +11,7 @@ import { PlatformService } from '../../../../platform.service';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogContentResolve implements Resolve<MarkdownMeta> {
+export class BlogContentResolve  {
   constructor(private httpClient: HttpClient, private state: TransferState, private platformService: PlatformService) {
   }
 

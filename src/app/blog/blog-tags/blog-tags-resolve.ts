@@ -1,10 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, map, timeout } from 'rxjs/operators';
 import { MarkdownMeta, parseMarkdownMeta } from 'site-utils';
@@ -15,7 +11,7 @@ import { SitePostService } from '../../site-post.service';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogTagsResolve implements Resolve<{ [key: string]: PostMetaWithSlug[] }> {
+export class BlogTagsResolve  {
   constructor(private sitePostService: SitePostService) {
   }
 

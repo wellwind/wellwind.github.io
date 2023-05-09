@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PostMetaWithSlug } from '../../post-meta.interface';
 import { SitePostService } from '../../site-post.service';
@@ -11,7 +7,7 @@ import { SitePostService } from '../../site-post.service';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogArchivesPostsResolve implements Resolve<PostMetaWithSlug[]> {
+export class BlogArchivesPostsResolve  {
   constructor(private sitePostService: SitePostService) {
   }
 

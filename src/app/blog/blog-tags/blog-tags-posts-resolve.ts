@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { descend, prop, sortWith } from 'ramda';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,7 +10,7 @@ import { findPosts } from '../find-posts';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogTagsPostsResolve implements Resolve<PostMetaWithSlug[]> {
+export class BlogTagsPostsResolve  {
   constructor(private sitePostService: SitePostService) {
   }
 
