@@ -1,6 +1,5 @@
 import { ContentObserver } from '@angular/cdk/observers';
-import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { makeStateKey, TransferState } from '@angular/platform-browser';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, TransferState, makeStateKey } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { PlatformService } from '../../../../../platform.service';

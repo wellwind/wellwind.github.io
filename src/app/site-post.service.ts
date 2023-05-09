@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { makeStateKey, TransferState } from '@angular/platform-browser';
+import { Injectable, TransferState, makeStateKey } from '@angular/core';
 import { ascend, descend, prop, sortWith } from 'ramda';
 import { combineLatest, iif, of } from 'rxjs';
 import { map, shareReplay, tap } from 'rxjs/operators';
