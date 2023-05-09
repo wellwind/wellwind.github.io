@@ -38,7 +38,7 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/platform-server": "^16.0.0",
     "@angular/router": "^16.0.0",
-    "@nguniversal/express-engine": "^15.0.0",
+    "@nguniversal/express-engine": "^16.0.0",
     "@rx-angular/cdk": "latest",
     "@rx-angular/template": "^1.1.0",
     "@wellwind/blog-builder": "file:builders",
