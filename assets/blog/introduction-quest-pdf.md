@@ -9,6 +9,14 @@ ogImage: 03.png
 
 產生 PDF 的套件並不難找，有趣的是，.NET 的 PDF 套件雖然不少，但幾乎都是商業授權，免費又好用的卻不多，最近找到一套 [QuestPDF](https://www.questpdf.com/)，它的 API 設計非常漂亮，支援中文，並且免費開源，雖然不一定是最強大的套件，但對於一般產生 PDF 的工作，已經非常好用了。
 
+{% note info %}
+
+`QuestPDF 2023.X` 版本後，已經變成有條件的 MIT 授權，所以如果要商用還是需要看一下詳細的授權條件。但 `2022.12.X` 版本之前的版本，依然都是完全的 MIT 授權，因此若為商用且完全沒有付費打算，請注意安裝版本。
+
+[原作者的承諾](https://github.com/QuestPDF/QuestPDF/discussions/491#discussioncomment-5946647)
+
+{% endnote %}
+
 <!-- more -->
 
 ## 關於 QuestPDF
