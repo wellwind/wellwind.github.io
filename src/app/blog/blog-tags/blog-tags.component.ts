@@ -1,20 +1,20 @@
+import { KeyValuePipe, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RxPush } from '@rx-angular/template/push';
 import { map } from 'rxjs/operators';
 import { PostMetaWithSlug } from '../../post-meta.interface';
+import { SlugifyPipe } from '../../site-common/slugify/slugify.pipe';
 import { SiteMetaService } from '../../site-meta.service';
 import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
-import { PushModule } from '@rx-angular/template/push';
-import { SlugifyPipe } from '../../site-common/slugify/slugify.pipe';
-import { NgFor, NgIf, KeyValuePipe } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
 
 @Component({
     selector: 'app-blog-tags',
     templateUrl: './blog-tags.component.html',
     styleUrls: ['./blog-tags.component.scss'],
     standalone: true,
-    imports: [MatCardModule, NgFor, NgIf, RouterLink, KeyValuePipe, SlugifyPipe, PushModule, BlogPostTagSizePipe]
+    imports: [MatCardModule, NgFor, NgIf, RouterLink, KeyValuePipe, SlugifyPipe, RxPush, BlogPostTagSizePipe]
 })
 export class BlogTagsComponent implements OnInit {
 

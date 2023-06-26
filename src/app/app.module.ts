@@ -13,7 +13,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UrlSerializer } from '@angular/router';
-import { PushModule } from '@rx-angular/template/push';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -36,7 +35,6 @@ import { TrailingSlashUrlSerializer } from './trailing-slash-url-serializer';
     MatProgressBarModule,
     ReactiveFormsModule,
     MatInputModule,
-    PushModule,
     LayoutComponent,
   ],
   providers: [

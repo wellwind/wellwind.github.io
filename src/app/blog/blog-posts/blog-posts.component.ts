@@ -3,7 +3,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { SitePostService } from '../../site-post.service';
 import { getPagePosts } from '../get-page-posts';
-import { PushModule } from '@rx-angular/template/push';
+import { RxPush } from '@rx-angular/template/push';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path/post-date-as-path.pipe';
 import { PaginationComponent } from '../../site-common/pagination/pagination.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,7 +19,7 @@ const PAGE_SIZE = 10;
     templateUrl: './blog-posts.component.html',
     styleUrls: ['./blog-posts.component.scss'],
     standalone: true,
-    imports: [NgFor, MatCardModule, RouterLink, BlogPostSubtitleComponent, MatButtonModule, MatIconModule, PaginationComponent, PostDateAsPathPipe, PushModule]
+    imports: [NgFor, MatCardModule, RouterLink, BlogPostSubtitleComponent, MatButtonModule, MatIconModule, PaginationComponent, PostDateAsPathPipe, RxPush]
 })
 export class BlogPostsComponent implements OnInit {
 

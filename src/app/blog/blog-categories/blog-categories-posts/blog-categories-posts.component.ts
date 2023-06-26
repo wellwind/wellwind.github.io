@@ -1,19 +1,19 @@
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RxPush } from '@rx-angular/template/push';
 import { map, switchMap } from 'rxjs/operators';
 import { PostMetaWithSlug } from '../../../post-meta.interface';
-import { SiteMetaService } from '../../../site-meta.service';
-import { getPagePosts } from '../../get-page-posts';
-import { PushModule } from '@rx-angular/template/push';
+import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle/blog-post-subtitle.component';
+import { PaginationComponent } from '../../../site-common/pagination/pagination.component';
 import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path/post-date-as-path.pipe';
 import { UnslugifyPipe } from '../../../site-common/unslugify/unslugify.pipe';
-import { PaginationComponent } from '../../../site-common/pagination/pagination.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle/blog-post-subtitle.component';
-import { MatCardModule } from '@angular/material/card';
-import { NgFor } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { SiteMetaService } from '../../../site-meta.service';
+import { getPagePosts } from '../../get-page-posts';
 
 const PAGE_SIZE = 10;
 
@@ -22,7 +22,7 @@ const PAGE_SIZE = 10;
     templateUrl: './blog-categories-posts.component.html',
     styleUrls: ['./blog-categories-posts.component.scss'],
     standalone: true,
-    imports: [MatToolbarModule, NgFor, MatCardModule, RouterLink, BlogPostSubtitleComponent, MatButtonModule, MatIconModule, PaginationComponent, UnslugifyPipe, PostDateAsPathPipe, PushModule]
+    imports: [MatToolbarModule, NgFor, MatCardModule, RouterLink, BlogPostSubtitleComponent, MatButtonModule, MatIconModule, PaginationComponent, UnslugifyPipe, PostDateAsPathPipe, RxPush]
 })
 export class BlogCategoriesPostsComponent implements OnInit {
 

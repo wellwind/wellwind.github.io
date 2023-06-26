@@ -4,31 +4,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PushModule } from '@rx-angular/template/push';
-
-
-
-
-
-
 import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
 import { BlogTagPostsComponent } from './blog-tag-posts/blog-tag-posts.component';
 import { BlogTagsRoutingModule } from './blog-tags-routing.module';
 import { BlogTagsComponent } from './blog-tags.component';
 
-
 @NgModule({
-    imports: [
+  imports: [
     CommonModule,
     BlogTagsRoutingModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    PushModule,
     BlogTagsComponent,
     BlogPostTagSizePipe,
-    BlogTagPostsComponent
-]
+    BlogTagPostsComponent,
+  ],
 })
-export class BlogTagsModule { }
+export class BlogTagsModule {}

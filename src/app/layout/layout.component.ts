@@ -1,42 +1,66 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-  ViewChild
-} from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatIconRegistry, MatIconModule } from '@angular/material/icon';
+import {
+  MatAutocomplete,
+  MatAutocompleteModule,
+  MatAutocompleteSelectedEvent,
+} from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatOptionModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDrawerContent, MatSidenavModule } from '@angular/material/sidenav';
-import { NavigationEnd, NavigationStart, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {
+  NavigationEnd,
+  NavigationStart,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
+import { RxPush } from '@rx-angular/template/push';
 import { BehaviorSubject, combineLatest, defer } from 'rxjs';
 import {
   debounceTime,
   distinctUntilChanged,
   filter,
   map,
-  switchMap
+  switchMap,
 } from 'rxjs/operators';
 import { PlatformService } from '../../platform.service';
 import { SitePostService } from '../site-post.service';
-import { PushModule } from '@rx-angular/template/push';
-import { MatListModule } from '@angular/material/list';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatOptionModule } from '@angular/material/core';
-import { MatInputModule } from '@angular/material/input';
-import { NgIf, NgFor } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 type WebsiteTheme = 'dark' | 'light' | null;
 
 @Component({
-    selector: 'app-layout',
-    templateUrl: './layout.component.html',
-    styleUrls: ['./layout.component.scss'],
-    standalone: true,
-    imports: [MatToolbarModule, MatButtonModule, NgIf, MatIconModule, RouterLink, MatInputModule, ReactiveFormsModule, MatAutocompleteModule, NgFor, MatOptionModule, MatProgressBarModule, MatSidenavModule, MatDividerModule, MatListModule, RouterLinkActive, RouterOutlet, PushModule]
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    NgIf,
+    MatIconModule,
+    RouterLink,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    NgFor,
+    MatOptionModule,
+    MatProgressBarModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
+    RouterLinkActive,
+    RouterOutlet,
+    RxPush,
+  ],
 })
 export class LayoutComponent implements OnInit {
   @ViewChild('matDrawerContent') matDrawerContent?: MatDrawerContent;

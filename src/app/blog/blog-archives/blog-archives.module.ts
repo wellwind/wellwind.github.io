@@ -4,23 +4,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PushModule } from '@rx-angular/template/push';
-
-
-
 import { BlogArchivesRoutingModule } from './blog-archives-routing.module';
 import { BlogArchivesComponent } from './blog-archives.component';
 
 @NgModule({
-    imports: [
+  imports: [
     CommonModule,
     BlogArchivesRoutingModule,
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    PushModule,
-    BlogArchivesComponent
-]
+    BlogArchivesComponent,
+  ],
 })
-export class BlogArchivesModule { }
+export class BlogArchivesModule {}

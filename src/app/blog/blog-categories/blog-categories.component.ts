@@ -1,19 +1,19 @@
+import { KeyValuePipe, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RxPush } from '@rx-angular/template/push';
 import { map } from 'rxjs/operators';
 import { PostMetaWithSlug } from '../../post-meta.interface';
-import { SiteMetaService } from '../../site-meta.service';
-import { PushModule } from '@rx-angular/template/push';
 import { SlugifyPipe } from '../../site-common/slugify/slugify.pipe';
-import { NgFor, KeyValuePipe } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
+import { SiteMetaService } from '../../site-meta.service';
 
 @Component({
     selector: 'app-blog-categories',
     templateUrl: './blog-categories.component.html',
     styleUrls: ['./blog-categories.component.scss'],
     standalone: true,
-    imports: [MatCardModule, NgFor, RouterLink, KeyValuePipe, SlugifyPipe, PushModule]
+    imports: [MatCardModule, NgFor, RouterLink, KeyValuePipe, SlugifyPipe, RxPush]
 })
 export class BlogCategoriesComponent implements OnInit {
 

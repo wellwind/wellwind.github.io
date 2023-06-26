@@ -15,7 +15,7 @@ import { PlatformService } from '../../../../platform.service';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
 import { SiteMetaService } from '../../../site-meta.service';
 import { SitePostService } from '../../../site-post.service';
-import { PushModule } from '@rx-angular/template/push';
+import { RxPush } from '@rx-angular/template/push';
 import { SlugifyPipe } from '../../../site-common/slugify/slugify.pipe';
 import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path/post-date-as-path.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -56,7 +56,7 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
     templateUrl: './blog-post.component.html',
     styleUrls: ['./blog-post.component.scss'],
     standalone: true,
-    imports: [NgIf, BlogPostSubtitleComponent, MatDividerModule, NgFor, MatRippleModule, RouterLink, LikerCoinComponent, MatIconModule, NgTemplateOutlet, CommentComponent, BlogPostTocComponent, MatButtonModule, MatTooltipModule, PostDateAsPathPipe, SlugifyPipe, PushModule]
+    imports: [NgIf, BlogPostSubtitleComponent, MatDividerModule, NgFor, MatRippleModule, RouterLink, LikerCoinComponent, MatIconModule, NgTemplateOutlet, CommentComponent, BlogPostTocComponent, MatButtonModule, MatTooltipModule, PostDateAsPathPipe, SlugifyPipe, RxPush]
 })
 export class BlogPostComponent implements OnInit, AfterViewInit {
   @ViewChild('comments') comments?: ElementRef<HTMLElement>;
