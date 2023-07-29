@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Mon, 26 Jun 2023 09:39:34 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 29 Jul 2023 06:42:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Kubernetes] CKAD/CKA 證照考試心得]]></title>
+            <link>https://fullstackladder.dev/blog/2023/07/29/how-to-pass-kubernetes-ckad-cka-certificate</link>
+            <guid>https://fullstackladder.dev/blog/2023/07/29/how-to-pass-kubernetes-ckad-cka-certificate</guid>
+            <pubDate>Sat, 29 Jul 2023 11:37:18 GMT</pubDate>
+            <description><![CDATA[<p>因為即將的工作需求，最近開始準備 Kubernetes 的考試，花了一個月的時間學習，總算是取得 CKAD 和 CKA 證照了，這邊就分享一下我這一個月的學習心得。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[建立 Azure Bot Service 來測試 Bot Framework]]></title>
             <link>https://fullstackladder.dev/blog/2023/02/19/create-azure-bot-service-for-testing-bot-framework</link>
@@ -172,15 +180,6 @@
             <description><![CDATA[<p>如果有在使用 Azure，一般會直接在 Azure Portal 上操作，或是透過 Azure CLI；但是如果要在程式中操作 Azure 資源，就需要透過 Azure REST API 來呼叫。</p>
 <p>Azure 當然也提供了許多 SDK 讓我們不需要花太多時間去研究 REST API，不過背後原理都是透過 REST API 呼叫，如果遇到使用的語言沒有對應的 SDK，還是必須自己用 REST API 來呼叫，因此研究一下背後的 API 還是很有價值的。</p>
 <p>這篇文章就來看一下如何透過 Client Credentials 的方式來呼叫 Azure REST API。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Chrome DevTools] 透過開發者工具動態切換暗黑模式]]></title>
-            <link>https://fullstackladder.dev/blog/2022/10/16/change-prefers-color-scheme-by-dev-tools</link>
-            <guid>https://fullstackladder.dev/blog/2022/10/16/change-prefers-color-scheme-by-dev-tools</guid>
-            <pubDate>Sun, 16 Oct 2022 10:47:15 GMT</pubDate>
-            <description><![CDATA[<p>Dark mode (暗黑模式) 已經逐漸成為現代網頁開發的主流，很多網站也都逐漸加入的對 dark mode 的支援，讓網站預設也可以跟著作業系統的深色或淺色模式自動切換</p>
-<p>雖然顏色偏好讓使用者體驗更好，但也確實增加了網站開發時期的負擔，我們必須同時測試兩種顏色模式的顯示效果，如果每次測試都要主動切換系統的模式，也未免太辛苦了！還好 Chrome DevTools 內建了主題切換，讓我們可以直接在開發工具切換目前網頁的顯示模式，大幅度的節省時間，今天就來看看如何在深色和淺色模式之間自由的切換！</p>
 ]]></description>
         </item>
     </channel>
