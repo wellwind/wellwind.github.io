@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 29 Jul 2023 06:42:22 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 29 Jul 2023 08:25:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -14,7 +14,7 @@
             <link>https://fullstackladder.dev/blog/2023/07/29/how-to-pass-kubernetes-ckad-cka-certificate</link>
             <guid>https://fullstackladder.dev/blog/2023/07/29/how-to-pass-kubernetes-ckad-cka-certificate</guid>
             <pubDate>Sat, 29 Jul 2023 11:37:18 GMT</pubDate>
-            <description><![CDATA[<p>因為即將的工作需求，最近開始準備 Kubernetes 的考試，花了一個月的時間學習，總算是取得 CKAD 和 CKA 證照了，這邊就分享一下我這一個月的學習心得。</p>
+            <description><![CDATA[<p>為了即將到來的工作需求，最近開始準備 Kubernetes 的考試，花了一個月的時間學習，總算取得 CKAD 和 CKA 證照，在這邊分享一下我這一個月的學習心得。</p>
 ]]></description>
         </item>
         <item>
