@@ -7,6 +7,7 @@ tags:
   - Kubernetes
   - CKAD
   - CKA
+ogImage: ckad.png
 ---
 
 為了即將到來的工作需求，最近開始準備 Kubernetes 的考試，花了一個月的時間學習，總算取得 CKAD 和 CKA 證照，在這邊分享一下我這一個月的學習心得。
