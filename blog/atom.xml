@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 30 Jul 2023 05:35:51 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 02 Aug 2023 03:22:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -15,6 +15,14 @@
             <guid>https://fullstackladder.dev/blog/2023/07/29/how-to-pass-kubernetes-ckad-cka-certificate</guid>
             <pubDate>Sat, 29 Jul 2023 11:37:18 GMT</pubDate>
             <description><![CDATA[<p>為了即將到來的工作需求，最近開始準備 Kubernetes 的考試，花了一個月的時間學習，總算取得 CKAD 和 CKA 證照，在這邊分享一下我這一個月的學習心得。</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[使用 SimpleWebAuthn 實現 Passkeys 無密碼登入]]></title>
+            <link>https://fullstackladder.dev/blog/2023/06/11/passkeys-using-simplewebauthn</link>
+            <guid>https://fullstackladder.dev/blog/2023/06/11/passkeys-using-simplewebauthn</guid>
+            <pubDate>Sun, 11 Jun 2023 10:17:41 GMT</pubDate>
+            <description><![CDATA[<p>前幾天看到「PAPAYA電腦教室」的影片，發現 Google 驗證也支援 Passkeys 了，實際使用的體驗感覺非常的棒，也好奇我們自己是否能提供一樣的服務，就做了一些研究，發現果然可行，目前常用的作業系統與行動裝置都支援了，這篇文章就筆記一下如何用 SimpleWebAuthn 套件來實踐 Passkeys 無密碼等入功能。</p>
 ]]></description>
         </item>
         <item>
@@ -170,16 +178,6 @@
             <pubDate>Sun, 30 Oct 2022 14:56:12 GMT</pubDate>
             <description><![CDATA[<p><a href="https://tauri.app/">Tauri</a> 放在我的待研究項目裡面已經有好一段時間了，原本有研究了一小斷時間，但因為環境準備太過複雜而暫時停止。</p>
 <p>最新忽然發現 Tauri 出到 v1.1，不再是 beta 版了，看了一下文件發現整體環境準備變得非常簡單，而且功能及文件也都非常完整了，就花了點時間研究一下，整理成以下筆記，也說說自己的體驗心得。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[使用 Client Credentials 來取得具有 Azure REST API 權限的 Access Token]]></title>
-            <link>https://fullstackladder.dev/blog/2022/10/22/manipulate-azure-resource-using-client-credentials</link>
-            <guid>https://fullstackladder.dev/blog/2022/10/22/manipulate-azure-resource-using-client-credentials</guid>
-            <pubDate>Sat, 22 Oct 2022 12:57:05 GMT</pubDate>
-            <description><![CDATA[<p>如果有在使用 Azure，一般會直接在 Azure Portal 上操作，或是透過 Azure CLI；但是如果要在程式中操作 Azure 資源，就需要透過 Azure REST API 來呼叫。</p>
-<p>Azure 當然也提供了許多 SDK 讓我們不需要花太多時間去研究 REST API，不過背後原理都是透過 REST API 呼叫，如果遇到使用的語言沒有對應的 SDK，還是必須自己用 REST API 來呼叫，因此研究一下背後的 API 還是很有價值的。</p>
-<p>這篇文章就來看一下如何透過 Client Credentials 的方式來呼叫 Azure REST API。</p>
 ]]></description>
         </item>
     </channel>
