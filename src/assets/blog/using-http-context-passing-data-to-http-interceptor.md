@@ -10,13 +10,13 @@ tags:
   - "HttpContext"
 ---
 
-Angular 中的 HttpInterceptor 可以幫助我們攔截每個 HttpClient 送出的呼叫，幫助我們在呼叫前後打點各種大小事情，不過有時候我們反而希望 HttpInterctptor 不要自作主張幫我們處理太多事情，之前有些過一篇文章介紹[如何忽略 HTTP_INTERCEPTORS](https://fullstackladder.dev/blog/2019/01/06/mastering-angular-31-how-to-create-new-http-client-and-ignore-http-interceptors/)，而到了 Angular 12 之後，則內建了 [HttpContext](https://angular.io/api/common/http/HttpContext) 的功能，方便在程式中主動傳遞一些資料給我們自己設計的 HttpInterctptor，來達到一些更細緻的操作，這篇文章就來看一下 HttpContext 該如何使用。
+Angular 中的 HttpInterceptor 可以幫助我們攔截每個 HttpClient 送出的呼叫，幫助我們在呼叫前後打點各種大小事情，不過有時候我們反而希望 HttpInterceptor 不要自作主張幫我們處理太多事情，之前有些過一篇文章介紹[如何忽略 HTTP_INTERCEPTORS](https://fullstackladder.dev/blog/2019/01/06/mastering-angular-31-how-to-create-new-http-client-and-ignore-http-interceptors/)，而到了 Angular 12 之後，則內建了 [HttpContext](https://angular.io/api/common/http/HttpContext) 的功能，方便在程式中主動傳遞一些資料給我們自己設計的 HttpInterceptor，來達到一些更細緻的操作，這篇文章就來看一下 HttpContext 該如何使用。
 
 <!-- more -->
 
 # 簡單的 HttpInterceptor 及問題
 
-首先我們先簡單寫一個 `AuthInterctptor`，當 HttpClient 呼叫得到 401 錯誤時，提示訊息並將畫面轉到 `/login`：
+首先我們先簡單寫一個 `AuthInterceptor`，當 HttpClient 呼叫得到 401 錯誤時，提示訊息並將畫面轉到 `/login`：
 
 ```typescript
 import { Injectable } from '@angular/core';
