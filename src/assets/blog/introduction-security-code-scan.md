@@ -36,7 +36,7 @@ dotnet tool install --global security-scan
 
 ## 使用 Security Code Scan
 
-接著我們可以看看掃描結果，我們可以使用 `seucirty-scan` 並指定專案/方案路徑
+接著我們可以看看掃描結果，我們可以使用 `security-scan` 並指定專案/方案路徑
 
 ```bash
 security-scan path/to/sln
