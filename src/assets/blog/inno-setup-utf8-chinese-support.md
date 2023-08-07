@@ -18,7 +18,7 @@ Inno Setup 內建多種語言的安裝檔，不過內建不支援繁體中文，
 
 （預設目錄為 `C:\Program Files (x86)\Inno Setup 6\Languages`)
 
-之後在執行腳本精靈時就會多一個「Chinese Tranditional」的選項。
+之後在執行腳本精靈時就會多一個「Chinese Traditional」的選項。
 
 {% asset_img 01.png %}
 
