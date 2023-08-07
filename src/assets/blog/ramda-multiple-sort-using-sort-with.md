@@ -63,6 +63,9 @@ const result1 = [...data].sort((a, b) => {
   // 英文成績相同，則最後針對數學成績排序
   if(a.math > b.math) return 1;
   if(a.math < b.math) return -1;
+
+  // 都相同
+  return 0;
 });
 
 console.log(result1);
@@ -105,7 +108,7 @@ const result2 = sortScore(data);
 console.log(result2);
 ```
 
-我們可以直接把 `asecnd(prop('chinese'))` 理解成「依照中文成績遞增」。
+我們可以直接把 `ascend(prop('chinese'))` 理解成「依照中文成績遞增」。
 
 而套用 `sortWith()` 的 `sortScore` function 也可以直接閱讀成
 
