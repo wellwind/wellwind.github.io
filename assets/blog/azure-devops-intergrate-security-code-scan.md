@@ -26,7 +26,7 @@ Security Code Scan 提供了 stand-alone runner，意味著我們可以直接安
 
 ### 安裝 Security Code Scan 的 stand-alone runner
 
-透過 Powershell + dotnet tool，我們可以很輕易的在 Agent 中安裝 Security Code Scan 的 stand-alone runner，只要加入一個 [Powershell 的 task](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/powershell-v2?view=azure-pipelines&WT.mc_id=DOP-MVP-5003734)，並在裡面執行以下指令即可
+透過 Powershell + dotnet tool，我們可以很輕易的在 Agent 中安裝 Security Code Scan 的 stand-alone runner，只要加入一個 [Powershell 的 task](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/powershell-v2?view=azure-pipelines&wt.mc_id=DT-MVP-5003734)，並在裡面執行以下指令即可
 
 ```powershell
 dotnet tool install --global security-scan
@@ -46,7 +46,7 @@ security-scan -x $(Build.ArtifactStagingDirectory)/output.sarif path/to/sln
 
 微軟提供了一個 Azure Pipeline 的 Extension，叫做 [SARIF SAST Scans Tab](https://marketplace.visualstudio.com/items?itemName=sariftools.scans&targetId=a3049b43-59dc-4090-9872-b69f38c1f4af)，安裝這個 Extension 後，我們只要將 SARIF 檔以名稱為 `CodeAnalysisLogs` 當做 artifacts 發佈，之後就可以在 build 報告中檢視掃描結果。
 
-我們可以使用 [Publish build artifacts](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/publish-build-artifacts-v1?view=azure-pipelines&viewFallbackFrom=azure-devops&WT.mc_id=DOP-MVP-5003734) 這個 Task 來發佈報告：
+我們可以使用 [Publish build artifacts](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/publish-build-artifacts-v1?view=azure-pipelines&viewFallbackFrom=azure-devops&wt.mc_id=DT-MVP-5003734) 這個 Task 來發佈報告：
 
 {% asset_img 01.png %}
 

@@ -151,5 +151,5 @@ JWT token 已經被廣泛運用在各種認證情境了，而 OpenID 進一步�
 
 - [OpenID 的完整規格](https://openid.net/specs/openid-connect-discovery-1_0.html)
 - [RFC 7515 - JWK](https://www.rfc-editor.org/rfc/rfc7517)
-- [OpenID Connect on the Microsoft identity platform](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-protocols-oidc?WT.mc_id=DOP-MVP-5003734#fetch-the-openid-configuration-document)
+- [OpenID Connect on the Microsoft identity platform](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-protocols-oidc?wt.mc_id=DT-MVP-5003734#fetch-the-openid-configuration-document)
 - [Navigating RS256 and JWKS](https://auth0.com/blog/navigating-rs256-and-jwks/)

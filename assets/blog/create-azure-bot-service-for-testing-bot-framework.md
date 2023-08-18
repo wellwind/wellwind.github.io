@@ -100,6 +100,6 @@ MicrosoftAppTenantId=[[租戶 ID]]
 
 ## 相關資源
 
-- [Provision and publish a bot](https://learn.microsoft.com/en-us/azure/bot-service/provision-and-publish-a-bot?view=azure-bot-service-4.0&WT.mc_id=DOP-MVP-5003734&tabs=userassigned%2Ccsharp)
-- [Debug a bot from any channel using ngrok](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0&WT.mc_id=DOP-MVP-5003734)
-- [Configure a bot to run on one or more channels](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0&WT.mc_id=DOP-MVP-5003734)
+- [Provision and publish a bot](https://learn.microsoft.com/en-us/azure/bot-service/provision-and-publish-a-bot?view=azure-bot-service-4.0&wt.mc_id=DT-MVP-5003734&tabs=userassigned%2Ccsharp)
+- [Debug a bot from any channel using ngrok](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-channel-ngrok?view=azure-bot-service-4.0&wt.mc_id=DT-MVP-5003734)
+- [Configure a bot to run on one or more channels](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0&wt.mc_id=DT-MVP-5003734)

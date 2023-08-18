@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Mon, 07 Aug 2023 04:56:06 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 18 Aug 2023 15:39:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -134,7 +134,7 @@
             <link>https://fullstackladder.dev/blog/2022/12/17/azure-devops-cache-build-pipeline</link>
             <guid>https://fullstackladder.dev/blog/2022/12/17/azure-devops-cache-build-pipeline</guid>
             <pubDate>Sat, 17 Dec 2022 12:04:50 GMT</pubDate>
-            <description><![CDATA[<p>在 CI 階段時，我們經常會需要針對專案內容安裝各種套件，不過其實套件內容也很少更動，但每次安裝都會花上不少時間，雖然都放著讓 CI 跑就好了，但還是免不了要等一段時間，好在 Azure DevOps 提供了 <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&amp;WT.mc_id=DOP-MVP-5003734">Pipeline caching</a> 功能，讓我們可以將套件內容先暫存起來，下次就不用再安裝了，加快 CI pipline 的速度，這篇文章就來介紹一下 Pipeline caching 的工能。</p>
+            <description><![CDATA[<p>在 CI 階段時，我們經常會需要針對專案內容安裝各種套件，不過其實套件內容也很少更動，但每次安裝都會花上不少時間，雖然都放著讓 CI 跑就好了，但還是免不了要等一段時間，好在 Azure DevOps 提供了 <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&amp;wt.mc_id=DT-MVP-5003734">Pipeline caching</a> 功能，讓我們可以將套件內容先暫存起來，下次就不用再安裝了，加快 CI pipline 的速度，這篇文章就來介紹一下 Pipeline caching 的工能。</p>
 ]]></description>
         </item>
         <item>
