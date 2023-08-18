@@ -9,7 +9,7 @@ tags:
 ogImage: 02.png
 ---
 
-在 CI 階段時，我們經常會需要針對專案內容安裝各種套件，不過其實套件內容也很少更動，但每次安裝都會花上不少時間，雖然都放著讓 CI 跑就好了，但還是免不了要等一段時間，好在 Azure DevOps 提供了 [Pipeline caching](https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&WT.mc_id=DOP-MVP-5003734) 功能，讓我們可以將套件內容先暫存起來，下次就不用再安裝了，加快 CI pipline 的速度，這篇文章就來介紹一下 Pipeline caching 的工能。
+在 CI 階段時，我們經常會需要針對專案內容安裝各種套件，不過其實套件內容也很少更動，但每次安裝都會花上不少時間，雖然都放著讓 CI 跑就好了，但還是免不了要等一段時間，好在 Azure DevOps 提供了 [Pipeline caching](https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&wt.mc_id=DT-MVP-5003734) 功能，讓我們可以將套件內容先暫存起來，下次就不用再安裝了，加快 CI pipline 的速度，這篇文章就來介紹一下 Pipeline caching 的工能。
 
 <!-- more -->
 
@@ -87,11 +87,11 @@ npm 預設是有一個 cache 位置的，但使用 Azure DevOps 內建提供的 
 
 透過 Pipeline caching，我們可以把 CI 的時間大幅縮短，這樣就可以讓我們的開發流程更加順暢，也可以讓我們的 CI 更加快速，讓我們的開發更加有效率。
 
-今天只是簡單介紹了 cache 這個 task 的基本用法，相更深入瞭解的話，可以閱讀 [Pipeline caching](https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&WT.mc_id=DOP-MVP-5003734) 文件。
+今天只是簡單介紹了 cache 這個 task 的基本用法，相更深入瞭解的話，可以閱讀 [Pipeline caching](https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&wt.mc_id=DT-MVP-5003734) 文件。
 
 裡面有許多注意事項，以及常見的 cache 情境如 docker 等等，方便我們可以直接抄來用 😉。
 
 ## 相關資源
 
-- [Pipeline caching](https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&WT.mc_id=DOP-MVP-5003734)
-- [Cache@2 - Cache v2 task](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/cache-v2?source=recommendations&view=azure-pipelines&WT.mc_id=DOP-MVP-5003734)
+- [Pipeline caching](https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&wt.mc_id=DT-MVP-5003734)
+- [Cache@2 - Cache v2 task](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/cache-v2?source=recommendations&view=azure-pipelines&wt.mc_id=DT-MVP-5003734)

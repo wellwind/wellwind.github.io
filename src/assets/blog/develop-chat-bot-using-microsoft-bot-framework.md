@@ -187,6 +187,6 @@ this.onMessage(async (context, next) => {
 
 ## 相關資源
 
-- [What is the Bot Framework SDK?](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-overview?view=azure-bot-service-4.0&WT.mc_id=DOP-MVP-5003734)
-- [Create a bot with the Bot Framework SDK](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-create-bot?view=azure-bot-service-4.0&WT.mc_id=DOP-MVP-5003734&tabs=javascript%2Cvs)
-- [Test and debug with the Emulator](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0&WT.mc_id=DOP-MVP-5003734&tabs=csharp)
+- [What is the Bot Framework SDK?](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-overview?view=azure-bot-service-4.0&wt.mc_id=DT-MVP-5003734)
+- [Create a bot with the Bot Framework SDK](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-create-bot?view=azure-bot-service-4.0&wt.mc_id=DT-MVP-5003734&tabs=javascript%2Cvs)
+- [Test and debug with the Emulator](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?view=azure-bot-service-4.0&wt.mc_id=DT-MVP-5003734&tabs=csharp)
