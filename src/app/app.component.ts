@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { filter, pairwise, startWith } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { PlatformService } from '../platform.service';
 import { SiteMetaService } from './site-meta.service';
@@ -32,11 +32,15 @@ export class AppComponent {
       });
 
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        startWith(null),
+        pairwise()
+      )
+      .subscribe((events: [any, any]) => {
         if (!this.platformService.isServer && environment.production) {
-          this.trackService.sendTrack();
-          gtag('event', 'page_view', { page_path: event.url });
+          this.trackService.sendTrack(events[0]?.url || '');
+          gtag('event', 'page_view', { page_path: events[1].url });
         }
       });
   }

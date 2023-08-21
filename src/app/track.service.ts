@@ -10,13 +10,13 @@ import { of } from 'rxjs';
 export class TrackService {
   private http = inject(HttpClient);
 
-  sendTrack() {
+  sendTrack(referrer = '') {
     const trackUrl = environment.trackUrl;
     if (trackUrl) {
       this.http
         .post(trackUrl, {
           url: document.location.href,
-          referrer: document.referrer,
+          referrer: referrer || document.referrer,
         })
         .pipe(catchError(() => of()))
         .subscribe();
