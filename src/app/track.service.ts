@@ -14,7 +14,7 @@ export class TrackService {
     const trackUrl = environment.trackUrl;
     if (trackUrl) {
       this.http
-        .post(trackUrl, {})
+        .post(trackUrl, { url: document.location.href })
         .pipe(catchError(() => of()))
         .subscribe();
     }

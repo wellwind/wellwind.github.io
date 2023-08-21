@@ -11,36 +11,39 @@ declare let gtag: Function;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   constructor(
     private router: Router,
     private platformService: PlatformService,
     private siteMetaService: SiteMetaService,
-    private trackService: TrackService) {
-
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationStart)
-    ).subscribe(url => {
-      this.siteMetaService.resetMeta({
-        title: '',
-        description: '個人學習程式設計、系統開發和讀書的經驗及心得。',
-        keywords: [],
-        type: 'website'
+    private trackService: TrackService
+  ) {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationStart))
+      .subscribe((url) => {
+        this.siteMetaService.resetMeta({
+          title: '',
+          description: '個人學習程式設計、系統開發和讀書的經驗及心得。',
+          keywords: [],
+          type: 'website',
+        });
       });
-    });
 
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: any) => {
-      if (!this.platformService.isServer && environment.production) {
-        gtag('event', 'page_view', { 'page_path': event.url });
-        this.trackService.sendTrack();
-      }
-    });
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        if (!this.platformService.isServer && environment.production) {
+          this.trackService.sendTrack();
+          gtag('event', 'page_view', { page_path: event.url });
+        }
+      });
   }
 
   ngOnInit() {
+    if (!this.platformService.isServer && environment.production) {
+      this.trackService.sendTrack();
+    }
   }
 }
