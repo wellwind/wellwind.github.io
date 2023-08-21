@@ -4,6 +4,7 @@ import { filter } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { PlatformService } from '../platform.service';
 import { SiteMetaService } from './site-meta.service';
+import { TrackService } from './track.service';
 
 declare let gtag: Function;
 
@@ -16,7 +17,8 @@ export class AppComponent {
   constructor(
     private router: Router,
     private platformService: PlatformService,
-    private siteMetaService: SiteMetaService) {
+    private siteMetaService: SiteMetaService,
+    private trackService: TrackService) {
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationStart)
@@ -34,7 +36,11 @@ export class AppComponent {
     ).subscribe((event: any) => {
       if (!this.platformService.isServer && environment.production) {
         gtag('event', 'page_view', { 'page_path': event.url });
+        this.trackService.sendTrack();
       }
     });
+  }
+
+  ngOnInit() {
   }
 }
