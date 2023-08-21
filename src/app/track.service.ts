@@ -14,7 +14,10 @@ export class TrackService {
     const trackUrl = environment.trackUrl;
     if (trackUrl) {
       this.http
-        .post(trackUrl, { url: document.location.href })
+        .post(trackUrl, {
+          url: document.location.href,
+          referrer: document.referrer,
+        })
         .pipe(catchError(() => of()))
         .subscribe();
     }
