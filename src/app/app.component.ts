@@ -40,10 +40,4 @@ export class AppComponent {
         }
       });
   }
-
-  ngOnInit() {
-    if (!this.platformService.isServer && environment.production) {
-      this.trackService.sendTrack();
-    }
-  }
 }
