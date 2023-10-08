@@ -4,17 +4,33 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 03 Sep 2023 06:24:29 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 08 Oct 2023 07:48:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[Standalone Components 下如何使用 Angular Elements]]></title>
+            <link>https://fullstackladder.dev/blog/2023/08/12/angular-elements-with-standalone-components</link>
+            <guid>https://fullstackladder.dev/blog/2023/08/12/angular-elements-with-standalone-components</guid>
+            <pubDate>Sat, 12 Aug 2023 13:52:17 GMT</pubDate>
+            <description><![CDATA[<p>Angular 15 之後推出了全新的 Standalone Components 開發方式，擺脫傳統 NgModule 的束縛，讓我們能打造出更輕更快的 Angular 元件以及應用程式。未來極有可能會變成 Angular 開發的主流，而 Angular Elements 則可以幫我們把 Angular 的應用程式打包成符合 W3C 標準的 Web Components，可惜的是目前 Angular 文件還沒有特別針對 Standalone Components 如何使用 Angular Elements 特別做說明，這篇文章就來介紹一下如何將 Angular 的 Standalone 轉換成 Web Components。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Kubernetes] CKAD/CKA 證照考試心得]]></title>
             <link>https://fullstackladder.dev/blog/2023/07/29/how-to-pass-kubernetes-ckad-cka-certificate</link>
             <guid>https://fullstackladder.dev/blog/2023/07/29/how-to-pass-kubernetes-ckad-cka-certificate</guid>
             <pubDate>Sat, 29 Jul 2023 11:37:18 GMT</pubDate>
             <description><![CDATA[<p>為了即將到來的工作需求，最近開始準備 Kubernetes 的考試，花了一個月的時間學習，總算取得 CKAD 和 CKA 證照，在這邊分享一下我這一個月的學習心得。</p>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[搶先體驗 Angular 16 對 jest 的支援]]></title>
+            <link>https://fullstackladder.dev/blog/2023/06/17/angular-official-support-jest-sneak-peak</link>
+            <guid>https://fullstackladder.dev/blog/2023/06/17/angular-official-support-jest-sneak-peak</guid>
+            <pubDate>Sat, 17 Jun 2023 15:58:41 GMT</pubDate>
+            <description><![CDATA[<p>Angular 16 時加入了<a href="https://blog.angular.io/angular-v16-is-here-4d7a28ec680d#1048">實驗性質的對 jest 的支援</a>，以面對未來 Karma 棄用時的測試選項。而 jest 也已經逐漸變成前端測試的主流，因此這次就來看看 Angular 官方對 jest 目前的支援如何吧！</p>
 ]]></description>
         </item>
         <item>
@@ -159,23 +175,6 @@
             <guid>https://fullstackladder.dev/blog/2022/12/10/tauri-with-blazor-web-assembly</guid>
             <pubDate>Sat, 10 Dec 2022 09:10:11 GMT</pubDate>
             <description><![CDATA[<p>Tauri 內建了很多前端的專案範本，但可惜的是沒有 Blazor WebAssembly 的範本，但 Tauri 架構本身已經考量得很完善了，只要最終產出是純前端的網站，任何應用程式都可以包裝到 Tauri 內，今天這篇文章就來說明一下如何將 Blazor WebAssembly 加到 Tauri 應用程式內。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Directive composition API 初體驗]]></title>
-            <link>https://fullstackladder.dev/blog/2022/11/20/angular-directive-composition-api-introduction</link>
-            <guid>https://fullstackladder.dev/blog/2022/11/20/angular-directive-composition-api-introduction</guid>
-            <pubDate>Sun, 20 Nov 2022 12:02:43 GMT</pubDate>
-            <description><![CDATA[<p>Angular v15 推出了新的 feature - <strong>directive composition API</strong>，可以方便我們更加容易組合出更複雜的 directive。</p>
-<p>這篇文章就讓我們來快速體驗一下 directive composition API 使用起來是什麼感覺！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[使用 C# 撰寫 ModbusTCP client]]></title>
-            <link>https://fullstackladder.dev/blog/2022/11/12/modbustcp-client-using-csharp</link>
-            <guid>https://fullstackladder.dev/blog/2022/11/12/modbustcp-client-using-csharp</guid>
-            <pubDate>Sat, 12 Nov 2022 16:51:29 GMT</pubDate>
-            <description><![CDATA[<p>在之前的文章「簡介 Modbus TCP」我們簡單介紹了工業上常見且簡單的通訊方式，Modbus 以及 ModbusTCP，由於 ModbusTCP 本身非常簡單，因此就算不靠任何 library，只要懂得撰寫簡單的 TCP 程式就可以自己實作一個 ModbusTCP client，所以今天就以 C# 為例，實作一個簡單具有讀取功能的 ModbusTCP client。</p>
 ]]></description>
         </item>
     </channel>
