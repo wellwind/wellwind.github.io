@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 08 Oct 2023 07:48:27 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 08 Oct 2023 08:55:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[如何測試使用 OnPush 策略的 Angular 元件]]></title>
+            <link>https://fullstackladder.dev/blog/2023/10/08/how-to-unit-test-onpush-angular-component</link>
+            <guid>https://fullstackladder.dev/blog/2023/10/08/how-to-unit-test-onpush-angular-component</guid>
+            <pubDate>Sun, 08 Oct 2023 08:57:56 GMT</pubDate>
+            <description><![CDATA[<p><code>OnPush</code> 策略可以打造出高效能的元件，但也會對撰寫測試程式造成一些不方便，今天就來看看有哪些方法可以幫助我們測試 <code>OnPush</code> 策略的元件吧！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[Standalone Components 下如何使用 Angular Elements]]></title>
             <link>https://fullstackladder.dev/blog/2023/08/12/angular-elements-with-standalone-components</link>
@@ -167,14 +175,6 @@
             <guid>https://fullstackladder.dev/blog/2022/12/17/azure-devops-cache-build-pipeline</guid>
             <pubDate>Sat, 17 Dec 2022 12:04:50 GMT</pubDate>
             <description><![CDATA[<p>在 CI 階段時，我們經常會需要針對專案內容安裝各種套件，不過其實套件內容也很少更動，但每次安裝都會花上不少時間，雖然都放著讓 CI 跑就好了，但還是免不了要等一段時間，好在 Azure DevOps 提供了 <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&amp;wt.mc_id=DT-MVP-5003734">Pipeline caching</a> 功能，讓我們可以將套件內容先暫存起來，下次就不用再安裝了，加快 CI pipline 的速度，這篇文章就來介紹一下 Pipeline caching 的工能。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[將 Blazor WebAssembly 整合進 Tauri 應用程式]]></title>
-            <link>https://fullstackladder.dev/blog/2022/12/10/tauri-with-blazor-web-assembly</link>
-            <guid>https://fullstackladder.dev/blog/2022/12/10/tauri-with-blazor-web-assembly</guid>
-            <pubDate>Sat, 10 Dec 2022 09:10:11 GMT</pubDate>
-            <description><![CDATA[<p>Tauri 內建了很多前端的專案範本，但可惜的是沒有 Blazor WebAssembly 的範本，但 Tauri 架構本身已經考量得很完善了，只要最終產出是純前端的網站，任何應用程式都可以包裝到 Tauri 內，今天這篇文章就來說明一下如何將 Blazor WebAssembly 加到 Tauri 應用程式內。</p>
 ]]></description>
         </item>
     </channel>
