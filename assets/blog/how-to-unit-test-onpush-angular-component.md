@@ -6,6 +6,7 @@ tags:
   - Angular
   - OnPush
   - Testing
+ogImage: 00.jpeg
 ---
 
 `OnPush` 策略可以打造出高效能的元件，但也會對撰寫測試程式造成一些不方便，今天就來看看有哪些方法可以幫助我們測試 `OnPush` 策略的元件吧！
