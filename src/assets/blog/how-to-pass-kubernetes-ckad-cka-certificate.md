@@ -50,7 +50,7 @@ CKA 的考試對象偏重於 Kubernetes 的管理者，因此除了對於 Kubern
 
 身為伺服器的管理者，基本網路知識是需要的，同時對於在主機上執行各種指令這種行為要更加熟悉。
 
-在撰寫這篇文章的時間點，考試內容範圍包含以下，詳細內容可以到 [CKAD 考試網站](https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/) 查看。
+在撰寫這篇文章的時間點，考試內容範圍包含以下，詳細內容可以到 [CKA 考試網站](https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/) 查看。
 
 * Storage - 10%
 * Troubleshooting - 30%
