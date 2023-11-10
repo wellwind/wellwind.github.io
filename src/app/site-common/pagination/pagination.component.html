@@ -1,5 +1,6 @@
+@if (currentPage > 1) {
 <button
-  *ngIf="currentPage > 1"
+ 
   mat-stroked-button
   class="pagination-button pagination-prev pagination-icon"
   [routerLink]="[linkBase, currentPage - 1]"
@@ -7,8 +8,10 @@
 >
   <mat-icon class="!mx-0">navigate_before</mat-icon>
 </button>
+}
 
-<ng-container *ngIf="currentPage > 1">
+@if (currentPage > 1) {
+
   <button
     role="button"
     aria-label="第一頁"
@@ -19,11 +22,15 @@
   >
     1
   </button>
-</ng-container>
 
-<mat-icon *ngIf="currentPage > 3" class="more-icon">more_horiz</mat-icon>
+}
 
-<ng-container *ngIf="currentPage > 2">
+@if (currentPage > 3) {
+<mat-icon class="more-icon">more_horiz</mat-icon>
+}
+
+@if (currentPage > 2) {
+
   <button
     role="button"
     [attr.aria-label]="'第 ' + (currentPage - 1) + ' 頁'"
@@ -34,7 +41,8 @@
   >
     {{ currentPage - 1 }}
   </button>
-</ng-container>
+
+}
 
 <button
   role="button"
@@ -47,7 +55,8 @@
   {{ currentPage }}
 </button>
 
-<ng-container *ngIf="currentPage < totalPage - 1">
+@if (currentPage < totalPage - 1) {
+
   <button
     role="button"
     [attr.aria-label]="'第 ' + (currentPage + 1) + ' 頁'"
@@ -58,13 +67,17 @@
   >
     {{ currentPage + 1 }}
   </button>
-</ng-container>
 
-<mat-icon *ngIf="currentPage < totalPage - 2" class="more-icon"
+}
+
+@if (currentPage < totalPage - 2) {
+<mat-icon class="more-icon"
   >more_horiz</mat-icon
 >
+}
 
-<ng-container *ngIf="currentPage < totalPage">
+@if (currentPage < totalPage) {
+
   <button
     role="button"
     aria-label="最後一頁"
@@ -75,12 +88,14 @@
   >
     {{ totalPage }}
   </button>
-</ng-container>
 
+}
+
+@if (currentPage < totalPage) {
 <button
   role="button"
   aria-label="下一頁"
-  *ngIf="currentPage < totalPage"
+ 
   mat-stroked-button
   class="pagination-button pagination-next pagination-icon"
   [routerLink]="[linkBase, currentPage + 1]"
@@ -88,3 +103,4 @@
 >
   <mat-icon class="!mx-0">navigate_next</mat-icon>
 </button>
+}

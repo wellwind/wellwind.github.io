@@ -9,12 +9,14 @@
 
   <mat-card-content class="blog-post-content">
     <ul>
-      <li *ngFor="let category of $any(categories$ | push) | keyvalue">
+      @for (category of $any(categories$ | push) | keyvalue; track category.key) {
+  <li>
         <a [routerLink]="['/blog/categories', $any(category.key || '') | slugify]">
           {{ category.key }}
         </a>
         ({{ $any(category.value).length }})
       </li>
+}
     </ul>
   </mat-card-content>
 </mat-card>

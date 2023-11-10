@@ -1,10 +1,12 @@
-<ng-container *ngFor="let yearPosts of posts$ | push">
+@for (yearPosts of posts$ | push; track yearPosts.year) {
+
   <mat-toolbar class="year-header mat-elevation-z4">
     <h1>{{ yearPosts.year }}</h1>
     <h2>年 (共 {{ yearPosts.postCount }} 篇文章)</h2>
   </mat-toolbar>
 
-  <ng-container *ngFor="let post of yearPosts.posts">
+  @for (post of yearPosts.posts; track post.slug) {
+
 
     <mat-card appearance="outlined" class="blog-post">
       <mat-card-title class="blog-post-title">
@@ -32,9 +34,11 @@
       </mat-card-footer>
     </mat-card>
 
-  </ng-container>
 
-</ng-container>
+}
+
+
+}
 
 <mat-card appearance="outlined" class="pagination">
   <app-pagination

@@ -9,15 +9,19 @@
 
   <mat-card-content class="blog-post-content">
     <div class="tags">
-      <ng-container *ngFor="let tag of $any(tags$ | push) | keyvalue">
-      <a
-        *ngIf="tag?.key"
+      @for (tag of $any(tags$ | push) | keyvalue; track tag) {
+  
+      @if (tag?.key) {
+<a
+       
         class="tag size-{{ $any(tag.value).length | blogPostTagSize:((maxPostsCount$ | push )|| 0) }}"
         [routerLink]="['/blog/tags', $any(tag.key) | slugify]"
         >
         {{ tag.key }}
       </a>
-      </ng-container>
+}
+      
+}
     </div>
   </mat-card-content>
 </mat-card>

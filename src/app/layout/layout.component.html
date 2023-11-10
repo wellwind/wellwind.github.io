@@ -9,8 +9,12 @@
     mat-icon-button
     (click)="menuOpen$.next(!menuOpen$.value); cdr.detectChanges()"
   >
-    <mat-icon *ngIf="menuOpen$ | push">menu_open</mat-icon>
-    <mat-icon *ngIf="!(menuOpen$ | push)">menu</mat-icon>
+    @if (menuOpen$ | push) {
+<mat-icon>menu_open</mat-icon>
+}
+    @if (!(menuOpen$ | push)) {
+<mat-icon>menu</mat-icon>
+}
   </button>
   <h1>
     <a
@@ -30,11 +34,16 @@
     class="mr-2"
     (click)="theme$.next(theme$.value === 'light' ? 'dark' : 'light')"
   >
-    <mat-icon *ngIf="(theme$ | push) === 'light'">light_mode</mat-icon>
-    <mat-icon *ngIf="(theme$ | push) !== 'light'">dark_mode</mat-icon>
+    @if ((theme$ | push) === 'light') {
+<mat-icon>light_mode</mat-icon>
+}
+    @if ((theme$ | push) !== 'light') {
+<mat-icon>dark_mode</mat-icon>
+}
   </button>
 
-  <div class="search-bar" *ngIf="!(isSmallScreen$ | push)">
+  @if (!(isSmallScreen$ | push)) {
+<div class="search-bar">
     <input
       autocomplete="off"
       type="text"
@@ -53,20 +62,25 @@
       panelWidth="auto"
       (optionSelected)="selectSuggestItem($event)"
     >
-      <mat-option *ngFor="let item of suggestList$ | push" [value]="item">
+      @for (item of suggestList$ | push; track item.link) {
+  <mat-option [value]="item">
         <span class="suggest-item-type">{{ item.type }}</span>
         <span class="suggest-item-text">{{ item.text }}</span>
       </mat-option>
+}
     </mat-autocomplete>
   </div>
+}
 </mat-toolbar>
 
+@if (pageLoading$ | push) {
 <mat-progress-bar
-  *ngIf="pageLoading$ | push"
+
   mode="indeterminate"
   color="accent"
   class="!fixed top-0 z-50"
 ></mat-progress-bar>
+}
 
 <mat-drawer-container class="drawer-container top-16 h-[calc(100vh - 64px)]">
   <mat-drawer
@@ -157,8 +171,9 @@
     <mat-divider class="my-1"></mat-divider>
 
     <mat-nav-list>
-      <a
-        *ngFor="let item of menuItems"
+      @for (item of menuItems; track item.link) {
+  <a
+
         mat-list-item
         routerLinkActive="text-[color:var(--sidebar-highlight-text-color)] bg-[color:var(--sidebar-highlight-bg-color)]"
         [routerLinkActiveOptions]="{ exact: item.link === '/blog' }"
@@ -169,6 +184,7 @@
           <span class="link-text">{{ item.text }}</span>
         </span>
       </a>
+}
     </mat-nav-list>
 
     <mat-divider class="my-1"></mat-divider>

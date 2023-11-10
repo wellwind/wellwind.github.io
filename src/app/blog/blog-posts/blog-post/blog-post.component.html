@@ -1,4 +1,5 @@
-<ng-container *ngIf="postMeta$ | push as postMeta">
+@if (postMeta$ | push; as postMeta) {
+
   <div class="blog-post-container flex items-start">
     <article class="blog-post blog-post-overview w-full !p-0 xl:w-[80%]">
       <header>
@@ -22,14 +23,16 @@
 
       <!-- blog post tags -->
       <div aria-label="Post Tags" class="flex justify-center">
-        <a
-          *ngFor="let tag of postMeta.tags"
+        @for (tag of postMeta.tags; track tag) {
+  <a
+
           [routerLink]="['/blog/tags', tag | slugify]"
           matRipple
           class="text-white text-sm bg-blue-800 hover:bg-blue-600 rounded-3xl px-3 py-2 m-1 no-underline hover:no-underline hover:text-white"
         >
           {{ tag }}
         </a>
+}
       </div>
 
       <div class="blog-post-liker-coin mt-4">
@@ -47,12 +50,10 @@
 
       <footer>
         <!-- prev & next by categories -->
-        <ng-container
-          *ngFor="let categoryPrevNext of postCategoriesPrevNext$ | push"
-        >
-          <ng-container
-            *ngIf="categoryPrevNext.previousPost || categoryPrevNext.nextPost"
-          >
+        @for (categoryPrevNext of postCategoriesPrevNext$ | push; track categoryPrevNext.category) {
+
+          @if (categoryPrevNext.previousPost || categoryPrevNext.nextPost) {
+
             <div class="flex items-center">
               <mat-icon class="pr-1">folder_open</mat-icon>
               <a
@@ -69,7 +70,8 @@
               <div
                 class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
               >
-                <ng-container *ngIf="categoryPrevNext.previousPost as post">
+                @if (categoryPrevNext.previousPost; as post) {
+
                   <div
                     class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
                   >
@@ -79,12 +81,14 @@
                   <ng-container
                     *ngTemplateOutlet="postLink; context: { post: post }"
                   ></ng-container>
-                </ng-container>
+
+}
               </div>
               <div
                 class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
               >
-                <ng-container *ngIf="categoryPrevNext.nextPost as post">
+                @if (categoryPrevNext.nextPost; as post) {
+
                   <div
                     class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
                   >
@@ -94,12 +98,15 @@
                   <ng-container
                     *ngTemplateOutlet="postLink; context: { post: post }"
                   ></ng-container>
-                </ng-container>
+
+}
               </div>
             </div>
             <mat-divider class="!my-2"></mat-divider>
-          </ng-container>
-        </ng-container>
+
+}
+
+}
 
         <!-- prev & next by date -->
         <div class="flex items-center">
@@ -111,7 +118,8 @@
           <div
             class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
           >
-            <ng-container *ngIf="previousPost$ | push as post">
+            @if (previousPost$ | push; as post) {
+
               <div
                 class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
               >
@@ -121,12 +129,14 @@
               <ng-container
                 *ngTemplateOutlet="postLink; context: { post: post }"
               ></ng-container>
-            </ng-container>
+
+}
           </div>
           <div
             class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
           >
-            <ng-container *ngIf="nextPost$ | push as post">
+            @if (nextPost$ | push; as post) {
+
               <div
                 class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
               >
@@ -136,7 +146,8 @@
               <ng-container
                 *ngTemplateOutlet="postLink; context: { post: post }"
               ></ng-container>
-            </ng-container>
+
+}
           </div>
         </div>
 
@@ -172,4 +183,5 @@
       <mat-icon>comment</mat-icon>
     </button>
   </div>
-</ng-container>
+
+}

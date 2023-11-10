@@ -3,7 +3,8 @@
   <h2>分類 (共 {{ categoryPostsCount$ | push }} 篇文章)</h2>
 </mat-toolbar>
 
-<ng-container *ngFor="let post of posts$ | push">
+@for (post of posts$ | push; track post.slug) {
+
 
   <mat-card appearance="outlined" class="blog-post">
     <mat-card-title class="blog-post-title">
@@ -31,7 +32,8 @@
     </mat-card-footer>
   </mat-card>
 
-</ng-container>
+
+}
 
 <mat-card appearance="outlined" class="pagination">
   <app-pagination
