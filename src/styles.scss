@@ -3,6 +3,11 @@
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
+@use './hljs.scss';
+@use './variables';
+@use './reset.scss';
+@use './blog-post.scss';
+
 // tailwind
 @tailwind components;
 @tailwind utilities;
@@ -54,11 +59,6 @@ $blog-dark-theme: mat.define-dark-theme((
 }
 
 /* You can add global styles to this file, and also import other style files */
-@import './hljs.scss';
-@import './variables';
-@import './reset.scss';
-@import './blog-post.scss';
-
 .suggest-item-type {
   font-size: 12px;
   margin-right: 6px;
