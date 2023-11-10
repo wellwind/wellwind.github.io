@@ -1,13 +1,13 @@
-@import "@angular/material/theming";
+@use '@angular/material' as mat;
 
 :root {
   $background-color: #ffffff;
-  $primary-color: map-get($mat-indigo, 500);
-  $primary-text-color: map-get($mat-gray, 900);
-  $secondary-text-color: map-get($mat-gray, 500);
-  $default-link-color: map-get($mat-indigo, 400);
-  $default-link-hover-color: map-get($mat-indigo, 600);
-  $sidebar-text-color: map-get($mat-gray, 600);
+  $primary-color: map-get(mat.$indigo-palette, 500);
+  $primary-text-color: map-get(mat.$gray-palette, 900);
+  $secondary-text-color: map-get(mat.$gray-palette, 500);
+  $default-link-color: map-get(mat.$indigo-palette, 400);
+  $default-link-hover-color: map-get(mat.$indigo-palette, 600);
+  $sidebar-text-color: map-get(mat.$gray-palette, 600);
 
   --background-color:#{$background-color};
   --primary-color: #{$primary-color};
@@ -40,26 +40,26 @@
   // page note
   --note-background-color: transparent;
   --note-border-color: rgba(0, 0, 0, 0.2);
-  --note-info-indicator-color: #{map-get($mat-indigo, 500)};
-  --note-warning-indicator-color: #{map-get($mat-orange, 500)};
-  --note-danger-indicator-color: #{map-get($mat-pink, 500)};
+  --note-info-indicator-color: #{map-get(mat.$indigo-palette, 500)};
+  --note-warning-indicator-color: #{map-get(mat.$orange-palette, 500)};
+  --note-danger-indicator-color: #{map-get(mat.$pink-palette, 500)};
 
   // toc
   --toc-header-color: #{$primary-text-color};
-  --toc-indicator-color: #{map-get($mat-gray, 500)};
+  --toc-indicator-color: #{map-get(mat.$gray-palette, 500)};
   --toc-indicator-focus-color: #{$primary-color};
 
   // code
   --code-text-color: #{$primary-color};
-  --code-background-color: #{map-get($mat-gray, 200)};
+  --code-background-color: #{map-get(mat.$gray-palette, 200)};
 
   // dark theme
   .dark-theme {
     $background-color: #424242;
-    $primary-color: map-get($mat-indigo, 200);
-    $primary-text-color: map-get($mat-gray, 100);
-    $secondary-text-color: map-get($mat-gray, 400);
-    $sidebar-text-color: map-get($mat-gray, 400);
+    $primary-color: map-get(mat.$indigo-palette, 200);
+    $primary-text-color: map-get(mat.$gray-palette, 100);
+    $secondary-text-color: map-get(mat.$gray-palette, 400);
+    $sidebar-text-color: map-get(mat.$gray-palette, 400);
     $default-link-color: #D4DAED;
     $default-link-hover-color: lighten($default-link-color, 15%);
 
@@ -101,17 +101,17 @@
     // page note
     --note-background-color: transparent;
     --note-border-color: rgba(255, 255, 255, 0.3);
-    --note-info-indicator-color: #{map-get($mat-indigo, 500)};
-    --note-warning-indicator-color: #{map-get($mat-orange, 500)};
-    --note-danger-indicator-color: #{map-get($mat-pink, 500)};
+    --note-info-indicator-color: #{map-get(mat.$indigo-palette, 500)};
+    --note-warning-indicator-color: #{map-get(mat.$orange-palette, 500)};
+    --note-danger-indicator-color: #{map-get(mat.$pink-palette, 500)};
 
     // toc
     --toc-header-color: #{$primary-text-color};
-    --toc-indicator-color: #{map-get($mat-gray, 500)};
+    --toc-indicator-color: #{map-get(mat.$gray-palette, 500)};
     --toc-indicator-focus-color: #{$primary-color};
 
     // code
     --code-text-color: #D4DAED;
-    --code-background-color: #{map-get($mat-gray, 800)};
+    --code-background-color: #{map-get(mat.$gray-palette, 800)};
   }
 }
