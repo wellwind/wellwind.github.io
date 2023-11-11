@@ -249,7 +249,6 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
   ],
 })
 export class BlogPostComponent {
-  private route = inject(ActivatedRoute);
   private domSanitizer = inject(DomSanitizer);
   private platformService = inject(PlatformService);
   private sitePostService = inject(SitePostService);
