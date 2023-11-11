@@ -1,6 +1,6 @@
 @for (yearPosts of posts$ | async; track yearPosts.year) {
 
-  <mat-toolbar class="year-header mat-elevation-z4">
+  <mat-toolbar class="year-header mat-elevation-z4 !mb-2">
     <h1>{{ yearPosts.year }}</h1>
     <h2>年 (共 {{ yearPosts.postCount }} 篇文章)</h2>
   </mat-toolbar>
