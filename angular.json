@@ -33,10 +33,16 @@
               "src/4c5359d349fa457e37c8e2ef742609d4.html",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+            "styles": ["src/styles.scss"],
+            "scripts": [],
+            "polyfills": ["zone.js"],
+            "server": "src/main.server.ts",
+            "ssr": {
+              "entry": "server.ts"
+            },
+            "prerender": {
+              "routesFile": "pages.txt"
+            }
           },
           "configurations": {
             "production": {
@@ -115,88 +121,11 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
+            "scripts": [],
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/blog/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json",
-            "inlineStyleLanguage": "scss"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "development": {
-              "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false
-            },
-            "static": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.static.ts"
-                }
-              ]
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@angular-devkit/build-angular:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "blog:build:development",
-              "serverTarget": "blog:server:static"
-            },
-            "production": {
-              "browserTarget": "blog:build:production",
-              "serverTarget": "blog:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@angular-devkit/build-angular:prerender",
-          "options": {
-            "routes": [
-              "/",
-              "/blog"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "blog:build:production",
-              "serverTarget": "blog:server:production"
-            },
-            "development": {
-              "browserTarget": "blog:build:development",
-              "serverTarget": "blog:server:development"
-            },
-            "static": {
-              "browserTarget": "blog:build:production",
-              "serverTarget": "blog:server:static"
-            }
-          },
-          "defaultConfiguration": "production"
         },
         "generate-prerender-urls": {
           "builder": "@wellwind/blog-builder:generate-prerender-urls",

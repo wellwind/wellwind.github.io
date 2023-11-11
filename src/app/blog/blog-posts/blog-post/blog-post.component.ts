@@ -72,8 +72,7 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
       this.domSanitizer.bypassSecurityTrustHtml(
         postMeta.summary + postMeta.content
       )
-    ),
-    tap(() => this.highlightCode())
+    )
   );
 
   postCategoriesPrevNext$ = combineLatest([
@@ -140,16 +139,6 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
     if (this.platformService.isServer) {
       return;
     }
-  }
-
-  highlightCode() {
-    if (this.platformService.isServer) {
-      return;
-    }
-
-    setTimeout(() => {
-      (window as any)?.hljs?.highlightAll();
-    });
   }
 
   goComment(commentsElement: HTMLElement) {

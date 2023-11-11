@@ -22,8 +22,7 @@
     "build:urls": "ng run blog:generate-prerender-urls",
     "build:rss": "ng run blog:generate-rss",
     "build:minify-html": "ng run blog:minify-rendered-files",
-    "build:blog": "npm run build:blog-posts-json && npm run build:urls && npm run prerender:pages && npm run build:minify-html && npm run build:rss -- --rss-path ./dist/blog/browser/blog/atom.xml",
-    "build:deploy": "npx concurrently \"npm run serve:assets\" \"npm run build:blog\" --kill-others"
+    "build:deploy": "npm run build:blog-posts-json && npm run build:urls && npm run build && npm run build:minify-html && npm run build:rss -- --rss-path ./dist/blog/browser/browser/atom.xml"
   },
   "private": true,
   "dependencies": {
@@ -44,9 +43,11 @@
     "@wellwind/blog-builder": "file:builders",
     "@wellwind/blog-schematics": "file:schematics",
     "feed": "^4.2.2",
+    "highlight.js": "^11.9.0",
     "html-minifier": "^4.0.0",
     "js-yaml": "^4.1.0",
-    "markdown-it": "^12.3.2",
+    "marked": "^9.1.6",
+    "marked-highlight": "^2.0.6",
     "ramda": "^0.27.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
@@ -60,8 +61,7 @@
     "@types/html-minifier": "^4.0.2",
     "@types/jasmine": "~3.8.0",
     "@types/js-yaml": "^4.0.3",
-    "@types/markdown-it": "^12.2.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^20.9.0",
     "@types/puppeteer": "^5.4.4",
     "@types/ramda": "^0.27.45",
     "autoprefixer": "^10.4.12",

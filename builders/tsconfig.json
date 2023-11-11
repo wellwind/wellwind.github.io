@@ -3,6 +3,7 @@
     "module": "commonjs",
     "outDir": "./dist",
     "downlevelIteration": true,
+    "target": "ESNEXT",
     "lib": [
       "dom",
       "es5",
