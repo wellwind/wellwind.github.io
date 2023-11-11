@@ -16,8 +16,7 @@ const routes: Routes = [
       },
       {
         path: 'tags',
-        loadChildren: () =>
-          import('./blog-tags/blog-tags.module').then((m) => m.BlogTagsModule),
+        loadChildren: () => import('./blog-tags/blog-tags.routes'),
       },
       {
         path: '',

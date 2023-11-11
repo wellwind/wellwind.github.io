@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BlogTagPostsComponent } from './blog-tag-posts/blog-tag-posts.component';
+import { Routes } from '@angular/router';
+import { BlogTagPostsComponent } from './blog-tag-posts.component';
 import { BlogTagsPostsResolve } from './blog-tags-posts-resolve';
 import { BlogTagsResolve } from './blog-tags-resolve';
 import { BlogTagsComponent } from './blog-tags.component';
@@ -22,9 +21,4 @@ const routes: Routes = [
     component: BlogTagsComponent
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class BlogTagsRoutingModule { }
+export default routes;
