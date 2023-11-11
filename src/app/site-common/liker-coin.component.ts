@@ -8,7 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { PlatformService } from 'src/app/site-common/platform.service';
 
 @Component({
@@ -35,7 +35,6 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
   private platformService = inject(PlatformService);
 
   @Input() likerId = '';
-  @Input() refreshObservable!: Observable<any>;
 
   protected likerCoinSrc = signal<SafeResourceUrl>(
     this.domSanitizer.bypassSecurityTrustResourceUrl('')
@@ -50,19 +49,11 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
       );
       return;
     }
-    this.subscription.add(
-      this.refreshObservable.subscribe(() => {
-        const likerCoinBase =
-          'https://button.like.co/in/embed/wellwind/button?referrer=';
-        const url = encodeURIComponent(
-          location.href.split('?')[0].split('#')[0]
-        );
-        this.likerCoinSrc.set(
-          this.domSanitizer.bypassSecurityTrustResourceUrl(
-            `${likerCoinBase}${url}`
-          )
-        );
-      })
+    const likerCoinBase =
+      'https://button.like.co/in/embed/wellwind/button?referrer=';
+    const url = encodeURIComponent(location.href.split('?')[0].split('#')[0]);
+    this.likerCoinSrc.set(
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`${likerCoinBase}${url}`)
     );
   }
 

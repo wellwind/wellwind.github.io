@@ -5,9 +5,8 @@ import {
   ViewChild,
   computed,
   effect,
-  inject
+  inject,
 } from '@angular/core';
-import { toObservable } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
@@ -17,11 +16,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MarkdownMeta } from 'site-utils';
 import { getRouteData } from 'src/app/site-common/route-utils';
-import { PlatformService } from '../../../site-common/platform.service';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
 import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle.component';
 import { CommentComponent } from '../../../site-common/comment.component';
 import { LikerCoinComponent } from '../../../site-common/liker-coin.component';
+import { PlatformService } from '../../../site-common/platform.service';
 import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path.pipe';
 import { PostMetaWithSlug } from '../../../site-common/post-meta.interface';
 import { SiteMetaService } from '../../../site-common/site-meta.service';
@@ -91,10 +90,7 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
             如果您覺得我的文章有幫助，歡迎免費成為 LikeCoin 會員，幫我的文章拍手
             5 次表示支持！
           </div>
-          <app-liker-coin
-            likerId="wellwind"
-            [refreshObservable]="postMeta$"
-          ></app-liker-coin>
+          <app-liker-coin likerId="wellwind"></app-liker-coin>
         </div>
 
         <mat-divider class="!my-2"></mat-divider>
@@ -275,7 +271,6 @@ export class BlogPostComponent {
     content: '',
     originalContent: '',
   });
-  protected postMeta$ = toObservable(this.postMeta);
 
   protected postContent = computed(() => {
     return this.domSanitizer.bypassSecurityTrustHtml(
