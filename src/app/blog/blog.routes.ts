@@ -8,10 +8,7 @@ const routes: Routes = [
     children: [
       {
         path: 'archives',
-        loadChildren: () =>
-          import('./blog-archives/blog-archives.module').then(
-            (m) => m.BlogArchivesModule
-          ),
+        loadChildren: () => import('./blog-archives/blog-archives.routes'),
       },
       {
         path: 'categories',
