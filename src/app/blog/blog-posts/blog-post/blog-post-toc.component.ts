@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Observable, ReplaySubject, map, startWith, switchMap } from 'rxjs';
-import { PlatformService } from '../../../../platform.service';
+import { PlatformService } from '../../../site-common/platform.service';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
 
 interface Heading {

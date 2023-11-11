@@ -6,11 +6,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { PostMetaWithSlug } from 'src/app/site-common/post-meta.interface';
 import { getRouteData, getRouteParam } from 'src/app/site-common/route-utils';
-import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle/blog-post-subtitle.component';
-import { PaginationComponent } from '../../site-common/pagination/pagination.component';
-import { PostDateAsPathPipe } from '../../site-common/post-date-as-path/post-date-as-path.pipe';
+import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle.component';
+import { PaginationComponent } from '../../site-common/pagination.component';
+import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
 import { SiteMetaService } from '../../site-common/site-meta.service';
-import { UnslugifyPipe } from '../../site-common/unslugify/unslugify.pipe';
+import { UnslugifyPipe } from '../../site-common/unslugify.pipe';
 import { getPagePosts } from '../get-page-posts';
 
 const PAGE_SIZE = 10;

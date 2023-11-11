@@ -1,17 +1,14 @@
-import { Component, OnInit, computed, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { map, switchMap } from 'rxjs';
+import { Component, computed, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
+import { getRouteParam } from 'src/app/site-common/route-utils';
+import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle.component';
+import { PaginationComponent } from '../../site-common/pagination.component';
+import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
 import { SitePostService } from '../../site-common/site-post.service';
 import { getPagePosts } from '../get-page-posts';
-import { PostDateAsPathPipe } from '../../site-common/post-date-as-path/post-date-as-path.pipe';
-import { PaginationComponent } from '../../site-common/pagination/pagination.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle/blog-post-subtitle.component';
-import { MatCardModule } from '@angular/material/card';
-import { AsyncPipe } from '@angular/common';
-import { getRouteParam } from 'src/app/site-common/route-utils';
-import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 
 const PAGE_SIZE = 10;
 

@@ -2,7 +2,7 @@ import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/ar
 import { JsonObject } from '@angular-devkit/core';
 import { readdirSync, writeFileSync } from 'fs';
 import { range } from 'ramda';
-import { getMarkdownMeta } from '../../../utils/get-markdown-meta';
+import { getMarkdownMeta } from '../../../utils';
 import { slugify } from '../../../utils/slugify';
 
 interface Options extends JsonObject {

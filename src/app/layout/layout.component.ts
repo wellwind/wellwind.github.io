@@ -17,7 +17,7 @@ import {
   Router,
   RouterOutlet,
 } from '@angular/router';
-import { PlatformService } from '../../platform.service';
+import { PlatformService } from '../site-common/platform.service';
 import { LayoutSidebarComponent } from './layout-sidebar.component';
 import { LayoutToolbarComponent } from './layout-toolbar.component';
 import { WebsiteTheme } from './website-theme';
@@ -127,7 +127,6 @@ export class LayoutComponent implements OnInit {
   protected menuOpen = signal(true);
   protected theme = signal<WebsiteTheme>('dark');
 
-  protected isSmallScreen$ = this.platformService.isSmallScreen$;
   protected isSmallScreen = this.platformService.isSmallScreen;
 
   searchKeyword = new FormControl<string>('');
@@ -141,7 +140,7 @@ export class LayoutComponent implements OnInit {
   );
   protected pageLoading = toSignal(this.pageLoading$);
 
-  private _themeEffect = effect(() => {
+  private themeEffect = effect(() => {
     if (this.platformService.isServer) {
       return;
     }
@@ -153,6 +152,15 @@ export class LayoutComponent implements OnInit {
     this.cdr.detectChanges();
   });
 
+  private smallScreenEffect = effect(() => {
+    if (this.platformService.isServer) {
+      return;
+    }
+    if (this.isSmallScreen()) {
+      this.menuOpen.set(false);
+    }
+  }, { allowSignalWrites: true });
+
   ngOnInit() {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart))
@@ -161,12 +169,6 @@ export class LayoutComponent implements OnInit {
           this.matDrawerContent.scrollTo({ top: 0, left: 0 });
           this.cdr.detectChanges();
         }
-      });
-
-    this.platformService.isSmallScreen$
-      .pipe(map((result) => !result))
-      .subscribe((shouldOpen) => {
-        this.menuOpen.set(shouldOpen);
       });
 
     this.setTheme();

@@ -16,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { combineLatest, debounceTime, defer, distinctUntilChanged, map, switchMap } from 'rxjs';
 
-import { PlatformService } from 'src/platform.service';
+import { PlatformService } from 'src/app/site-common/platform.service';
 import { SitePostService } from '../site-common/site-post.service';
 import { WebsiteTheme } from './website-theme';
 

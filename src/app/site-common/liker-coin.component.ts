@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import {
   Component,
   Input,
@@ -9,7 +8,7 @@ import {
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Observable, Subscription } from 'rxjs';
-import { PlatformService } from 'src/platform.service';
+import { PlatformService } from 'src/app/site-common/platform.service';
 
 @Component({
   selector: 'app-liker-coin',
@@ -28,7 +27,6 @@ import { PlatformService } from 'src/platform.service';
   `,
   styles: ``,
   standalone: true,
-  imports: [AsyncPipe],
 })
 export class LikerCoinComponent implements OnInit, OnDestroy {
   private domSanitizer = inject(DomSanitizer);
@@ -37,7 +35,9 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
   @Input() likerId = '';
   @Input() refreshObservable!: Observable<any>;
 
-  protected likerCoinSrc = signal<SafeResourceUrl>('');
+  protected likerCoinSrc = signal<SafeResourceUrl>(
+    this.domSanitizer.bypassSecurityTrustResourceUrl('')
+  );
 
   private subscription = new Subscription();
 

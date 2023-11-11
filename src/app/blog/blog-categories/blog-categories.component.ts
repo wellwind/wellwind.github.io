@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { getRouteData } from 'src/app/site-common/route-utils';
 import { PostMetaWithSlug } from '../../site-common/post-meta.interface';
 import { SiteMetaService } from '../../site-common/site-meta.service';
-import { SlugifyPipe } from '../../site-common/slugify/slugify.pipe';
+import { SlugifyPipe } from '../../site-common/slugify.pipe';
 
 @Component({
   selector: 'app-blog-categories',

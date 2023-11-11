@@ -1,48 +1,50 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
-import { PlatformService } from '../../../platform.service';
+import { PlatformService } from './platform.service';
 
 @Component({
-    selector: 'app-comment',
-    templateUrl: './comment.component.html',
-    styleUrls: ['./comment.component.scss'],
-    standalone: true
+  selector: 'app-comment',
+  template: ``,
+  standalone: true,
 })
-export class CommentComponent implements AfterViewInit, OnDestroy {
+export class CommentComponent implements OnInit, AfterViewInit, OnDestroy {
+  private router = inject(Router);
+  private elementRef = inject(ElementRef<HTMLElement>);
+  private platformService = inject(PlatformService);
 
-  subscription = new Subscription();
+  private subscription = new Subscription();
 
-  constructor(
-    private router: Router,
-    private elementRef: ElementRef<HTMLElement>,
-    private platformService: PlatformService) {
-
+  ngOnInit() {
     this.subscription.add(
-      this.router.events.pipe(
-        filter(event => event instanceof NavigationStart)
-      ).subscribe(() => {
-        this.elementRef.nativeElement.innerHTML = '';
-      })
+      this.router.events
+        .pipe(filter((event) => event instanceof NavigationStart))
+        .subscribe(() => {
+          this.elementRef.nativeElement.innerHTML = '';
+        })
     );
 
     this.subscription.add(
-      this.router.events.pipe(
-        filter(event => event instanceof NavigationEnd)
-      ).subscribe(() => {
-        this.generateComment();
-      })
+      this.router.events
+        .pipe(filter((event) => event instanceof NavigationEnd))
+        .subscribe(() => {
+          this.generateComment();
+        })
     );
-
   }
 
   ngAfterViewInit() {
     this.generateComment();
-
   }
 
   generateComment() {
-
     if (this.platformService.isServer) {
       return;
     }
@@ -58,9 +60,12 @@ export class CommentComponent implements AfterViewInit, OnDestroy {
     scriptTag.setAttribute('data-mapping', 'title');
     scriptTag.setAttribute('data-reactions-enabled', '1');
     scriptTag.setAttribute('data-emit-metadata', '0');
-    scriptTag.setAttribute('data-theme', localStorage.getItem('theme') === 'dark' ? 'dark_dimmed' : 'light');
+    scriptTag.setAttribute(
+      'data-theme',
+      localStorage.getItem('theme') === 'dark' ? 'dark_dimmed' : 'light'
+    );
     scriptTag.setAttribute('data-lang', 'zh-TW');
-    scriptTag.setAttribute('data-loading', 'lazy')
+    scriptTag.setAttribute('data-loading', 'lazy');
     scriptTag.setAttribute('crossorigin', 'anonymous');
     scriptTag.setAttribute('async', '');
 
@@ -70,5 +75,4 @@ export class CommentComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }

@@ -1,4 +1,4 @@
-import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -17,16 +17,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MarkdownMeta } from 'site-utils';
 import { getRouteData } from 'src/app/site-common/route-utils';
-import { PlatformService } from '../../../../platform.service';
+import { PlatformService } from '../../../site-common/platform.service';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
-import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle/blog-post-subtitle.component';
-import { CommentComponent } from '../../../site-common/comment/comment.component';
-import { LikerCoinComponent } from '../../../site-common/liker-coin/liker-coin.component';
-import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path/post-date-as-path.pipe';
+import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle.component';
+import { CommentComponent } from '../../../site-common/comment.component';
+import { LikerCoinComponent } from '../../../site-common/liker-coin.component';
+import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path.pipe';
 import { PostMetaWithSlug } from '../../../site-common/post-meta.interface';
 import { SiteMetaService } from '../../../site-common/site-meta.service';
 import { SitePostService } from '../../../site-common/site-post.service';
-import { SlugifyPipe } from '../../../site-common/slugify/slugify.pipe';
+import { SlugifyPipe } from '../../../site-common/slugify.pipe';
 import { BlogPostTocComponent } from './blog-post-toc.component';
 
 const findPreviousPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {

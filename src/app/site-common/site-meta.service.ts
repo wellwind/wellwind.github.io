@@ -1,17 +1,24 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SiteMetaService {
+  private title = inject(Title);
+  private meta = inject(Meta);
 
-  constructor(private title: Title, private meta: Meta) {
-  }
-
-  resetMeta(options: { title: string, description: string, keywords: string[], type: 'website' | 'article', ogImage?: string }) {
-    const siteName = '全端開發人員天梯'
-    const pageTitle = `${options.title}${options.title ? ' | ' : ''}${siteName}`;
+  resetMeta(options: {
+    title: string;
+    description: string;
+    keywords: string[];
+    type: 'website' | 'article';
+    ogImage?: string;
+  }) {
+    const siteName = '全端開發人員天梯';
+    const pageTitle = `${options.title}${
+      options.title ? ' | ' : ''
+    }${siteName}`;
     this.title.setTitle(pageTitle);
 
     const tags: MetaDefinition[] = [
@@ -25,9 +32,9 @@ export class SiteMetaService {
       { name: 'og:image', content: options.ogImage || '' },
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:title', content: pageTitle },
-      { name: 'twitter:description', content: options.description }
+      { name: 'twitter:description', content: options.description },
     ];
-    tags.forEach(tag => {
+    tags.forEach((tag) => {
       this.meta.removeTag(`name="${tag.name}"`);
       this.meta.removeTag(`property="${tag.property}"`);
       this.meta.addTag(tag);

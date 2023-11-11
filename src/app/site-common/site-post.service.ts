@@ -4,7 +4,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ascend, descend, prop, sortWith } from 'ramda';
 import { combineLatest, iif, map, of, shareReplay, startWith, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { PlatformService } from '../../platform.service';
+import { PlatformService } from './platform.service';
 import { PostMeta, PostMetaWithSlug } from './post-meta.interface';
 
 type PostMetaCollection = { [keg: string]: PostMeta } | null;

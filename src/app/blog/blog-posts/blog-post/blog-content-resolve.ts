@@ -4,7 +4,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, catchError, map, of, tap, timeout } from 'rxjs';
 import { MarkdownMeta, parseMarkdownMeta } from 'site-utils';
 import { environment } from '../../../../environments/environment';
-import { PlatformService } from '../../../../platform.service';
+import { PlatformService } from '../../../site-common/platform.service';
 
 @Injectable({
   providedIn: 'root'

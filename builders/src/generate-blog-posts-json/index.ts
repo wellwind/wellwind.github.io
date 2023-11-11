@@ -1,9 +1,7 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
-import { readdirSync, readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
-import { parseMarkdownMeta } from '../../../utils';
-import { getMarkdownMeta } from '../../../utils/get-markdown-meta';
+import { readdirSync, writeFileSync } from 'fs';
+import { getMarkdownMeta } from '../../../utils';
 
 interface Options extends JsonObject {
   markdownPostsPath: string;
