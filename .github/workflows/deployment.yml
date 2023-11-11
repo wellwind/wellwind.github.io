@@ -24,8 +24,7 @@ jobs:
     - name: Build
       run: |
         npm install --force
-        npm run serve:assets &
-        npm run build:blog
+        npm run build:deploy
 
     - name: Copy 404
       run: cp ./dist/blog/browser/browser/index.html ./dist/blog/browser/browser/404.html
@@ -34,7 +33,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ github.token }}
-        publish_dir: ./dist/blog/browser
+        publish_dir: ./dist/blog/browser/browser
         publish_branch: gh-pages
 
     - name: Purge Cloudflare Cache
