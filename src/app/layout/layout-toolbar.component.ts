@@ -1,0 +1,166 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  inject,
+} from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink } from '@angular/router';
+import { combineLatest, defer } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  map,
+  switchMap,
+} from 'rxjs/operators';
+import { PlatformService } from 'src/platform.service';
+import { SitePostService } from '../site-common/site-post.service';
+import { WebsiteTheme } from './website-theme';
+
+@Component({
+  selector: 'app-layout-toolbar',
+  standalone: true,
+  imports: [
+    RouterLink,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+  ],
+  template: ` <mat-toolbar
+    color="primary"
+    class="toolbar mat-elevation-z6 fixed z-10"
+    xmlns="http://www.w3.org/1999/html"
+  >
+    <!-- menu toggle button -->
+    <button
+      role="button"
+      aria-label="打開/收合選單"
+      mat-icon-button
+      (click)="toggleMenu()"
+    >
+      @if (menuOpen) {
+      <mat-icon>menu_open</mat-icon>
+      } @if (!(menuOpen)) {
+      <mat-icon>menu</mat-icon>
+      }
+    </button>
+
+    <!-- title -->
+    <h1>
+      <a
+        class="header-link no-underline text-[color:var(--header-link-color)] hover:text-[color:var(--header-link-color)] hover:no-underline active:text-[color:var(--header-link-color)]"
+        routerLink="/"
+      >
+        <span class="header-link text-2xl">全端開發人員天梯</span>
+      </a>
+    </h1>
+
+    <div class="grow"></div>
+
+    <!-- toggle theme button -->
+    <button
+      role="button"
+      aria-label="深色/亮色模式"
+      mat-icon-button
+      class="mr-2"
+      (click)="toggleTheme()"
+    >
+      @if (theme === 'light') {
+      <mat-icon>light_mode</mat-icon>
+      } @else {
+      <mat-icon>dark_mode</mat-icon>
+      }
+    </button>
+
+    <!-- search input -->
+    @if (!(isSmallScreen())) {
+    <div class="search-bar">
+      <input
+        autocomplete="off"
+        type="text"
+        class="search-input h-9 rounded-md w-60 text-[16px] border-0 p-2 hidden md:block"
+        matInput
+        accesskey="/"
+        placeholder="搜尋... ( Alt + / )"
+        #input
+        (keyup.enter)="
+          searchKeywordChange.emit(searchKeyword.value || '');
+          input.blur();
+          trigger.closePanel();
+          auto._isOpen = false
+        "
+        [formControl]="searchKeyword"
+        [matAutocomplete]="auto"
+        #trigger="matAutocompleteTrigger"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        panelWidth="auto"
+        (optionSelected)="
+          selectSuggestItemChange.emit($event.option.value.link);
+          searchKeyword.setValue('')
+        "
+      >
+        @for (item of suggestList(); track item.link) {
+        <mat-option [value]="item">
+          <span class="suggest-item-type">{{ item.type }}</span>
+          <span class="suggest-item-text">{{ item.text }}</span>
+        </mat-option>
+        }
+      </mat-autocomplete>
+    </div>
+    }
+  </mat-toolbar>`,
+  styles: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class LayoutToolbarComponent {
+  @Input() menuOpen: boolean = true;
+  @Output() menuOpenChange = new EventEmitter<boolean>();
+
+  @Input() theme: WebsiteTheme = 'dark';
+  @Output() themeChange = new EventEmitter<WebsiteTheme>();
+
+  @Output() searchKeywordChange = new EventEmitter<string>();
+  @Output() selectSuggestItemChange = new EventEmitter<string>();
+
+  private platformService = inject(PlatformService);
+  private sitePostService = inject(SitePostService);
+
+  protected isSmallScreen = this.platformService.isSmallScreen;
+  protected searchKeyword = new FormControl<string>('');
+
+  private suggestList$ = combineLatest([
+    this.sitePostService.postsMetaWithSlugAndSortDesc$,
+    this.searchKeyword.valueChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged()
+    ),
+  ]).pipe(
+    switchMap(([posts, keywordString]) =>
+      defer(() =>
+        import('../site-common/search-posts').then((m) => m.searchPosts)
+      ).pipe(map((searchFn) => searchFn(posts, keywordString || '')))
+    )
+  );
+  protected suggestList = toSignal(this.suggestList$);
+
+  protected toggleMenu() {
+    this.menuOpenChange.emit(!this.menuOpen);
+  }
+
+  protected toggleTheme() {
+    this.themeChange.emit(this.theme === 'light' ? 'dark' : 'light');
+  }
+}

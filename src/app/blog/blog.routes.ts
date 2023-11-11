@@ -1,6 +1,7 @@
-import { BlogLayoutComponent } from './blog-layout/blog-layout.component';
+import { Routes } from '@angular/router';
+import { BlogLayoutComponent } from './blog-layout.component';
 
-export default [
+const routes: Routes = [
   {
     path: '',
     component: BlogLayoutComponent,
@@ -34,3 +35,5 @@ export default [
     ],
   },
 ];
+
+export default routes;

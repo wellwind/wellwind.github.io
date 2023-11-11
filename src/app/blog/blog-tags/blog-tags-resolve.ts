@@ -5,8 +5,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, timeout } from 'rxjs/operators';
 import { MarkdownMeta, parseMarkdownMeta } from 'site-utils';
 import { environment } from '../../../environments/environment';
-import { PostMeta, PostMetaWithSlug } from '../../post-meta.interface';
-import { SitePostService } from '../../site-post.service';
+import { PostMeta, PostMetaWithSlug } from '../../site-common/post-meta.interface';
+import { SitePostService } from '../../site-common/site-post.service';
 
 @Injectable({
   providedIn: 'root'

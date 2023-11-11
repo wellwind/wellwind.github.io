@@ -1,12 +1,12 @@
 import { AsyncPipe, DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Observable, combineLatest, defer } from 'rxjs';
 import { filter, map, startWith, switchMap } from 'rxjs/operators';
-import { SitePostService } from '../site-post.service';
+import { SitePostService } from '../site-common/site-post.service';
 
 @Component({
   selector: 'app-query',
@@ -22,7 +22,10 @@ import { SitePostService } from '../site-post.service';
     AsyncPipe,
   ],
 })
-export class QueryComponent implements OnInit {
+export class QueryComponent {
+  private sitePostService = inject(SitePostService);
+  private route = inject(ActivatedRoute);
+
   searchKeyword$ = this.route.queryParamMap.pipe(
     map((queryParamMap) => `${queryParamMap.get('q')}`),
     filter(Boolean),
@@ -51,7 +54,7 @@ export class QueryComponent implements OnInit {
   ]).pipe(
     switchMap(([posts, keywordString, start, end]) =>
       defer(() =>
-        import('../search-posts').then((m) => {
+        import('../site-common/search-posts').then((m) => {
           const searchByKeywordFn = m.searchPosts;
           const searchByDateFn = m.searchPostsByDateRange(start, end);
           return searchByKeywordFn(searchByDateFn(posts), keywordString);
@@ -59,11 +62,4 @@ export class QueryComponent implements OnInit {
       )
     )
   );
-
-  constructor(
-    private sitePostService: SitePostService,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {}
 }

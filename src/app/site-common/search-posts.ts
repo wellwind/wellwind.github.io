@@ -1,4 +1,4 @@
-import { slugify } from '../../utils/slugify';
+import { slugify } from '../../../utils/slugify';
 import { PostMetaWithSlug } from './post-meta.interface';
 
 const searchFieldMapping = {

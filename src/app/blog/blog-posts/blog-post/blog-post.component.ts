@@ -23,9 +23,9 @@ import { CommentComponent } from '../../../site-common/comment/comment.component
 import { LikerCoinComponent } from '../../../site-common/liker-coin/liker-coin.component';
 import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path/post-date-as-path.pipe';
 import { SlugifyPipe } from '../../../site-common/slugify/slugify.pipe';
-import { SiteMetaService } from '../../../site-meta.service';
-import { SitePostService } from '../../../site-post.service';
-import { PostMetaWithSlug } from './../../../post-meta.interface';
+import { SiteMetaService } from '../../../site-common/site-meta.service';
+import { SitePostService } from '../../../site-common/site-post.service';
+import { PostMetaWithSlug } from '../../../site-common/post-meta.interface';
 import { BlogPostTocComponent } from './blog-post-toc/blog-post-toc.component';
 
 const findPreviousPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {

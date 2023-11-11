@@ -1,126 +1,159 @@
-import { AsyncPipe } from '@angular/common';
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import {
-  MatAutocomplete,
-  MatAutocompleteModule,
-  MatAutocompleteSelectedEvent,
-} from '@angular/material/autocomplete';
-import { MatButtonModule } from '@angular/material/button';
-import { MatOptionModule } from '@angular/material/core';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  ViewChild,
+  effect,
+  inject,
+  signal,
+} from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { FormControl } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDrawerContent, MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import {
   NavigationEnd,
   NavigationStart,
   Router,
-  RouterLink,
-  RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { BehaviorSubject, combineLatest, defer } from 'rxjs';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  map,
-  switchMap,
-} from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { PlatformService } from '../../platform.service';
-import { SitePostService } from '../site-post.service';
-
-type WebsiteTheme = 'dark' | 'light' | null;
+import { LayoutSidebarComponent } from './layout-sidebar.component';
+import { LayoutToolbarComponent } from './layout-toolbar.component';
+import { WebsiteTheme } from './website-theme';
 
 @Component({
   selector: 'app-layout',
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss'],
+  template: `
+    <app-layout-toolbar
+      [menuOpen]="menuOpen()"
+      (menuOpenChange)="menuOpen.set($event)"
+      [theme]="theme()"
+      (themeChange)="theme.set($event)"
+      (selectSuggestItemChange)="selectSuggestItem($event)"
+      (searchKeywordChange)="goSearchPage($event)"
+    ></app-layout-toolbar>
+
+    @if (pageLoading()) {
+    <mat-progress-bar
+      mode="indeterminate"
+      color="accent"
+      class="!fixed top-0 z-50"
+    ></mat-progress-bar>
+    }
+
+    <mat-drawer-container
+      class="drawer-container top-16 h-[calc(100vh - 64px)]"
+    >
+      <mat-drawer
+        class="sidebar min-w-[240px] max-w-[240px]"
+        [class.server-sidebar]="isServer"
+        [mode]="isSmallScreen() ? 'over' : 'side'"
+        [disableClose]="isSmallScreen() ? false : true"
+        [opened]="menuOpen()"
+        (closed)="menuOpen.set(false)"
+      >
+        <app-layout-sidebar></app-layout-sidebar>
+      </mat-drawer>
+
+      <mat-drawer-content
+        class="main-content"
+        [class.server]="isServer"
+        #matDrawerContent
+      >
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  `,
+  styles: `
+  .drawer-container {
+  height: calc(100vh - 64px);
+}
+
+::ng-deep {
+  .mat-drawer-inner-container {
+    &::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.26);
+    }
+  }
+}
+
+.sidebar {
+  @media (max-width: 959.98px) {
+    min-width: 320px;
+    max-width: 320px;
+    &.server-sidebar {
+      display: none;
+    }
+  }
+}
+
+.main-content.server {
+  margin-left: 240px;
+}
+
+@media (max-width: 959.98px) {
+  .main-content.server {
+    margin-left: 0 !important;
+  }
+}
+`,
   standalone: true,
   imports: [
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    RouterLink,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    MatOptionModule,
     MatProgressBarModule,
     MatSidenavModule,
-    MatDividerModule,
-    MatListModule,
-    RouterLinkActive,
     RouterOutlet,
-    AsyncPipe,
+    LayoutToolbarComponent,
+    LayoutSidebarComponent,
   ],
 })
 export class LayoutComponent implements OnInit {
-  @ViewChild('matDrawerContent') matDrawerContent?: MatDrawerContent;
+  @ViewChild('matDrawerContent') private matDrawerContent?: MatDrawerContent;
 
-  get isServer() {
+  private cdr = inject(ChangeDetectorRef);
+  private router = inject(Router);
+  private platformService = inject(PlatformService);
+
+  protected get isServer() {
     return this.platformService.isServer;
   }
 
-  theme$ = new BehaviorSubject<WebsiteTheme>('dark');
+  protected menuOpen = signal(true);
+  protected theme = signal<WebsiteTheme>('dark');
 
-  menuOpen$ = new BehaviorSubject<boolean>(true);
-  menuItems = [
-    { link: '/blog', icon: 'home', text: '首頁' },
-    { link: '/blog/categories', icon: 'apps', text: '分類' },
-    { link: '/blog/tags', icon: 'label', text: '標籤' },
-    { link: '/blog/archives', icon: 'archive', text: '歸檔' },
-  ];
-
-  postCount$ = this.sitePostService.postsMeta$.pipe(
-    map((posts) => Object.keys(posts || {}).length)
-  );
-
-  categoryCount$ = this.sitePostService.postCategories$.pipe(
-    map((categories) => new Set(categories).size)
-  );
-
-  tagCount$ = this.sitePostService.postTags$.pipe(
-    map((tags) => new Set(tags).size)
-  );
-
-  isSmallScreen$ = this.platformService.isSmallScreen$;
+  protected isSmallScreen$ = this.platformService.isSmallScreen$;
+  protected isSmallScreen = this.platformService.isSmallScreen;
 
   searchKeyword = new FormControl<string>('');
 
-  suggestList$ = combineLatest([
-    this.sitePostService.postsMetaWithSlugAndSortDesc$,
-    this.searchKeyword.valueChanges.pipe(
-      debounceTime(300),
-      distinctUntilChanged()
-    ),
-  ]).pipe(
-    switchMap(([posts, keywordString]) =>
-      defer(() => import('../search-posts').then((m) => m.searchPosts)).pipe(
-        map((searchFn) => searchFn(posts, keywordString || ''))
-      )
-    )
-  );
-
-  pageLoading$ = this.router.events.pipe(
+  private pageLoading$ = this.router.events.pipe(
     filter(
       (event) =>
         event instanceof NavigationStart || event instanceof NavigationEnd
     ),
     map((event) => event instanceof NavigationStart)
   );
+  protected pageLoading = toSignal(this.pageLoading$);
 
-  constructor(
-    protected cdr: ChangeDetectorRef,
-    private router: Router,
-    private platformService: PlatformService,
-    private sitePostService: SitePostService,
-    private matIconRegistry: MatIconRegistry
-  ) {
+  private _themeEffect = effect(() => {
+    if (this.platformService.isServer) {
+      return;
+    }
+
+    localStorage.setItem('theme', this.theme() || '');
+    document.body.classList.remove('dark-theme');
+    document.body.classList.remove('light-theme');
+    document.body.classList.add(`${this.theme()}-theme`);
+    this.cdr.detectChanges();
+  });
+
+  ngOnInit() {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe((url) => {
@@ -129,57 +162,42 @@ export class LayoutComponent implements OnInit {
           this.cdr.detectChanges();
         }
       });
-  }
-
-  ngOnInit() {
-    this.matIconRegistry.registerFontClassAlias('fontawesome', 'fab');
 
     this.platformService.isSmallScreen$
       .pipe(map((result) => !result))
       .subscribe((shouldOpen) => {
-        this.menuOpen$.next(shouldOpen);
+        this.menuOpen.set(shouldOpen);
       });
 
     this.setTheme();
     this.cdr.detectChanges();
   }
 
-  async selectSuggestItem(event: MatAutocompleteSelectedEvent) {
-    const item = event.option.value as { link: string };
-    await this.router.navigateByUrl(item.link);
-    this.searchKeyword.setValue('');
+  protected async selectSuggestItem(link: string) {
+    await this.router.navigateByUrl(link);
   }
 
-  async goSearchPage(autocomplete: MatAutocomplete) {
-    if (this.searchKeyword.value) {
+  protected async goSearchPage(keyword: string) {
+    if (keyword) {
       await this.router.navigate(['query'], {
-        queryParams: { q: this.searchKeyword.value },
+        queryParams: { q: keyword },
       });
-      autocomplete._isOpen = false;
     }
   }
 
-  setTheme() {
+  protected setTheme() {
     if (this.platformService.isServer) {
       return;
     }
 
     const themeFromSetting = localStorage.getItem('theme') as WebsiteTheme;
     if (themeFromSetting) {
-      this.theme$.next(themeFromSetting);
+      this.theme.set(themeFromSetting);
     } else if (
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: light)').matches
     ) {
-      this.theme$.next('light');
+      this.theme.set('light');
     }
-
-    this.theme$.subscribe((theme) => {
-      localStorage.setItem('theme', theme || '');
-      document.body.classList.remove('dark-theme');
-      document.body.classList.remove('light-theme');
-      document.body.classList.add(`${theme}-theme`);
-      this.cdr.detectChanges();
-    });
   }
 }

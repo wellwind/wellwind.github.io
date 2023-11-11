@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { PostMetaWithSlug } from '../../post-meta.interface';
+import { PostMetaWithSlug } from '../../site-common/post-meta.interface';
 import { SlugifyPipe } from '../../site-common/slugify/slugify.pipe';
-import { SiteMetaService } from '../../site-meta.service';
+import { SiteMetaService } from '../../site-common/site-meta.service';
 import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
 
 @Component({

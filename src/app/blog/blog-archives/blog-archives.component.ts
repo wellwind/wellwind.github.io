@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
-import { PostMetaWithSlug } from '../../post-meta.interface';
+import { PostMetaWithSlug } from '../../site-common/post-meta.interface';
 import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle/blog-post-subtitle.component';
 import { PaginationComponent } from '../../site-common/pagination/pagination.component';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path/post-date-as-path.pipe';

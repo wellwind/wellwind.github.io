@@ -3,8 +3,8 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { descend, prop, sortWith } from 'ramda';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PostMetaWithSlug } from '../../post-meta.interface';
-import { SitePostService } from '../../site-post.service';
+import { PostMetaWithSlug } from '../../site-common/post-meta.interface';
+import { SitePostService } from '../../site-common/site-post.service';
 import { findPosts } from '../find-posts';
 
 @Injectable({

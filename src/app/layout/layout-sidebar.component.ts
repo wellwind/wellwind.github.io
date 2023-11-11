@@ -1,103 +1,35 @@
-<mat-toolbar
-  color="primary"
-  class="toolbar mat-elevation-z6 fixed z-10"
-  xmlns="http://www.w3.org/1999/html"
->
-  <button
-    role="button"
-    aria-label="打開/收合選單"
-    mat-icon-button
-    (click)="menuOpen$.next(!menuOpen$.value); cdr.detectChanges()"
-  >
-    @if (menuOpen$ | async) {
-<mat-icon>menu_open</mat-icon>
-}
-    @if (!(menuOpen$ | async)) {
-<mat-icon>menu</mat-icon>
-}
-  </button>
-  <h1>
-    <a
-      class="header-link no-underline text-[color:var(--header-link-color)] hover:text-[color:var(--header-link-color)] hover:no-underline active:text-[color:var(--header-link-color)]"
-      routerLink="/"
-    >
-      <span class="header-link text-2xl">全端開發人員天梯</span>
-    </a>
-  </h1>
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SitePostService } from '../site-common/site-post.service';
 
-  <div class="grow"></div>
-
-  <button
-    role="button"
-    aria-label="深色/亮色模式"
-    mat-icon-button
-    class="mr-2"
-    (click)="theme$.next(theme$.value === 'light' ? 'dark' : 'light')"
-  >
-    @if ((theme$ | async) === 'light') {
-<mat-icon>light_mode</mat-icon>
-}
-    @if ((theme$ | async) !== 'light') {
-<mat-icon>dark_mode</mat-icon>
-}
-  </button>
-
-  @if (!(isSmallScreen$ | async)) {
-<div class="search-bar">
-    <input
-      autocomplete="off"
-      type="text"
-      class="search-input h-9 rounded-md w-60 text-[16px] border-0 p-2 hidden md:block"
-      matInput
-      accesskey="/"
-      placeholder="搜尋... ( Alt + / )"
-      #input
-      (keyup.enter)="goSearchPage(auto); input.blur(); trigger.closePanel()"
-      [formControl]="searchKeyword"
-      [matAutocomplete]="auto"
-      #trigger="matAutocompleteTrigger"
-    />
-    <mat-autocomplete
-      #auto="matAutocomplete"
-      panelWidth="auto"
-      (optionSelected)="selectSuggestItem($event)"
-    >
-      @for (item of suggestList$ | async; track item.link) {
-  <mat-option [value]="item">
-        <span class="suggest-item-type">{{ item.type }}</span>
-        <span class="suggest-item-text">{{ item.text }}</span>
-      </mat-option>
-}
-    </mat-autocomplete>
-  </div>
-}
-</mat-toolbar>
-
-@if (pageLoading$ | async) {
-<mat-progress-bar
-
-  mode="indeterminate"
-  color="accent"
-  class="!fixed top-0 z-50"
-></mat-progress-bar>
-}
-
-<mat-drawer-container class="drawer-container top-16 h-[calc(100vh - 64px)]">
-  <mat-drawer
-    class="sidebar min-w-[240px] max-w-[240px]"
-    [class.server-sidebar]="isServer"
-    [mode]="(isSmallScreen$ | async) ? 'over' : 'side'"
-    [disableClose]="(isSmallScreen$ | async) ? false : true"
-    [opened]="menuOpen$ | async"
-    (closed)="menuOpen$.next(false)"
-  >
+@Component({
+  selector: 'app-layout-sidebar',
+  standalone: true,
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    MatDividerModule,
+    MatListModule,
+    MatIconModule,
+  ],
+  template: `
     <div class="post-statics flex p-4">
       <div class="statics-block flex flex-col flex-[33%]">
         <a routerLink="/blog/archives" class="no-underline hover:no-underline">
           <div
             class="counter text-[color:var(--sidebar-highlight-text-color)] text-[24px] text-center"
           >
-            {{ postCount$ | async }}
+            {{ postCount() }}
           </div>
           <div
             class="description text-[color:var(--sidebar-text-color)] text-[16px] text-center"
@@ -107,11 +39,14 @@
         </a>
       </div>
       <div class="statics-block flex flex-col flex-[33%]">
-        <a routerLink="/blog/categories" class="no-underline hover:no-underline">
+        <a
+          routerLink="/blog/categories"
+          class="no-underline hover:no-underline"
+        >
           <div
             class="counter text-[color:var(--sidebar-highlight-text-color)] text-[24px] text-center"
           >
-            {{ categoryCount$ | async }}
+            {{ categoryCount() }}
           </div>
           <div
             class="description text-[color:var(--sidebar-text-color)] text-[16px] text-center"
@@ -125,7 +60,7 @@
           <div
             class="counter text-[color:var(--sidebar-highlight-text-color)] text-[24px] text-center"
           >
-            {{ tagCount$ | async }}
+            {{ tagCount() }}
           </div>
           <div
             class="description text-[color:var(--sidebar-text-color)] text-[16px] text-center"
@@ -171,9 +106,8 @@
     <mat-divider class="my-1"></mat-divider>
 
     <mat-nav-list>
-      @for (item of menuItems; track item.link) {
-  <a
-
+      @for (item of menuItems(); track item.link) {
+      <a
         mat-list-item
         routerLinkActive="text-[color:var(--sidebar-highlight-text-color)] bg-[color:var(--sidebar-highlight-bg-color)]"
         [routerLinkActiveOptions]="{ exact: item.link === '/blog' }"
@@ -184,7 +118,7 @@
           <span class="link-text">{{ item.text }}</span>
         </span>
       </a>
-}
+      }
     </mat-nav-list>
 
     <mat-divider class="my-1"></mat-divider>
@@ -227,13 +161,32 @@
         </span>
       </a>
     </mat-nav-list>
-  </mat-drawer>
+  `,
+  styles: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class LayoutSidebarComponent implements OnInit {
+  private matIconRegistry = inject(MatIconRegistry);
+  private sitePostService = inject(SitePostService);
 
-  <mat-drawer-content
-    class="main-content"
-    [class.server]="isServer"
-    #matDrawerContent
-  >
-    <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+  protected postCount = computed(
+    () => Object.keys(this.sitePostService.postsMeta() as object).length
+  );
+  protected categoryCount = computed(
+    () => new Set(this.sitePostService.postCategories()).size
+  );
+  protected tagCount = computed(
+    () => new Set(this.sitePostService.postTags()).size
+  );
+
+  protected menuItems = signal([
+    { link: '/blog', icon: 'home', text: '首頁' },
+    { link: '/blog/categories', icon: 'apps', text: '分類' },
+    { link: '/blog/tags', icon: 'label', text: '標籤' },
+    { link: '/blog/archives', icon: 'archive', text: '歸檔' },
+  ]).asReadonly();
+
+  ngOnInit(): void {
+    this.matIconRegistry.registerFontClassAlias('fontawesome', 'fab');
+  }
+}

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MarkdownMeta } from 'site-utils';
-import { PostMeta } from '../../post-meta.interface';
+import { PostMeta } from '../post-meta.interface';
 import { SlugifyPipe } from '../slugify/slugify.pipe';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
