@@ -1,4 +1,4 @@
-import { PostMetaWithSlug } from './../../../post-meta.interface';
+import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -6,33 +6,29 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { combineLatest } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { MarkdownMeta } from 'site-utils';
 import { PlatformService } from '../../../../platform.service';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
+import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle/blog-post-subtitle.component';
+import { CommentComponent } from '../../../site-common/comment/comment.component';
+import { LikerCoinComponent } from '../../../site-common/liker-coin/liker-coin.component';
+import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path/post-date-as-path.pipe';
+import { SlugifyPipe } from '../../../site-common/slugify/slugify.pipe';
 import { SiteMetaService } from '../../../site-meta.service';
 import { SitePostService } from '../../../site-post.service';
-import { RxPush } from '@rx-angular/template/push';
-import { SlugifyPipe } from '../../../site-common/slugify/slugify.pipe';
-import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path/post-date-as-path.pipe';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatButtonModule } from '@angular/material/button';
+import { PostMetaWithSlug } from './../../../post-meta.interface';
 import { BlogPostTocComponent } from './blog-post-toc/blog-post-toc.component';
-import { CommentComponent } from '../../../site-common/comment/comment.component';
-import { MatIconModule } from '@angular/material/icon';
-import { LikerCoinComponent } from '../../../site-common/liker-coin/liker-coin.component';
-import { MatRippleModule } from '@angular/material/core';
-import { MatDividerModule } from '@angular/material/divider';
-import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle/blog-post-subtitle.component';
-import { NgIf, NgFor, NgTemplateOutlet } from '@angular/common';
 
-const findPreviousPost = (
-  posts: PostMetaWithSlug[],
-  target: MarkdownMeta
-) => {
+const findPreviousPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
   const found = posts.filter(
     (post) => new Date(post.date) < new Date(target.date)
   );
@@ -52,11 +48,26 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
   return null;
 };
 @Component({
-    selector: 'app-blog-post',
-    templateUrl: './blog-post.component.html',
-    styleUrls: ['./blog-post.component.scss'],
-    standalone: true,
-    imports: [NgIf, BlogPostSubtitleComponent, MatDividerModule, NgFor, MatRippleModule, RouterLink, LikerCoinComponent, MatIconModule, NgTemplateOutlet, CommentComponent, BlogPostTocComponent, MatButtonModule, MatTooltipModule, PostDateAsPathPipe, SlugifyPipe, RxPush]
+  selector: 'app-blog-post',
+  templateUrl: './blog-post.component.html',
+  styleUrls: ['./blog-post.component.scss'],
+  standalone: true,
+  imports: [
+    BlogPostSubtitleComponent,
+    MatDividerModule,
+    MatRippleModule,
+    RouterLink,
+    LikerCoinComponent,
+    MatIconModule,
+    NgTemplateOutlet,
+    CommentComponent,
+    BlogPostTocComponent,
+    MatButtonModule,
+    MatTooltipModule,
+    PostDateAsPathPipe,
+    SlugifyPipe,
+    AsyncPipe,
+  ],
 })
 export class BlogPostComponent implements OnInit, AfterViewInit {
   @ViewChild('comments') comments?: ElementRef<HTMLElement>;
@@ -94,7 +105,9 @@ export class BlogPostComponent implements OnInit, AfterViewInit {
     this.postMeta$,
     this.sitePostService.postsMetaWithSlugAndSortAsc$,
   ]).pipe(
-    map(([currentPostMeta, allPostsMeta]) => findPreviousPost(allPostsMeta, currentPostMeta))
+    map(([currentPostMeta, allPostsMeta]) =>
+      findPreviousPost(allPostsMeta, currentPostMeta)
+    )
   );
 
   nextPost$ = combineLatest([

@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import {
@@ -23,7 +23,6 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { RxPush } from '@rx-angular/template/push';
 import { BehaviorSubject, combineLatest, defer } from 'rxjs';
 import {
   debounceTime,
@@ -45,13 +44,11 @@ type WebsiteTheme = 'dark' | 'light' | null;
   imports: [
     MatToolbarModule,
     MatButtonModule,
-    NgIf,
     MatIconModule,
     RouterLink,
     MatInputModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    NgFor,
     MatOptionModule,
     MatProgressBarModule,
     MatSidenavModule,
@@ -59,7 +56,7 @@ type WebsiteTheme = 'dark' | 'light' | null;
     MatListModule,
     RouterLinkActive,
     RouterOutlet,
-    RxPush,
+    AsyncPipe,
   ],
 })
 export class LayoutComponent implements OnInit {

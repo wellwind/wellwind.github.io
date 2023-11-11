@@ -1,7 +1,6 @@
 import { ContentObserver } from '@angular/cdk/observers';
-import { NgFor } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { AfterViewInit, Component, Input, OnDestroy, OnInit, TransferState, makeStateKey } from '@angular/core';
-import { RxPush } from '@rx-angular/template/push';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { PlatformService } from '../../../../../platform.service';
@@ -21,7 +20,7 @@ const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
     templateUrl: './blog-post-toc.component.html',
     styleUrls: ['./blog-post-toc.component.scss'],
     standalone: true,
-    imports: [NgFor, RxPush]
+    imports: [AsyncPipe]
 })
 export class BlogPostTocComponent implements OnInit, AfterViewInit, OnDestroy {
   private _contentElement!: HTMLElement;

@@ -1,10 +1,9 @@
-import { DatePipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { RxPush } from '@rx-angular/template/push';
 import { Observable, combineLatest, defer } from 'rxjs';
 import { filter, map, startWith, switchMap } from 'rxjs/operators';
 import { SitePostService } from '../site-post.service';
@@ -15,14 +14,12 @@ import { SitePostService } from '../site-post.service';
   styleUrls: ['./query.component.scss'],
   standalone: true,
   imports: [
-    NgIf,
     MatToolbarModule,
     MatCardModule,
     MatListModule,
-    NgFor,
     RouterLink,
     DatePipe,
-    RxPush,
+    AsyncPipe,
   ],
 })
 export class QueryComponent implements OnInit {

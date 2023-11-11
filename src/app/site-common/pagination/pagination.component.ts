@@ -3,14 +3,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
-import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-pagination',
     templateUrl: './pagination.component.html',
     styleUrls: ['./pagination.component.scss'],
     standalone: true,
-    imports: [NgIf, MatButtonModule, MatTooltipModule, RouterLink, MatIconModule]
+    imports: [MatButtonModule, MatTooltipModule, RouterLink, MatIconModule]
 })
 export class PaginationComponent implements OnInit {
   @Input() linkBase = '/';

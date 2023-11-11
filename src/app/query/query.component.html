@@ -1,8 +1,8 @@
 <div class="search-page-container">
-  @if (searchResult$ | push; as searchResult) {
+  @if (searchResult$ | async; as searchResult) {
 
     <mat-toolbar class="search-header mat-elevation-z4">
-      @if (searchKeyword$ | push; as searchKeyword) {
+      @if (searchKeyword$ | async; as searchKeyword) {
 <h1>
         {{ searchKeyword }}
       </h1>
@@ -14,12 +14,12 @@
       <mat-card-content>
         <h2>共 {{ searchResult.length }} 篇文章</h2>
 
-        @if (searchDateStart$ | push; as startDate) {
+        @if (searchDateStart$ | async; as startDate) {
 <span class="search-chip"
           >Start: {{ startDate | date: "yyyy-MM-dd" }}</span
         >
 }
-        @if (searchDateEnd$ | push; as endDate) {
+        @if (searchDateEnd$ | async; as endDate) {
 <span class="search-chip"
           >End: {{ endDate | date: "yyyy-MM-dd" }}</span
         >
@@ -30,7 +30,7 @@
   <mat-list-item  [routerLink]="item.link">
             <div matLine class="search-result">
               @if (
-                  ((searchDateStart$ | push) || (searchDateEnd$ | push)) &&
+                  ((searchDateStart$ | async) || (searchDateEnd$ | async)) &&
                   item.type === '文章'
                 ) {
 <span

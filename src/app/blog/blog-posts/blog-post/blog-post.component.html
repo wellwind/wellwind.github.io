@@ -1,4 +1,4 @@
-@if (postMeta$ | push; as postMeta) {
+@if (postMeta$ | async; as postMeta) {
 
   <div class="blog-post-container flex items-start">
     <article class="blog-post blog-post-overview w-full !p-0 xl:w-[80%]">
@@ -18,7 +18,7 @@
       <section
         class="blog-post !p-0"
         #content
-        [innerHTML]="postContent$ | push"
+        [innerHTML]="postContent$ | async"
       ></section>
 
       <!-- blog post tags -->
@@ -50,7 +50,7 @@
 
       <footer>
         <!-- prev & next by categories -->
-        @for (categoryPrevNext of postCategoriesPrevNext$ | push; track categoryPrevNext.category) {
+        @for (categoryPrevNext of postCategoriesPrevNext$ | async; track categoryPrevNext.category) {
 
           @if (categoryPrevNext.previousPost || categoryPrevNext.nextPost) {
 
@@ -118,7 +118,7 @@
           <div
             class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
           >
-            @if (previousPost$ | push; as post) {
+            @if (previousPost$ | async; as post) {
 
               <div
                 class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
@@ -135,7 +135,7 @@
           <div
             class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
           >
-            @if (nextPost$ | push; as post) {
+            @if (nextPost$ | async; as post) {
 
               <div
                 class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"

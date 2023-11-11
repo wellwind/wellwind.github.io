@@ -1,9 +1,9 @@
 <mat-toolbar class="categories-header mat-elevation-z4">
-  <h1>{{ ((categorySlug$ | push) || '') | unslugify }}</h1>
-  <h2>分類 (共 {{ categoryPostsCount$ | push }} 篇文章)</h2>
+  <h1>{{ ((categorySlug$ | async) || '') | unslugify }}</h1>
+  <h2>分類 (共 {{ categoryPostsCount$ | async }} 篇文章)</h2>
 </mat-toolbar>
 
-@for (post of posts$ | push; track post.slug) {
+@for (post of posts$ | async; track post.slug) {
 
 
   <mat-card appearance="outlined" class="blog-post">
@@ -37,7 +37,7 @@
 
 <mat-card appearance="outlined" class="pagination">
   <app-pagination
-    linkBase="/blog/categories/{{ categorySlug$ | push }}/page"
-    [currentPage]="(currentPage$ | push) || 1"
-    [totalPage]="(totalPage$ | push) || 1"></app-pagination>
+    linkBase="/blog/categories/{{ categorySlug$ | async }}/page"
+    [currentPage]="(currentPage$ | async) || 1"
+    [totalPage]="(totalPage$ | async) || 1"></app-pagination>
 </mat-card>

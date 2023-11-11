@@ -4,23 +4,23 @@
   </mat-card-title>
 
   <mat-card-subtitle class="blog-post-subtitle">
-    共 {{ ($any(tags$ | push) | keyvalue).length }} 個標籤
+    共 {{ ($any(tags$ | async) | keyvalue).length }} 個標籤
   </mat-card-subtitle>
 
   <mat-card-content class="blog-post-content">
     <div class="tags">
-      @for (tag of $any(tags$ | push) | keyvalue; track tag) {
-  
+      @for (tag of $any(tags$ | async) | keyvalue; track tag) {
+
       @if (tag?.key) {
 <a
-       
-        class="tag size-{{ $any(tag.value).length | blogPostTagSize:((maxPostsCount$ | push )|| 0) }}"
+
+        class="tag size-{{ $any(tag.value).length | blogPostTagSize:((maxPostsCount$ | async )|| 0) }}"
         [routerLink]="['/blog/tags', $any(tag.key) | slugify]"
         >
         {{ tag.key }}
       </a>
 }
-      
+
 }
     </div>
   </mat-card-content>

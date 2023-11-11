@@ -4,12 +4,12 @@
   </mat-card-title>
 
   <mat-card-subtitle class="blog-post-subtitle">
-    共 {{ ($any(categories$ | push) | keyvalue).length }} 個分類
+    共 {{ ($any(categories$ | async) | keyvalue).length }} 個分類
   </mat-card-subtitle>
 
   <mat-card-content class="blog-post-content">
     <ul>
-      @for (category of $any(categories$ | push) | keyvalue; track category.key) {
+      @for (category of $any(categories$ | async) | keyvalue; track category.key) {
   <li>
         <a [routerLink]="['/blog/categories', $any(category.key || '') | slugify]">
           {{ category.key }}

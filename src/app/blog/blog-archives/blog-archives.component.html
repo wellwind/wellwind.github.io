@@ -1,4 +1,4 @@
-@for (yearPosts of posts$ | push; track yearPosts.year) {
+@for (yearPosts of posts$ | async; track yearPosts.year) {
 
   <mat-toolbar class="year-header mat-elevation-z4">
     <h1>{{ yearPosts.year }}</h1>
@@ -43,6 +43,6 @@
 <mat-card appearance="outlined" class="pagination">
   <app-pagination
     linkBase="/blog/archives/page"
-    [currentPage]="(currentPage$ | push) || 1"
-    [totalPage]="(totalPage$ | push) || 1"></app-pagination>
+    [currentPage]="(currentPage$ | async) || 1"
+    [totalPage]="(totalPage$ | async) || 1"></app-pagination>
 </mat-card>

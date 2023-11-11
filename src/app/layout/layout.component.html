@@ -9,10 +9,10 @@
     mat-icon-button
     (click)="menuOpen$.next(!menuOpen$.value); cdr.detectChanges()"
   >
-    @if (menuOpen$ | push) {
+    @if (menuOpen$ | async) {
 <mat-icon>menu_open</mat-icon>
 }
-    @if (!(menuOpen$ | push)) {
+    @if (!(menuOpen$ | async)) {
 <mat-icon>menu</mat-icon>
 }
   </button>
@@ -34,15 +34,15 @@
     class="mr-2"
     (click)="theme$.next(theme$.value === 'light' ? 'dark' : 'light')"
   >
-    @if ((theme$ | push) === 'light') {
+    @if ((theme$ | async) === 'light') {
 <mat-icon>light_mode</mat-icon>
 }
-    @if ((theme$ | push) !== 'light') {
+    @if ((theme$ | async) !== 'light') {
 <mat-icon>dark_mode</mat-icon>
 }
   </button>
 
-  @if (!(isSmallScreen$ | push)) {
+  @if (!(isSmallScreen$ | async)) {
 <div class="search-bar">
     <input
       autocomplete="off"
@@ -62,7 +62,7 @@
       panelWidth="auto"
       (optionSelected)="selectSuggestItem($event)"
     >
-      @for (item of suggestList$ | push; track item.link) {
+      @for (item of suggestList$ | async; track item.link) {
   <mat-option [value]="item">
         <span class="suggest-item-type">{{ item.type }}</span>
         <span class="suggest-item-text">{{ item.text }}</span>
@@ -73,7 +73,7 @@
 }
 </mat-toolbar>
 
-@if (pageLoading$ | push) {
+@if (pageLoading$ | async) {
 <mat-progress-bar
 
   mode="indeterminate"
@@ -86,9 +86,9 @@
   <mat-drawer
     class="sidebar min-w-[240px] max-w-[240px]"
     [class.server-sidebar]="isServer"
-    [mode]="(isSmallScreen$ | push) ? 'over' : 'side'"
-    [disableClose]="(isSmallScreen$ | push) ? false : true"
-    [opened]="menuOpen$ | push"
+    [mode]="(isSmallScreen$ | async) ? 'over' : 'side'"
+    [disableClose]="(isSmallScreen$ | async) ? false : true"
+    [opened]="menuOpen$ | async"
     (closed)="menuOpen$.next(false)"
   >
     <div class="post-statics flex p-4">
@@ -97,7 +97,7 @@
           <div
             class="counter text-[color:var(--sidebar-highlight-text-color)] text-[24px] text-center"
           >
-            {{ postCount$ | push }}
+            {{ postCount$ | async }}
           </div>
           <div
             class="description text-[color:var(--sidebar-text-color)] text-[16px] text-center"
@@ -111,7 +111,7 @@
           <div
             class="counter text-[color:var(--sidebar-highlight-text-color)] text-[24px] text-center"
           >
-            {{ categoryCount$ | push }}
+            {{ categoryCount$ | async }}
           </div>
           <div
             class="description text-[color:var(--sidebar-text-color)] text-[16px] text-center"
@@ -125,7 +125,7 @@
           <div
             class="counter text-[color:var(--sidebar-highlight-text-color)] text-[24px] text-center"
           >
-            {{ tagCount$ | push }}
+            {{ tagCount$ | async }}
           </div>
           <div
             class="description text-[color:var(--sidebar-text-color)] text-[16px] text-center"

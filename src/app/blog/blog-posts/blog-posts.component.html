@@ -1,4 +1,4 @@
-@for (post of posts$ | push; track post.slug) {
+@for (post of posts$ | async; track post.slug) {
 
   <mat-card appearance="outlined" class="blog-post">
     <mat-card-title class="blog-post-title">
@@ -33,6 +33,6 @@
 <mat-card appearance="outlined" class="pagination">
   <app-pagination
     linkBase="/blog/page"
-    [currentPage]="(currentPage$ | push) || 1"
-    [totalPage]="(totalPage$ | push) || 1"></app-pagination>
+    [currentPage]="(currentPage$ | async) || 1"
+    [totalPage]="(totalPage$ | async) || 1"></app-pagination>
 </mat-card>

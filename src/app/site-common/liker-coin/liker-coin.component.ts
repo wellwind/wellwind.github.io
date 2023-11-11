@@ -1,6 +1,6 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { RxPush } from '@rx-angular/template/push';
 import { Observable, ReplaySubject, Subscription } from 'rxjs';
 import { PlatformService } from 'src/platform.service';
 
@@ -9,7 +9,7 @@ import { PlatformService } from 'src/platform.service';
   templateUrl: './liker-coin.component.html',
   styleUrls: ['./liker-coin.component.scss'],
   standalone: true,
-  imports: [RxPush],
+  imports: [AsyncPipe],
 })
 export class LikerCoinComponent implements OnInit, OnDestroy {
   @Input() likerId = '';

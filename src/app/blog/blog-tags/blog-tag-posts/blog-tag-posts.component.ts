@@ -1,11 +1,10 @@
-import { NgFor } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { RxPush } from '@rx-angular/template/push';
 import { map, switchMap } from 'rxjs/operators';
 import { PostMetaWithSlug } from '../../../post-meta.interface';
 import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle/blog-post-subtitle.component';
@@ -24,7 +23,6 @@ const PAGE_SIZE = 10;
   standalone: true,
   imports: [
     MatToolbarModule,
-    NgFor,
     MatCardModule,
     RouterLink,
     BlogPostSubtitleComponent,
@@ -33,7 +31,7 @@ const PAGE_SIZE = 10;
     PaginationComponent,
     UnslugifyPipe,
     PostDateAsPathPipe,
-    RxPush,
+    AsyncPipe,
   ],
 })
 export class BlogTagPostsComponent implements OnInit {
