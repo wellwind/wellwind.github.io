@@ -1,5 +1,5 @@
 import { KeyValuePipe } from '@angular/common';
-import { Component, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 import { getRouteData } from 'src/app/site-common/route-utils';
@@ -39,6 +39,7 @@ import { SlugifyPipe } from '../../site-common/slugify.pipe';
   styles: ``,
   standalone: true,
   imports: [MatCardModule, RouterLink, KeyValuePipe, SlugifyPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogCategoriesComponent {
   private siteMetaService = inject(SiteMetaService);

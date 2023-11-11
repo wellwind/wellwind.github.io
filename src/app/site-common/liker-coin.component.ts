@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
   OnDestroy,
@@ -27,6 +28,7 @@ import { PlatformService } from 'src/app/site-common/platform.service';
   `,
   styles: ``,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LikerCoinComponent implements OnInit, OnDestroy {
   private domSanitizer = inject(DomSanitizer);

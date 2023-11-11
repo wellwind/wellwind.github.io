@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -64,6 +64,7 @@ const PAGE_SIZE = 10;
     PaginationComponent,
     PostDateAsPathPipe,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPostsComponent {
   private sitePostService = inject(SitePostService);

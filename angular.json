@@ -11,7 +11,14 @@
           "style": "scss",
           "inlineStyle": true,
           "inlineTemplate": true,
-          "flat": true
+          "flat": true,
+          "changeDetection": "OnPush"
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
         },
         "@schematics/angular:application": {
           "strict": true

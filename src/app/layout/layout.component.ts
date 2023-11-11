@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   OnInit,
@@ -112,6 +113,7 @@ import { filter, map } from 'rxjs';
     LayoutToolbarComponent,
     LayoutSidebarComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutComponent implements OnInit {
   @ViewChild('matDrawerContent') private matDrawerContent?: MatDrawerContent;

@@ -1,5 +1,6 @@
 import { ContentObserver } from '@angular/cdk/observers';
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
   OnDestroy,
@@ -84,6 +85,7 @@ const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
     }`,
   standalone: true,
   imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogPostTocComponent implements OnDestroy {
   private transferState = inject(TransferState);

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { PlatformService } from 'src/app/site-common/platform.service';
 import { environment } from '../environments/environment';
@@ -15,7 +15,8 @@ declare let gtag: Function;
   imports: [
     LayoutComponent,
   ],
-  template: `<app-layout></app-layout>`
+  template: `<app-layout></app-layout>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   private router = inject(Router);

@@ -1,5 +1,5 @@
 import { KeyValuePipe } from '@angular/common';
-import { Component, computed, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 import { getRouteData } from 'src/app/site-common/route-utils';
@@ -66,6 +66,7 @@ import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
     SlugifyPipe,
     BlogPostTagSizePipe,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogTagsComponent {
   private siteMetaService = inject(SiteMetaService);

@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   OnDestroy,
@@ -14,6 +15,7 @@ import { PlatformService } from './platform.service';
   selector: 'app-comment',
   template: ``,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentComponent implements OnInit, AfterViewInit, OnDestroy {
   private router = inject(Router);
