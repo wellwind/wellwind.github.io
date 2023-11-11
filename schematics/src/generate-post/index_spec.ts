@@ -9,7 +9,7 @@ const collectionPath = path.join(__dirname, '../collection.json');
 describe('schematics', () => {
   it('works', async () => {
     const runner = new SchematicTestRunner('schematics', collectionPath);
-    const tree = await runner.runSchematicAsync('schematics', {}, Tree.empty()).toPromise();
+    const tree = await runner.runSchematic('schematics', {}, Tree.empty())
 
     expect(tree.files).toEqual([]);
   });

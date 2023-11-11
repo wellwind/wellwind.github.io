@@ -19,7 +19,7 @@ export function generatePost(options: GeneratePostOptions): Rule {
     }
 
     // find source root
-    const angularJson = JSON.parse(angularJsonContent.toString('UTF-8')!);
+    const angularJson = JSON.parse(angularJsonContent.toString('utf-8')!);
     const projectSourceRoot = angularJson['projects'][options.project]['sourceRoot'];
 
     // file name & path
