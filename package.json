@@ -22,7 +22,7 @@
     "build:urls": "ng run blog:generate-prerender-urls",
     "build:rss": "ng run blog:generate-rss",
     "build:minify-html": "ng run blog:minify-rendered-files",
-    "build:deploy": "npm run build:blog-posts-json && npm run build:urls && npm run build && npm run build:minify-html && npm run build:rss -- --rss-path ./dist/blog/browser/browser/atom.xml"
+    "build:deploy": "npm run build:blog-posts-json && npm run build:urls && npm run build && npm run build:rss -- --rss-path ./dist/blog/browser/browser/atom.xml"
   },
   "private": true,
   "dependencies": {
