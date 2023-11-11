@@ -5,8 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Observable, combineLatest, defer } from 'rxjs';
-import { filter, map, startWith, switchMap } from 'rxjs/operators';
+import { Observable, combineLatest, defer, filter, map, startWith, switchMap } from 'rxjs';
 import { SitePostService } from '../site-common/site-post.service';
 
 @Component({

@@ -17,11 +17,11 @@ import {
   Router,
   RouterOutlet,
 } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
 import { PlatformService } from '../../platform.service';
 import { LayoutSidebarComponent } from './layout-sidebar.component';
 import { LayoutToolbarComponent } from './layout-toolbar.component';
 import { WebsiteTheme } from './website-theme';
+import { filter, map } from 'rxjs';
 
 @Component({
   selector: 'app-layout',

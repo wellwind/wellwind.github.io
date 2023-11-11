@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, TransferState, makeStateKey } from '@angular/core';
 import { ascend, descend, prop, sortWith } from 'ramda';
-import { combineLatest, iif, of } from 'rxjs';
-import { map, shareReplay, startWith, tap } from 'rxjs/operators';
+import { combineLatest, iif, map, of, shareReplay, startWith, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { PlatformService } from '../../platform.service';
 import { PostMeta, PostMetaWithSlug } from './post-meta.interface';

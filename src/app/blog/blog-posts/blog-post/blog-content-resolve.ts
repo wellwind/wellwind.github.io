@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, TransferState, makeStateKey } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap, timeout } from 'rxjs/operators';
+import { Observable, catchError, map, of, tap, timeout } from 'rxjs';
 import { MarkdownMeta, parseMarkdownMeta } from 'site-utils';
 import { environment } from '../../../../environments/environment';
 import { PlatformService } from '../../../../platform.service';

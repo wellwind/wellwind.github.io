@@ -1,7 +1,7 @@
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Signal, inject } from '@angular/core';
 import { ActivatedRoute, Data, ParamMap } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { map } from 'rxjs';
 
 export const getRouteParam = <T>(getFn: (paramMap: ParamMap, index?: number) => T, initialValue: T) => {
   const route = inject(ActivatedRoute);

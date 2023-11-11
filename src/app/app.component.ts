@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { filter, pairwise, startWith } from 'rxjs/operators';
 import { PlatformService } from 'src/platform.service';
 import { environment } from '../environments/environment';
 import { LayoutComponent } from './layout/layout.component';
 import { SiteMetaService } from './site-common/site-meta.service';
 import { TrackService } from './site-common/track.service';
+import { filter, pairwise, startWith } from 'rxjs';
 
 declare let gtag: Function;
 

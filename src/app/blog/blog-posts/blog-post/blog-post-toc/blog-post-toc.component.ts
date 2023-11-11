@@ -1,8 +1,7 @@
 import { ContentObserver } from '@angular/cdk/observers';
 import { AsyncPipe } from '@angular/common';
 import { AfterViewInit, Component, Input, OnDestroy, OnInit, TransferState, makeStateKey } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
-import { map, startWith, switchMap } from 'rxjs/operators';
+import { Observable, ReplaySubject, map, startWith, switchMap } from 'rxjs';
 import { PlatformService } from '../../../../../platform.service';
 import { findMainContentContainer, scrollTo } from '../../../../../utils';
 

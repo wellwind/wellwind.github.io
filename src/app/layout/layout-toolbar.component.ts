@@ -14,13 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
-import { combineLatest, defer } from 'rxjs';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  map,
-  switchMap,
-} from 'rxjs/operators';
+import { combineLatest, debounceTime, defer, distinctUntilChanged, map, switchMap } from 'rxjs';
+
 import { PlatformService } from 'src/platform.service';
 import { SitePostService } from '../site-common/site-post.service';
 import { WebsiteTheme } from './website-theme';

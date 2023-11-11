@@ -13,8 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { combineLatest } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { combineLatest, map } from 'rxjs';
 import { MarkdownMeta } from 'site-utils';
 import { PlatformService } from '../../../../platform.service';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
@@ -22,10 +21,10 @@ import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtit
 import { CommentComponent } from '../../../site-common/comment/comment.component';
 import { LikerCoinComponent } from '../../../site-common/liker-coin/liker-coin.component';
 import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path/post-date-as-path.pipe';
-import { SlugifyPipe } from '../../../site-common/slugify/slugify.pipe';
+import { PostMetaWithSlug } from '../../../site-common/post-meta.interface';
 import { SiteMetaService } from '../../../site-common/site-meta.service';
 import { SitePostService } from '../../../site-common/site-post.service';
-import { PostMetaWithSlug } from '../../../site-common/post-meta.interface';
+import { SlugifyPipe } from '../../../site-common/slugify/slugify.pipe';
 import { BlogPostTocComponent } from './blog-post-toc/blog-post-toc.component';
 
 const findPreviousPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {

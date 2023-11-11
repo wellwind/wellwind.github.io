@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs';
 import { SitePostService } from '../../site-common/site-post.service';
 import { getPagePosts } from '../get-page-posts';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path/post-date-as-path.pipe';
