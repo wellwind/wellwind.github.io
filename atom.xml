@@ -4,7 +4,7 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 22 Oct 2023 01:36:31 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 11 Nov 2023 03:52:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -96,7 +96,7 @@
             <link>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-generator</link>
             <guid>https://fullstackladder.dev/blog/2023/02/13/chat-gpt-prompts-midjourney-generator</guid>
             <pubDate>Mon, 13 Feb 2023 12:57:21 GMT</pubDate>
-            <description><![CDATA[<p>Midjourney 應該算是當前最熱門的 AI 繪圖軟體之一了！只要把我們想像的文字丟進去給 Midjourney，就能產出非常精美的圖片，雖然細節有時候還是會有問題 (例如經典的手指頭…)，但至少對於我這種美術白癡來說，已經是非常好看了！</p>
+            <description><![CDATA[<p>Midjourney 應該算是當前最熱門的 AI 繪圖軟體之一了！只要把我們想像的文字丟進去給 Midjourney，就能產出非常精美的圖片，雖然細節有時候還是會有問題 (例如經典的手指頭...)，但至少對於我這種美術白癡來說，已經是非常好看了！</p>
 <p>不過要能很好的跟 Midjourney 詠唱咒語，難度可是比 ChatGPT 高得多了，但也別低估 ChatGPT，我們可以透過 ChatGPT 幫助我們補強細節，讓 Midjourney 產生出更好的圖片！</p>
 ]]></description>
         </item>
@@ -174,7 +174,7 @@
             <link>https://fullstackladder.dev/blog/2022/12/17/azure-devops-cache-build-pipeline</link>
             <guid>https://fullstackladder.dev/blog/2022/12/17/azure-devops-cache-build-pipeline</guid>
             <pubDate>Sat, 17 Dec 2022 12:04:50 GMT</pubDate>
-            <description><![CDATA[<p>在 CI 階段時，我們經常會需要針對專案內容安裝各種套件，不過其實套件內容也很少更動，但每次安裝都會花上不少時間，雖然都放著讓 CI 跑就好了，但還是免不了要等一段時間，好在 Azure DevOps 提供了 <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&amp;wt.mc_id=DT-MVP-5003734">Pipeline caching</a> 功能，讓我們可以將套件內容先暫存起來，下次就不用再安裝了，加快 CI pipline 的速度，這篇文章就來介紹一下 Pipeline caching 的工能。</p>
+            <description><![CDATA[<p>在 CI 階段時，我們經常會需要針對專案內容安裝各種套件，不過其實套件內容也很少更動，但每次安裝都會花上不少時間，雖然都放著讓 CI 跑就好了，但還是免不了要等一段時間，好在 Azure DevOps 提供了 <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&wt.mc_id=DT-MVP-5003734">Pipeline caching</a> 功能，讓我們可以將套件內容先暫存起來，下次就不用再安裝了，加快 CI pipline 的速度，這篇文章就來介紹一下 Pipeline caching 的工能。</p>
 ]]></description>
         </item>
     </channel>
