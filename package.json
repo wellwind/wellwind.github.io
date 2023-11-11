@@ -38,8 +38,6 @@
     "@angular/platform-server": "^17.0.2",
     "@angular/router": "^17.0.2",
     "@angular/ssr": "^17.0.0",
-    "@rx-angular/cdk": "^16.0.0",
-    "@rx-angular/template": "^16.0.1",
     "@wellwind/blog-builder": "file:builders",
     "@wellwind/blog-schematics": "file:schematics",
     "feed": "^4.2.2",

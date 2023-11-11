@@ -23,7 +23,7 @@ jobs:
 
     - name: Build
       run: |
-        npm install --force
+        npm install
         npm run build:deploy
 
     - name: Copy 404
