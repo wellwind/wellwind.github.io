@@ -124,7 +124,7 @@ import { SitePostService } from '../site-common/site-post.service';
     <mat-divider class="my-1"></mat-divider>
 
     <mat-nav-list>
-      <a mat-list-item href="/blog/atom.xml" target="_blank" rel="noreferrer">
+      <a mat-list-item href="/atom.xml" target="_blank" rel="noreferrer">
         <span class="flex flex-row">
           <mat-icon class="mr-2">rss_feed</mat-icon>
           <span class="link-text">RSS</span>
