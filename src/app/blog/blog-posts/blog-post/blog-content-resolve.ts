@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, TransferState, makeStateKey } from '@angular/core';
+import { Injectable, TransferState, inject, makeStateKey } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, catchError, map, of, tap, timeout } from 'rxjs';
 import { MarkdownMeta, parseMarkdownMeta } from 'site-utils';
@@ -10,8 +10,9 @@ import { PlatformService } from '../../../../platform.service';
   providedIn: 'root'
 })
 export class BlogContentResolve  {
-  constructor(private httpClient: HttpClient, private state: TransferState, private platformService: PlatformService) {
-  }
+  private httpClient = inject(HttpClient);
+  private state = inject(TransferState);
+  private platformService = inject(PlatformService);
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<MarkdownMeta> {
     return this.getMarkdownContent(route.paramMap.get('slug') as string);

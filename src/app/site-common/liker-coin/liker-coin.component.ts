@@ -1,32 +1,49 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  inject,
+  signal,
+} from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Observable, ReplaySubject, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { PlatformService } from 'src/platform.service';
 
 @Component({
   selector: 'app-liker-coin',
-  templateUrl: './liker-coin.component.html',
-  styleUrls: ['./liker-coin.component.scss'],
+  template: `
+    <div class="embed-responsive embed-responsive-liker-coin">
+      <iframe
+        loading="lazy"
+        class="embed-responsive-item"
+        scrolling="no"
+        frameborder="0"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+        style="width: 100%;"
+        [src]="likerCoinSrc()"
+      ></iframe>
+    </div>
+  `,
+  styles: ``,
   standalone: true,
   imports: [AsyncPipe],
 })
 export class LikerCoinComponent implements OnInit, OnDestroy {
+  private domSanitizer = inject(DomSanitizer);
+  private platformService = inject(PlatformService);
+
   @Input() likerId = '';
   @Input() refreshObservable!: Observable<any>;
 
-  likerCoinSrc$ = new ReplaySubject<SafeResourceUrl>();
+  protected likerCoinSrc = signal<SafeResourceUrl>('');
 
   private subscription = new Subscription();
 
-  constructor(
-    private domSanitizer: DomSanitizer,
-    private platformService: PlatformService
-  ) {}
-
   ngOnInit(): void {
     if (this.platformService.isServer) {
-      this.likerCoinSrc$.next(
+      this.likerCoinSrc.set(
         this.domSanitizer.bypassSecurityTrustResourceUrl('')
       );
       return;
@@ -38,7 +55,7 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
         const url = encodeURIComponent(
           location.href.split('?')[0].split('#')[0]
         );
-        this.likerCoinSrc$.next(
+        this.likerCoinSrc.set(
           this.domSanitizer.bypassSecurityTrustResourceUrl(
             `${likerCoinBase}${url}`
           )

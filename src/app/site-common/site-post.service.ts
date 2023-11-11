@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, TransferState, makeStateKey } from '@angular/core';
+import { Injectable, TransferState, inject, makeStateKey } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { ascend, descend, prop, sortWith } from 'ramda';
 import { combineLatest, iif, map, of, shareReplay, startWith, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { PlatformService } from '../../platform.service';
 import { PostMeta, PostMetaWithSlug } from './post-meta.interface';
-import { toSignal } from '@angular/core/rxjs-interop';
 
 type PostMetaCollection = { [keg: string]: PostMeta } | null;
 const _cacheBlogPostsKey = makeStateKey<PostMetaCollection>('blog-posts.json');
@@ -14,6 +14,10 @@ const _cacheBlogPostsKey = makeStateKey<PostMetaCollection>('blog-posts.json');
   providedIn: 'root',
 })
 export class SitePostService {
+  private httpClient = inject(HttpClient);
+  private state = inject(TransferState);
+  private platformService = inject(PlatformService);
+
   postsMeta$ = iif(
     () => !!this.state.get<PostMetaCollection>(_cacheBlogPostsKey, null),
     of(this.state.get<PostMetaCollection>(_cacheBlogPostsKey, null)!),
@@ -72,11 +76,19 @@ export class SitePostService {
     )
   );
 
+  postsMetaWithSlugAndSortDesc = toSignal(this.postsMetaWithSlugAndSortDesc$, {
+    initialValue: [],
+  });
+
   postsMetaWithSlugAndSortAsc$ = this.postsMetaWithSlug$.pipe(
     map(
       (posts) => sortWith([ascend(prop('date'))], posts) as PostMetaWithSlug[]
     )
   );
+
+  postsMetaWithSlugAndSortAsc = toSignal(this.postsMetaWithSlugAndSortAsc$, {
+    initialValue: [] as PostMetaWithSlug[],
+  });
 
   categoriesAndPosts$ = combineLatest([
     this.postsMetaWithSlug$,
@@ -96,6 +108,10 @@ export class SitePostService {
     )
   );
 
+  categoriesAndPosts = toSignal(this.categoriesAndPosts$, {
+    initialValue: {} as { [key: string]: PostMetaWithSlug[] },
+  });
+
   tagsAndPosts$ = combineLatest([this.postsMetaWithSlug$, this.postTags$]).pipe(
     map(([posts, tags]) =>
       tags
@@ -110,10 +126,4 @@ export class SitePostService {
         }, {} as { [key: string]: PostMetaWithSlug[] })
     )
   );
-
-  constructor(
-    private httpClient: HttpClient,
-    private state: TransferState,
-    private platformService: PlatformService
-  ) {}
 }

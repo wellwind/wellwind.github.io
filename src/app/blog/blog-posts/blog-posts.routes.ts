@@ -1,6 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BlogContentResolve } from './blog-post/blog-content-resolve';
+import { Routes } from '@angular/router';
 import { BlogPostsComponent } from './blog-posts.component';
 
 const routes: Routes = [
@@ -23,10 +21,7 @@ const routes: Routes = [
             children: [
               {
                 path: ':slug',
-                loadChildren: () =>
-                  import('./blog-post/blog-post.module').then(
-                    (m) => m.BlogPostModule
-                  ),
+                loadChildren: () => import('./blog-post/blog-post.routes'),
               },
             ],
           },
@@ -35,9 +30,4 @@ const routes: Routes = [
     ],
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class BlogPostsRoutingModule {}
+export default routes;

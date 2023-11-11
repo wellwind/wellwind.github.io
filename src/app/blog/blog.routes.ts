@@ -21,9 +21,7 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('./blog-posts/blog-posts.module').then(
-            (m) => m.BlogPostsModule
-          ),
+          import('./blog-posts/blog-posts.routes')
       },
     ],
   },

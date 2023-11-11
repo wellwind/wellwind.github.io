@@ -1,11 +1,13 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
 import {
-  AfterViewInit,
   Component,
   ElementRef,
-  OnInit,
   ViewChild,
+  computed,
+  effect,
+  inject
 } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
@@ -13,8 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { combineLatest, map } from 'rxjs';
 import { MarkdownMeta } from 'site-utils';
+import { getRouteData } from 'src/app/site-common/route-utils';
 import { PlatformService } from '../../../../platform.service';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
 import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle/blog-post-subtitle.component';
@@ -25,7 +27,7 @@ import { PostMetaWithSlug } from '../../../site-common/post-meta.interface';
 import { SiteMetaService } from '../../../site-common/site-meta.service';
 import { SitePostService } from '../../../site-common/site-post.service';
 import { SlugifyPipe } from '../../../site-common/slugify/slugify.pipe';
-import { BlogPostTocComponent } from './blog-post-toc/blog-post-toc.component';
+import { BlogPostTocComponent } from './blog-post-toc.component';
 
 const findPreviousPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
   const found = posts.filter(
@@ -48,8 +50,191 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
 };
 @Component({
   selector: 'app-blog-post',
-  templateUrl: './blog-post.component.html',
-  styleUrls: ['./blog-post.component.scss'],
+  template: `@if (postMeta(); as postMeta) {
+
+    <div class="blog-post-container flex items-start">
+      <article class="blog-post blog-post-overview w-full !p-0 xl:w-[80%]">
+        <header>
+          <div class="blog-post-title">
+            <h1 class="m-0 text-2xl md:text-3xl">{{ postMeta.title }}</h1>
+          </div>
+
+          <div class="blog-post-subtitle">
+            <app-blog-post-subtitle
+              [postMeta]="postMeta"
+            ></app-blog-post-subtitle>
+          </div>
+        </header>
+        <mat-divider class="!my-2"></mat-divider>
+
+        <section
+          class="blog-post !p-0"
+          #content
+          [innerHTML]="postContent()"
+        ></section>
+
+        <!-- blog post tags -->
+        <div aria-label="Post Tags" class="flex justify-center">
+          @for (tag of postMeta.tags; track tag) {
+          <a
+            [routerLink]="['/blog/tags', tag | slugify]"
+            matRipple
+            class="text-white text-sm bg-blue-800 hover:bg-blue-600 rounded-3xl px-3 py-2 m-1 no-underline hover:no-underline hover:text-white"
+          >
+            {{ tag }}
+          </a>
+          }
+        </div>
+
+        <div class="blog-post-liker-coin mt-4">
+          <div>
+            如果您覺得我的文章有幫助，歡迎免費成為 LikeCoin 會員，幫我的文章拍手
+            5 次表示支持！
+          </div>
+          <app-liker-coin
+            likerId="wellwind"
+            [refreshObservable]="postMeta$"
+          ></app-liker-coin>
+        </div>
+
+        <mat-divider class="!my-2"></mat-divider>
+
+        <footer>
+          <!-- prev & next by categories -->
+          @for (categoryPrevNext of postCategoriesPrevNext(); track
+          categoryPrevNext.category) { @if (categoryPrevNext.previousPost ||
+          categoryPrevNext.nextPost) {
+
+          <div class="flex items-center">
+            <mat-icon class="pr-1">folder_open</mat-icon>
+            <a
+              class="blog-post-category-link"
+              [routerLink]="[
+                '/blog/categories',
+                categoryPrevNext.category | slugify
+              ]"
+              >{{ categoryPrevNext.category }}</a
+            >
+          </div>
+
+          <div class="blog-post-prev-next flex items-start">
+            <div
+              class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
+            >
+              @if (categoryPrevNext.previousPost; as post) {
+
+              <div
+                class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
+              >
+                <mat-icon>chevron_left</mat-icon>
+                上一篇
+              </div>
+              <ng-container
+                *ngTemplateOutlet="postLink; context: { post: post }"
+              ></ng-container>
+
+              }
+            </div>
+            <div
+              class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
+            >
+              @if (categoryPrevNext.nextPost; as post) {
+
+              <div
+                class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
+              >
+                下一篇
+                <mat-icon>chevron_right</mat-icon>
+              </div>
+              <ng-container
+                *ngTemplateOutlet="postLink; context: { post: post }"
+              ></ng-container>
+
+              }
+            </div>
+          </div>
+          <mat-divider class="!my-2"></mat-divider>
+
+          } }
+
+          <!-- prev & next by date -->
+          <div class="flex items-center">
+            <mat-icon class="pr-1">calendar_month</mat-icon>
+            <span>按照日期</span>
+          </div>
+
+          <div class="blog-post-prev-next flex items-start">
+            <div
+              class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
+            >
+              @if (previousPost(); as post) {
+
+              <div
+                class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
+              >
+                <mat-icon>chevron_left</mat-icon>
+                上一篇
+              </div>
+              <ng-container
+                *ngTemplateOutlet="postLink; context: { post: post }"
+              ></ng-container>
+
+              }
+            </div>
+            <div
+              class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
+            >
+              @if (nextPost(); as post) {
+
+              <div
+                class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
+              >
+                下一篇
+                <mat-icon>chevron_right</mat-icon>
+              </div>
+              <ng-container
+                *ngTemplateOutlet="postLink; context: { post: post }"
+              ></ng-container>
+
+              }
+            </div>
+          </div>
+
+          <ng-template #postLink let-post="post">
+            <a class="w-full" [routerLink]="post | postDateAsPath">
+              {{ post.title }}
+            </a>
+          </ng-template>
+
+          <mat-divider class="!my-2"></mat-divider>
+
+          <!-- comments -->
+          <h3>有任何問題或建議嗎？歡迎留言給我</h3>
+          <div class="blog-post-comments" #comments>
+            <app-comment class="blog-post-comments"></app-comment>
+          </div>
+        </footer>
+      </article>
+
+      <div class="blog-post-toc hidden xl:block xl:w-[19%]">
+        <app-blog-post-toc [contentElement]="content"></app-blog-post-toc>
+      </div>
+
+      <button
+        role="button"
+        aria-label="留個言吧"
+        mat-fab
+        color="default"
+        class="go-comment !fixed bottom-8 right-24 !bg-[color:var(--background-color)]"
+        (click)="goComment(comments)"
+        matTooltip="留言"
+      >
+        <mat-icon>comment</mat-icon>
+      </button>
+    </div>
+
+    } `,
+  styles: ``,
   standalone: true,
   imports: [
     BlogPostSubtitleComponent,
@@ -65,93 +250,81 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
     MatTooltipModule,
     PostDateAsPathPipe,
     SlugifyPipe,
-    AsyncPipe,
   ],
 })
-export class BlogPostComponent implements OnInit, AfterViewInit {
-  @ViewChild('comments') comments?: ElementRef<HTMLElement>;
+export class BlogPostComponent {
+  private route = inject(ActivatedRoute);
+  private domSanitizer = inject(DomSanitizer);
+  private platformService = inject(PlatformService);
+  private sitePostService = inject(SitePostService);
+  private siteMetaService = inject(SiteMetaService);
 
-  get isServer() {
+  @ViewChild('comments') protected comments?: ElementRef<HTMLElement>;
+
+  protected get isServer() {
     return this.platformService.isServer;
   }
 
-  postMeta$ = this.route.data.pipe(map((data) => data.content as MarkdownMeta));
+  protected postMeta = getRouteData((data) => data.content as MarkdownMeta, {
+    slug: '',
+    title: '',
+    date: '',
+    categories: [],
+    tags: [],
+    summary: '',
+    content: '',
+    originalContent: '',
+  });
+  protected postMeta$ = toObservable(this.postMeta);
 
-  postContent$ = this.postMeta$.pipe(
-    map((postMeta) =>
-      this.domSanitizer.bypassSecurityTrustHtml(
-        postMeta.summary + postMeta.content
-      )
-    )
-  );
+  protected postContent = computed(() => {
+    return this.domSanitizer.bypassSecurityTrustHtml(
+      this.postMeta().summary + this.postMeta().content
+    );
+  });
 
-  postCategoriesPrevNext$ = combineLatest([
-    this.postMeta$,
-    this.sitePostService.categoriesAndPosts$,
-  ]).pipe(
-    map(([postMeta, categoriesPosts]) =>
-      (postMeta.categories || [])
-        .filter((category) => !!categoriesPosts[category])
-        .map((category) => ({
-          category,
-          previousPost: findPreviousPost(categoriesPosts[category], postMeta),
-          nextPost: findNextPost(categoriesPosts[category], postMeta),
-        }))
-    )
-  );
+  protected postCategoriesPrevNext = computed(() => {
+    const postMeta = this.postMeta();
+    const categoriesPosts = this.sitePostService.categoriesAndPosts();
+    return (postMeta?.categories || [])
+      .filter((category) => !!categoriesPosts[category])
+      .map((category) => ({
+        category,
+        previousPost: findPreviousPost(categoriesPosts[category], postMeta),
+        nextPost: findNextPost(categoriesPosts[category], postMeta),
+      }));
+  });
 
-  previousPost$ = combineLatest([
-    this.postMeta$,
-    this.sitePostService.postsMetaWithSlugAndSortAsc$,
-  ]).pipe(
-    map(([currentPostMeta, allPostsMeta]) =>
-      findPreviousPost(allPostsMeta, currentPostMeta)
-    )
-  );
+  protected previousPost = computed(() => {
+    const postMeta = this.postMeta();
+    const posts = this.sitePostService.postsMetaWithSlugAndSortAsc();
+    return findPreviousPost(posts, postMeta);
+  });
 
-  nextPost$ = combineLatest([
-    this.postMeta$,
-    this.sitePostService.postsMetaWithSlugAndSortAsc$,
-  ]).pipe(
-    map(([currentPostMeta, allPostsMeta]) => {
-      const found = allPostsMeta.filter(
-        (post) => new Date(post.date) > new Date(currentPostMeta.date)
-      );
-      if (found) {
-        return found[0];
-      }
-      return null;
-    })
-  );
-
-  constructor(
-    private route: ActivatedRoute,
-    private domSanitizer: DomSanitizer,
-    private platformService: PlatformService,
-    private sitePostService: SitePostService,
-    private siteMetaService: SiteMetaService
-  ) {}
-
-  ngOnInit(): void {
-    this.postMeta$.subscribe((postMeta) => {
-      this.siteMetaService.resetMeta({
-        title: postMeta.title,
-        type: 'article',
-        description: postMeta.summary
-          .replace(/<[^>]*>/gm, '')
-          .replace(/\n/g, '')
-          .trim(),
-        keywords: postMeta.tags || [],
-        ogImage: postMeta.ogImage,
-      });
-    });
-  }
-
-  ngAfterViewInit() {
-    if (this.platformService.isServer) {
-      return;
+  protected nextPost = computed(() => {
+    const postMeta = this.postMeta();
+    const posts = this.sitePostService.postsMetaWithSlugAndSortAsc();
+    const found = posts.filter(
+      (post) => new Date(post.date) > new Date(postMeta.date)
+    );
+    if (found) {
+      return found[0];
     }
-  }
+    return null;
+  });
+
+  private _updateMetaEffect = effect(() => {
+    this.siteMetaService.resetMeta({
+      title: this.postMeta().title,
+      type: 'article',
+      description: this.postMeta()
+        .summary.replace(/<[^>]*>/gm, '')
+        .replace(/\n/g, '')
+        .trim(),
+      keywords: this.postMeta().tags || [],
+      ogImage: this.postMeta().ogImage,
+    });
+  });
 
   goComment(commentsElement: HTMLElement) {
     if (commentsElement) {

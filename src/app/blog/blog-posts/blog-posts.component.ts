@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, computed, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { SitePostService } from '../../site-common/site-post.service';
@@ -10,13 +10,53 @@ import { MatButtonModule } from '@angular/material/button';
 import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle/blog-post-subtitle.component';
 import { MatCardModule } from '@angular/material/card';
 import { AsyncPipe } from '@angular/common';
+import { getRouteParam } from 'src/app/site-common/route-utils';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 
 const PAGE_SIZE = 10;
 
 @Component({
   selector: 'app-blog-posts',
-  templateUrl: './blog-posts.component.html',
-  styleUrls: ['./blog-posts.component.scss'],
+  template: `@for (post of posts(); track post.slug) {
+
+    <mat-card appearance="outlined" class="blog-post">
+      <mat-card-title class="blog-post-title">
+        <a class="text-2xl" [routerLink]="post | postDateAsPath">{{
+          post.title
+        }}</a>
+      </mat-card-title>
+
+      <mat-card-subtitle class="blog-post-subtitle">
+        <app-blog-post-subtitle [postMeta]="post"></app-blog-post-subtitle>
+      </mat-card-subtitle>
+
+      <mat-card-content class="blog-post-content">
+        <div [innerHTML]="post.summary"></div>
+      </mat-card-content>
+
+      <mat-card-footer>
+        <a
+          class="read-more"
+          [routerLink]="post | postDateAsPath"
+          mat-raised-button
+          color="primary"
+        >
+          <mat-icon>read_more</mat-icon>
+          <span>繼續閱讀</span>
+        </a>
+      </mat-card-footer>
+    </mat-card>
+
+    }
+
+    <mat-card appearance="outlined" class="pagination">
+      <app-pagination
+        linkBase="/blog/page"
+        [currentPage]="currentPage() || 1"
+        [totalPage]="totalPage() || 1"
+      ></app-pagination>
+    </mat-card> `,
+  styles: ``,
   standalone: true,
   imports: [
     MatCardModule,
@@ -26,30 +66,23 @@ const PAGE_SIZE = 10;
     MatIconModule,
     PaginationComponent,
     PostDateAsPathPipe,
-    AsyncPipe,
   ],
 })
-export class BlogPostsComponent implements OnInit {
-  currentPage$ = this.route.paramMap.pipe(
-    map((paramMap) => +(paramMap.get('page') || 1))
+export class BlogPostsComponent {
+  private sitePostService = inject(SitePostService);
+
+  protected currentPage = getRouteParam(
+    (paramMap) => +(paramMap.get('page') || 1),
+    1
   );
 
-  posts$ = this.currentPage$.pipe(
-    switchMap((pageNum) =>
-      this.sitePostService.postsMetaWithSlugAndSortDesc$.pipe(
-        map((posts) => getPagePosts(pageNum, PAGE_SIZE, posts))
-      )
-    )
+  protected posts = computed(() => {
+    const pageNum = this.currentPage();
+    const posts = this.sitePostService.postsMetaWithSlugAndSortDesc();
+    return getPagePosts(pageNum, PAGE_SIZE, posts);
+  })
+
+  protected totalPage = computed(() =>
+    Math.ceil(Object.keys(this.sitePostService.postsMeta() || {}).length / PAGE_SIZE)
   );
-
-  totalPage$ = this.sitePostService.postsMeta$.pipe(
-    map((posts) => Math.ceil(Object.keys(posts || {}).length / PAGE_SIZE))
-  );
-
-  constructor(
-    private sitePostService: SitePostService,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {}
 }
