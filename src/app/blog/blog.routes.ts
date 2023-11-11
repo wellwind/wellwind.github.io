@@ -12,10 +12,7 @@ const routes: Routes = [
       },
       {
         path: 'categories',
-        loadChildren: () =>
-          import('./blog-categories/blog-categories.module').then(
-            (m) => m.BlogCategoriesModule
-          ),
+        loadChildren: () => import('./blog-categories/blog-categories.routes'),
       },
       {
         path: 'tags',

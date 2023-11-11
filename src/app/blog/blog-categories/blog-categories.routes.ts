@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { BlogCategoriesPostsResolve } from './blog-categories-posts-resolve';
-import { BlogCategoriesPostsComponent } from './blog-categories-posts/blog-categories-posts.component';
+import { BlogCategoriesPostsComponent } from './blog-categories-posts.component';
 import { BlogCategoriesResolve } from './blog-categories-resolve';
 import { BlogCategoriesComponent } from './blog-categories.component';
 
@@ -22,9 +21,4 @@ const routes: Routes = [
     component: BlogCategoriesComponent
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class BlogCategoriesRoutingModule { }
+export default routes;
