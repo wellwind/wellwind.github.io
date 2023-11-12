@@ -47,3 +47,5 @@ pages.txt
 # System Files
 .DS_Store
 Thumbs.db
+
+.nx
