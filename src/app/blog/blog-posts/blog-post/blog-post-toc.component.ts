@@ -213,17 +213,12 @@ export class BlogPostTocComponent implements OnDestroy {
   }
 
   private getTocHeadings(element: HTMLElement) {
-    const result: Array<{
-      text: string | null;
-      level: number;
-      element: Element | null;
-      active: boolean;
-    }> = [];
+    const result: Array<Heading> = [];
     element.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach((head) => {
       result.push({
-        text: head.textContent,
+        text: head.textContent || '',
         level: +head.tagName.replace(/h(.)/i, '$1'),
-        element: this.platformService.isServer ? null : head,
+        element: this.platformService.isServer ? undefined : head as HTMLElement,
         active: false,
       });
     });
