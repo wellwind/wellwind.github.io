@@ -166,7 +166,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart))
-      .subscribe((url) => {
+      .subscribe(() => {
         if (this.matDrawerContent) {
           this.matDrawerContent.scrollTo({ top: 0, left: 0 });
           this.cdr.detectChanges();

@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { PlatformService } from 'src/app/site-common/platform.service';
 import { environment } from '../environments/environment';
@@ -7,18 +12,20 @@ import { SiteMetaService } from './site-common/site-meta.service';
 import { TrackService } from './site-common/track.service';
 import { filter, pairwise, startWith } from 'rxjs';
 
-declare let gtag: Function;
+declare const gtag: (
+  command: string,
+  action: string,
+  config: { page_path: string }
+) => void;
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  imports: [
-    LayoutComponent,
-  ],
+  imports: [LayoutComponent],
   template: `<app-layout></app-layout>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private router = inject(Router);
   private platformService = inject(PlatformService);
   private siteMetaService = inject(SiteMetaService);
@@ -42,10 +49,14 @@ export class AppComponent {
         startWith(null),
         pairwise()
       )
-      .subscribe((events: [any, any]) => {
+      .subscribe((events) => {
         if (!this.platformService.isServer && environment.production) {
-          this.trackService.sendTrack(events[0]?.url || '');
-          gtag('event', 'page_view', { page_path: events[1].url });
+          this.trackService.sendTrack(
+            (events[0] as NavigationEnd | null)?.url || ''
+          );
+          gtag('event', 'page_view', {
+            page_path: (events[1] as NavigationEnd | null)?.url || '',
+          });
         }
       });
   }

@@ -6,7 +6,7 @@ import {
   OnDestroy,
   TransferState,
   inject,
-  makeStateKey
+  makeStateKey,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Observable, ReplaySubject, map, startWith, switchMap } from 'rxjs';
@@ -85,7 +85,7 @@ const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
     }`,
   standalone: true,
   imports: [],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPostTocComponent implements OnDestroy {
   private transferState = inject(TransferState);
@@ -170,7 +170,7 @@ export class BlogPostTocComponent implements OnDestroy {
       const containerElement = element.closest(
         '.mat-drawer-content.main-content'
       );
-      let options = {
+      const options = {
         root: containerElement,
         rootMargin: '0px',
         threshold: 1.0,
@@ -213,17 +213,19 @@ export class BlogPostTocComponent implements OnDestroy {
   }
 
   private getTocHeadings(element: HTMLElement) {
-    let result: any[] = [];
+    const result: Array<{
+      text: string | null;
+      level: number;
+      element: Element | null;
+      active: boolean;
+    }> = [];
     element.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach((head) => {
-      result = [
-        ...result,
-        {
-          text: head.textContent,
-          level: +head.tagName.replace(/h(.)/i, '$1'),
-          element: this.platformService.isServer ? null : head,
-          active: false,
-        },
-      ];
+      result.push({
+        text: head.textContent,
+        level: +head.tagName.replace(/h(.)/i, '$1'),
+        element: this.platformService.isServer ? null : head,
+        active: false,
+      });
     });
     return result;
   }

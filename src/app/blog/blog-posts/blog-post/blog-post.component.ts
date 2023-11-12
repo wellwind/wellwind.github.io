@@ -13,7 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { MarkdownMeta } from 'site-utils';
 import { getRouteData } from 'src/app/site-common/route-utils';
 import { findMainContentContainer, scrollTo } from '../../../../utils';

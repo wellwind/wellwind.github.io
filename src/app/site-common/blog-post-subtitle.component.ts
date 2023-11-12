@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 import { MarkdownMeta } from 'site-utils';
 import { PostMeta } from './post-meta.interface';
 import { SlugifyPipe } from './slugify.pipe';
-import { RouterLink } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-blog-post-subtitle',

@@ -11,7 +11,7 @@ export class TrailingSlashUrlSerializer extends DefaultUrlSerializer {
     const pathArr = url.split(splitOn);
 
     if (!pathArr[0].endsWith('/')) {
-      let fileName: string = url.substring( url.lastIndexOf('/') + 1);
+      const fileName = url.substring( url.lastIndexOf('/') + 1);
       if (fileName.indexOf('.') === -1) {
         pathArr[0] += '/';
       }

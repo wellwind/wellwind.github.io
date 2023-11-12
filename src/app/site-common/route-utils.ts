@@ -8,6 +8,7 @@ export const getRouteParam = <T>(getFn: (paramMap: ParamMap, index?: number) => 
   const param$ = route.paramMap.pipe(
     map(getFn)
   );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return toSignal<T>(param$, { initialValue: initialValue as any }) as Signal<T>;
 };
 
@@ -16,5 +17,6 @@ export const getRouteData = <T>(getFn: (data: Data, index?: number) => T, initia
   const data$ = route.data.pipe(
     map(getFn)
   );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return toSignal<T>(data$, { initialValue: initialValue as any })as Signal<T>;
 }

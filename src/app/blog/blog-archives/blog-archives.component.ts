@@ -105,7 +105,7 @@ export class BlogArchivesComponent {
     return pagePosts.reduce((prev, curr) => {
       const year = curr.date.slice(0, 4);
 
-      let yearPosts = prev.find((item) => item.year === year);
+      const yearPosts = prev.find((item) => item.year === year);
       if (!yearPosts) {
         prev.push({
           year,

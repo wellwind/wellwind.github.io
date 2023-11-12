@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { descend, prop, sortWith } from 'ramda';
 import { Observable, map } from 'rxjs';
 import { PostMetaWithSlug } from '../../site-common/post-meta.interface';
@@ -12,7 +12,7 @@ import { findPosts } from '../find-posts';
 export class BlogCategoriesPostsResolve  {
   private sitePostService = inject(SitePostService);
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PostMetaWithSlug[]> {
+  resolve(route: ActivatedRouteSnapshot): Observable<PostMetaWithSlug[]> {
     const categorySlug = route.paramMap.get('category-slug') as string;
 
     return this.sitePostService.categoriesAndPosts$
