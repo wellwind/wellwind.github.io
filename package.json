@@ -15,7 +15,8 @@
     "build:urls": "ng run blog:generate-prerender-urls",
     "build:rss": "ng run blog:generate-rss",
     "build:minify-html": "ng run blog:minify-rendered-files",
-    "build:deploy": "npm run build:blog-posts-json && npm run build:urls && npm run build && npm run build:rss -- --rss-path ./dist/blog/browser/browser/atom.xml"
+    "build:deploy": "npm run build:blog-posts-json && npm run build:urls && npm run build && npm run build:rss -- --rss-path ./dist/blog/browser/browser/atom.xml",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +47,11 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.0",
+    "@angular-eslint/builder": "17.0.1",
+    "@angular-eslint/eslint-plugin": "17.0.1",
+    "@angular-eslint/eslint-plugin-template": "17.0.1",
+    "@angular-eslint/schematics": "17.0.1",
+    "@angular-eslint/template-parser": "17.0.1",
     "@angular/cli": "^17.0.0",
     "@angular/compiler-cli": "^17.0.2",
     "@types/express": "^4.17.13",
@@ -55,8 +61,11 @@
     "@types/node": "^20.9.0",
     "@types/puppeteer": "^5.4.4",
     "@types/ramda": "^0.27.45",
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
     "autoprefixer": "^10.4.12",
     "concurrently": "^6.3.0",
+    "eslint": "^8.53.0",
     "express": "^4.17.1",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
