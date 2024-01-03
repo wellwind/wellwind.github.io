@@ -125,7 +125,7 @@ export class NoopInterceptor implements HttpInterceptor {
 }
 ```
 
-由於HttpInterceptor其實是個介面而已，轉換成JavaScript時不會產生任何的程式碼，因此Angular提供了**InjectionToken**來產生一個空的實體，才不會導致我們要設定相依注入時沒有東西可以注入**(TypeScript的Interface對JavaScript等於沒有東西)**
+由於HttpInterceptor其實是個介面而已，轉換成JavaScript時不會產生任何的程式碼，因此Angular提供了**InjectionToken**來產生一個空的實體，才不會導致我們要設定相依注入時沒有東西可以注入 **(TypeScript的Interface對JavaScript等於沒有東西)**
 
 而NoopInterceptor則實作了HttpInterceptor介面，同時給了一個超簡單的程式碼，把原本送進來的request直接透過HttpHandler送出去而已！
 
