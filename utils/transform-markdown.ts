@@ -44,7 +44,7 @@ export const transformMarkdown = (content: string, slug: string) =>
     .replace(/<img(.*)\/>/, `<img$1 loading="lazy" />`)
     // {% note %} 轉換
     .replace(
-      /<p>{% note (.*?) %}<\/p>(.*?)<p>{% endnote %}<\/p>/gs,
+      /<p>\s*{% note (.*?) %}\s*<\/p>(.*?)<p>\s*{% endnote %}\s*<\/p>/gs,
       (match, noteClass, content) => {
         const newContent = content.trim().replace(/^\s+|\s+$/g, '');
         return `</p><div class=\"note ${noteClass}\">${newContent}</div><p>`;
