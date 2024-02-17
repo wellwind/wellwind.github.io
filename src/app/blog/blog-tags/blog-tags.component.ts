@@ -36,10 +36,9 @@ import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
   `,
   styles: `
     .tags {
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-      flex-wrap: wrap;
+      text-align: center;
+      line-height: 36px;
+      margin: 8px;
 
       .tag {
         margin: 8px;
