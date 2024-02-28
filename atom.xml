@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 18 Feb 2024 13:06:22 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Feb 2024 03:28:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[OpenFeature] 實際使用 OpenFeature]]></title>
+            <link>https://fullstackladder.dev/blog/2024/02/21/open-feature-api-demo</link>
+            <guid>https://fullstackladder.dev/blog/2024/02/21/open-feature-api-demo</guid>
+            <pubDate>Wed, 21 Feb 2024 16:37:16 GMT</pubDate>
+            <description><![CDATA[<p>這篇文章將介紹如何使用 OpenFeature 的 Evaluation API，並以 TypeScript 程式語言為例，示範如何在前端專案中使用 Feature Flag 來管理 Todo List 功能的開關。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[OpenFeature] 簡介]]></title>
             <link>https://fullstackladder.dev/blog/2024/02/18/open-feature-introduction</link>
@@ -167,14 +175,6 @@
             <guid>https://fullstackladder.dev/blog/2023/01/07/introduction-horusec</guid>
             <pubDate>Sat, 07 Jan 2023 15:00:47 GMT</pubDate>
             <description><![CDATA[<p><a href="https://github.com/ZupIT/horusec">Horusec</a> 是一套開源的程式碼靜態分析工具，他可以幫助我們對程式碼進行安全性掃描，並且支援許多常見的語言，功能非常強大。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Azure DevOps] 整合 Security Code Scan 掃描結果]]></title>
-            <link>https://fullstackladder.dev/blog/2022/12/31/azure-devops-intergrate-security-code-scan</link>
-            <guid>https://fullstackladder.dev/blog/2022/12/31/azure-devops-intergrate-security-code-scan</guid>
-            <pubDate>Sat, 31 Dec 2022 13:10:08 GMT</pubDate>
-            <description><![CDATA[<p>之前文章介紹過「<a href="https://fullstackladder.dev/blog/2022/12/24/introduction-security-code-scan/">使用 Security Code Scan 為 .NET 應用程式進行程式碼安全性掃描</a>」，這篇文章接著來介紹一下如何在 Azure DevOps 的 CI pipeline 中整合 Security Code Scan 掃描結果。</p>
 ]]></description>
         </item>
     </channel>
