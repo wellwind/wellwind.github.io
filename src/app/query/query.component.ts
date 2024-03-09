@@ -5,7 +5,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Observable, combineLatest, defer, filter, map, startWith, switchMap } from 'rxjs';
+import {
+  Observable,
+  combineLatest,
+  defer,
+  filter,
+  map,
+  startWith,
+  switchMap,
+} from 'rxjs';
 import { SitePostService } from '../site-common/site-post.service';
 
 @Component({
@@ -25,7 +33,7 @@ import { SitePostService } from '../site-common/site-post.service';
 
       <mat-card appearance="outlined">
         <mat-card-content>
-          <h2>共 {{ searchResult.length }} 篇文章</h2>
+          <h2>共 {{ searchResult().length }} 篇文章</h2>
 
           @if (searchDateStart()) {
           <span class="search-chip">
@@ -106,7 +114,7 @@ export class QueryComponent {
   private route = inject(ActivatedRoute);
 
   private searchKeyword$ = this.route.queryParamMap.pipe(
-    map((queryParamMap) => `${queryParamMap.get('q')}`),
+    map((queryParamMap) => queryParamMap.get('q')),
     filter(Boolean),
     startWith('')
   );
