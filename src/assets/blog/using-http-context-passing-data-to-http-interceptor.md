@@ -10,7 +10,7 @@ tags:
   - "HttpContext"
 ---
 
-Angular 中的 HttpInterceptor 可以幫助我們攔截每個 HttpClient 送出的呼叫，幫助我們在呼叫前後打點各種大小事情，不過有時候我們反而希望 HttpInterceptor 不要自作主張幫我們處理太多事情，之前有些過一篇文章介紹[如何忽略 HTTP_INTERCEPTORS](https://fullstackladder.dev/blog/2019/01/06/mastering-angular-31-how-to-create-new-http-client-and-ignore-http-interceptors/)，而到了 Angular 12 之後，則內建了 [HttpContext](https://angular.io/api/common/http/HttpContext) 的功能，方便在程式中主動傳遞一些資料給我們自己設計的 HttpInterceptor，來達到一些更細緻的操作，這篇文章就來看一下 HttpContext 該如何使用。
+Angular 中的 HttpInterceptor 可以幫助我們攔截每個 HttpClient 送出的呼叫，幫助我們在呼叫前後打點各種大小事情，不過有時候我們反而希望 HttpInterceptor 不要自作主張幫我們處理太多事情，之前有寫過一篇文章介紹[如何忽略 HTTP_INTERCEPTORS](https://fullstackladder.dev/blog/2019/01/06/mastering-angular-31-how-to-create-new-http-client-and-ignore-http-interceptors/)，而到了 Angular 12 之後，則內建了 [HttpContext](https://angular.io/api/common/http/HttpContext) 的功能，方便在程式中主動傳遞一些資料給我們自己設計的 HttpInterceptor，來達到一些更細緻的操作，這篇文章就來看一下 HttpContext 該如何使用。
 
 <!-- more -->
 
@@ -129,7 +129,7 @@ this.httpClient.post<any>(
 
 # 本日小結
 
-要控制 HttpInterceptor，以前常見的做法是主動在 header 加料，然後在 HttpInterceptor 內額外處理，一方便沒有把行為分開，另一方面也容易不小心將不必要的 header 也一起傳出去了；Angular 12 推出 HttpContext 功能後，要在 HttpClient 呼叫時控制 HttpInterceptor 就變得更加容易了！
+要控制 HttpInterceptor，以前常見的做法是主動在 header 加料，然後在 HttpInterceptor 內額外處理，一方面沒有把行為分開，另一方面也容易不小心將不必要的 header 也一起傳出去了；Angular 12 推出 HttpContext 功能後，要在 HttpClient 呼叫時控制 HttpInterceptor 就變得更加容易了！
 
 # 相關資源
 
