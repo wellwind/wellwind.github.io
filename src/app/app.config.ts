@@ -1,4 +1,4 @@
-import { APP_ID, ApplicationConfig } from '@angular/core';
+import { APP_ID, ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { UrlSerializer, provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -9,6 +9,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideExperimentalZonelessChangeDetection(),
     provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(withFetch()),

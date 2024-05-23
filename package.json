@@ -15,7 +15,7 @@
     "build:urls": "ng run blog:generate-prerender-urls",
     "build:rss": "ng run blog:generate-rss",
     "build:minify-html": "ng run blog:minify-rendered-files",
-    "build:deploy": "npm run build:blog-posts-json && npm run build:urls && npm run build && npm run build:rss -- --rss-path ./dist/blog/browser/browser/atom.xml",
+    "build:deploy": "npm run build:blog-posts-json && npm run build:urls && npm run build && npm run build:rss -- --rss-path ./dist/blog/browser/browser/atom.xml && shx mv ./dist/blog/browser/browser/index.csr.html ./dist/blog/browser/browser/index.html",
     "lint": "ng lint"
   },
   "private": true,
@@ -40,7 +40,7 @@
     "js-yaml": "^4.1.0",
     "marked": "^9.1.6",
     "marked-highlight": "^2.0.6",
-    "ramda": "^0.27.1",
+    "ramda": "^0.30.0",
     "rxjs": "^7.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
@@ -60,7 +60,7 @@
     "@types/js-yaml": "^4.0.3",
     "@types/node": "^20.9.0",
     "@types/puppeteer": "^5.4.4",
-    "@types/ramda": "^0.27.45",
+    "@types/ramda": "^0.30.0",
     "@typescript-eslint/eslint-plugin": "6.10.0",
     "@typescript-eslint/parser": "6.10.0",
     "autoprefixer": "^10.4.12",

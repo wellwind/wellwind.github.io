@@ -81,8 +81,6 @@ export class BlogTagsComponent {
     Math.max(...Object.values(this.tags()).map((post) => post.length))
   );
 
-  _ = effect(() => console.log(this.tags()));
-
   private _updateMetaEffect = effect(() => {
     this.siteMetaService.resetMeta({
       title: '標籤',
