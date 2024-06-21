@@ -44,6 +44,10 @@
               "src/4c5359d349fa457e37c8e2ef742609d4.html",
               "src/assets"
             ],
+            "server": "src/main.server.ts",
+            "ssr": {
+              "entry": "server.ts"
+            },
             "styles": ["src/styles.scss"],
             "scripts": [],
             "polyfills": []
@@ -68,10 +72,6 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "server": "src/main.server.ts",
-              "ssr": {
-                "entry": "server.ts"
-              },
               "prerender": {
                 "routesFile": "pages.txt"
               },
