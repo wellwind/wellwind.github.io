@@ -219,7 +219,7 @@ const testScheduler = new TestScheduler((actual, expected) => {
 建立好 TestScheduler 後，我們需要呼叫該物件的 `run()` 方法，`run()` 方法內也是一個 callback function，在此 function 內會得到一個 `helper` 物件，這個物件可以幫助我們「以同步的方式測試非同步 Observable」，這個 helper 包含幾個方法：
 
 - `hot`：依照指定的彈珠圖建立一個 Hot Observable
-- `cold`：依照指定的蛋ˋ豬屠建立一個 Cold Observable
+- `cold`：依照指定的彈珠圖建立一個 Cold Observable
 - `expectObservable(...).toBe(...)`：用來判斷兩條 Observable 是否結果相同
 - `expectSubscription(...).toBe(...)`：用來判斷「訂閱」和「結束訂閱」的結果是否符合預期
 - `flush`：用來立即完成一個 Observable，通常用不到，只要在很細的控制測試需要
