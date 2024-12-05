@@ -3,7 +3,7 @@ import {
   Component,
   inject,
   input,
-  output
+  output,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -13,24 +13,31 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
-import { combineLatest, debounceTime, defer, distinctUntilChanged, map, switchMap } from 'rxjs';
+import {
+  combineLatest,
+  debounceTime,
+  defer,
+  distinctUntilChanged,
+  map,
+  switchMap,
+} from 'rxjs';
 
 import { PlatformService } from 'src/app/site-common/platform.service';
 import { SitePostService } from '../site-common/site-post.service';
 import { WebsiteTheme } from './website-theme';
 
 @Component({
-    selector: 'app-layout-toolbar',
-    imports: [
-        RouterLink,
-        ReactiveFormsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatInputModule,
-        MatAutocompleteModule,
-        MatButtonModule,
-    ],
-    template: ` <mat-toolbar
+  selector: 'app-layout-toolbar',
+  imports: [
+    RouterLink,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+  ],
+  template: ` <mat-toolbar
     color="primary"
     class="toolbar mat-elevation-z6 fixed z-10"
     xmlns="http://www.w3.org/1999/html"
@@ -62,6 +69,7 @@ import { WebsiteTheme } from './website-theme';
     <div class="grow"></div>
 
     <!-- toggle theme button -->
+    @if(!isServer){
     <button
       role="button"
       aria-label="深色/亮色模式"
@@ -75,6 +83,7 @@ import { WebsiteTheme } from './website-theme';
       <mat-icon>dark_mode</mat-icon>
       }
     </button>
+    }
 
     <!-- search input -->
     @if (!(isSmallScreen())) {
@@ -115,8 +124,8 @@ import { WebsiteTheme } from './website-theme';
     </div>
     }
   </mat-toolbar>`,
-    styles: ``,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  styles: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutToolbarComponent {
   readonly menuOpen = input<boolean>(true);
@@ -131,6 +140,7 @@ export class LayoutToolbarComponent {
   private platformService = inject(PlatformService);
   private sitePostService = inject(SitePostService);
 
+  protected isServer = this.platformService.isServer;
   protected isSmallScreen = this.platformService.isSmallScreen;
   protected searchKeyword = new FormControl<string>('');
 
