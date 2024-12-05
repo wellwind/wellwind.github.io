@@ -9,7 +9,6 @@ import { PlatformService } from 'src/app/site-common/platform.service';
 import { environment } from '../environments/environment';
 import { LayoutComponent } from './layout/layout.component';
 import { SiteMetaService } from './site-common/site-meta.service';
-import { TrackService } from './site-common/track.service';
 import { filter, pairwise, startWith } from 'rxjs';
 
 declare const gtag: (
@@ -28,7 +27,6 @@ export class AppComponent implements OnInit {
   private router = inject(Router);
   private platformService = inject(PlatformService);
   private siteMetaService = inject(SiteMetaService);
-  private trackService = inject(TrackService);
 
   ngOnInit() {
     this.router.events
@@ -50,9 +48,6 @@ export class AppComponent implements OnInit {
       )
       .subscribe((events) => {
         if (!this.platformService.isServer && environment.production) {
-          this.trackService.sendTrack(
-            (events[0] as NavigationEnd | null)?.url || '',
-          );
           gtag('event', 'page_view', {
             page_path: (events[1] as NavigationEnd | null)?.url || '',
           });
