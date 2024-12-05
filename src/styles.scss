@@ -69,7 +69,7 @@ $blog-dark-theme: mat.m2-define-dark-theme((
 a {
   color: var(--default-link-color);
   text-decoration: underline;
-  transition: all 0.3s;
+  transition: color 0.3s;
 
   &:hover {
     color: var(--default-link-hover-color);

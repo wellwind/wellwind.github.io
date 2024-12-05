@@ -108,7 +108,7 @@ import { SitePostService } from '../site-common/site-post.service';
       @for (item of menuItems(); track item.link) {
       <a
         mat-list-item
-        routerLinkActive="text-[color:var(--sidebar-highlight-text-color)] bg-[color:var(--sidebar-highlight-bg-color)]"
+        routerLinkActive="text-[color:var(--sidebar-highlight-text-color)]"
         [routerLinkActiveOptions]="{ exact: item.link === '/blog' }"
         [routerLink]="item.link"
       >
