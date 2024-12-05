@@ -1,10 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  Output,
   inject,
-  input
+  input,
+  output
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -121,13 +120,13 @@ import { WebsiteTheme } from './website-theme';
 })
 export class LayoutToolbarComponent {
   readonly menuOpen = input<boolean>(true);
-  @Output() menuOpenChange = new EventEmitter<boolean>();
+  readonly menuOpenChange = output<boolean>();
 
   readonly theme = input<WebsiteTheme>('dark');
-  @Output() themeChange = new EventEmitter<WebsiteTheme>();
+  readonly themeChange = output<WebsiteTheme>();
 
-  @Output() searchKeywordChange = new EventEmitter<string>();
-  @Output() selectSuggestItemChange = new EventEmitter<string>();
+  readonly searchKeywordChange = output<string>();
+  readonly selectSuggestItemChange = output<string>();
 
   private platformService = inject(PlatformService);
   private sitePostService = inject(SitePostService);
