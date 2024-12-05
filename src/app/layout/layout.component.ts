@@ -160,7 +160,7 @@ export class LayoutComponent implements OnInit {
     if (this.isSmallScreen()) {
       this.menuOpen.set(false);
     }
-  }, { allowSignalWrites: true });
+  });
 
   ngOnInit() {
     this.router.events
