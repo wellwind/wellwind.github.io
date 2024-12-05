@@ -5,7 +5,7 @@ import {
   computed,
   effect,
   inject,
-  viewChild
+  viewChild,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
@@ -30,7 +30,7 @@ import { BlogPostTocComponent } from './blog-post-toc.component';
 
 const findPreviousPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
   const found = posts.filter(
-    (post) => new Date(post.date) < new Date(target.date)
+    (post) => new Date(post.date) < new Date(target.date),
   );
   if (found) {
     return found[found.length - 1];
@@ -40,7 +40,7 @@ const findPreviousPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
 
 const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
   const found = posts.filter(
-    (post) => new Date(post.date) > new Date(target.date)
+    (post) => new Date(post.date) > new Date(target.date),
   );
   if (found) {
     return found[0];
@@ -48,9 +48,8 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
   return null;
 };
 @Component({
-    selector: 'app-blog-post',
-    template: `@if (postMeta(); as postMeta) {
-
+  selector: 'app-blog-post',
+  template: `@if (postMeta(); as postMeta) {
     <div class="blog-post-container flex items-start">
       <article class="blog-post blog-post-overview w-full !p-0 xl:w-[80%]">
         <header>
@@ -75,13 +74,13 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
         <!-- blog post tags -->
         <div aria-label="Post Tags" class="flex justify-center">
           @for (tag of postMeta.tags; track tag) {
-          <a
-            [routerLink]="['/blog/tags', tag | slugify]"
-            matRipple
-            class="text-white text-sm bg-blue-800 hover:bg-blue-600 rounded-3xl px-3 py-2 m-1 no-underline hover:no-underline hover:text-white"
-          >
-            {{ tag }}
-          </a>
+            <a
+              [routerLink]="['/blog/tags', tag | slugify]"
+              matRipple
+              class="text-white text-sm bg-blue-800 hover:bg-blue-600 rounded-3xl px-3 py-2 m-1 no-underline hover:no-underline hover:text-white"
+            >
+              {{ tag }}
+            </a>
           }
         </div>
 
@@ -97,61 +96,58 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
 
         <footer>
           <!-- prev & next by categories -->
-          @for (categoryPrevNext of postCategoriesPrevNext(); track
-          categoryPrevNext.category) { @if (categoryPrevNext.previousPost ||
-          categoryPrevNext.nextPost) {
-
-          <div class="flex items-center">
-            <mat-icon class="pr-1">folder_open</mat-icon>
-            <a
-              class="blog-post-category-link"
-              [routerLink]="[
-                '/blog/categories',
-                categoryPrevNext.category | slugify
-              ]"
-              >{{ categoryPrevNext.category }}</a
-            >
-          </div>
-
-          <div class="blog-post-prev-next flex items-start">
-            <div
-              class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
-            >
-              @if (categoryPrevNext.previousPost; as post) {
-
-              <div
-                class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
-              >
-                <mat-icon>chevron_left</mat-icon>
-                上一篇
+          @for (
+            categoryPrevNext of postCategoriesPrevNext();
+            track categoryPrevNext.category
+          ) {
+            @if (categoryPrevNext.previousPost || categoryPrevNext.nextPost) {
+              <div class="flex items-center">
+                <mat-icon class="pr-1">folder_open</mat-icon>
+                <a
+                  class="blog-post-category-link"
+                  [routerLink]="[
+                    '/blog/categories',
+                    categoryPrevNext.category | slugify,
+                  ]"
+                  >{{ categoryPrevNext.category }}</a
+                >
               </div>
-              <ng-container
-                *ngTemplateOutlet="postLink; context: { post: post }"
-              ></ng-container>
 
-              }
-            </div>
-            <div
-              class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
-            >
-              @if (categoryPrevNext.nextPost; as post) {
-
-              <div
-                class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
-              >
-                下一篇
-                <mat-icon>chevron_right</mat-icon>
+              <div class="blog-post-prev-next flex items-start">
+                <div
+                  class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
+                >
+                  @if (categoryPrevNext.previousPost; as post) {
+                    <div
+                      class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
+                    >
+                      <mat-icon>chevron_left</mat-icon>
+                      上一篇
+                    </div>
+                    <ng-container
+                      *ngTemplateOutlet="postLink; context: { post: post }"
+                    ></ng-container>
+                  }
+                </div>
+                <div
+                  class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
+                >
+                  @if (categoryPrevNext.nextPost; as post) {
+                    <div
+                      class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
+                    >
+                      下一篇
+                      <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <ng-container
+                      *ngTemplateOutlet="postLink; context: { post: post }"
+                    ></ng-container>
+                  }
+                </div>
               </div>
-              <ng-container
-                *ngTemplateOutlet="postLink; context: { post: post }"
-              ></ng-container>
-
-              }
-            </div>
-          </div>
-          <mat-divider class="!my-2"></mat-divider>
-
-          } }
+              <mat-divider class="!my-2"></mat-divider>
+            }
+          }
 
           <!-- prev & next by date -->
           <div class="flex items-center">
@@ -164,34 +160,30 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
               class="blog-post-prev flex flex-col flex-[50%] items-start justify-start text-start"
             >
               @if (previousPost(); as post) {
-
-              <div
-                class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
-              >
-                <mat-icon>chevron_left</mat-icon>
-                上一篇
-              </div>
-              <ng-container
-                *ngTemplateOutlet="postLink; context: { post: post }"
-              ></ng-container>
-
+                <div
+                  class="blog-post-prev-next-notify prev flex items-center text-sm w-full justify-start text-[color:var(--post-next-prev-text-color)]"
+                >
+                  <mat-icon>chevron_left</mat-icon>
+                  上一篇
+                </div>
+                <ng-container
+                  *ngTemplateOutlet="postLink; context: { post: post }"
+                ></ng-container>
               }
             </div>
             <div
               class="blog-post-next flex flex-col flex-[50%] items-start justify-end text-end"
             >
               @if (nextPost(); as post) {
-
-              <div
-                class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
-              >
-                下一篇
-                <mat-icon>chevron_right</mat-icon>
-              </div>
-              <ng-container
-                *ngTemplateOutlet="postLink; context: { post: post }"
-              ></ng-container>
-
+                <div
+                  class="blog-post-prev-next-notify next flex items-center text-sm w-full justify-end text-[color:var(--post-next-prev-text-color)]"
+                >
+                  下一篇
+                  <mat-icon>chevron_right</mat-icon>
+                </div>
+                <ng-container
+                  *ngTemplateOutlet="postLink; context: { post: post }"
+                ></ng-container>
               }
             </div>
           </div>
@@ -228,24 +220,23 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
         <mat-icon>comment</mat-icon>
       </button>
     </div>
-
-    } `,
-    styles: ``,
-    imports: [
-        BlogPostSubtitleComponent,
-        MatDividerModule,
-        MatRippleModule,
-        RouterLink,
-        LikerCoinComponent,
-        MatIconModule,
-        NgTemplateOutlet,
-        CommentComponent,
-        BlogPostTocComponent,
-        MatButtonModule,
-        MatTooltipModule,
-        PostDateAsPathPipe,
-        SlugifyPipe,
-    ]
+  } `,
+  styles: ``,
+  imports: [
+    BlogPostSubtitleComponent,
+    MatDividerModule,
+    MatRippleModule,
+    RouterLink,
+    LikerCoinComponent,
+    MatIconModule,
+    NgTemplateOutlet,
+    CommentComponent,
+    BlogPostTocComponent,
+    MatButtonModule,
+    MatTooltipModule,
+    PostDateAsPathPipe,
+    SlugifyPipe,
+  ],
 })
 export class BlogPostComponent {
   private domSanitizer = inject(DomSanitizer);
@@ -272,7 +263,7 @@ export class BlogPostComponent {
 
   protected postContent = computed(() => {
     return this.domSanitizer.bypassSecurityTrustHtml(
-      this.postMeta().summary + this.postMeta().content
+      this.postMeta().summary + this.postMeta().content,
     );
   });
 
@@ -298,7 +289,7 @@ export class BlogPostComponent {
     const postMeta = this.postMeta();
     const posts = this.sitePostService.postsMetaWithSlugAndSortAsc();
     const found = posts.filter(
-      (post) => new Date(post.date) > new Date(postMeta.date)
+      (post) => new Date(post.date) > new Date(postMeta.date),
     );
     if (found) {
       return found[0];

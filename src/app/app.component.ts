@@ -15,14 +15,14 @@ import { filter, pairwise, startWith } from 'rxjs';
 declare const gtag: (
   command: string,
   action: string,
-  config: { page_path: string }
+  config: { page_path: string },
 ) => void;
 
 @Component({
-    selector: 'app-root',
-    imports: [LayoutComponent],
-    template: `<app-layout></app-layout>`,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-root',
+  imports: [LayoutComponent],
+  template: `<app-layout></app-layout>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
   private router = inject(Router);
@@ -46,12 +46,12 @@ export class AppComponent implements OnInit {
       .pipe(
         filter((event) => event instanceof NavigationEnd),
         startWith(null),
-        pairwise()
+        pairwise(),
       )
       .subscribe((events) => {
         if (!this.platformService.isServer && environment.production) {
           this.trackService.sendTrack(
-            (events[0] as NavigationEnd | null)?.url || ''
+            (events[0] as NavigationEnd | null)?.url || '',
           );
           gtag('event', 'page_view', {
             page_path: (events[1] as NavigationEnd | null)?.url || '',

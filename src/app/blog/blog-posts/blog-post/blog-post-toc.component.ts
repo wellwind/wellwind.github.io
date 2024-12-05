@@ -23,36 +23,38 @@ interface Heading {
 const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
 
 @Component({
-    selector: 'app-blog-post-toc',
-    template: `<div class="toc-list flex flex-col">
+  selector: 'app-blog-post-toc',
+  template: `<div class="toc-list flex flex-col">
       <div
         class="toc-item level0 ml-2 pl-2 font-extrabold border-solid border-0 border-l-4 border-l-[color:var(--toc-indicator-color)] text-[color:var(--toc-header-color)]"
       >
         文章大綱
       </div>
       @for (head of headings(); track head.level) {
-      <div
-        [class.!border-l-[color:var(--toc-indicator-focus-color)]]="head.active"
-        [class.!text-[color:var(--toc-indicator-focus-color)]]="head.active"
-        class="toc-item level{{
-          head.level
-        }} transition-all text-sm leading-7 ml-2 border-solid border-0 border-l-4 border-l-[color:var(--toc-indicator-color)]"
-      >
-        <a
-          href="#"
-          (click)="goTo(head, $event)"
+        <div
+          [class.!border-l-[color:var(--toc-indicator-focus-color)]]="
+            head.active
+          "
           [class.!text-[color:var(--toc-indicator-focus-color)]]="head.active"
-          class="transition-all no-underline text-[color:var(--toc-indicator-color)] hover:text-[color:var(--toc-indicator-focus-color)]"
+          class="toc-item level{{
+            head.level
+          }} transition-all text-sm leading-7 ml-2 border-solid border-0 border-l-4 border-l-[color:var(--toc-indicator-color)]"
         >
-          {{ head.text }}
-        </a>
-      </div>
+          <a
+            href="#"
+            (click)="goTo(head, $event)"
+            [class.!text-[color:var(--toc-indicator-focus-color)]]="head.active"
+            class="transition-all no-underline text-[color:var(--toc-indicator-color)] hover:text-[color:var(--toc-indicator-focus-color)]"
+          >
+            {{ head.text }}
+          </a>
+        </div>
       }
     </div>
     <span
       class="hidden !border-l-[color:var(--toc-indicator-focus-color)] !text-[color:var(--toc-indicator-focus-color)]"
     ></span> `,
-    styles: `
+  styles: `
     :host {
       display: block;
       position: fixed;
@@ -82,9 +84,10 @@ const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
           }
         }
       }
-    }`,
-    imports: [],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    }
+  `,
+  imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPostTocComponent implements OnDestroy {
   private transferState = inject(TransferState);
@@ -104,8 +107,8 @@ export class BlogPostTocComponent implements OnDestroy {
     switchMap((contentElement) =>
       this.contentObserver.observe(contentElement).pipe(
         map(() => contentElement),
-        startWith(contentElement)
-      )
+        startWith(contentElement),
+      ),
     ),
     map((element) => ({ cacheHeadings: this.getCacheHeadings(), element })),
     map((data) => {
@@ -133,9 +136,9 @@ export class BlogPostTocComponent implements OnDestroy {
       return data;
     }),
     switchMap((data) =>
-      this.getContentTocHeadings(data.headings, data.element)
+      this.getContentTocHeadings(data.headings, data.element),
     ),
-    startWith(this.getCacheHeadings())
+    startWith(this.getCacheHeadings()),
   );
 
   protected headings = toSignal(this.headings$, { initialValue: [] });
@@ -167,7 +170,7 @@ export class BlogPostTocComponent implements OnDestroy {
       // client 計算要 active 的 element
 
       const containerElement = element.closest(
-        '.mat-drawer-content.main-content'
+        '.mat-drawer-content.main-content',
       );
       const options = {
         root: containerElement,
@@ -187,20 +190,20 @@ export class BlogPostTocComponent implements OnDestroy {
             visibleElements = [...visibleElements, entry.target as HTMLElement];
           } else {
             visibleElements = visibleElements.filter(
-              (element) => element !== entry.target
+              (element) => element !== entry.target,
             );
           }
         });
 
         if (visibleElements.length > 0) {
           const visibleElement = visibleElements.sort(
-            (a, b) => a.offsetTop - b.offsetTop
+            (a, b) => a.offsetTop - b.offsetTop,
           )[0];
           subscriber.next(
             headings.map((head) => ({
               ...head,
               active: head.element === visibleElement,
-            }))
+            })),
           );
         }
       }, options);
@@ -217,7 +220,9 @@ export class BlogPostTocComponent implements OnDestroy {
       result.push({
         text: head.textContent || '',
         level: +head.tagName.replace(/h(.)/i, '$1'),
-        element: this.platformService.isServer ? undefined : head as HTMLElement,
+        element: this.platformService.isServer
+          ? undefined
+          : (head as HTMLElement),
         active: false,
       });
     });

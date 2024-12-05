@@ -50,9 +50,10 @@ import { WebsiteTheme } from './website-theme';
       (click)="toggleMenu()"
     >
       @if (menuOpen()) {
-      <mat-icon>menu_open</mat-icon>
-      } @if (!(menuOpen())) {
-      <mat-icon>menu</mat-icon>
+        <mat-icon>menu_open</mat-icon>
+      }
+      @if (!menuOpen()) {
+        <mat-icon>menu</mat-icon>
       }
     </button>
 
@@ -69,59 +70,59 @@ import { WebsiteTheme } from './website-theme';
     <div class="grow"></div>
 
     <!-- toggle theme button -->
-    @if(!isServer){
-    <button
-      role="button"
-      aria-label="深色/亮色模式"
-      mat-icon-button
-      class="mr-2"
-      (click)="toggleTheme()"
-    >
-      @if (theme() === 'light') {
-      <mat-icon>light_mode</mat-icon>
-      } @else {
-      <mat-icon>dark_mode</mat-icon>
-      }
-    </button>
+    @if (!isServer) {
+      <button
+        role="button"
+        aria-label="深色/亮色模式"
+        mat-icon-button
+        class="mr-2"
+        (click)="toggleTheme()"
+      >
+        @if (theme() === 'light') {
+          <mat-icon>light_mode</mat-icon>
+        } @else {
+          <mat-icon>dark_mode</mat-icon>
+        }
+      </button>
     }
 
     <!-- search input -->
-    @if (!(isSmallScreen())) {
-    <div class="search-bar">
-      <input
-        autocomplete="off"
-        type="text"
-        class="search-input h-9 rounded-md w-60 text-[16px] border-0 p-2 hidden md:block"
-        matInput
-        accesskey="/"
-        placeholder="搜尋... ( Alt + / )"
-        #input
-        (keyup.enter)="
-          searchKeywordChange.emit(searchKeyword.value || '');
-          input.blur();
-          trigger.closePanel();
-          auto._isOpen = false
-        "
-        [formControl]="searchKeyword"
-        [matAutocomplete]="auto"
-        #trigger="matAutocompleteTrigger"
-      />
-      <mat-autocomplete
-        #auto="matAutocomplete"
-        panelWidth="auto"
-        (optionSelected)="
-          selectSuggestItemChange.emit($event.option.value.link);
-          searchKeyword.setValue('')
-        "
-      >
-        @for (item of suggestList(); track item.link) {
-        <mat-option [value]="item">
-          <span class="suggest-item-type">{{ item.type }}</span>
-          <span class="suggest-item-text">{{ item.text }}</span>
-        </mat-option>
-        }
-      </mat-autocomplete>
-    </div>
+    @if (!isSmallScreen()) {
+      <div class="search-bar">
+        <input
+          autocomplete="off"
+          type="text"
+          class="search-input h-9 rounded-md w-60 text-[16px] border-0 p-2 hidden md:block"
+          matInput
+          accesskey="/"
+          placeholder="搜尋... ( Alt + / )"
+          #input
+          (keyup.enter)="
+            searchKeywordChange.emit(searchKeyword.value || '');
+            input.blur();
+            trigger.closePanel();
+            auto._isOpen = false
+          "
+          [formControl]="searchKeyword"
+          [matAutocomplete]="auto"
+          #trigger="matAutocompleteTrigger"
+        />
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          panelWidth="auto"
+          (optionSelected)="
+            selectSuggestItemChange.emit($event.option.value.link);
+            searchKeyword.setValue('')
+          "
+        >
+          @for (item of suggestList(); track item.link) {
+            <mat-option [value]="item">
+              <span class="suggest-item-type">{{ item.type }}</span>
+              <span class="suggest-item-text">{{ item.text }}</span>
+            </mat-option>
+          }
+        </mat-autocomplete>
+      </div>
     }
   </mat-toolbar>`,
   styles: ``,
@@ -148,14 +149,14 @@ export class LayoutToolbarComponent {
     this.sitePostService.postsMetaWithSlugAndSortDesc$,
     this.searchKeyword.valueChanges.pipe(
       debounceTime(300),
-      distinctUntilChanged()
+      distinctUntilChanged(),
     ),
   ]).pipe(
     switchMap(([posts, keywordString]) =>
       defer(() =>
-        import('../site-common/search-posts').then((m) => m.searchPosts)
-      ).pipe(map((searchFn) => searchFn(posts, keywordString || '')))
-    )
+        import('../site-common/search-posts').then((m) => m.searchPosts),
+      ).pipe(map((searchFn) => searchFn(posts, keywordString || ''))),
+    ),
   );
   protected suggestList = toSignal(this.suggestList$);
 

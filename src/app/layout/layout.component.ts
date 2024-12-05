@@ -6,7 +6,7 @@ import {
   effect,
   inject,
   signal,
-  viewChild
+  viewChild,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl } from '@angular/forms';
@@ -25,8 +25,8 @@ import { WebsiteTheme } from './website-theme';
 import { filter, map } from 'rxjs';
 
 @Component({
-    selector: 'app-layout',
-    template: `
+  selector: 'app-layout',
+  template: `
     <app-layout-toolbar
       [menuOpen]="menuOpen()"
       (menuOpenChange)="menuOpen.set($event)"
@@ -37,11 +37,11 @@ import { filter, map } from 'rxjs';
     ></app-layout-toolbar>
 
     @if (pageLoading()) {
-    <mat-progress-bar
-      mode="indeterminate"
-      color="accent"
-      class="!fixed top-0 z-50"
-    ></mat-progress-bar>
+      <mat-progress-bar
+        mode="indeterminate"
+        color="accent"
+        class="!fixed top-0 z-50"
+      ></mat-progress-bar>
     }
 
     <mat-drawer-container
@@ -67,52 +67,52 @@ import { filter, map } from 'rxjs';
       </mat-drawer-content>
     </mat-drawer-container>
   `,
-    styles: `
-  .drawer-container {
-  height: calc(100vh - 64px);
-}
-
-::ng-deep {
-  .mat-drawer-inner-container {
-    &::-webkit-scrollbar {
-      height: 4px;
-      width: 4px;
+  styles: `
+    .drawer-container {
+      height: calc(100vh - 64px);
     }
 
-    &::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.26);
+    ::ng-deep {
+      .mat-drawer-inner-container {
+        &::-webkit-scrollbar {
+          height: 4px;
+          width: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.26);
+        }
+      }
     }
-  }
-}
 
-.sidebar {
-  @media (max-width: 959.98px) {
-    min-width: 320px;
-    max-width: 320px;
-    &.server-sidebar {
-      display: none;
+    .sidebar {
+      @media (max-width: 959.98px) {
+        min-width: 320px;
+        max-width: 320px;
+        &.server-sidebar {
+          display: none;
+        }
+      }
     }
-  }
-}
 
-.main-content.server {
-  margin-left: 240px;
-}
+    .main-content.server {
+      margin-left: 240px;
+    }
 
-@media (max-width: 959.98px) {
-  .main-content.server {
-    margin-left: 0 !important;
-  }
-}
-`,
-    imports: [
-        MatProgressBarModule,
-        MatSidenavModule,
-        RouterOutlet,
-        LayoutToolbarComponent,
-        LayoutSidebarComponent,
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    @media (max-width: 959.98px) {
+      .main-content.server {
+        margin-left: 0 !important;
+      }
+    }
+  `,
+  imports: [
+    MatProgressBarModule,
+    MatSidenavModule,
+    RouterOutlet,
+    LayoutToolbarComponent,
+    LayoutSidebarComponent,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutComponent implements OnInit {
   readonly matDrawerContent = viewChild<MatDrawerContent>('matDrawerContent');
@@ -135,9 +135,9 @@ export class LayoutComponent implements OnInit {
   private pageLoading$ = this.router.events.pipe(
     filter(
       (event) =>
-        event instanceof NavigationStart || event instanceof NavigationEnd
+        event instanceof NavigationStart || event instanceof NavigationEnd,
     ),
-    map((event) => event instanceof NavigationStart)
+    map((event) => event instanceof NavigationStart),
   );
   protected pageLoading = toSignal(this.pageLoading$);
 

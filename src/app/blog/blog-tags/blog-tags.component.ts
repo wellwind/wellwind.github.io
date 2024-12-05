@@ -1,5 +1,11 @@
 import { KeyValuePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  inject,
+} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 import { getRouteData } from 'src/app/site-common/route-utils';
@@ -9,8 +15,8 @@ import { SlugifyPipe } from '../../site-common/slugify.pipe';
 import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
 
 @Component({
-    selector: 'app-blog-tags',
-    template: `
+  selector: 'app-blog-tags',
+  template: `
     <mat-card appearance="outlined" class="blog-post">
       <mat-card-title class="blog-post-title">標籤</mat-card-title>
 
@@ -20,21 +26,23 @@ import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
 
       <mat-card-content class="blog-post-content">
         <div class="tags">
-          @for (tag of $any(tags()) | keyvalue; track tag) { @if (tag?.key) {
-          <a
-            class="tag size-{{
-              $any(tag.value).length | blogPostTagSize : maxPostsCount() || 0
-            }}"
-            [routerLink]="['/blog/tags', $any(tag.key) | slugify]"
-          >
-            {{ tag.key }}
-          </a>
-          } }
+          @for (tag of $any(tags()) | keyvalue; track tag) {
+            @if (tag?.key) {
+              <a
+                class="tag size-{{
+                  $any(tag.value).length | blogPostTagSize: maxPostsCount() || 0
+                }}"
+                [routerLink]="['/blog/tags', $any(tag.key) | slugify]"
+              >
+                {{ tag.key }}
+              </a>
+            }
+          }
         </div>
       </mat-card-content>
     </mat-card>
   `,
-    styles: `
+  styles: `
     .tags {
       text-align: center;
       line-height: 36px;
@@ -56,28 +64,29 @@ import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
           font-size: 16px;
         }
       }
-    }`,
-    imports: [
-        MatCardModule,
-        RouterLink,
-        KeyValuePipe,
-        SlugifyPipe,
-        BlogPostTagSizePipe,
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    }
+  `,
+  imports: [
+    MatCardModule,
+    RouterLink,
+    KeyValuePipe,
+    SlugifyPipe,
+    BlogPostTagSizePipe,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogTagsComponent {
   private siteMetaService = inject(SiteMetaService);
 
   protected tags = getRouteData(
     (data) => data.tags as { [key: string]: Array<PostMetaWithSlug> },
-    {}
+    {},
   );
   protected aa = computed(() =>
-    Object.values(this.tags()).map((item) => item.length)
+    Object.values(this.tags()).map((item) => item.length),
   );
   protected maxPostsCount = computed(() =>
-    Math.max(...Object.values(this.tags()).map((post) => post.length))
+    Math.max(...Object.values(this.tags()).map((post) => post.length)),
   );
 
   private _updateMetaEffect = effect(() => {

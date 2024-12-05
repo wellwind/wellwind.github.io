@@ -1,5 +1,10 @@
 import { KeyValuePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  inject,
+} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 import { getRouteData } from 'src/app/site-common/route-utils';
@@ -8,8 +13,8 @@ import { SiteMetaService } from '../../site-common/site-meta.service';
 import { SlugifyPipe } from '../../site-common/slugify.pipe';
 
 @Component({
-    selector: 'app-blog-categories',
-    template: `
+  selector: 'app-blog-categories',
+  template: `
     <mat-card appearance="outlined" class="blog-post">
       <mat-card-title class="blog-post-title"> 分類 </mat-card-title>
 
@@ -20,31 +25,31 @@ import { SlugifyPipe } from '../../site-common/slugify.pipe';
       <mat-card-content class="blog-post-content">
         <ul>
           @for (category of $any(categories()) | keyvalue; track category.key) {
-          <li>
-            <a
-              [routerLink]="[
-                '/blog/categories',
-                $any(category.key || '') | slugify
-              ]"
-            >
-              {{ category.key }}
-            </a>
-            ({{ $any(category.value).length }})
-          </li>
+            <li>
+              <a
+                [routerLink]="[
+                  '/blog/categories',
+                  $any(category.key || '') | slugify,
+                ]"
+              >
+                {{ category.key }}
+              </a>
+              ({{ $any(category.value).length }})
+            </li>
           }
         </ul>
       </mat-card-content>
     </mat-card>
   `,
-    styles: ``,
-    imports: [MatCardModule, RouterLink, KeyValuePipe, SlugifyPipe],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  styles: ``,
+  imports: [MatCardModule, RouterLink, KeyValuePipe, SlugifyPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogCategoriesComponent {
   private siteMetaService = inject(SiteMetaService);
   protected categories = getRouteData(
     (data) => data.categories as { [key: string]: Array<PostMetaWithSlug> },
-    {}
+    {},
   );
 
   private _updateMetaEffect = effect(() => {

@@ -13,15 +13,15 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SitePostService } from '../site-common/site-post.service';
 
 @Component({
-    selector: 'app-layout-sidebar',
-    imports: [
-        RouterLink,
-        RouterLinkActive,
-        MatDividerModule,
-        MatListModule,
-        MatIconModule,
-    ],
-    template: `
+  selector: 'app-layout-sidebar',
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    MatDividerModule,
+    MatListModule,
+    MatIconModule,
+  ],
+  template: `
     <div class="post-statics flex p-4">
       <div class="statics-block flex flex-col flex-[33%]">
         <a routerLink="/blog/archives" class="no-underline hover:no-underline">
@@ -106,17 +106,17 @@ import { SitePostService } from '../site-common/site-post.service';
 
     <mat-nav-list>
       @for (item of menuItems(); track item.link) {
-      <a
-        mat-list-item
-        routerLinkActive="text-[color:var(--sidebar-highlight-text-color)]"
-        [routerLinkActiveOptions]="{ exact: item.link === '/blog' }"
-        [routerLink]="item.link"
-      >
-        <span class="flex flex-row">
-          <mat-icon class="mr-2">{{ item.icon }}</mat-icon>
-          <span class="link-text">{{ item.text }}</span>
-        </span>
-      </a>
+        <a
+          mat-list-item
+          routerLinkActive="text-[color:var(--sidebar-highlight-text-color)]"
+          [routerLinkActiveOptions]="{ exact: item.link === '/blog' }"
+          [routerLink]="item.link"
+        >
+          <span class="flex flex-row">
+            <mat-icon class="mr-2">{{ item.icon }}</mat-icon>
+            <span class="link-text">{{ item.text }}</span>
+          </span>
+        </a>
       }
     </mat-nav-list>
 
@@ -161,21 +161,21 @@ import { SitePostService } from '../site-common/site-post.service';
       </a>
     </mat-nav-list>
   `,
-    styles: ``,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  styles: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutSidebarComponent implements OnInit {
   private matIconRegistry = inject(MatIconRegistry);
   private sitePostService = inject(SitePostService);
 
   protected postCount = computed(
-    () => Object.keys(this.sitePostService.postsMeta() as object).length
+    () => Object.keys(this.sitePostService.postsMeta() as object).length,
   );
   protected categoryCount = computed(
-    () => new Set(this.sitePostService.postCategories()).size
+    () => new Set(this.sitePostService.postCategories()).size,
   );
   protected tagCount = computed(
-    () => new Set(this.sitePostService.postTags()).size
+    () => new Set(this.sitePostService.postTags()).size,
   );
 
   protected menuItems = signal([

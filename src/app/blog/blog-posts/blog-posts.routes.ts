@@ -11,23 +11,8 @@ const routes: Routes = [
     component: BlogPostsComponent,
   },
   {
-    path: ':yyyy',
-    children: [
-      {
-        path: ':mm',
-        children: [
-          {
-            path: ':dd',
-            children: [
-              {
-                path: ':slug',
-                loadChildren: () => import('./blog-post/blog-post.routes'),
-              },
-            ],
-          },
-        ],
-      },
-    ],
+    path: ':yyyy/:mm/:dd/:slug',
+    loadChildren: () => import('./blog-post/blog-post.routes'),
   },
 ];
 export default routes;

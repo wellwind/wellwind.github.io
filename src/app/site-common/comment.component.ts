@@ -30,7 +30,7 @@ export class CommentComponent implements OnInit, AfterViewInit, OnDestroy {
         .pipe(filter((event) => event instanceof NavigationStart))
         .subscribe(() => {
           this.elementRef.nativeElement.innerHTML = '';
-        })
+        }),
     );
 
     this.subscription.add(
@@ -38,7 +38,7 @@ export class CommentComponent implements OnInit, AfterViewInit, OnDestroy {
         .pipe(filter((event) => event instanceof NavigationEnd))
         .subscribe(() => {
           this.generateComment();
-        })
+        }),
     );
   }
 
@@ -64,7 +64,7 @@ export class CommentComponent implements OnInit, AfterViewInit, OnDestroy {
     scriptTag.setAttribute('data-emit-metadata', '0');
     scriptTag.setAttribute(
       'data-theme',
-      localStorage.getItem('theme') === 'dark' ? 'dark_dimmed' : 'light'
+      localStorage.getItem('theme') === 'dark' ? 'dark_dimmed' : 'light',
     );
     scriptTag.setAttribute('data-lang', 'zh-TW');
     scriptTag.setAttribute('data-loading', 'lazy');

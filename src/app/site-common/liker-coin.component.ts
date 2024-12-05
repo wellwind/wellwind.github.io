@@ -5,7 +5,7 @@ import {
   OnInit,
   inject,
   signal,
-  input
+  input,
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
@@ -37,7 +37,7 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
   readonly likerId = input('');
 
   protected likerCoinSrc = signal<SafeResourceUrl>(
-    this.domSanitizer.bypassSecurityTrustResourceUrl('')
+    this.domSanitizer.bypassSecurityTrustResourceUrl(''),
   );
 
   private subscription = new Subscription();
@@ -45,7 +45,7 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     if (this.platformService.isServer) {
       this.likerCoinSrc.set(
-        this.domSanitizer.bypassSecurityTrustResourceUrl('')
+        this.domSanitizer.bypassSecurityTrustResourceUrl(''),
       );
       return;
     }
@@ -53,7 +53,9 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
       'https://button.like.co/in/embed/wellwind/button?referrer=';
     const url = encodeURIComponent(location.href.split('?')[0].split('#')[0]);
     this.likerCoinSrc.set(
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`${likerCoinBase}${url}`)
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        `${likerCoinBase}${url}`,
+      ),
     );
   }
 

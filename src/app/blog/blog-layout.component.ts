@@ -5,8 +5,8 @@ import { RouterOutlet } from '@angular/router';
 import { findMainContentContainer, scrollTo } from '../../utils';
 
 @Component({
-    selector: 'app-blog-layout',
-    template: `
+  selector: 'app-blog-layout',
+  template: `
     <div class="break-words p-4" #container>
       <router-outlet></router-outlet>
 
@@ -23,10 +23,9 @@ import { findMainContentContainer, scrollTo } from '../../utils';
       </button>
     </div>
   `,
-    imports: [RouterOutlet, MatButtonModule, MatIconModule]
+  imports: [RouterOutlet, MatButtonModule, MatIconModule],
 })
 export class BlogLayoutComponent {
-
   goTop(contentElement: HTMLElement) {
     if (contentElement) {
       const containerElement = findMainContentContainer(contentElement);

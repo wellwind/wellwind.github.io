@@ -17,56 +17,58 @@ import {
 import { SitePostService } from '../site-common/site-post.service';
 
 @Component({
-    selector: 'app-query',
-    template: `
+  selector: 'app-query',
+  template: `
     <div class="p-4">
       @if (searchResult()) {
-
-      <mat-toolbar class="search-header mat-elevation-z4 !mb-2">
-        @if (searchKeyword()) {
-        <h1>
-          {{ searchKeyword() }}
-        </h1>
-        }
-        <h2>搜尋結果</h2>
-      </mat-toolbar>
-
-      <mat-card appearance="outlined">
-        <mat-card-content>
-          <h2>共 {{ searchResult().length }} 篇文章</h2>
-
-          @if (searchDateStart()) {
-          <span class="search-chip">
-            Start: {{ searchDateStart() | date : 'yyyy-MM-dd' }}
-          </span>
-          } @if (searchDateEnd()) {
-          <span class="search-chip">
-            End: {{ searchDateEnd() | date : 'yyyy-MM-dd' }}
-          </span>
+        <mat-toolbar class="search-header mat-elevation-z4 !mb-2">
+          @if (searchKeyword()) {
+            <h1>
+              {{ searchKeyword() }}
+            </h1>
           }
+          <h2>搜尋結果</h2>
+        </mat-toolbar>
 
-          <mat-nav-list>
-            @for (item of searchResult(); track item.link) {
-            <mat-list-item [routerLink]="item.link">
-              <div matLine class="search-result">
-                @if ( ((searchDateStart()) || (searchDateEnd())) && item.type===
-                '文章' ) {
-                <span class="search-result-type">
-                  {{ item.date | date : 'yyyy-MM-dd' }}
-                </span>
-                }
-                <span class="search-result-type">{{ item.type }}</span>
-                <span class="search-result-title">{{ item.text }}</span>
-              </div>
-            </mat-list-item>
+        <mat-card appearance="outlined">
+          <mat-card-content>
+            <h2>共 {{ searchResult().length }} 篇文章</h2>
+
+            @if (searchDateStart()) {
+              <span class="search-chip">
+                Start: {{ searchDateStart() | date: 'yyyy-MM-dd' }}
+              </span>
             }
-          </mat-nav-list>
-        </mat-card-content>
-      </mat-card>
+            @if (searchDateEnd()) {
+              <span class="search-chip">
+                End: {{ searchDateEnd() | date: 'yyyy-MM-dd' }}
+              </span>
+            }
+
+            <mat-nav-list>
+              @for (item of searchResult(); track item.link) {
+                <mat-list-item [routerLink]="item.link">
+                  <div matLine class="search-result">
+                    @if (
+                      (searchDateStart() || searchDateEnd()) &&
+                      item.type === '文章'
+                    ) {
+                      <span class="search-result-type">
+                        {{ item.date | date: 'yyyy-MM-dd' }}
+                      </span>
+                    }
+                    <span class="search-result-type">{{ item.type }}</span>
+                    <span class="search-result-title">{{ item.text }}</span>
+                  </div>
+                </mat-list-item>
+              }
+            </mat-nav-list>
+          </mat-card-content>
+        </mat-card>
       }
     </div>
   `,
-    styles: `
+  styles: `
     @use '../../variables';
 
     .search-result {
@@ -98,15 +100,15 @@ import { SitePostService } from '../site-common/site-post.service';
       padding: 2px;
       border-radius: 4px;
     }
-`,
-    imports: [
-        MatToolbarModule,
-        MatCardModule,
-        MatListModule,
-        RouterLink,
-        DatePipe,
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  `,
+  imports: [
+    MatToolbarModule,
+    MatCardModule,
+    MatListModule,
+    RouterLink,
+    DatePipe,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QueryComponent {
   private sitePostService = inject(SitePostService);
@@ -115,7 +117,7 @@ export class QueryComponent {
   private searchKeyword$ = this.route.queryParamMap.pipe(
     map((queryParamMap) => queryParamMap.get('q')),
     filter(Boolean),
-    startWith('')
+    startWith(''),
   );
   protected searchKeyword = toSignal(this.searchKeyword$, { initialValue: '' });
 
@@ -123,7 +125,7 @@ export class QueryComponent {
     map((queryParamMap) => queryParamMap.get('start')),
     filter((startDate) => !!startDate),
     map((startDate) => new Date(startDate!)),
-    startWith(undefined)
+    startWith(undefined),
   );
   protected searchDateStart = toSignal(this.searchDateStart$, {
     initialValue: undefined,
@@ -133,7 +135,7 @@ export class QueryComponent {
     map((queryParamMap) => queryParamMap.get('end')),
     filter((endDate) => !!endDate),
     map((endDate) => new Date(endDate!)),
-    startWith(undefined)
+    startWith(undefined),
   );
   protected searchDateEnd = toSignal(this.searchDateEnd$, {
     initialValue: undefined,
@@ -151,9 +153,9 @@ export class QueryComponent {
           const searchByKeywordFn = m.searchPosts;
           const searchByDateFn = m.searchPostsByDateRange(start, end);
           return searchByKeywordFn(searchByDateFn(posts), keywordString);
-        })
-      )
-    )
+        }),
+      ),
+    ),
   );
   protected searchResult = toSignal(this.searchResult$, { initialValue: [] });
 }
