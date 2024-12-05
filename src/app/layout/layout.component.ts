@@ -25,8 +25,8 @@ import { WebsiteTheme } from './website-theme';
 import { filter, map } from 'rxjs';
 
 @Component({
-  selector: 'app-layout',
-  template: `
+    selector: 'app-layout',
+    template: `
     <app-layout-toolbar
       [menuOpen]="menuOpen()"
       (menuOpenChange)="menuOpen.set($event)"
@@ -67,7 +67,7 @@ import { filter, map } from 'rxjs';
       </mat-drawer-content>
     </mat-drawer-container>
   `,
-  styles: `
+    styles: `
   .drawer-container {
   height: calc(100vh - 64px);
 }
@@ -105,15 +105,14 @@ import { filter, map } from 'rxjs';
   }
 }
 `,
-  standalone: true,
-  imports: [
-    MatProgressBarModule,
-    MatSidenavModule,
-    RouterOutlet,
-    LayoutToolbarComponent,
-    LayoutSidebarComponent,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        MatProgressBarModule,
+        MatSidenavModule,
+        RouterOutlet,
+        LayoutToolbarComponent,
+        LayoutSidebarComponent,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent implements OnInit {
   @ViewChild('matDrawerContent') private matDrawerContent?: MatDrawerContent;

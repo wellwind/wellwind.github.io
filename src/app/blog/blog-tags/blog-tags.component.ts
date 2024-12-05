@@ -9,8 +9,8 @@ import { SlugifyPipe } from '../../site-common/slugify.pipe';
 import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
 
 @Component({
-  selector: 'app-blog-tags',
-  template: `
+    selector: 'app-blog-tags',
+    template: `
     <mat-card appearance="outlined" class="blog-post">
       <mat-card-title class="blog-post-title">標籤</mat-card-title>
 
@@ -34,7 +34,7 @@ import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
       </mat-card-content>
     </mat-card>
   `,
-  styles: `
+    styles: `
     .tags {
       text-align: center;
       line-height: 36px;
@@ -57,15 +57,14 @@ import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';
         }
       }
     }`,
-  standalone: true,
-  imports: [
-    MatCardModule,
-    RouterLink,
-    KeyValuePipe,
-    SlugifyPipe,
-    BlogPostTagSizePipe,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        MatCardModule,
+        RouterLink,
+        KeyValuePipe,
+        SlugifyPipe,
+        BlogPostTagSizePipe,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogTagsComponent {
   private siteMetaService = inject(SiteMetaService);

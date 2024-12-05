@@ -19,11 +19,10 @@ declare const gtag: (
 ) => void;
 
 @Component({
-  standalone: true,
-  selector: 'app-root',
-  imports: [LayoutComponent],
-  template: `<app-layout></app-layout>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-root',
+    imports: [LayoutComponent],
+    template: `<app-layout></app-layout>`,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   private router = inject(Router);

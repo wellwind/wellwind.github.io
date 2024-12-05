@@ -6,8 +6,8 @@ import { PostMeta } from './post-meta.interface';
 import { SlugifyPipe } from './slugify.pipe';
 
 @Component({
-  selector: 'app-blog-post-subtitle',
-  template: `
+    selector: 'app-blog-post-subtitle',
+    template: `
     @if (postMeta) {
 
     <span class="blog-post-published">
@@ -33,7 +33,7 @@ import { SlugifyPipe } from './slugify.pipe';
 
     } }
   `,
-  styles: `
+    styles: `
     :host {
   display: flex;
   align-items: center;
@@ -52,8 +52,7 @@ import { SlugifyPipe } from './slugify.pipe';
   }
 }
 `,
-  standalone: true,
-  imports: [MatIconModule, RouterLink, SlugifyPipe],
+    imports: [MatIconModule, RouterLink, SlugifyPipe]
 })
 export class BlogPostSubtitleComponent {
   @Input() postMeta?: MarkdownMeta | PostMeta;

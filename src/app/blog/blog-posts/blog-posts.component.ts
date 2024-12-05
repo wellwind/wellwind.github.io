@@ -13,8 +13,8 @@ import { getPagePosts } from '../get-page-posts';
 const PAGE_SIZE = 10;
 
 @Component({
-  selector: 'app-blog-posts',
-  template: `@for (post of posts(); track post.slug) {
+    selector: 'app-blog-posts',
+    template: `@for (post of posts(); track post.slug) {
 
     <mat-card appearance="outlined" class="blog-post">
       <mat-card-title class="blog-post-title">
@@ -53,18 +53,17 @@ const PAGE_SIZE = 10;
         [totalPage]="totalPage() || 1"
       ></app-pagination>
     </mat-card> `,
-  styles: ``,
-  standalone: true,
-  imports: [
-    MatCardModule,
-    RouterLink,
-    BlogPostSubtitleComponent,
-    MatButtonModule,
-    MatIconModule,
-    PaginationComponent,
-    PostDateAsPathPipe,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: ``,
+    imports: [
+        MatCardModule,
+        RouterLink,
+        BlogPostSubtitleComponent,
+        MatButtonModule,
+        MatIconModule,
+        PaginationComponent,
+        PostDateAsPathPipe,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogPostsComponent {
   private sitePostService = inject(SitePostService);

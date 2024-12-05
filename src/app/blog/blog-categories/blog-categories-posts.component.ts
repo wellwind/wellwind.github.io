@@ -16,8 +16,8 @@ import { getPagePosts } from '../get-page-posts';
 const PAGE_SIZE = 10;
 
 @Component({
-  selector: 'app-blog-categories-posts',
-  template: `
+    selector: 'app-blog-categories-posts',
+    template: `
     <mat-toolbar class="categories-header mat-elevation-z4 !mb-2">
       <h1>{{ categorySlug() || '' | unslugify }}</h1>
       <h2>分類 (共 {{ categoryPostsCount() }} 篇文章)</h2>
@@ -61,20 +61,19 @@ const PAGE_SIZE = 10;
       ></app-pagination>
     </mat-card>
   `,
-  styles: ``,
-  standalone: true,
-  imports: [
-    MatToolbarModule,
-    MatCardModule,
-    RouterLink,
-    BlogPostSubtitleComponent,
-    MatButtonModule,
-    MatIconModule,
-    PaginationComponent,
-    UnslugifyPipe,
-    PostDateAsPathPipe,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    styles: ``,
+    imports: [
+        MatToolbarModule,
+        MatCardModule,
+        RouterLink,
+        BlogPostSubtitleComponent,
+        MatButtonModule,
+        MatIconModule,
+        PaginationComponent,
+        UnslugifyPipe,
+        PostDateAsPathPipe,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogCategoriesPostsComponent {
   private siteMetaService = inject(SiteMetaService);

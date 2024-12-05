@@ -21,18 +21,17 @@ import { SitePostService } from '../site-common/site-post.service';
 import { WebsiteTheme } from './website-theme';
 
 @Component({
-  selector: 'app-layout-toolbar',
-  standalone: true,
-  imports: [
-    RouterLink,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    MatButtonModule,
-  ],
-  template: ` <mat-toolbar
+    selector: 'app-layout-toolbar',
+    imports: [
+        RouterLink,
+        ReactiveFormsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatInputModule,
+        MatAutocompleteModule,
+        MatButtonModule,
+    ],
+    template: ` <mat-toolbar
     color="primary"
     class="toolbar mat-elevation-z6 fixed z-10"
     xmlns="http://www.w3.org/1999/html"
@@ -117,8 +116,8 @@ import { WebsiteTheme } from './website-theme';
     </div>
     }
   </mat-toolbar>`,
-  styles: ``,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: ``,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutToolbarComponent {
   @Input() menuOpen: boolean = true;

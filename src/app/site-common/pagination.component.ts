@@ -5,8 +5,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-pagination',
-  template: `@if (currentPage > 1) {
+    selector: 'app-pagination',
+    template: `@if (currentPage > 1) {
     <button
       mat-stroked-button
       class="pagination-button pagination-prev pagination-icon"
@@ -96,7 +96,7 @@ import { MatButtonModule } from '@angular/material/button';
       <mat-icon class="!mx-0">navigate_next</mat-icon>
     </button>
     } `,
-  styles: `
+    styles: `
     :host {
       display: flex;
       align-items: center;
@@ -125,9 +125,8 @@ import { MatButtonModule } from '@angular/material/button';
       }
     }
     `,
-  standalone: true,
-  imports: [MatButtonModule, MatTooltipModule, RouterLink, MatIconModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [MatButtonModule, MatTooltipModule, RouterLink, MatIconModule],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PaginationComponent  {
   @Input() linkBase = '/';

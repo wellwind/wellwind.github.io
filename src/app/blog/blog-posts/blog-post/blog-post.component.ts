@@ -48,8 +48,8 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
   return null;
 };
 @Component({
-  selector: 'app-blog-post',
-  template: `@if (postMeta(); as postMeta) {
+    selector: 'app-blog-post',
+    template: `@if (postMeta(); as postMeta) {
 
     <div class="blog-post-container flex items-start">
       <article class="blog-post blog-post-overview w-full !p-0 xl:w-[80%]">
@@ -230,23 +230,22 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
     </div>
 
     } `,
-  styles: ``,
-  standalone: true,
-  imports: [
-    BlogPostSubtitleComponent,
-    MatDividerModule,
-    MatRippleModule,
-    RouterLink,
-    LikerCoinComponent,
-    MatIconModule,
-    NgTemplateOutlet,
-    CommentComponent,
-    BlogPostTocComponent,
-    MatButtonModule,
-    MatTooltipModule,
-    PostDateAsPathPipe,
-    SlugifyPipe,
-  ],
+    styles: ``,
+    imports: [
+        BlogPostSubtitleComponent,
+        MatDividerModule,
+        MatRippleModule,
+        RouterLink,
+        LikerCoinComponent,
+        MatIconModule,
+        NgTemplateOutlet,
+        CommentComponent,
+        BlogPostTocComponent,
+        MatButtonModule,
+        MatTooltipModule,
+        PostDateAsPathPipe,
+        SlugifyPipe,
+    ]
 })
 export class BlogPostComponent {
   private domSanitizer = inject(DomSanitizer);

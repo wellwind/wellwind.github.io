@@ -16,8 +16,8 @@ import { getPagePosts } from '../get-page-posts';
 const PAGE_SIZE = 10;
 
 @Component({
-  selector: 'app-blog-tag-posts',
-  template: `<mat-toolbar class="tags-header mat-elevation-z4 !mb-2">
+    selector: 'app-blog-tag-posts',
+    template: `<mat-toolbar class="tags-header mat-elevation-z4 !mb-2">
       <h1>{{ (tagSlug() || '') | unslugify }}</h1>
       <h2>標籤 (共 {{ tagPostsCount() }} 篇文章)</h2>
     </mat-toolbar>
@@ -59,20 +59,19 @@ const PAGE_SIZE = 10;
         [totalPage]="(totalPage()) || 1"
       ></app-pagination>
     </mat-card> `,
-  styles: ``,
-  standalone: true,
-  imports: [
-    MatToolbarModule,
-    MatCardModule,
-    RouterLink,
-    BlogPostSubtitleComponent,
-    MatButtonModule,
-    MatIconModule,
-    PaginationComponent,
-    UnslugifyPipe,
-    PostDateAsPathPipe,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: ``,
+    imports: [
+        MatToolbarModule,
+        MatCardModule,
+        RouterLink,
+        BlogPostSubtitleComponent,
+        MatButtonModule,
+        MatIconModule,
+        PaginationComponent,
+        UnslugifyPipe,
+        PostDateAsPathPipe,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogTagPostsComponent {
   private siteMetaService = inject(SiteMetaService);

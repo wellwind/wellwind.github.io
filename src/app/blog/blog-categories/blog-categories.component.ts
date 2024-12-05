@@ -8,8 +8,8 @@ import { SiteMetaService } from '../../site-common/site-meta.service';
 import { SlugifyPipe } from '../../site-common/slugify.pipe';
 
 @Component({
-  selector: 'app-blog-categories',
-  template: `
+    selector: 'app-blog-categories',
+    template: `
     <mat-card appearance="outlined" class="blog-post">
       <mat-card-title class="blog-post-title"> 分類 </mat-card-title>
 
@@ -36,10 +36,9 @@ import { SlugifyPipe } from '../../site-common/slugify.pipe';
       </mat-card-content>
     </mat-card>
   `,
-  styles: ``,
-  standalone: true,
-  imports: [MatCardModule, RouterLink, KeyValuePipe, SlugifyPipe],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    styles: ``,
+    imports: [MatCardModule, RouterLink, KeyValuePipe, SlugifyPipe],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogCategoriesComponent {
   private siteMetaService = inject(SiteMetaService);

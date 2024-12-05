@@ -23,8 +23,8 @@ interface Heading {
 const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
 
 @Component({
-  selector: 'app-blog-post-toc',
-  template: `<div class="toc-list flex flex-col">
+    selector: 'app-blog-post-toc',
+    template: `<div class="toc-list flex flex-col">
       <div
         class="toc-item level0 ml-2 pl-2 font-extrabold border-solid border-0 border-l-4 border-l-[color:var(--toc-indicator-color)] text-[color:var(--toc-header-color)]"
       >
@@ -52,7 +52,7 @@ const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
     <span
       class="hidden !border-l-[color:var(--toc-indicator-focus-color)] !text-[color:var(--toc-indicator-focus-color)]"
     ></span> `,
-  styles: `
+    styles: `
     :host {
       display: block;
       position: fixed;
@@ -83,9 +83,8 @@ const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
         }
       }
     }`,
-  standalone: true,
-  imports: [],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogPostTocComponent implements OnDestroy {
   private transferState = inject(TransferState);

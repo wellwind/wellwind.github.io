@@ -13,16 +13,15 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SitePostService } from '../site-common/site-post.service';
 
 @Component({
-  selector: 'app-layout-sidebar',
-  standalone: true,
-  imports: [
-    RouterLink,
-    RouterLinkActive,
-    MatDividerModule,
-    MatListModule,
-    MatIconModule,
-  ],
-  template: `
+    selector: 'app-layout-sidebar',
+    imports: [
+        RouterLink,
+        RouterLinkActive,
+        MatDividerModule,
+        MatListModule,
+        MatIconModule,
+    ],
+    template: `
     <div class="post-statics flex p-4">
       <div class="statics-block flex flex-col flex-[33%]">
         <a routerLink="/blog/archives" class="no-underline hover:no-underline">
@@ -162,8 +161,8 @@ import { SitePostService } from '../site-common/site-post.service';
       </a>
     </mat-nav-list>
   `,
-  styles: ``,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: ``,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutSidebarComponent implements OnInit {
   private matIconRegistry = inject(MatIconRegistry);

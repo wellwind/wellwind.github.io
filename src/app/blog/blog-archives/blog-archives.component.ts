@@ -14,8 +14,8 @@ import { getPagePosts } from '../get-page-posts';
 const PAGE_SIZE = 10;
 
 @Component({
-  selector: 'app-blog-archives',
-  template: `
+    selector: 'app-blog-archives',
+    template: `
     @for (yearPosts of posts(); track yearPosts.year) {
 
     <mat-toolbar class="year-header mat-elevation-z4 !mb-2">
@@ -61,19 +61,18 @@ const PAGE_SIZE = 10;
       ></app-pagination>
     </mat-card>
   `,
-  styles: ``,
-  standalone: true,
-  imports: [
-    MatToolbarModule,
-    MatCardModule,
-    RouterLink,
-    BlogPostSubtitleComponent,
-    MatButtonModule,
-    MatIconModule,
-    PaginationComponent,
-    PostDateAsPathPipe,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    styles: ``,
+    imports: [
+        MatToolbarModule,
+        MatCardModule,
+        RouterLink,
+        BlogPostSubtitleComponent,
+        MatButtonModule,
+        MatIconModule,
+        PaginationComponent,
+        PostDateAsPathPipe,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogArchivesComponent {
   protected currentPage = getRouteParam(

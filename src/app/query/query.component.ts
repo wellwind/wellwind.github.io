@@ -17,8 +17,8 @@ import {
 import { SitePostService } from '../site-common/site-post.service';
 
 @Component({
-  selector: 'app-query',
-  template: `
+    selector: 'app-query',
+    template: `
     <div class="p-4">
       @if (searchResult()) {
 
@@ -66,7 +66,7 @@ import { SitePostService } from '../site-common/site-post.service';
       }
     </div>
   `,
-  styles: `
+    styles: `
     @use '../../variables';
 
     .search-result {
@@ -99,15 +99,14 @@ import { SitePostService } from '../site-common/site-post.service';
       border-radius: 4px;
     }
 `,
-  standalone: true,
-  imports: [
-    MatToolbarModule,
-    MatCardModule,
-    MatListModule,
-    RouterLink,
-    DatePipe,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        MatToolbarModule,
+        MatCardModule,
+        MatListModule,
+        RouterLink,
+        DatePipe,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QueryComponent {
   private sitePostService = inject(SitePostService);
