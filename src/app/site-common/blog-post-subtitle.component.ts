@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MarkdownMeta } from 'site-utils';
@@ -8,18 +8,18 @@ import { SlugifyPipe } from './slugify.pipe';
 @Component({
     selector: 'app-blog-post-subtitle',
     template: `
-    @if (postMeta) {
+    @if (postMeta()) {
 
     <span class="blog-post-published">
       <mat-icon>date_range</mat-icon>
-      <span>{{ postMeta.date.slice(0, 10) }}</span>
+      <span>{{ postMeta().date.slice(0, 10) }}</span>
     </span>
 
-    @if ((postMeta.categories || []).length > 0) {
+    @if ((postMeta().categories || []).length > 0) {
 
     <span class="blog-post-categories">
       <mat-icon>folder_open</mat-icon>
-      @for (category of postMeta.categories; track category; let last = $last) {
+      @for (category of postMeta().categories; track category; let last = $last) {
 
       <a
         class="blog-post-category-link"
@@ -55,5 +55,5 @@ import { SlugifyPipe } from './slugify.pipe';
     imports: [MatIconModule, RouterLink, SlugifyPipe]
 })
 export class BlogPostSubtitleComponent {
-  @Input() postMeta?: MarkdownMeta | PostMeta;
+  readonly postMeta = input.required<MarkdownMeta | PostMeta>();
 }

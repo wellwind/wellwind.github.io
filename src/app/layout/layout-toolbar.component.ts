@@ -2,9 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  Input,
   Output,
   inject,
+  input
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -43,9 +43,9 @@ import { WebsiteTheme } from './website-theme';
       mat-icon-button
       (click)="toggleMenu()"
     >
-      @if (menuOpen) {
+      @if (menuOpen()) {
       <mat-icon>menu_open</mat-icon>
-      } @if (!(menuOpen)) {
+      } @if (!(menuOpen())) {
       <mat-icon>menu</mat-icon>
       }
     </button>
@@ -70,7 +70,7 @@ import { WebsiteTheme } from './website-theme';
       class="mr-2"
       (click)="toggleTheme()"
     >
-      @if (theme === 'light') {
+      @if (theme() === 'light') {
       <mat-icon>light_mode</mat-icon>
       } @else {
       <mat-icon>dark_mode</mat-icon>
@@ -120,10 +120,10 @@ import { WebsiteTheme } from './website-theme';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutToolbarComponent {
-  @Input() menuOpen: boolean = true;
+  readonly menuOpen = input<boolean>(true);
   @Output() menuOpenChange = new EventEmitter<boolean>();
 
-  @Input() theme: WebsiteTheme = 'dark';
+  readonly theme = input<WebsiteTheme>('dark');
   @Output() themeChange = new EventEmitter<WebsiteTheme>();
 
   @Output() searchKeywordChange = new EventEmitter<string>();
@@ -151,10 +151,10 @@ export class LayoutToolbarComponent {
   protected suggestList = toSignal(this.suggestList$);
 
   protected toggleMenu() {
-    this.menuOpenChange.emit(!this.menuOpen);
+    this.menuOpenChange.emit(!this.menuOpen());
   }
 
   protected toggleTheme() {
-    this.themeChange.emit(this.theme === 'light' ? 'dark' : 'light');
+    this.themeChange.emit(this.theme() === 'light' ? 'dark' : 'light');
   }
 }

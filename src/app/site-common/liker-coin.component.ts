@@ -1,11 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
   OnDestroy,
   OnInit,
   inject,
   signal,
+  input
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
@@ -34,7 +34,7 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
   private domSanitizer = inject(DomSanitizer);
   private platformService = inject(PlatformService);
 
-  @Input() likerId = '';
+  readonly likerId = input('');
 
   protected likerCoinSrc = signal<SafeResourceUrl>(
     this.domSanitizer.bypassSecurityTrustResourceUrl('')
