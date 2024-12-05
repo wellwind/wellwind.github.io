@@ -2,10 +2,10 @@ import { NgTemplateOutlet } from '@angular/common';
 import {
   Component,
   ElementRef,
-  ViewChild,
   computed,
   effect,
   inject,
+  viewChild
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
@@ -253,7 +253,7 @@ export class BlogPostComponent {
   private sitePostService = inject(SitePostService);
   private siteMetaService = inject(SiteMetaService);
 
-  @ViewChild('comments') protected comments?: ElementRef<HTMLElement>;
+  readonly comments = viewChild<ElementRef<HTMLElement>>('comments');
 
   protected get isServer() {
     return this.platformService.isServer;

@@ -3,10 +3,10 @@ import {
   ChangeDetectorRef,
   Component,
   OnInit,
-  ViewChild,
   effect,
   inject,
   signal,
+  viewChild
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl } from '@angular/forms';
@@ -115,7 +115,7 @@ import { filter, map } from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent implements OnInit {
-  @ViewChild('matDrawerContent') private matDrawerContent?: MatDrawerContent;
+  readonly matDrawerContent = viewChild<MatDrawerContent>('matDrawerContent');
 
   private cdr = inject(ChangeDetectorRef);
   private router = inject(Router);
@@ -166,8 +166,9 @@ export class LayoutComponent implements OnInit {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe(() => {
-        if (this.matDrawerContent) {
-          this.matDrawerContent.scrollTo({ top: 0, left: 0 });
+        const matDrawerContent = this.matDrawerContent();
+        if (matDrawerContent) {
+          matDrawerContent.scrollTo({ top: 0, left: 0 });
           this.cdr.detectChanges();
         }
       });
