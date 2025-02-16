@@ -16,7 +16,8 @@
     "build:rss": "ng run blog:generate-rss",
     "build:minify-html": "ng run blog:minify-rendered-files",
     "build:deploy": "npm run build:blog-posts-json && npm run build:urls && npm run build && npm run build:rss -- --rss-path ./dist/blog/browser/browser/atom.xml && shx mv ./dist/blog/browser/browser/index.csr.html ./dist/blog/browser/browser/index.html",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "analyze": "ng build --stats-json --named-chunks && npx -y @angular-experts/hawkeye dist/blog/browser/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +33,8 @@
     "@angular/platform-server": "^19.0.3",
     "@angular/router": "^19.0.3",
     "@angular/ssr": "^19.0.3",
+    "@grafana/faro-web-sdk": "^1.13.3",
+    "@grafana/faro-web-tracing": "^1.13.3",
     "@wellwind/blog-builder": "file:builders",
     "@wellwind/blog-schematics": "file:schematics",
     "feed": "^4.2.2",
