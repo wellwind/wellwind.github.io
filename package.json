@@ -34,7 +34,7 @@
     "@angular/router": "^19.0.3",
     "@angular/ssr": "^19.0.3",
     "@grafana/faro-web-sdk": "^1.13.3",
-    "@grafana/faro-web-tracing": "^1.13.3",
+    "@grafana/faro-web-tracing": "^1.14.3",
     "@wellwind/blog-builder": "file:builders",
     "@wellwind/blog-schematics": "file:schematics",
     "feed": "^4.2.2",

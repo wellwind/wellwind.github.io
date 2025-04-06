@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { LayoutComponent } from './layout/layout.component';
 import { SiteMetaService } from './site-common/site-meta.service';
 import { filter, pairwise, startWith } from 'rxjs';
+import { faro } from '@grafana/faro-web-sdk';
 
 declare const gtag: (
   command: string,
@@ -48,8 +49,22 @@ export class AppComponent implements OnInit {
       )
       .subscribe((events) => {
         if (!this.platformService.isServer && environment.production) {
+          const event = events[1] as NavigationEnd | undefined;
+          if (!event) {
+            return;
+          }
+
+          if (faro.api) {
+            faro.api.pushEvent('page_change', { url: event.url });
+            faro.api.setPage({
+              id: event.url,
+              url: event.url,
+            });
+            faro.api.setView({ name: event.url });
+          }
+
           gtag('event', 'page_view', {
-            page_path: (events[1] as NavigationEnd | null)?.url || '',
+            page_path: event.url || '',
           });
         }
       });

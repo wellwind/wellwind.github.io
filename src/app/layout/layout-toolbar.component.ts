@@ -1,3 +1,4 @@
+import { Span } from '@opentelemetry/api';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -7,7 +8,10 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {
+  MatAutocompleteModule,
+  MatAutocompleteSelectedEvent,
+} from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -25,6 +29,7 @@ import {
 import { PlatformService } from 'src/app/site-common/platform.service';
 import { SitePostService } from '../site-common/site-post.service';
 import { WebsiteTheme } from './website-theme';
+import { faro } from '@grafana/faro-web-sdk';
 
 @Component({
   selector: 'app-layout-toolbar',
@@ -62,6 +67,7 @@ import { WebsiteTheme } from './website-theme';
       <a
         class="header-link no-underline text-[color:var(--header-link-color)] hover:text-[color:var(--header-link-color)] hover:no-underline active:text-[color:var(--header-link-color)]"
         routerLink="/"
+        (click)="goHome()"
       >
         <span class="header-link text-2xl">全端開發人員天梯</span>
       </a>
@@ -110,10 +116,9 @@ import { WebsiteTheme } from './website-theme';
         <mat-autocomplete
           #auto="matAutocomplete"
           panelWidth="auto"
-          (optionSelected)="
-            selectSuggestItemChange.emit($event.option.value.link);
-            searchKeyword.setValue('')
-          "
+          (optionSelected)="optionSelected($event, $(input).value)"
+          (opened)="searchPanelOpened()"
+          (closed)="searchPanelClosed()"
         >
           @for (item of suggestList(); track item.link) {
             <mat-option [value]="item">
@@ -160,11 +165,66 @@ export class LayoutToolbarComponent {
   );
   protected suggestList = toSignal(this.suggestList$);
 
+  protected span?: Span;
+  protected originalView?: string;
+
   protected toggleMenu() {
     this.menuOpenChange.emit(!this.menuOpen());
+    faro.api.pushEvent('menu-toggle', {
+      menuOpen: !this.menuOpen() ? 'Y' : 'N',
+      theme: this.theme() === 'light' ? 'dark' : 'light',
+    });
   }
 
   protected toggleTheme() {
     this.themeChange.emit(this.theme() === 'light' ? 'dark' : 'light');
+    faro.api.pushEvent('theme-toggle', {
+      theme: this.theme() === 'light' ? 'dark' : 'light',
+    });
+  }
+
+  protected optionSelected(
+    event: MatAutocompleteSelectedEvent,
+    keyword: string,
+  ) {
+    faro.api.pushEvent('suggest-item-selected', {
+      keyword,
+      link: event.option.value.link,
+      type: event.option.value.type,
+      title: event.option.value.text,
+    });
+
+    this.selectSuggestItemChange.emit(event.option.value.link);
+    this.searchKeyword.setValue('');
+  }
+
+  protected searchPanelOpened() {
+    this.originalView = faro.api.getView()?.name;
+    faro.api.setView({ name: 'search-panel' });
+    faro.api.pushEvent('search-panel-opened', {});
+    const { trace, context } = faro.api.getOTEL() ?? {
+      trace: null,
+      context: null,
+    };
+    if (!trace || !context) {
+      return;
+    }
+    const tracer = trace.getTracer('Toolbar');
+    const span = tracer.startSpan('Open Search Panel');
+    this.span = span;
+  }
+
+  protected searchPanelClosed() {
+    faro.api.setView({ name: this.originalView ?? '' });
+    faro.api.pushEvent('search-panel-closed', {});
+    if (this.span) {
+      this.span.setAttribute('search-keyword', this.searchKeyword.value || '');
+      this.span.end();
+      this.span = undefined;
+    }
+  }
+
+  protected goHome() {
+    faro.api.pushEvent('go-home');
   }
 }

@@ -15,6 +15,7 @@ import {
   switchMap,
 } from 'rxjs';
 import { SitePostService } from '../site-common/site-post.service';
+import { faro } from '@grafana/faro-web-sdk';
 
 @Component({
   selector: 'app-query',
@@ -47,7 +48,10 @@ import { SitePostService } from '../site-common/site-post.service';
 
             <mat-nav-list>
               @for (item of searchResult(); track item.link) {
-                <mat-list-item [routerLink]="item.link">
+                <mat-list-item
+                  [routerLink]="item.link"
+                  (click)="log(item.link, item.text)"
+                >
                   <div matLine class="search-result">
                     @if (
                       (searchDateStart() || searchDateEnd()) &&
@@ -158,4 +162,12 @@ export class QueryComponent {
     ),
   );
   protected searchResult = toSignal(this.searchResult$, { initialValue: [] });
+
+  protected log(link: string, title: string) {
+    faro.api.pushEvent('click-query-result', {
+      keyword: this.searchKeyword(),
+      link,
+      title,
+    });
+  }
 }
