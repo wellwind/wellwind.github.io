@@ -116,7 +116,7 @@ import { faro } from '@grafana/faro-web-sdk';
         <mat-autocomplete
           #auto="matAutocomplete"
           panelWidth="auto"
-          (optionSelected)="optionSelected($event, $(input).value)"
+          (optionSelected)="optionSelected($event, $any(input).value)"
           (opened)="searchPanelOpened()"
           (closed)="searchPanelClosed()"
         >
