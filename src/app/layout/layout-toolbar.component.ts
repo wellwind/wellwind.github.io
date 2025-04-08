@@ -221,7 +221,7 @@ export class LayoutToolbarComponent {
     faro.api.setView({ name: this.originalView ?? '' });
     faro.api.pushEvent('search-panel-closed', {});
     if (this.span) {
-      this.span.setAttribute('search-keyword', this.searchKeyword.value || '');
+      this.span.setAttribute('search-keyword', this.keepSearchKeyword());
       this.span.end();
       this.span = undefined;
     }
