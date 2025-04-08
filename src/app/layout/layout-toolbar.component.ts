@@ -5,6 +5,7 @@ import {
   inject,
   input,
   output,
+  signal,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -109,6 +110,7 @@ import { faro } from '@grafana/faro-web-sdk';
             trigger.closePanel();
             auto._isOpen = false
           "
+          (input)="keepSearchKeyword.set(searchKeyword.value || '')"
           [formControl]="searchKeyword"
           [matAutocomplete]="auto"
           #trigger="matAutocompleteTrigger"
@@ -116,7 +118,7 @@ import { faro } from '@grafana/faro-web-sdk';
         <mat-autocomplete
           #auto="matAutocomplete"
           panelWidth="auto"
-          (optionSelected)="optionSelected($event, $any(input).value)"
+          (optionSelected)="optionSelected($event)"
           (opened)="searchPanelOpened()"
           (closed)="searchPanelClosed()"
         >
@@ -149,6 +151,8 @@ export class LayoutToolbarComponent {
   protected isServer = this.platformService.isServer;
   protected isSmallScreen = this.platformService.isSmallScreen;
   protected searchKeyword = new FormControl<string>('');
+
+  protected keepSearchKeyword = signal('');
 
   private suggestList$ = combineLatest([
     this.sitePostService.postsMetaWithSlugAndSortDesc$,
@@ -185,10 +189,9 @@ export class LayoutToolbarComponent {
 
   protected optionSelected(
     event: MatAutocompleteSelectedEvent,
-    keyword: string,
   ) {
     faro.api.pushEvent('suggest-item-selected', {
-      keyword,
+      keyword: this.keepSearchKeyword(),
       link: event.option.value.link,
       type: event.option.value.type,
       title: event.option.value.text,
