@@ -60,8 +60,8 @@ import { OpenFeature, InMemoryProvider } from '@openfeature/web-sdk';
   const FLAG_CONFIGURATION = {
     'todo-list': {
       variants: {
-        enabled: true, // 開啟 Todo List 功能
-        disabled: false, // 關閉 Todo List 功能
+        on: true, // 開啟 Todo List 功能
+        off: false, // 關閉 Todo List 功能
       },
       disabled: false,
       defaultVariant: 'enabled',
@@ -73,9 +73,9 @@ import { OpenFeature, InMemoryProvider } from '@openfeature/web-sdk';
   OpenFeature.setProvider(featureFlagProvider);
 ```
 
-以上程式碼中，我們以 `todo-list` 為 Flag Key 作為 Feature Flag 設定，並指定了 `enabled` 和 `disabled` 兩種 **variants**。
+以上程式碼中，我們以 `todo-list` 為 Flag Key 作為 Feature Flag 設定，並指定了 `on` 和 `off` 兩種 **variants**。
 
-透過 `defaultVariant` 指定為 `enabled`，代表以目前的設定 `todo-list` 功能是打開的。
+透過 `defaultVariant` 指定為 `on`，代表以目前的設定 `todo-list` 功能是打開的。
 
 ## 利用 Feature Flag 控制 Todo List 功能
 
