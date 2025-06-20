@@ -8,11 +8,14 @@ tags:
     - Angular rxResource
     - Angular httpResource
     - Angular HTTP
+ogImage: 01.png
 ---
 
 Angular 20 正式推出了全新的 Resource API 系列，包括 `resource()`、`rxResource()` 和 `httpResource()`，以 Angular Signals 強大的 reactive programming 思考簡化非同步資料處理。這篇文章將針對這三種用法做完整介紹與比較，了解它們的使用方式、與傳統 `HttpClient` 的差異，以及在實際中小型應用中的應用情境。文中也會涵蓋撰寫單元測試驗證 Resource API 呼叫的方法，並分享最佳實務與常見地雷。讓我們一起來看看 Angular 20 的這項新功能如何讓開發更輕鬆又優雅吧！
 
 <!-- more -->
+
+{% asset_img 01.png %}
 
 ## Resource / rxResource / httpResource 是什麼？
 
