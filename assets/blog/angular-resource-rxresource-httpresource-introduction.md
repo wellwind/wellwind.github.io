@@ -1,7 +1,7 @@
 ---
 title: "[Angular] Resource / rxResource / httpResource 完整教學與分析"
 date: 2025-06-20 19:47:16
-category: "Angular 進階議題"
+category: "Angular 大師之路"
 tags:
     - Angular
     - Angular Resource
@@ -16,7 +16,7 @@ Angular 20 正式推出了全新的 Resource API 系列，包括 `resource()`、
 
 ## Resource / rxResource / httpResource 是什麼？
 
-Resource API 是 Angular 19 引入的實驗性功能 (Angular 19.0 提供 `resource` / `rxResource`，19.2 新增了 `httpResource`），並在 Angular 20 進一步改良。
+Resource API 是 Angular 19 引入的實驗性功能 (Angular 19.0 提供 `resource` / `rxResource`，19.2 新增了 `httpResource`)，並在 Angular 20 進一步改良。
 
 其核心概念是：**將非同步操作的結果暴露為 Signal**。
 
