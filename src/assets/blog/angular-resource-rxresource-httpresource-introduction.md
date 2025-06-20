@@ -1,7 +1,7 @@
 ---
 title: "[Angular] Resource / rxResource / httpResource 完整教學與分析"
 date: 2025-06-20 19:47:16
-category: "Angular 進階議題"
+category: "Angular 大師之路"
 tags:
     - Angular
     - Angular Resource
