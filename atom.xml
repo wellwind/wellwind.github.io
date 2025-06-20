@@ -4,11 +4,19 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sat, 10 May 2025 07:54:17 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 20 Jun 2025 13:04:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[Angular] Resource / rxResource / httpResource 完整教學與分析]]></title>
+            <link>https://fullstackladder.dev/blog/2025/06/20/angular-resource-rxresource-httpresource-introduction</link>
+            <guid>https://fullstackladder.dev/blog/2025/06/20/angular-resource-rxresource-httpresource-introduction</guid>
+            <pubDate>Fri, 20 Jun 2025 19:47:16 GMT</pubDate>
+            <description><![CDATA[<p>Angular 20 正式推出了全新的 Resource API 系列，包括 <code>resource()</code>、<code>rxResource()</code> 和 <code>httpResource()</code>，以 Angular Signals 強大的 reactive programming 思考簡化非同步資料處理。這篇文章將針對這三種用法做完整介紹與比較，了解它們的使用方式、與傳統 <code>HttpClient</code> 的差異，以及在實際中小型應用中的應用情境。文中也會涵蓋撰寫單元測試驗證 Resource API 呼叫的方法，並分享最佳實務與常見地雷。讓我們一起來看看 Angular 20 的這項新功能如何讓開發更輕鬆又優雅吧！</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[OpenFeature] 實際使用 OpenFeature]]></title>
             <link>https://fullstackladder.dev/blog/2024/02/21/open-feature-api-demo</link>
@@ -167,14 +175,6 @@
             <guid>https://fullstackladder.dev/blog/2023/01/08/azure-devops-intergrate-horusec</guid>
             <pubDate>Sun, 08 Jan 2023 10:40:05 GMT</pubDate>
             <description><![CDATA[<p>之前在文章中介紹了「<a href="https://fullstackladder.dev/blog/2023/01/07/introduction-horusec/">Horusec</a>」這個強大的程式碼安全掃描工具，今天也來介紹一下如何整合到 Azure DevOps 的 CI pipeline 中。</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[使用 Horusec 對程式碼安全性進行掃描]]></title>
-            <link>https://fullstackladder.dev/blog/2023/01/07/introduction-horusec</link>
-            <guid>https://fullstackladder.dev/blog/2023/01/07/introduction-horusec</guid>
-            <pubDate>Sat, 07 Jan 2023 15:00:47 GMT</pubDate>
-            <description><![CDATA[<p><a href="https://github.com/ZupIT/horusec">Horusec</a> 是一套開源的程式碼靜態分析工具，他可以幫助我們對程式碼進行安全性掃描，並且支援許多常見的語言，功能非常強大。</p>
 ]]></description>
         </item>
     </channel>
