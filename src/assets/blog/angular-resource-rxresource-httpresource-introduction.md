@@ -296,13 +296,13 @@ export class UsersComponent {
 
 {% note info %}
 
-以個人最近使用 Resource 相關 API 的經驗來說，真的確實少寫很多 RxJS operators 了，身為曾經是本 RxJS 書籍的作者來說，心裡真是五味陳雜啊...
+以個人最近使用 Resource 相關 API 的經驗來說，真的確實少寫很多 RxJS operators 了，身為曾經是本 RxJS 書籍的作者來說，心裡真是五味雜陳啊...
 
 當然不是說 RxJS 就用不到了，比較複雜的情境還是 RxJS 的天下，但在大部分的常見情境下，Resource + Signals 已經可以搞定絕大多數的工作了。
 
 {% endnote %}
 
-## 本日小節
+## 本日小結
 
 `resource` / `rxResource` / `httpResource` 的出現，代表 Angular 在 reactive programming 以及非同步程式設計的發展道路上又向前邁進了一大步。
 
