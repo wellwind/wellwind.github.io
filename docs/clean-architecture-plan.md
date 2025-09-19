@@ -85,9 +85,28 @@ src/
 6. **Presentation Rendering** – The facade returns a `SearchResultVm` that the component renders. Analytics signals go through `AnalyticsPort`, allowing SSR and browser to provide different adapters.
 
 ## Refactor Plan (Feature-by-Feature)
-### Phase 0 – Baseline & Safety Nets
-- Add regression tests for current behavior (search, pagination, Markdown parsing, routing flows).
-- Capture smoke scenarios for major features (blog index, post detail, taxonomy, search, layout interactions).
+### Phase 0 – Baseline & Safety Nets ✅ Completed
+
+#### Plan
+1. Baseline the current behaviour for blog, post detail, search, taxonomy, and layout slices so later phases know the expected outputs.
+2. Add automated regression coverage around search, pagination, Markdown parsing, and routing helpers to guard critical flows.
+3. Document and rehearse smoke scenarios for the main user journeys to provide a quick confidence check before/after refactors.
+
+#### Detailed Execution Checklist (繁體中文)
+- ✅ **建立當前行為基準**：逐一操作 blog、post detail、search、taxonomy、layout 五個切片並記錄畫面狀態、資料來源與路由流程，彙整於 [`docs/phase-0-baseline.md`](./phase-0-baseline.md)。
+- ✅ **落實回歸測試安全網**：為搜尋、分頁、Markdown 解析與路由輔助函式撰寫測試，覆蓋 `searchPosts`、`searchPostsByDateRange`、`getPagePosts`、`findPosts`、`route-utils`、`parseMarkdownMeta` 等核心流程。
+- ✅ **制定煙霧測試腳本**：依照基準流程拆解高階使用者旅程並整理為 [`docs/phase-0-smoke-checklist.md`](./phase-0-smoke-checklist.md)，提供後續 refactor 前後的快速驗證清單。
+
+#### Status (2025-09-19)
+- Baseline behaviour captured in [`docs/phase-0-baseline.md`](./phase-0-baseline.md) covering routing flows and feature expectations.
+- Regression tests added for `searchPosts`, `searchPostsByDateRange`, `getPagePosts`, `findPosts`, `route-utils`, and `parseMarkdownMeta` to lock down search, pagination, Markdown parsing, and routing helpers.
+- Smoke checklist scripted in [`docs/phase-0-smoke-checklist.md`](./phase-0-smoke-checklist.md) and ready for execution during subsequent phases.
+- Added a Node-driven Jasmine runner (`npm test`) so the regression suite runs in environments without a local Chrome binary.
+
+#### Follow-up Items
+- [ ] Capture analytic event baselines (Faro) while running the smoke checklist to compare against future instrumentation changes.
+- [ ] Automate the smoke journeys via Playwright once feature slices are scaffolded, reusing the manual checklist as the scenario source.
+- [ ] Wire the Node-driven Jasmine runner into CI after confirming compatible Node and dependency versions in the target environment.
 
 ### Phase 1 – Shared Core & Contracts
 - Create `shared/core` with existing `PostMeta`, `Category`, `Tag`, date utilities, Markdown parsing contracts.
