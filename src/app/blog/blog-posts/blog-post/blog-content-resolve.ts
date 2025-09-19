@@ -5,7 +5,7 @@ import { Observable, catchError, map, of, tap, timeout } from 'rxjs';
 import { parseMarkdownMeta } from '@features/post-detail/domain';
 import { MarkdownMeta } from '@shared/core';
 import { environment } from '../../../../environments/environment';
-import { PlatformService } from '../../../site-common/platform.service';
+import { PlatformService } from '@shared/infrastructure';
 
 @Injectable({
   providedIn: 'root'

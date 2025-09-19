@@ -29,13 +29,13 @@
    - Expose the required API surface through feature barrels and update consumers.
 
 6. **Taxonomy & layout groundwork**
-   - Move pure types for layout/theme selection into `features/layout/domain/models/`.
+   - ✅ Move pure types for layout/theme selection into `features/layout/domain/models/` (WebsiteTheme now lives beside the layout domain barrel for reuse).
    - Add placeholder domain directories for taxonomy helpers to prepare for future migrations.
 
 7. **Clean up legacy aliases**
-   - Remove or repoint the `site-utils` alias once all consumers migrate to shared/feature barrels.
-   - Replace remaining relative imports in `site-common` with shared helpers.
+   - ✅ Confirmed the former `site-utils` path mapping is no longer present in any tsconfig files.
+   - ✅ Promoted `PlatformService` into `shared/infrastructure` so consumers rely on the shared barrel instead of relative `site-common` imports.
 
 8. **Verification**
-   - Run the regression suite (`npm test`) after each migration batch.
-   - Document the final layout and update architecture notes.
+   - ✅ Ran the regression suite (`npm test`) after relocating the platform helpers.
+   - ✅ Updated the architecture notes to reflect the new shared infrastructure layout and alias additions.

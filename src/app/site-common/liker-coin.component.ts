@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
-import { PlatformService } from 'src/app/site-common/platform.service';
+import { PlatformService } from '@shared/infrastructure';
 
 @Component({
   selector: 'app-liker-coin',

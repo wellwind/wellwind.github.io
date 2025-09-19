@@ -38,6 +38,12 @@
       ],
       "@shared/testing/*": [
         "src/shared/testing/*"
+      ],
+      "@shared/infrastructure": [
+        "src/shared/infrastructure/index.ts"
+      ],
+      "@shared/infrastructure/*": [
+        "src/shared/infrastructure/*"
       ]
     },
     "useDefineForClassFields": false

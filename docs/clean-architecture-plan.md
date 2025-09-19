@@ -117,6 +117,7 @@ src/
 - Create directory skeletons for `blog`, `post-detail`, `search`, `taxonomy`, `layout` mirroring the proposed structure.
 - Move existing TypeScript types and pure helpers into the appropriate `domain` folders; adjust imports to use feature-local paths or `shared/core`.
 - Establish feature-specific unit test suites to guard migrations.
+- ✅ Promoted the cross-platform detection service to `shared/infrastructure/platform` and exposed it through the new `@shared/infrastructure` barrel to eliminate lingering `site-common` imports.
 
 ### Phase 3 – Migrate Search Slice
 - Relocate `search-posts.ts` logic into `features/search/domain/services` with updated types from `shared/core`.

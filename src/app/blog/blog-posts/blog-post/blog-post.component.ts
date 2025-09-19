@@ -20,7 +20,7 @@ import { findMainContentContainer, scrollTo } from '../../../../utils';
 import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle.component';
 import { CommentComponent } from '../../../site-common/comment.component';
 import { LikerCoinComponent } from '../../../site-common/liker-coin.component';
-import { PlatformService } from '../../../site-common/platform.service';
+import { PlatformService } from '@shared/infrastructure';
 import { PostDateAsPathPipe } from '../../../site-common/post-date-as-path.pipe';
 import { SiteMetaService } from '../../../site-common/site-meta.service';
 import { SitePostService } from '../../../site-common/site-post.service';
