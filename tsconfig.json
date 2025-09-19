@@ -23,6 +23,18 @@
     "paths": {
       "site-utils": [
         "utils"
+      ],
+      "@shared/core": [
+        "src/shared/core/index.ts"
+      ],
+      "@shared/core/*": [
+        "src/shared/core/*"
+      ],
+      "@shared/testing": [
+        "src/shared/testing/index.ts"
+      ],
+      "@shared/testing/*": [
+        "src/shared/testing/*"
       ]
     },
     "useDefineForClassFields": false

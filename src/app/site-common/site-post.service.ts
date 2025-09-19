@@ -5,7 +5,7 @@ import { ascend, descend, prop, sortWith } from 'ramda';
 import { combineLatest, iif, map, of, shareReplay, startWith, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { PlatformService } from './platform.service';
-import { PostMeta, PostMetaWithSlug } from './post-meta.interface';
+import { PostMeta, PostMetaWithSlug } from '@shared/core';
 
 type PostMetaCollection = { [keg: string]: PostMeta } | null;
 const _cacheBlogPostsKey = makeStateKey<PostMetaCollection>('blog-posts.json');

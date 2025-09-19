@@ -1,5 +1,5 @@
+import { PostMetaWithSlug } from '@shared/core';
 import { slugify } from '../../../utils/slugify';
-import { PostMetaWithSlug } from './post-meta.interface';
 
 const searchFieldMapping = {
   tag: '標籤',

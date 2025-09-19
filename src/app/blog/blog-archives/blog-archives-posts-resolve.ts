@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
+import { PostMetaWithSlug } from '@shared/core';
 import { Observable } from 'rxjs';
-import { PostMetaWithSlug } from '../../site-common/post-meta.interface';
 import { SitePostService } from '../../site-common/site-post.service';
 
 @Injectable({

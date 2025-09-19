@@ -4,11 +4,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
+import { PostMetaWithSlug } from '@shared/core';
 import { getRouteData, getRouteParam } from 'src/app/site-common/route-utils';
 import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle.component';
 import { PaginationComponent } from '../../site-common/pagination.component';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
-import { PostMetaWithSlug } from '../../site-common/post-meta.interface';
 import { getPagePosts } from '../get-page-posts';
 
 const PAGE_SIZE = 10;

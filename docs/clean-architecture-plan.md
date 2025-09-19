@@ -109,9 +109,9 @@ src/
 - [ ] Wire the Node-driven Jasmine runner into CI after confirming compatible Node and dependency versions in the target environment.
 
 ### Phase 1 – Shared Core & Contracts
-- Create `shared/core` with existing `PostMeta`, `Category`, `Tag`, date utilities, Markdown parsing contracts.
-- Introduce testing builders/mocks in `shared/testing` to support upcoming migrations.
-- Define cross-feature ports (`AnalyticsPort`, `PlatformPort`, `SeoMetaPort`) in `shared/core/ports` so features can consume them consistently.
+- ✅ 建立 `shared/core` 骨架並搬遷 `PostMeta`／分類／標籤型別，新增 `@shared/core` 與 `@shared/testing` path alias 供程式與測試共用。
+- ✅ 在 `shared/testing` 提供 `postMetaBuilder`，開始以共用 builder 取代既有測試內的臨時工廠函式。
+- ⏳ 定義跨切片 ports（`AnalyticsPort`、`PlatformPort`、`SeoMetaPort`）並提供暫行實作；後續將補齊 Markdown／日期契約與其適配層。
 
 ### Phase 2 – Scaffold Feature Slices
 - Create directory skeletons for `blog`, `post-detail`, `search`, `taxonomy`, `layout` mirroring the proposed structure.
