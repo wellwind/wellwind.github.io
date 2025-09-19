@@ -111,7 +111,7 @@ src/
 ### Phase 1 – Shared Core & Contracts
 - ✅ 建立 `shared/core` 骨架並搬遷 `PostMeta`／分類／標籤型別，新增 `@shared/core` 與 `@shared/testing` path alias 供程式與測試共用。
 - ✅ 在 `shared/testing` 提供 `postMetaBuilder`，開始以共用 builder 取代既有測試內的臨時工廠函式。
-- ⏳ 定義跨切片 ports（`AnalyticsPort`、`PlatformPort`、`SeoMetaPort`）並提供暫行實作；後續將補齊 Markdown／日期契約與其適配層。
+- ✅ 定義跨切片 ports（`AnalyticsPort`、`PlatformPort`、`SeoMetaPort`）並提供暫行實作；後續將補齊 Markdown／日期契約與其適配層。
 
 ### Phase 2 – Scaffold Feature Slices
 - Create directory skeletons for `blog`, `post-detail`, `search`, `taxonomy`, `layout` mirroring the proposed structure.
