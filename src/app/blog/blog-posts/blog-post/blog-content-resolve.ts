@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, TransferState, inject, makeStateKey } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, catchError, map, of, tap, timeout } from 'rxjs';
-import { MarkdownMeta, parseMarkdownMeta } from 'site-utils';
+import { parseMarkdownMeta } from '@features/post-detail/domain';
+import { MarkdownMeta } from '@shared/core';
 import { environment } from '../../../../environments/environment';
 import { PlatformService } from '../../../site-common/platform.service';
 

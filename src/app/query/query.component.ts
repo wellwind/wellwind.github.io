@@ -153,7 +153,7 @@ export class QueryComponent {
   ]).pipe(
     switchMap(([posts, keywordString, start, end]) =>
       defer(() =>
-        import('../site-common/search-posts').then((m) => {
+        import('@features/search/domain').then((m) => {
           const searchByKeywordFn = m.searchPosts;
           const searchByDateFn = m.searchPostsByDateRange(start, end);
           return searchByKeywordFn(searchByDateFn(posts), keywordString);

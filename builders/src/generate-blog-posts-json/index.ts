@@ -1,4 +1,4 @@
-import { getMarkdownMeta } from './../../../utils/get-markdown-meta';
+import { getMarkdownMeta } from '@features/post-detail/domain';
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
 import { readdirSync, writeFileSync } from 'fs';

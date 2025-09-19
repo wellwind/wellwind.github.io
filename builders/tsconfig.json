@@ -9,6 +9,25 @@
       "es5",
       "scripthost",
       "es2015.collection"
-    ]
-  }
+    ],
+    "rootDir": "../",
+    "baseUrl": "../",
+    "paths": {
+      "@features": [
+        "src/features/index.ts"
+      ],
+      "@features/*": [
+        "src/features/*"
+      ],
+      "@shared/core": [
+        "src/shared/core/index.ts"
+      ],
+      "@shared/core/*": [
+        "src/shared/core/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
 }

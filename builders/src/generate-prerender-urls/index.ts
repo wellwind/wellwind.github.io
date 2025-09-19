@@ -2,8 +2,8 @@ import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/ar
 import { JsonObject } from '@angular-devkit/core';
 import { readdirSync, writeFileSync } from 'fs';
 import { range } from 'ramda';
-import { slugify } from '../../../utils/slugify';
-import { getMarkdownMeta } from '../../../utils/get-markdown-meta';
+import { slugify } from '@shared/core';
+import { getMarkdownMeta } from '@features/post-detail/domain';
 
 interface Options extends JsonObject {
   markdownPostsPath: string;

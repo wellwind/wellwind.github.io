@@ -13,7 +13,7 @@ import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle.
 import { PaginationComponent } from '../../site-common/pagination.component';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
 import { SitePostService } from '../../site-common/site-post.service';
-import { getPagePosts } from '../get-page-posts';
+import { getPagePosts } from '@features/blog/domain';
 
 const PAGE_SIZE = 10;
 

@@ -17,7 +17,7 @@ import { PaginationComponent } from '../../site-common/pagination.component';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
 import { SiteMetaService } from '../../site-common/site-meta.service';
 import { UnslugifyPipe } from '../../site-common/unslugify.pipe';
-import { getPagePosts } from '../get-page-posts';
+import { getPagePosts } from '@features/blog/domain';
 
 const PAGE_SIZE = 10;
 

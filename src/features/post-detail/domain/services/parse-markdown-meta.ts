@@ -1,6 +1,6 @@
 import * as yaml from 'js-yaml';
-import { MarkdownMeta } from './markdown-meta';
-import { MarkdownYamlMeta } from './parse-markdown-meta.interface';
+import { MarkdownMeta } from '@shared/core';
+import { MarkdownYamlMeta } from '../models';
 import { getContentPath, transformMarkdown } from './transform-markdown';
 
 const markdownYamlMetaPattern = /^(?:\-\-\-)(.*?)(?:\-\-\-|\.\.\.)/s

@@ -3,8 +3,8 @@ import { JsonObject } from '@angular-devkit/core';
 import { Feed } from 'feed';
 import { readdirSync, writeFileSync } from 'fs';
 import { descend, prop, sortWith, take } from 'ramda';
-import { MarkdownMeta } from '../../../utils';
-import { getMarkdownMeta } from '../../../utils/get-markdown-meta';
+import { MarkdownMeta } from '@shared/core';
+import { getMarkdownMeta } from '@features/post-detail/domain';
 
 interface Options extends JsonObject {
   markdownPostsPath: string;

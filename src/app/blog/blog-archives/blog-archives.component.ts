@@ -9,7 +9,7 @@ import { getRouteData, getRouteParam } from 'src/app/site-common/route-utils';
 import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle.component';
 import { PaginationComponent } from '../../site-common/pagination.component';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
-import { getPagePosts } from '../get-page-posts';
+import { getPagePosts } from '@features/blog/domain';
 
 const PAGE_SIZE = 10;
 

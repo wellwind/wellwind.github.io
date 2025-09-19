@@ -1,8 +1,7 @@
 import { Component, input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { PostMeta } from '@shared/core';
-import { MarkdownMeta } from 'site-utils';
+import { MarkdownMeta, PostMeta } from '@shared/core';
 import { SlugifyPipe } from './slugify.pipe';
 
 @Component({
