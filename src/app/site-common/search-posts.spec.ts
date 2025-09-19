@@ -1,19 +1,10 @@
+import { PostMetaWithSlug } from '@shared/core';
+import { postMetaBuilder } from '@shared/testing';
 import { searchPosts, searchPostsByDateRange } from './search-posts';
-import { PostMetaWithSlug } from './post-meta.interface';
-
-const buildPost = (overrides: Partial<PostMetaWithSlug>): PostMetaWithSlug => ({
-  title: 'Default Title',
-  date: '2024-01-01 00:00:00',
-  categories: [],
-  tags: [],
-  summary: 'Default summary',
-  slug: 'default-slug',
-  ...overrides,
-});
 
 describe('searchPosts', () => {
   const posts: PostMetaWithSlug[] = [
-    buildPost({
+    postMetaBuilder({
       title: 'Angular Signals Deep Dive',
       slug: 'angular-signals',
       categories: ['Frontend'],
@@ -21,7 +12,7 @@ describe('searchPosts', () => {
       summary: 'A guide to Angular signals and RxJS interop',
       date: '2024-03-10 12:00:00',
     }),
-    buildPost({
+    postMetaBuilder({
       title: 'RxJS In Practice',
       slug: 'rxjs-in-practice',
       categories: ['Frontend'],
@@ -29,7 +20,7 @@ describe('searchPosts', () => {
       summary: 'Practical patterns with RxJS operators',
       date: '2024-02-01 08:30:00',
     }),
-    buildPost({
+    postMetaBuilder({
       title: 'Node Deployment Handbook',
       slug: 'node-deployment',
       categories: ['Backend'],
@@ -106,17 +97,17 @@ describe('searchPosts', () => {
 
 describe('searchPostsByDateRange', () => {
   const posts: PostMetaWithSlug[] = [
-    buildPost({
+    postMetaBuilder({
       title: 'Early Post',
       slug: 'early',
       date: '2024-01-01 00:00:00',
     }),
-    buildPost({
+    postMetaBuilder({
       title: 'Mid Post',
       slug: 'mid',
       date: '2024-02-15 00:00:00',
     }),
-    buildPost({
+    postMetaBuilder({
       title: 'Late Post',
       slug: 'late',
       date: '2024-04-01 00:00:00',

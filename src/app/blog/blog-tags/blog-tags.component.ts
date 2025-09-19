@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
+import { PostMetaWithSlug } from '@shared/core';
 import { getRouteData } from 'src/app/site-common/route-utils';
-import { PostMetaWithSlug } from '../../site-common/post-meta.interface';
 import { SiteMetaService } from '../../site-common/site-meta.service';
 import { SlugifyPipe } from '../../site-common/slugify.pipe';
 import { BlogPostTagSizePipe } from './blog-post-tag-size.pipe';

@@ -1,19 +1,11 @@
+import { PostMetaWithSlug } from '@shared/core';
+import { postMetaBuilder } from '@shared/testing';
 import { findPosts } from './find-posts';
-import { PostMetaWithSlug } from '../site-common/post-meta.interface';
-
-const buildPost = (slug: string): PostMetaWithSlug => ({
-  slug,
-  title: slug,
-  date: '2024-01-01 00:00:00',
-  categories: [],
-  tags: [],
-  summary: '',
-});
 
 describe('findPosts', () => {
   const postsByCategory: Record<string, PostMetaWithSlug[]> = {
-    'Frontend Favorites': [buildPost('angular')],
-    'Backend Basics': [buildPost('node')],
+    'Frontend Favorites': [postMetaBuilder({ slug: 'angular', title: 'angular' })],
+    'Backend Basics': [postMetaBuilder({ slug: 'node', title: 'node' })],
   };
 
   it('returns matched posts when slugified key exists', () => {

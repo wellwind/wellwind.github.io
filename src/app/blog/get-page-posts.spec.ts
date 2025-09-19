@@ -1,18 +1,10 @@
+import { PostMetaWithSlug } from '@shared/core';
+import { postMetaBuilder } from '@shared/testing';
 import { getPagePosts } from './get-page-posts';
-import { PostMetaWithSlug } from '../site-common/post-meta.interface';
-
-const buildPost = (slug: string): PostMetaWithSlug => ({
-  slug,
-  title: slug,
-  date: '2024-01-01 00:00:00',
-  categories: [],
-  tags: [],
-  summary: '',
-});
 
 describe('getPagePosts', () => {
   const posts: PostMetaWithSlug[] = Array.from({ length: 5 }, (_, index) =>
-    buildPost(`post-${index + 1}`),
+    postMetaBuilder({ slug: `post-${index + 1}`, title: `post-${index + 1}` }),
   );
 
   it('returns posts for the requested page', () => {
