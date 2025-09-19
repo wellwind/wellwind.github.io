@@ -11,7 +11,7 @@
 - [x] 搬遷 `PostMeta`、分類/標籤型別至共享模型，並更新現有呼叫端引用。
 - [x] 規劃 Markdown 與日期相關契約的遷移策略，並準備空殼模組待後續填補。
 - [x] 建立 `shared/testing` 的 builders/mocks 架構，並將既有測試改用共用 `postMetaBuilder`。
-- [ ] 定義並匯出跨切片 ports 的介面與暫行實作。
+- [x] 定義並匯出跨切片 ports 的介面與暫行實作。
 - [x] 更新 `tsconfig` path alias 與相關建置腳本，確保新路徑可用。
 - [x] 調整 `docs/clean-architecture-plan.md` 與其他文件，反映 Phase 1 的實作現況與剩餘工作。
 
@@ -31,3 +31,4 @@
 
 ## 進度紀錄
 - 2025-09-19：完成 `PostMeta` 模型搬遷與 `shared/core` 骨架建立，新增 `@shared/core`、`@shared/testing` path alias，並以 `postMetaBuilder` 取代部份測試中的臨時建構函式。已執行 `npm run lint` 與 `npm run test` 確認既有流程穩定，尚待定義跨切片 ports 與補齊 Markdown/日期契約實作，文件同步更新進行中。
+- 2025-09-20：補齊 `AnalyticsPort`、`PlatformPort`、`SeoMetaPort` 介面與暫行實作，並提供對應的測試替身，準備後續切片改造時的依賴注入介面。
