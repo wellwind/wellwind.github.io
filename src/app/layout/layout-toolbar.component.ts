@@ -27,9 +27,9 @@ import {
   switchMap,
 } from 'rxjs';
 
-import { PlatformService } from 'src/app/site-common/platform.service';
+import { PlatformService } from '@shared/infrastructure';
 import { SitePostService } from '../site-common/site-post.service';
-import { WebsiteTheme } from './website-theme';
+import { WebsiteTheme } from '@features/layout/domain';
 import { faro } from '@grafana/faro-web-sdk';
 
 @Component({

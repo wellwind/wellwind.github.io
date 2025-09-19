@@ -1,1 +1,1 @@
-// Layout domain models are exported here.
+export { type WebsiteTheme } from './website-theme';

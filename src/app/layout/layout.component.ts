@@ -18,10 +18,10 @@ import {
   Router,
   RouterOutlet,
 } from '@angular/router';
-import { PlatformService } from '../site-common/platform.service';
+import { PlatformService } from '@shared/infrastructure';
 import { LayoutSidebarComponent } from './layout-sidebar.component';
 import { LayoutToolbarComponent } from './layout-toolbar.component';
-import { WebsiteTheme } from './website-theme';
+import { WebsiteTheme } from '@features/layout/domain';
 import { filter, map } from 'rxjs';
 
 @Component({

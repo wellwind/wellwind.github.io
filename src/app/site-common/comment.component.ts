@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
-import { PlatformService } from './platform.service';
+import { PlatformService } from '@shared/infrastructure';
 
 @Component({
   selector: 'app-comment',

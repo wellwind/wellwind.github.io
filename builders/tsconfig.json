@@ -24,6 +24,12 @@
       ],
       "@shared/core/*": [
         "src/shared/core/*"
+      ],
+      "@shared/infrastructure": [
+        "src/shared/infrastructure/index.ts"
+      ],
+      "@shared/infrastructure/*": [
+        "src/shared/infrastructure/*"
       ]
     }
   },
