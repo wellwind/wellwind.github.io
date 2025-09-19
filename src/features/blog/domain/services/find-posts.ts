@@ -1,5 +1,4 @@
-import { PostMetaWithSlug } from '@shared/core';
-import { slugify } from '../../../utils/slugify';
+import { PostMetaWithSlug, slugify } from '@shared/core';
 
 export const findPosts = (slug: string, data: { [key: string]: PostMetaWithSlug[] }) => {
   const found = Object

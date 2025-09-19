@@ -4,7 +4,7 @@
   "description": "Builders for blog",
   "builders": "builders.json",
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json && node ./scripts/alias-paths.cjs"
   },
   "dependencies": {
     "@angular-devkit/architect": "~0.1700.0",

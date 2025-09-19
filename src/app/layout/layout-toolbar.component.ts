@@ -163,7 +163,7 @@ export class LayoutToolbarComponent {
   ]).pipe(
     switchMap(([posts, keywordString]) =>
       defer(() =>
-        import('../site-common/search-posts').then((m) => m.searchPosts),
+        import('@features/search/domain').then((m) => m.searchPosts),
       ).pipe(map((searchFn) => searchFn(posts, keywordString || ''))),
     ),
   );

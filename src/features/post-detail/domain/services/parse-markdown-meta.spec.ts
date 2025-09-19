@@ -1,4 +1,4 @@
-import { parseMarkdownMeta } from 'site-utils';
+import { parseMarkdownMeta } from '@features/post-detail/domain';
 
 describe('parseMarkdownMeta', () => {
   it('returns null when metadata block is missing', () => {

@@ -55,6 +55,43 @@ Module._resolveFilename = function patchedResolveFilename(
     }
   }
 
+  for (const [aliasPattern, targets] of Object.entries(pathMappings)) {
+    const starIndex = aliasPattern.indexOf('*');
+    if (starIndex === -1) {
+      continue;
+    }
+
+    const prefix = aliasPattern.slice(0, starIndex);
+    const suffix = aliasPattern.slice(starIndex + 1);
+    if (!request.startsWith(prefix) || !request.endsWith(suffix)) {
+      continue;
+    }
+
+    const matchedSegment = request.slice(prefix.length, request.length - suffix.length);
+    for (const target of targets) {
+      let mappedTarget = target;
+      const targetStarIndex = target.indexOf('*');
+      if (targetStarIndex !== -1) {
+        const targetPrefix = target.slice(0, targetStarIndex);
+        const targetSuffix = target.slice(targetStarIndex + 1);
+        mappedTarget = `${targetPrefix}${matchedSegment}${targetSuffix}`;
+      }
+
+      const candidatePath = path.resolve(projectRoot, baseUrl, mappedTarget);
+      try {
+        return originalResolveFilename.call(
+          this,
+          candidatePath,
+          parent,
+          isMain,
+          options,
+        );
+      } catch (error) {
+        // Continue trying the remaining targets.
+      }
+    }
+  }
+
   return originalResolveFilename.call(this, request, parent, isMain, options);
 };
 

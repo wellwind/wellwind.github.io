@@ -21,8 +21,11 @@
       "dom"
     ],
     "paths": {
-      "site-utils": [
-        "utils"
+      "@features": [
+        "src/features/index.ts"
+      ],
+      "@features/*": [
+        "src/features/*"
       ],
       "@shared/core": [
         "src/shared/core/index.ts"

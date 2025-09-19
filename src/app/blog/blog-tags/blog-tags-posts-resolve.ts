@@ -4,7 +4,7 @@ import { descend, prop, sortWith } from 'ramda';
 import { PostMetaWithSlug } from '@shared/core';
 import { Observable, map } from 'rxjs';
 import { SitePostService } from '../../site-common/site-post.service';
-import { findPosts } from '../find-posts';
+import { findPosts } from '@features/blog/domain';
 
 @Injectable({
   providedIn: 'root',
