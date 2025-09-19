@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterOutlet } from '@angular/router';
 import { findMainContentContainer, scrollTo } from '../../utils';
 
@@ -23,7 +24,7 @@ import { findMainContentContainer, scrollTo } from '../../utils';
       </button>
     </div>
   `,
-  imports: [RouterOutlet, MatButtonModule, MatIconModule],
+  imports: [RouterOutlet, MatButtonModule, MatIconModule, MatTooltipModule],
 })
 export class BlogLayoutComponent {
   goTop(contentElement: HTMLElement) {
