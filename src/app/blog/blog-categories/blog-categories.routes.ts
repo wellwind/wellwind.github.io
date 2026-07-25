@@ -8,17 +8,17 @@ const routes: Routes = [
   {
     path: ':category-slug',
     resolve: { posts: BlogCategoriesPostsResolve },
-    component: BlogCategoriesPostsComponent
+    component: BlogCategoriesPostsComponent,
   },
   {
     path: ':category-slug/page/:page',
     resolve: { posts: BlogCategoriesPostsResolve },
-    component: BlogCategoriesPostsComponent
+    component: BlogCategoriesPostsComponent,
   },
   {
     path: '',
     resolve: { categories: BlogCategoriesResolve },
-    component: BlogCategoriesComponent
-  }
+    component: BlogCategoriesComponent,
+  },
 ];
 export default routes;

@@ -6,12 +6,12 @@ const routes: Routes = [
   {
     path: '',
     resolve: { posts: BlogArchivesPostsResolve },
-    component: BlogArchivesComponent
+    component: BlogArchivesComponent,
   },
   {
     path: 'page/:page',
     resolve: { posts: BlogArchivesPostsResolve },
-    component: BlogArchivesComponent
-  }
+    component: BlogArchivesComponent,
+  },
 ];
 export default routes;

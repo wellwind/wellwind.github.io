@@ -115,15 +115,17 @@ import { faro } from '@grafana/faro-web-sdk';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QueryComponent {
-  private sitePostService = inject(SitePostService);
-  private route = inject(ActivatedRoute);
+  private readonly sitePostService = inject(SitePostService);
+  private readonly route = inject(ActivatedRoute);
 
   private searchKeyword$ = this.route.queryParamMap.pipe(
     map((queryParamMap) => queryParamMap.get('q')),
     filter(Boolean),
     startWith(''),
   );
-  protected searchKeyword = toSignal(this.searchKeyword$, { initialValue: '' });
+  protected readonly searchKeyword = toSignal(this.searchKeyword$, {
+    initialValue: '',
+  });
 
   private searchDateStart$ = this.route.queryParamMap.pipe(
     map((queryParamMap) => queryParamMap.get('start')),
@@ -131,7 +133,7 @@ export class QueryComponent {
     map((startDate) => new Date(startDate!)),
     startWith(undefined),
   );
-  protected searchDateStart = toSignal(this.searchDateStart$, {
+  protected readonly searchDateStart = toSignal(this.searchDateStart$, {
     initialValue: undefined,
   });
 
@@ -141,7 +143,7 @@ export class QueryComponent {
     map((endDate) => new Date(endDate!)),
     startWith(undefined),
   );
-  protected searchDateEnd = toSignal(this.searchDateEnd$, {
+  protected readonly searchDateEnd = toSignal(this.searchDateEnd$, {
     initialValue: undefined,
   });
 
@@ -161,7 +163,9 @@ export class QueryComponent {
       ),
     ),
   );
-  protected searchResult = toSignal(this.searchResult$, { initialValue: [] });
+  protected readonly searchResult = toSignal(this.searchResult$, {
+    initialValue: [],
+  });
 
   protected log(link: string, title: string) {
     faro.api.pushEvent('click-query-result', {

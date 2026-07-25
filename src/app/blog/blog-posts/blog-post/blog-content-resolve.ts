@@ -8,12 +8,12 @@ import { environment } from '../../../../environments/environment';
 import { PlatformService } from '@shared/infrastructure';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class BlogContentResolve  {
-  private httpClient = inject(HttpClient);
-  private state = inject(TransferState);
-  private platformService = inject(PlatformService);
+export class BlogContentResolve {
+  private readonly httpClient = inject(HttpClient);
+  private readonly state = inject(TransferState);
+  private readonly platformService = inject(PlatformService);
 
   resolve(route: ActivatedRouteSnapshot): Observable<MarkdownMeta> {
     return this.getMarkdownContent(route.paramMap.get('slug') as string);
@@ -36,7 +36,7 @@ export class BlogContentResolve  {
             this.state.set<string>(key, content);
           }
         }),
-        map(content => parseMarkdownMeta(content, slug)!)
+        map((content) => parseMarkdownMeta(content, slug)!),
       );
   }
 }

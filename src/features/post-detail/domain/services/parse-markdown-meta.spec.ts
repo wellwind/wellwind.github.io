@@ -33,7 +33,7 @@ describe('parseMarkdownMeta', () => {
 
     expect(meta).not.toBeNull();
     expect(meta).toEqual(
-      jasmine.objectContaining({
+      expect.objectContaining({
         slug: 'clean-architecture-notes',
         title: 'Clean Architecture Notes',
         date: '2024-01-15 00:00:00',

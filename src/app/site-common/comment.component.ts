@@ -2,44 +2,45 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
   ElementRef,
-  OnDestroy,
   OnInit,
   inject,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { Subscription, filter } from 'rxjs';
+import { filter } from 'rxjs';
 import { PlatformService } from '@shared/infrastructure';
 
 @Component({
   selector: 'app-comment',
   template: ``,
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CommentComponent implements OnInit, AfterViewInit, OnDestroy {
-  private router = inject(Router);
-  private elementRef = inject(ElementRef<HTMLElement>);
-  private platformService = inject(PlatformService);
-
-  private subscription = new Subscription();
+export class CommentComponent implements OnInit, AfterViewInit {
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly router = inject(Router);
+  private readonly elementRef = inject(ElementRef<HTMLElement>);
+  private readonly platformService = inject(PlatformService);
 
   ngOnInit() {
-    this.subscription.add(
-      this.router.events
-        .pipe(filter((event) => event instanceof NavigationStart))
-        .subscribe(() => {
-          this.elementRef.nativeElement.innerHTML = '';
-        }),
-    );
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationStart),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe(() => {
+        this.elementRef.nativeElement.innerHTML = '';
+      });
 
-    this.subscription.add(
-      this.router.events
-        .pipe(filter((event) => event instanceof NavigationEnd))
-        .subscribe(() => {
-          this.generateComment();
-        }),
-    );
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe(() => {
+        this.generateComment();
+      });
   }
 
   ngAfterViewInit() {
@@ -72,9 +73,5 @@ export class CommentComponent implements OnInit, AfterViewInit, OnDestroy {
     scriptTag.setAttribute('async', '');
 
     element.appendChild(scriptTag);
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

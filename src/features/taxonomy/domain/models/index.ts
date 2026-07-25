@@ -1,1 +1,1 @@
-// Taxonomy domain models are exported here.
+export {};

@@ -34,7 +34,7 @@ describe('searchPosts', () => {
     const result = searchPosts(posts, '');
 
     expect(result.length).toBe(3);
-    expect(result.every((item) => item.type === '文章')).toBeTrue();
+    expect(result.every((item) => item.type === '文章')).toBe(true);
     expect(result.map((item) => item.link)).toEqual([
       '/blog/2024/03/10/angular-signals',
       '/blog/2024/02/01/rxjs-in-practice',
@@ -47,13 +47,13 @@ describe('searchPosts', () => {
 
     expect(result.length).toBe(3);
     expect(result[0]).toEqual(
-      jasmine.objectContaining({ type: '文章', text: 'Angular Signals Deep Dive' }),
+      expect.objectContaining({ type: '文章', text: 'Angular Signals Deep Dive' }),
     );
     expect(result[1]).toEqual(
-      jasmine.objectContaining({ type: '文章', text: 'RxJS In Practice' }),
+      expect.objectContaining({ type: '文章', text: 'RxJS In Practice' }),
     );
     expect(result[2]).toEqual(
-      jasmine.objectContaining({ type: '標籤', text: 'RxJS' }),
+      expect.objectContaining({ type: '標籤', text: 'RxJS' }),
     );
   });
 
@@ -62,7 +62,7 @@ describe('searchPosts', () => {
 
     expect(result.length).toBe(1);
     expect(result[0]).toEqual(
-      jasmine.objectContaining({
+      expect.objectContaining({
         type: '分類:Frontend;文章',
         text: 'Angular Signals Deep Dive',
         link: '/blog/2024/03/10/angular-signals',
@@ -73,24 +73,28 @@ describe('searchPosts', () => {
   it('returns tag matches when searching only for tags', () => {
     const result = searchPosts(posts, 'tag:rxjs');
 
-    expect(result).toContain(
-      jasmine.objectContaining({
-        type: '標籤',
-        text: 'RxJS',
-        link: '/blog/tags/RxJS',
-      }),
+    expect(result).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: '標籤',
+          text: 'RxJS',
+          link: '/blog/tags/RxJS',
+        }),
+      ]),
     );
   });
 
   it('returns category matches when searching only for categories', () => {
     const result = searchPosts(posts, 'category:front');
 
-    expect(result).toContain(
-      jasmine.objectContaining({
-        type: '分類',
-        text: 'Frontend',
-        link: '/blog/categories/Frontend',
-      }),
+    expect(result).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: '分類',
+          text: 'Frontend',
+          link: '/blog/categories/Frontend',
+        }),
+      ]),
     );
   });
 });

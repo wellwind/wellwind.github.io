@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { PostMetaWithSlug } from '@shared/core';
-import { getRouteData, getRouteParam } from 'src/app/site-common/route-utils';
+import { getRouteData, getRouteParam } from '../../site-common/route-utils';
 import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle.component';
 import { PaginationComponent } from '../../site-common/pagination.component';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
@@ -79,11 +79,11 @@ export class BlogArchivesComponent {
   );
 
   protected totalPosts = getRouteData(
-    (data) => data.posts as Array<PostMetaWithSlug>,
+    (data) => data.posts as PostMetaWithSlug[],
     [],
   );
 
-  protected yearPostsCount = computed(() => {
+  protected readonly yearPostsCount = computed(() => {
     return this.totalPosts().reduce(
       (prev, curr) => {
         const year = curr.date.substr(0, 4);
@@ -93,11 +93,11 @@ export class BlogArchivesComponent {
         prev[year] += 1;
         return prev;
       },
-      {} as { [key: string]: number },
+      {} as Record<string, number>,
     );
   });
 
-  protected posts = computed(() => {
+  protected readonly posts = computed(() => {
     const totalPosts = this.totalPosts();
     const pageNum = this.currentPage();
     const pagePosts = getPagePosts(pageNum, PAGE_SIZE, totalPosts);
@@ -123,7 +123,7 @@ export class BlogArchivesComponent {
     );
   });
 
-  protected totalPage = computed(() => {
+  protected readonly totalPage = computed(() => {
     return Math.ceil(this.totalPosts().length / PAGE_SIZE);
   });
 }

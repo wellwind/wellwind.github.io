@@ -4,7 +4,7 @@ import { Feed } from 'feed';
 import { readdirSync, writeFileSync } from 'fs';
 import { descend, prop, sortWith, take } from 'ramda';
 import { MarkdownMeta } from '@shared/core';
-import { getMarkdownMeta } from '@features/post-detail/domain';
+import { getMarkdownMeta } from '@features/post-detail/domain/services/get-markdown-meta';
 
 interface Options extends JsonObject {
   markdownPostsPath: string;
@@ -36,8 +36,12 @@ async function generateRss(options: Options, context: BuilderContext): Promise<B
     .filter(dirent => dirent.isFile() && dirent.name.endsWith('.md'))
     .map(dirent => dirent.name)
     .map(fileName => getMarkdownMeta(markdownPostsPath, fileName))
+    .filter((post): post is MarkdownMeta => post !== null);
 
-  const posts = take(options.postCount, sortWith([descend(prop('date'))], allPosts)) as MarkdownMeta[];
+  const posts = take(
+    options.postCount,
+    sortWith([descend(prop('date'))], allPosts),
+  );
 
   const siteUrl = options.rssConfig.siteUrl;
   const feed = new Feed({
@@ -52,7 +56,7 @@ async function generateRss(options: Options, context: BuilderContext): Promise<B
   });
 
   posts.forEach(post => {
-    const dateFormatted = post.date.substr(0, 10).replace(/-/g, '/');
+    const dateFormatted = post.date.slice(0, 10).replace(/-/g, '/');
 
     feed.addItem({
       title: post.title,

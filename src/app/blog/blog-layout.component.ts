@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -25,6 +25,7 @@ import { findMainContentContainer, scrollTo } from '../../utils';
     </div>
   `,
   imports: [RouterOutlet, MatButtonModule, MatIconModule, MatTooltipModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogLayoutComponent {
   goTop(contentElement: HTMLElement) {

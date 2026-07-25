@@ -10,7 +10,7 @@ const markedHighlightExtension = markedHighlight({
   },
 });
 
-marked.use(markedHighlightExtension);
+marked.use(markedHighlightExtension as Parameters<typeof marked.use>[0]);
 
 const markdown = {
   render: (content: string) => marked.parse(content) as string,
@@ -47,7 +47,7 @@ export const transformMarkdown = (content: string, slug: string) =>
       /<p>\s*{% note (.*?) %}\s*<\/p>(.*?)<p>\s*{% endnote %}\s*<\/p>/gs,
       (match, noteClass, content) => {
         const newContent = content.trim().replace(/^\s+|\s+$/g, '');
-        return `</p><div class=\"note ${noteClass}\">${newContent}</div><p>`;
+        return `</p><div class="note ${noteClass}">${newContent}</div><p>`;
       }
     )
     // {% youtube %} 轉換

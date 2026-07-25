@@ -1,39 +1,36 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "Node16",
+    "moduleResolution": "node16",
     "outDir": "./dist",
-    "downlevelIteration": true,
-    "target": "ESNEXT",
-    "lib": [
-      "dom",
-      "es5",
-      "scripthost",
-      "es2015.collection"
-    ],
-    "rootDir": "../",
-    "baseUrl": "../",
+    "rootDir": "..",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
     "paths": {
       "@features": [
-        "src/features/index.ts"
+        "../src/features/index.ts"
       ],
       "@features/*": [
-        "src/features/*"
+        "../src/features/*"
       ],
       "@shared/core": [
-        "src/shared/core/index.ts"
+        "../src/shared/core/index.ts"
       ],
       "@shared/core/*": [
-        "src/shared/core/*"
+        "../src/shared/core/*"
       ],
       "@shared/infrastructure": [
-        "src/shared/infrastructure/index.ts"
+        "../src/shared/infrastructure/index.ts"
       ],
       "@shared/infrastructure/*": [
-        "src/shared/infrastructure/*"
+        "../src/shared/infrastructure/*"
       ]
-    }
+    },
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "strict": true
   },
-  "include": [
-    "src/**/*.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }

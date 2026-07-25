@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { PostMetaWithSlug } from '@shared/core';
-import { getRouteData, getRouteParam } from 'src/app/site-common/route-utils';
+import { getRouteData, getRouteParam } from '../../site-common/route-utils';
 import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle.component';
 import { PaginationComponent } from '../../site-common/pagination.component';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
@@ -78,7 +78,7 @@ const PAGE_SIZE = 10;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogTagPostsComponent {
-  private siteMetaService = inject(SiteMetaService);
+  private readonly siteMetaService = inject(SiteMetaService);
 
   protected tagSlug = getRouteParam((paramMap) => paramMap.get('tag-slug'), '');
   protected currentPage = getRouteParam(
@@ -86,14 +86,14 @@ export class BlogTagPostsComponent {
     1,
   );
   protected tagPosts = getRouteData(
-    (data) => data.posts as Array<PostMetaWithSlug>,
+    (data) => data.posts as PostMetaWithSlug[],
     [],
   );
-  protected tagPostsCount = computed(() => this.tagPosts().length);
-  protected posts = computed(() =>
+  protected readonly tagPostsCount = computed(() => this.tagPosts().length);
+  protected readonly posts = computed(() =>
     getPagePosts(this.currentPage(), PAGE_SIZE, this.tagPosts()),
   );
-  protected totalPage = computed(() =>
+  protected readonly totalPage = computed(() =>
     Math.ceil(this.tagPostsCount() / PAGE_SIZE),
   );
 

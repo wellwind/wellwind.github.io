@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MarkdownMeta, PostMeta } from '@shared/core';
@@ -53,6 +53,7 @@ import { SlugifyPipe } from './slugify.pipe';
       }
     }
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MatIconModule, RouterLink, SlugifyPipe],
 })
 export class BlogPostSubtitleComponent {

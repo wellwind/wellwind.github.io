@@ -5,8 +5,8 @@ import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
   providedIn: 'root',
 })
 export class SiteMetaService {
-  private title = inject(Title);
-  private meta = inject(Meta);
+  private readonly title = inject(Title);
+  private readonly meta = inject(Meta);
 
   resetMeta(options: {
     title: string;

@@ -145,14 +145,14 @@ export class LayoutToolbarComponent {
   readonly searchKeywordChange = output<string>();
   readonly selectSuggestItemChange = output<string>();
 
-  private platformService = inject(PlatformService);
-  private sitePostService = inject(SitePostService);
+  private readonly platformService = inject(PlatformService);
+  private readonly sitePostService = inject(SitePostService);
 
   protected isServer = this.platformService.isServer;
   protected isSmallScreen = this.platformService.isSmallScreen;
   protected searchKeyword = new FormControl<string>('');
 
-  protected keepSearchKeyword = signal('');
+  protected readonly keepSearchKeyword = signal('');
 
   private suggestList$ = combineLatest([
     this.sitePostService.postsMetaWithSlugAndSortDesc$,
@@ -167,7 +167,7 @@ export class LayoutToolbarComponent {
       ).pipe(map((searchFn) => searchFn(posts, keywordString || ''))),
     ),
   );
-  protected suggestList = toSignal(this.suggestList$);
+  protected readonly suggestList = toSignal(this.suggestList$);
 
   protected span?: Span;
   protected originalView?: string;
@@ -187,9 +187,7 @@ export class LayoutToolbarComponent {
     });
   }
 
-  protected optionSelected(
-    event: MatAutocompleteSelectedEvent,
-  ) {
+  protected optionSelected(event: MatAutocompleteSelectedEvent) {
     faro.api.pushEvent('suggest-item-selected', {
       keyword: this.keepSearchKeyword(),
       link: event.option.value.link,

@@ -1,14 +1,12 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  OnDestroy,
   OnInit,
   inject,
   signal,
   input,
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Subscription } from 'rxjs';
 import { PlatformService } from '@shared/infrastructure';
 
 @Component({
@@ -27,20 +25,17 @@ import { PlatformService } from '@shared/infrastructure';
     </div>
   `,
   styles: ``,
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LikerCoinComponent implements OnInit, OnDestroy {
-  private domSanitizer = inject(DomSanitizer);
-  private platformService = inject(PlatformService);
+export class LikerCoinComponent implements OnInit {
+  private readonly domSanitizer = inject(DomSanitizer);
+  private readonly platformService = inject(PlatformService);
 
   readonly likerId = input('');
 
-  protected likerCoinSrc = signal<SafeResourceUrl>(
+  protected readonly likerCoinSrc = signal<SafeResourceUrl>(
     this.domSanitizer.bypassSecurityTrustResourceUrl(''),
   );
-
-  private subscription = new Subscription();
 
   ngOnInit(): void {
     if (this.platformService.isServer) {
@@ -57,9 +52,5 @@ export class LikerCoinComponent implements OnInit, OnDestroy {
         `${likerCoinBase}${url}`,
       ),
     );
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }

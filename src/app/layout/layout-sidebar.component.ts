@@ -165,20 +165,20 @@ import { SitePostService } from '../site-common/site-post.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutSidebarComponent implements OnInit {
-  private matIconRegistry = inject(MatIconRegistry);
-  private sitePostService = inject(SitePostService);
+  private readonly matIconRegistry = inject(MatIconRegistry);
+  private readonly sitePostService = inject(SitePostService);
 
-  protected postCount = computed(
+  protected readonly postCount = computed(
     () => Object.keys(this.sitePostService.postsMeta() as object).length,
   );
-  protected categoryCount = computed(
+  protected readonly categoryCount = computed(
     () => new Set(this.sitePostService.postCategories()).size,
   );
-  protected tagCount = computed(
+  protected readonly tagCount = computed(
     () => new Set(this.sitePostService.postTags()).size,
   );
 
-  protected menuItems = signal([
+  protected readonly menuItems = signal([
     { link: '/blog', icon: 'home', text: '首頁' },
     { link: '/blog/categories', icon: 'apps', text: '分類' },
     { link: '/blog/tags', icon: 'label', text: '標籤' },

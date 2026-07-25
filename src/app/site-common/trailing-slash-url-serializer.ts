@@ -7,11 +7,11 @@ export class TrailingSlashUrlSerializer extends DefaultUrlSerializer {
   }
 
   private _withTrailingSlash(url: string): string {
-    const splitOn = url.indexOf('?') > - 1 ? '?' : '#';
+    const splitOn = url.indexOf('?') > -1 ? '?' : '#';
     const pathArr = url.split(splitOn);
 
     if (!pathArr[0].endsWith('/')) {
-      const fileName = url.substring( url.lastIndexOf('/') + 1);
+      const fileName = url.substring(url.lastIndexOf('/') + 1);
       if (fileName.indexOf('.') === -1) {
         pathArr[0] += '/';
       }

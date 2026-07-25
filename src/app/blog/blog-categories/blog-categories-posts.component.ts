@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { PostMetaWithSlug } from '@shared/core';
-import { getRouteData, getRouteParam } from 'src/app/site-common/route-utils';
+import { getRouteData, getRouteParam } from '../../site-common/route-utils';
 import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle.component';
 import { PaginationComponent } from '../../site-common/pagination.component';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
@@ -80,7 +80,7 @@ const PAGE_SIZE = 10;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogCategoriesPostsComponent {
-  private siteMetaService = inject(SiteMetaService);
+  private readonly siteMetaService = inject(SiteMetaService);
 
   protected categorySlug = getRouteParam(
     (paramMap) => paramMap.get('category-slug'),
@@ -91,14 +91,16 @@ export class BlogCategoriesPostsComponent {
     1,
   );
   protected categoryPosts = getRouteData(
-    (data) => data.posts as Array<PostMetaWithSlug>,
+    (data) => data.posts as PostMetaWithSlug[],
     [],
   );
-  protected categoryPostsCount = computed(() => this.categoryPosts().length);
-  protected posts = computed(() =>
+  protected readonly categoryPostsCount = computed(
+    () => this.categoryPosts().length,
+  );
+  protected readonly posts = computed(() =>
     getPagePosts(this.currentPage(), PAGE_SIZE, this.categoryPosts()),
   );
-  protected totalPage = computed(() =>
+  protected readonly totalPage = computed(() =>
     Math.ceil(this.categoryPostsCount() / PAGE_SIZE),
   );
 

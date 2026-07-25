@@ -5,7 +5,7 @@ category: "Angular 大師之路"
 tags:
   - Angular
   - DI
-  - Inject
+  - inject
 ---
 
 前兩天我們學到了多種替換注入 token 內容的方法，今天我們來看看如何取得不同注入內容的方式：

@@ -2,14 +2,14 @@ import { ContentObserver } from '@angular/cdk/observers';
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
   OnDestroy,
   TransferState,
   inject,
+  input,
   makeStateKey,
 } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { Observable, ReplaySubject, map, startWith, switchMap } from 'rxjs';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { Observable, map, startWith, switchMap } from 'rxjs';
 import { PlatformService } from '@shared/infrastructure';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
 
@@ -90,20 +90,13 @@ const HEADINGS_CACHE_KEY = makeStateKey<Heading[]>('POST_TOC');
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPostTocComponent implements OnDestroy {
-  private transferState = inject(TransferState);
-  private platformService = inject(PlatformService);
-  private contentObserver = inject(ContentObserver);
+  private readonly transferState = inject(TransferState);
+  private readonly platformService = inject(PlatformService);
+  private readonly contentObserver = inject(ContentObserver);
 
-  private _contentElement!: HTMLElement;
-  private _contentElement$ = new ReplaySubject<HTMLElement>(1);
+  readonly contentElement = input.required<HTMLElement>();
 
-  @Input()
-  set contentElement(value: HTMLElement) {
-    this._contentElement = value;
-    this._contentElement$.next(this._contentElement);
-  }
-
-  private headings$ = this._contentElement$.pipe(
+  private readonly headings$ = toObservable(this.contentElement).pipe(
     switchMap((contentElement) =>
       this.contentObserver.observe(contentElement).pipe(
         map(() => contentElement),
@@ -141,7 +134,7 @@ export class BlogPostTocComponent implements OnDestroy {
     startWith(this.getCacheHeadings()),
   );
 
-  protected headings = toSignal(this.headings$, { initialValue: [] });
+  protected readonly headings = toSignal(this.headings$, { initialValue: [] });
 
   private _intersectionObserver?: IntersectionObserver | null;
 
@@ -215,7 +208,7 @@ export class BlogPostTocComponent implements OnDestroy {
   }
 
   private getTocHeadings(element: HTMLElement) {
-    const result: Array<Heading> = [];
+    const result: Heading[] = [];
     element.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach((head) => {
       result.push({
         text: head.textContent || '',
@@ -237,7 +230,7 @@ export class BlogPostTocComponent implements OnDestroy {
 
   goTo(target: Heading, event: MouseEvent) {
     event.preventDefault();
-    const containerElement = findMainContentContainer(this._contentElement);
+    const containerElement = findMainContentContainer(this.contentElement());
     if (containerElement && target.element) {
       scrollTo(target.element.offsetTop - 20, containerElement);
     }

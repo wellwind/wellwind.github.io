@@ -1,11 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'blogPostTagSize',
-    standalone: true
+  name: 'blogPostTagSize',
 })
 export class BlogPostTagSizePipe implements PipeTransform {
-
   transform(posts: number, max: number): number {
     if (posts >= max * 0.4) {
       return 1;
@@ -18,5 +16,4 @@ export class BlogPostTagSizePipe implements PipeTransform {
     }
     return 4;
   }
-
 }
