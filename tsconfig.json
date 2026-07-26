@@ -2,7 +2,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
@@ -12,38 +11,34 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
     "paths": {
       "@features": [
-        "src/features/index.ts"
+        "./src/features/index.ts"
       ],
       "@features/*": [
-        "src/features/*"
+        "./src/features/*"
       ],
       "@shared/core": [
-        "src/shared/core/index.ts"
+        "./src/shared/core/index.ts"
       ],
       "@shared/core/*": [
-        "src/shared/core/*"
+        "./src/shared/core/*"
       ],
       "@shared/testing": [
-        "src/shared/testing/index.ts"
+        "./src/shared/testing/index.ts"
       ],
       "@shared/testing/*": [
-        "src/shared/testing/*"
+        "./src/shared/testing/*"
       ],
       "@shared/infrastructure": [
-        "src/shared/infrastructure/index.ts"
+        "./src/shared/infrastructure/index.ts"
       ],
       "@shared/infrastructure/*": [
-        "src/shared/infrastructure/*"
+        "./src/shared/infrastructure/*"
       ]
     },
     "useDefineForClassFields": false
@@ -53,6 +48,6 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   }
 }

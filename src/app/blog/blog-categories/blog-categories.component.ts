@@ -1,14 +1,14 @@
-import { KeyValuePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   effect,
   inject,
 } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 import { PostMetaWithSlug } from '@shared/core';
-import { getRouteData } from 'src/app/site-common/route-utils';
+import { getRouteData } from '../../site-common/route-utils';
 import { SiteMetaService } from '../../site-common/site-meta.service';
 import { SlugifyPipe } from '../../site-common/slugify.pipe';
 
@@ -19,22 +19,17 @@ import { SlugifyPipe } from '../../site-common/slugify.pipe';
       <mat-card-title class="blog-post-title"> 分類 </mat-card-title>
 
       <mat-card-subtitle class="blog-post-subtitle">
-        共 {{ ($any(categories()) | keyvalue).length }} 個分類
+        共 {{ categoryEntries().length }} 個分類
       </mat-card-subtitle>
 
       <mat-card-content class="blog-post-content">
         <ul>
-          @for (category of $any(categories()) | keyvalue; track category.key) {
+          @for (category of categoryEntries(); track category.name) {
             <li>
-              <a
-                [routerLink]="[
-                  '/blog/categories',
-                  $any(category.key || '') | slugify,
-                ]"
-              >
-                {{ category.key }}
+              <a [routerLink]="['/blog/categories', category.name | slugify]">
+                {{ category.name }}
               </a>
-              ({{ $any(category.value).length }})
+              ({{ category.posts.length }})
             </li>
           }
         </ul>
@@ -42,14 +37,17 @@ import { SlugifyPipe } from '../../site-common/slugify.pipe';
     </mat-card>
   `,
   styles: ``,
-  imports: [MatCardModule, RouterLink, KeyValuePipe, SlugifyPipe],
+  imports: [MatCardModule, RouterLink, SlugifyPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogCategoriesComponent {
-  private siteMetaService = inject(SiteMetaService);
+  private readonly siteMetaService = inject(SiteMetaService);
   protected categories = getRouteData(
-    (data) => data.categories as { [key: string]: Array<PostMetaWithSlug> },
+    (data) => data.categories as Record<string, PostMetaWithSlug[]>,
     {},
+  );
+  protected readonly categoryEntries = computed(() =>
+    Object.entries(this.categories()).map(([name, posts]) => ({ name, posts })),
   );
 
   private _updateMetaEffect = effect(() => {

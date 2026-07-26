@@ -10,14 +10,14 @@ import { findPosts } from '@features/blog/domain';
   providedIn: 'root',
 })
 export class BlogTagsPostsResolve {
-  private sitePostService = inject(SitePostService);
+  private readonly sitePostService = inject(SitePostService);
 
   resolve(route: ActivatedRouteSnapshot): Observable<PostMetaWithSlug[]> {
     const tagSlug = route.paramMap.get('tag-slug') as string;
 
     return this.sitePostService.tagsAndPosts$.pipe(
       map((result) => findPosts(tagSlug, result)),
-      map((posts) => sortWith([descend(prop('date'))], posts))
+      map((posts) => sortWith([descend(prop('date'))], posts)),
     );
   }
 }

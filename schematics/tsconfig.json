@@ -1,13 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "tsconfig",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["ES2022", "DOM"],
     "declaration": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "Node16",
+    "moduleResolution": "node16",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -19,16 +15,9 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "target": "es6",
-    "types": [
-      "jasmine",
-      "node"
-    ]
+    "target": "ES2022",
+    "types": ["jasmine", "node"]
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/*/files/**/*"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["src/*/files/**/*"]
 }

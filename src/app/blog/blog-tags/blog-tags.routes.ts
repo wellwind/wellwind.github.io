@@ -8,17 +8,17 @@ const routes: Routes = [
   {
     path: ':tag-slug',
     resolve: { posts: BlogTagsPostsResolve },
-    component: BlogTagPostsComponent
+    component: BlogTagPostsComponent,
   },
   {
     path: ':tag-slug/page/:page',
     resolve: { posts: BlogTagsPostsResolve },
-    component: BlogTagPostsComponent
+    component: BlogTagPostsComponent,
   },
   {
     path: '',
-    resolve: { tags: BlogTagsResolve},
-    component: BlogTagsComponent
-  }
+    resolve: { tags: BlogTagsResolve },
+    component: BlogTagsComponent,
+  },
 ];
 export default routes;

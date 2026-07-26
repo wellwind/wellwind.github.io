@@ -1,10 +1,10 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
 
-import * as connect from 'connect';
+import connect from 'connect';
 import { BehaviorSubject, Observable } from 'rxjs';
-import * as serveStatic from 'serve-static';
-import * as cors from 'cors';
+import serveStatic from 'serve-static';
+import cors from 'cors';
 
 interface Options extends JsonObject {
   path: string;

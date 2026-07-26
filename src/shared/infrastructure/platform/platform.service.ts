@@ -8,8 +8,8 @@ import { map, shareReplay } from 'rxjs';
   providedIn: 'root',
 })
 export class PlatformService {
-  private platformId = inject(PLATFORM_ID);
-  private breakpointObserver = inject(BreakpointObserver);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly breakpointObserver = inject(BreakpointObserver);
 
   get isServer(): boolean {
     return isPlatformServer(this.platformId);
@@ -17,7 +17,10 @@ export class PlatformService {
 
   private isSmallScreen$ = this.breakpointObserver
     .observe([Breakpoints.XSmall, Breakpoints.Small])
-    .pipe(map((value) => !!value.matches), shareReplay(1));
+    .pipe(
+      map((value) => !!value.matches),
+      shareReplay(1),
+    );
 
-  isSmallScreen = toSignal(this.isSmallScreen$);
+  readonly isSmallScreen = toSignal(this.isSmallScreen$);
 }

@@ -7,9 +7,9 @@ import { SitePostService } from '../../site-common/site-post.service';
   providedIn: 'root',
 })
 export class BlogTagsResolve {
-  private sitePostService = inject(SitePostService);
+  private readonly sitePostService = inject(SitePostService);
 
-  resolve(): Observable<{ [key: string]: PostMetaWithSlug[] }> {
+  resolve(): Observable<Record<string, PostMetaWithSlug[]>> {
     return this.sitePostService.tagsAndPosts$;
   }
 }

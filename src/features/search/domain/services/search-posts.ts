@@ -25,7 +25,7 @@ export const searchPostsByDateRange =
 
 export const searchPosts = (
   posts: PostMetaWithSlug[],
-  keywordString: string
+  keywordString: string,
 ) => {
   if (!keywordString) {
     return posts.map((post) => ({
@@ -41,12 +41,12 @@ export const searchPosts = (
     post.title.toLowerCase().indexOf(keyword.toLowerCase()) >= 0 ||
     post.summary.toLowerCase().indexOf(keyword.toLowerCase()) >= 0;
 
-  const result: Array<{
+  const result: {
     type: string;
     text: string;
     date: string;
     link: string;
-  }> = [];
+  }[] = [];
 
   let searchType = 'any';
   let searchField: 'tag' | 'category' | '' = '';
@@ -74,14 +74,14 @@ export const searchPosts = (
             filterKeywordFn(post) &&
             !!(post.categories || []).find(
               (category) =>
-                category.toLowerCase().indexOf(searchFrom.toLowerCase()) >= 0
+                category.toLowerCase().indexOf(searchFrom.toLowerCase()) >= 0,
             )
           );
         } else if (searchField === 'tag') {
           return (
             filterKeywordFn(post) &&
             !!(post.tags || []).find(
-              (tag) => tag.toLowerCase().indexOf(searchFrom.toLowerCase()) >= 0
+              (tag) => tag.toLowerCase().indexOf(searchFrom.toLowerCase()) >= 0,
             )
           );
         } else {
@@ -91,7 +91,7 @@ export const searchPosts = (
       .sort(
         (postA, postB) =>
           postA.title.toLowerCase().indexOf(keyword.toLowerCase()) -
-          postB.title.toLowerCase().indexOf(keyword.toLowerCase())
+          postB.title.toLowerCase().indexOf(keyword.toLowerCase()),
       );
     result.push(
       ...relatePosts.map((post) => ({
@@ -102,25 +102,25 @@ export const searchPosts = (
         date: post.date,
         link: `/blog/${post.date.slice(0, 10).replace(/-/g, '/')}/${post.slug}`,
         toString: () => '',
-      }))
+      })),
     );
   }
 
   if (searchType === 'any' || searchType === 'category') {
     const allCategories = posts.reduce(
       (curr, post) => [...new Set([...curr, ...(post.categories || [])])],
-      [] as string[]
+      [] as string[],
     );
 
     const relatedCategories = allCategories
       .filter(
         (category: string) =>
-          category.toLowerCase().indexOf(keyword.toLowerCase()) >= 0
+          category.toLowerCase().indexOf(keyword.toLowerCase()) >= 0,
       )
       .sort(
         (categoryA, categoryB) =>
           categoryA.toLowerCase().indexOf(keyword.toLowerCase()) -
-          categoryB.toLowerCase().indexOf(keyword.toLowerCase())
+          categoryB.toLowerCase().indexOf(keyword.toLowerCase()),
       );
     result.push(
       ...relatedCategories.map((category) => ({
@@ -129,24 +129,24 @@ export const searchPosts = (
         date: '',
         link: `/blog/categories/${slugify(category)}`,
         toString: () => '',
-      }))
+      })),
     );
   }
 
   if (searchType === 'any' || searchType === 'tag') {
     const allTags = posts.reduce(
       (curr, post) => [...new Set([...curr, ...(post.tags || [])])],
-      [] as string[]
+      [] as string[],
     );
 
     const relatedTags = allTags
       .filter(
-        (tag: string) => tag.toLowerCase().indexOf(keyword.toLowerCase()) >= 0
+        (tag: string) => tag.toLowerCase().indexOf(keyword.toLowerCase()) >= 0,
       )
       .sort(
         (tagA, tagB) =>
           tagA.toLowerCase().indexOf(keyword.toLowerCase()) -
-          tagB.toLowerCase().indexOf(keyword.toLowerCase())
+          tagB.toLowerCase().indexOf(keyword.toLowerCase()),
       );
     result.push(
       ...relatedTags.map((tag) => ({
@@ -155,7 +155,7 @@ export const searchPosts = (
         date: '',
         link: `/blog/tags/${slugify(tag)}`,
         toString: () => '',
-      }))
+      })),
     );
   }
 

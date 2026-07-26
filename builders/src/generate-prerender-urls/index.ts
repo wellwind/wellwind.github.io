@@ -3,7 +3,8 @@ import { JsonObject } from '@angular-devkit/core';
 import { readdirSync, writeFileSync } from 'fs';
 import { range } from 'ramda';
 import { slugify } from '@shared/core';
-import { getMarkdownMeta } from '@features/post-detail/domain';
+import { getMarkdownMeta } from '@features/post-detail/domain/services/get-markdown-meta';
+import { MarkdownMeta } from '@shared/core';
 
 interface Options extends JsonObject {
   markdownPostsPath: string;
@@ -12,7 +13,8 @@ interface Options extends JsonObject {
 
 const PAGE_SIZE = 10;
 
-const getPageCount = (input: any[]) => Math.ceil(input.length / PAGE_SIZE);
+const getPageCount = (input: readonly unknown[]) =>
+  Math.ceil(input.length / PAGE_SIZE);
 
 export default createBuilder(generateUrls);
 
@@ -33,7 +35,8 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
   const posts = readdirSync(markdownPostsPath, { withFileTypes: true })
     .filter(dirent => dirent.isFile() && dirent.name.endsWith('.md'))
     .map(dirent => dirent.name)
-    .map(fileName => getMarkdownMeta(markdownPostsPath, fileName));
+    .map(fileName => getMarkdownMeta(markdownPostsPath, fileName))
+    .filter((post): post is MarkdownMeta => post !== null);
 
   //#region Post pages
 
@@ -74,7 +77,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
           ? range(1, categoryPostsPageCount + 1).map(pageNumber => `/blog/categories/${categorySlug}/page/${pageNumber}`)
           : [])
       ];
-    }, []);
+    }, [] as string[]);
   urls.push(...categoryUrls);
 
   //#endregion
@@ -100,7 +103,7 @@ async function generateUrls(options: Options, context: BuilderContext): Promise<
           ? range(1, tagPostsPageCount + 1).map(pageNumber => `/blog/tags/${tagSlug}/page/${pageNumber}`)
           : [])
       ];
-    }, []);
+    }, [] as string[]);
   urls.push(...tagUrls);
 
   //#endregion

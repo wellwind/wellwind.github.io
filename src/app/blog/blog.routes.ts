@@ -20,8 +20,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        loadChildren: () =>
-          import('./blog-posts/blog-posts.routes')
+        loadChildren: () => import('./blog-posts/blog-posts.routes'),
       },
     ],
   },

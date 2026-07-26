@@ -7,16 +7,16 @@ import { environment } from '../../environments/environment';
 import { PlatformService } from '@shared/infrastructure';
 import { PostMeta, PostMetaWithSlug } from '@shared/core';
 
-type PostMetaCollection = { [keg: string]: PostMeta } | null;
+type PostMetaCollection = Record<string, PostMeta> | null;
 const _cacheBlogPostsKey = makeStateKey<PostMetaCollection>('blog-posts.json');
 
 @Injectable({
   providedIn: 'root',
 })
 export class SitePostService {
-  private httpClient = inject(HttpClient);
-  private state = inject(TransferState);
-  private platformService = inject(PlatformService);
+  private readonly httpClient = inject(HttpClient);
+  private readonly state = inject(TransferState);
+  private readonly platformService = inject(PlatformService);
 
   postsMeta$ = iif(
     () => !!this.state.get<PostMetaCollection>(_cacheBlogPostsKey, null),
@@ -28,11 +28,11 @@ export class SitePostService {
           if (this.platformService.isServer) {
             this.state.set<PostMetaCollection>(_cacheBlogPostsKey, json);
           }
-        })
-      )
+        }),
+      ),
   ).pipe(startWith({} as PostMetaCollection), shareReplay(1));
 
-  postsMeta = toSignal(this.postsMeta$, {
+  readonly postsMeta = toSignal(this.postsMeta$, {
     initialValue: {} as PostMetaCollection,
   });
 
@@ -42,12 +42,14 @@ export class SitePostService {
         .map((key) => (posts || {})[key])
         .reduce(
           (categories, post) => [...categories, ...(post.categories || [])],
-          [] as string[]
-        )
-    )
+          [] as string[],
+        ),
+    ),
   );
 
-  postCategories = toSignal(this.postCategories$, { initialValue: [] });
+  readonly postCategories = toSignal(this.postCategories$, {
+    initialValue: [],
+  });
 
   postTags$ = this.postsMeta$.pipe(
     map((posts) =>
@@ -55,40 +57,46 @@ export class SitePostService {
         .map((key) => (posts || {})[key])
         .reduce(
           (tags, post) => [...tags, ...(post.tags || [])],
-          [] as Array<string>
-        )
-    )
+          [] as string[],
+        ),
+    ),
   );
 
-  postTags = toSignal(this.postTags$, { initialValue: [] });
+  readonly postTags = toSignal(this.postTags$, { initialValue: [] });
 
   postsMetaWithSlug$ = this.postsMeta$.pipe(
     map((postsMeta) =>
       Object.keys(postsMeta || {}).map(
-        (key) => ({ ...(postsMeta || {})[key], slug: key } as PostMetaWithSlug)
-      )
-    )
+        (key) => ({ ...(postsMeta || {})[key], slug: key }) as PostMetaWithSlug,
+      ),
+    ),
   );
 
   postsMetaWithSlugAndSortDesc$ = this.postsMetaWithSlug$.pipe(
     map(
-      (posts) => sortWith([descend(prop('date'))], posts) as PostMetaWithSlug[]
-    )
+      (posts) => sortWith([descend(prop('date'))], posts) as PostMetaWithSlug[],
+    ),
   );
 
-  postsMetaWithSlugAndSortDesc = toSignal(this.postsMetaWithSlugAndSortDesc$, {
-    initialValue: [],
-  });
+  readonly postsMetaWithSlugAndSortDesc = toSignal(
+    this.postsMetaWithSlugAndSortDesc$,
+    {
+      initialValue: [],
+    },
+  );
 
   postsMetaWithSlugAndSortAsc$ = this.postsMetaWithSlug$.pipe(
     map(
-      (posts) => sortWith([ascend(prop('date'))], posts) as PostMetaWithSlug[]
-    )
+      (posts) => sortWith([ascend(prop('date'))], posts) as PostMetaWithSlug[],
+    ),
   );
 
-  postsMetaWithSlugAndSortAsc = toSignal(this.postsMetaWithSlugAndSortAsc$, {
-    initialValue: [] as PostMetaWithSlug[],
-  });
+  readonly postsMetaWithSlugAndSortAsc = toSignal(
+    this.postsMetaWithSlugAndSortAsc$,
+    {
+      initialValue: [] as PostMetaWithSlug[],
+    },
+  );
 
   categoriesAndPosts$ = combineLatest([
     this.postsMetaWithSlug$,
@@ -97,33 +105,39 @@ export class SitePostService {
     map(([posts, categories]) =>
       categories
         .filter((category) => !!category)
-        .reduce((prev, category) => {
-          if (!prev[category]) {
-            prev[category] = posts.filter((post) =>
-              (post.categories || []).find((cat) => cat === category)
-            );
-          }
-          return prev;
-        }, {} as { [key: string]: PostMetaWithSlug[] })
-    )
+        .reduce(
+          (prev, category) => {
+            if (!prev[category]) {
+              prev[category] = posts.filter((post) =>
+                (post.categories || []).find((cat) => cat === category),
+              );
+            }
+            return prev;
+          },
+          {} as Record<string, PostMetaWithSlug[]>,
+        ),
+    ),
   );
 
-  categoriesAndPosts = toSignal(this.categoriesAndPosts$, {
-    initialValue: {} as { [key: string]: PostMetaWithSlug[] },
+  readonly categoriesAndPosts = toSignal(this.categoriesAndPosts$, {
+    initialValue: {} as Record<string, PostMetaWithSlug[]>,
   });
 
   tagsAndPosts$ = combineLatest([this.postsMetaWithSlug$, this.postTags$]).pipe(
     map(([posts, tags]) =>
       tags
         .filter((category) => !!category)
-        .reduce((prev, tag) => {
-          if (!prev[tag]) {
-            prev[tag] = posts.filter((post) =>
-              (post.tags || []).find((tagName) => tagName === tag)
-            );
-          }
-          return prev;
-        }, {} as { [key: string]: PostMetaWithSlug[] })
-    )
+        .reduce(
+          (prev, tag) => {
+            if (!prev[tag]) {
+              prev[tag] = posts.filter((post) =>
+                (post.tags || []).find((tagName) => tagName === tag),
+              );
+            }
+            return prev;
+          },
+          {} as Record<string, PostMetaWithSlug[]>,
+        ),
+    ),
   );
 }

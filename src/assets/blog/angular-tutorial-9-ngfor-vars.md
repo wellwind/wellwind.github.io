@@ -4,7 +4,7 @@ date: 2017-01-02 11:11:11
 category: "Angular 速成班"
 tags:
     - Angular
-    - NgFor
+    - ngFor
 ---
 在[之前的文章中](https://dotblogs.com.tw/wellwind/2016/11/20/Angular-input-output-ngfor-ng-if)我們學到使用NgFor來方式將陣列資料列舉到畫面上，今天我們更深入來使用NgFor內建定義的五個變數，讓畫面能夠有更豐富的變化。
 

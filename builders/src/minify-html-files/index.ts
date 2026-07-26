@@ -2,7 +2,6 @@ import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/ar
 import { JsonObject } from '@angular-devkit/core';
 import * as fs from 'fs';
 import * as path from 'path';
-import { minify as minifyHtml } from 'html-minifier';
 
 interface Options extends JsonObject {
   targetPath: string;
@@ -12,16 +11,17 @@ export default createBuilder(minifyHtmlFiles);
 
 async function minifyHtmlFiles(options: Options, context: BuilderContext): Promise<BuilderOutput> {
   context.logger.info(`📦 Minifying html files in ${options.targetPath}`);
+  const { minify: minifyHtml } = await import('html-minifier-terser');
 
   for (const filePath of getAllHtmlFiles(options.targetPath)) {
-    const result = minifyHtml(
-      fs.readFileSync(filePath).toString('utf-8'),
-      {
+    const result = (
+      await minifyHtml(fs.readFileSync(filePath).toString('utf-8'), {
         removeComments: true,
         minifyJS: true,
         minifyCSS: true,
-        collapseWhitespace: true
-      }).replace(/<!---->/g, '');
+        collapseWhitespace: true,
+      })
+    ).replace(/<!---->/g, '');
     fs.writeFileSync(filePath, result);
   }
 
@@ -29,7 +29,7 @@ async function minifyHtmlFiles(options: Options, context: BuilderContext): Promi
   return { success: true };
 }
 
-function* getAllHtmlFiles(dir: string) {
+function* getAllHtmlFiles(dir: string): Generator<string> {
   const files = fs.readdirSync(dir, { withFileTypes: true });
   for (const file of files) {
     if (file.isDirectory()) {

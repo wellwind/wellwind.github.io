@@ -1,9 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
   inject,
   OnInit,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { PlatformService } from '@shared/infrastructure';
 import { environment } from '../environments/environment';
@@ -25,13 +27,17 @@ declare const gtag: (
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  private router = inject(Router);
-  private platformService = inject(PlatformService);
-  private siteMetaService = inject(SiteMetaService);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly router = inject(Router);
+  private readonly platformService = inject(PlatformService);
+  private readonly siteMetaService = inject(SiteMetaService);
 
   ngOnInit() {
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationStart))
+      .pipe(
+        filter((event) => event instanceof NavigationStart),
+        takeUntilDestroyed(this.destroyRef),
+      )
       .subscribe(() => {
         this.siteMetaService.resetMeta({
           title: '',
@@ -46,6 +52,7 @@ export class AppComponent implements OnInit {
         filter((event) => event instanceof NavigationEnd),
         startWith(null),
         pairwise(),
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe((events) => {
         if (!this.platformService.isServer && environment.production) {

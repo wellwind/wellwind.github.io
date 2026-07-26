@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { getRouteParam } from 'src/app/site-common/route-utils';
+import { getRouteParam } from '../../site-common/route-utils';
 import { BlogPostSubtitleComponent } from '../../site-common/blog-post-subtitle.component';
 import { PaginationComponent } from '../../site-common/pagination.component';
 import { PostDateAsPathPipe } from '../../site-common/post-date-as-path.pipe';
@@ -69,20 +69,20 @@ const PAGE_SIZE = 10;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPostsComponent {
-  private sitePostService = inject(SitePostService);
+  private readonly sitePostService = inject(SitePostService);
 
   protected currentPage = getRouteParam(
     (paramMap) => +(paramMap.get('page') || 1),
     1,
   );
 
-  protected posts = computed(() => {
+  protected readonly posts = computed(() => {
     const pageNum = this.currentPage();
     const posts = this.sitePostService.postsMetaWithSlugAndSortDesc();
     return getPagePosts(pageNum, PAGE_SIZE, posts);
   });
 
-  protected totalPage = computed(() =>
+  protected readonly totalPage = computed(() =>
     Math.ceil(
       Object.keys(this.sitePostService.postsMeta() || {}).length / PAGE_SIZE,
     ),

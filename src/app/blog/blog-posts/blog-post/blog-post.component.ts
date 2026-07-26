@@ -6,6 +6,7 @@ import {
   effect,
   inject,
   viewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
@@ -15,7 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { MarkdownMeta, PostMetaWithSlug } from '@shared/core';
-import { getRouteData } from 'src/app/site-common/route-utils';
+import { getRouteData } from '../../../site-common/route-utils';
 import { findMainContentContainer, scrollTo } from '../../../../utils';
 import { BlogPostSubtitleComponent } from '../../../site-common/blog-post-subtitle.component';
 import { CommentComponent } from '../../../site-common/comment.component';
@@ -221,6 +222,7 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
     </div>
   } `,
   styles: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     BlogPostSubtitleComponent,
     MatDividerModule,
@@ -238,10 +240,10 @@ const findNextPost = (posts: PostMetaWithSlug[], target: MarkdownMeta) => {
   ],
 })
 export class BlogPostComponent {
-  private domSanitizer = inject(DomSanitizer);
-  private platformService = inject(PlatformService);
-  private sitePostService = inject(SitePostService);
-  private siteMetaService = inject(SiteMetaService);
+  private readonly domSanitizer = inject(DomSanitizer);
+  private readonly platformService = inject(PlatformService);
+  private readonly sitePostService = inject(SitePostService);
+  private readonly siteMetaService = inject(SiteMetaService);
 
   readonly comments = viewChild<ElementRef<HTMLElement>>('comments');
 
@@ -260,13 +262,13 @@ export class BlogPostComponent {
     originalContent: '',
   });
 
-  protected postContent = computed(() => {
+  protected readonly postContent = computed(() => {
     return this.domSanitizer.bypassSecurityTrustHtml(
       this.postMeta().summary + this.postMeta().content,
     );
   });
 
-  protected postCategoriesPrevNext = computed(() => {
+  protected readonly postCategoriesPrevNext = computed(() => {
     const postMeta = this.postMeta();
     const categoriesPosts = this.sitePostService.categoriesAndPosts();
     return (postMeta?.categories || [])
@@ -278,13 +280,13 @@ export class BlogPostComponent {
       }));
   });
 
-  protected previousPost = computed(() => {
+  protected readonly previousPost = computed(() => {
     const postMeta = this.postMeta();
     const posts = this.sitePostService.postsMetaWithSlugAndSortAsc();
     return findPreviousPost(posts, postMeta);
   });
 
-  protected nextPost = computed(() => {
+  protected readonly nextPost = computed(() => {
     const postMeta = this.postMeta();
     const posts = this.sitePostService.postsMetaWithSlugAndSortAsc();
     const found = posts.filter(

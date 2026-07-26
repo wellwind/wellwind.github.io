@@ -1,14 +1,14 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
+  DestroyRef,
   OnInit,
   effect,
   inject,
   signal,
   viewChild,
 } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormControl } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDrawerContent, MatSidenavModule } from '@angular/material/sidenav';
@@ -117,31 +117,32 @@ import { filter, map } from 'rxjs';
 export class LayoutComponent implements OnInit {
   readonly matDrawerContent = viewChild<MatDrawerContent>('matDrawerContent');
 
-  private cdr = inject(ChangeDetectorRef);
-  private router = inject(Router);
-  private platformService = inject(PlatformService);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly router = inject(Router);
+  private readonly platformService = inject(PlatformService);
 
   protected get isServer() {
     return this.platformService.isServer;
   }
 
-  protected menuOpen = signal(true);
-  protected theme = signal<WebsiteTheme>('dark');
+  protected readonly menuOpen = signal(true);
+  protected readonly theme = signal<WebsiteTheme>('dark');
 
-  protected isSmallScreen = this.platformService.isSmallScreen;
+  protected readonly isSmallScreen = this.platformService.isSmallScreen;
 
-  searchKeyword = new FormControl<string>('');
+  protected readonly searchKeyword = new FormControl<string>('');
 
-  private pageLoading$ = this.router.events.pipe(
-    filter(
-      (event) =>
-        event instanceof NavigationStart || event instanceof NavigationEnd,
+  protected readonly pageLoading = toSignal(
+    this.router.events.pipe(
+      filter(
+        (event) =>
+          event instanceof NavigationStart || event instanceof NavigationEnd,
+      ),
+      map((event) => event instanceof NavigationStart),
     ),
-    map((event) => event instanceof NavigationStart),
   );
-  protected pageLoading = toSignal(this.pageLoading$);
 
-  private themeEffect = effect(() => {
+  private readonly themeEffect = effect(() => {
     if (this.platformService.isServer) {
       return;
     }
@@ -150,10 +151,9 @@ export class LayoutComponent implements OnInit {
     document.body.classList.remove('dark-theme');
     document.body.classList.remove('light-theme');
     document.body.classList.add(`${this.theme()}-theme`);
-    this.cdr.detectChanges();
   });
 
-  private smallScreenEffect = effect(() => {
+  private readonly smallScreenEffect = effect(() => {
     if (this.platformService.isServer) {
       return;
     }
@@ -164,17 +164,18 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationStart))
+      .pipe(
+        filter((event) => event instanceof NavigationStart),
+        takeUntilDestroyed(this.destroyRef),
+      )
       .subscribe(() => {
         const matDrawerContent = this.matDrawerContent();
         if (matDrawerContent) {
           matDrawerContent.scrollTo({ top: 0, left: 0 });
-          this.cdr.detectChanges();
         }
       });
 
     this.setTheme();
-    this.cdr.detectChanges();
   }
 
   protected async selectSuggestItem(link: string) {
@@ -189,7 +190,7 @@ export class LayoutComponent implements OnInit {
     }
   }
 
-  protected setTheme() {
+  private setTheme() {
     if (this.platformService.isServer) {
       return;
     }

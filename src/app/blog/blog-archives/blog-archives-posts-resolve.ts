@@ -7,7 +7,7 @@ import { SitePostService } from '../../site-common/site-post.service';
   providedIn: 'root',
 })
 export class BlogArchivesPostsResolve {
-  private sitePostService = inject(SitePostService);
+  private readonly sitePostService = inject(SitePostService);
 
   resolve(): Observable<PostMetaWithSlug[]> {
     return this.sitePostService.postsMetaWithSlugAndSortDesc$;

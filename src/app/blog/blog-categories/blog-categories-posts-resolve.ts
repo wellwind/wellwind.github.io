@@ -7,19 +7,17 @@ import { SitePostService } from '../../site-common/site-post.service';
 import { findPosts } from '@features/blog/domain';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class BlogCategoriesPostsResolve  {
-  private sitePostService = inject(SitePostService);
+export class BlogCategoriesPostsResolve {
+  private readonly sitePostService = inject(SitePostService);
 
   resolve(route: ActivatedRouteSnapshot): Observable<PostMetaWithSlug[]> {
     const categorySlug = route.paramMap.get('category-slug') as string;
 
-    return this.sitePostService.categoriesAndPosts$
-      .pipe(
-        map(result => findPosts(categorySlug, result)),
-        map(posts => sortWith([descend(prop('date'))], posts))
-      );
+    return this.sitePostService.categoriesAndPosts$.pipe(
+      map((result) => findPosts(categorySlug, result)),
+      map((posts) => sortWith([descend(prop('date'))], posts)),
+    );
   }
-
 }

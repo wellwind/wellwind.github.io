@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { SitePostService } from '../../site-common/site-post.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class BlogCategoriesResolve  {
-  private sitePostService = inject(SitePostService);
+export class BlogCategoriesResolve {
+  private readonly sitePostService = inject(SitePostService);
 
-  resolve(): Observable<{ [key:string] :PostMetaWithSlug[]}> {
+  resolve(): Observable<Record<string, PostMetaWithSlug[]>> {
     return this.sitePostService.categoriesAndPosts$;
   }
 }
