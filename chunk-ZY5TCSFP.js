@@ -1,0 +1,1 @@
+import{xa as t}from"./chunk-MNFIV4FL.js";var p=e=>e.replace(/~23~/gi,"#").replace(/~2a~/gi,"*").replace(/[-]+/g," "),a=(()=>{class e{transform(r){return p(r||"")}static{this.\u0275fac=function(i){return new(i||e)}}static{this.\u0275pipe=t({name:"unslugify",type:e,pure:!0})}}return e})();export{a};

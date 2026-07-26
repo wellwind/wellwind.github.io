@@ -116,7 +116,7 @@ TestInitialize與TestCleanup的內容可以讓我們在每次測試開始時先�
 
 之後再執行這個測試方法，就可以看到像下圖的結果
 
-{% asset_img ui-testing-result.gif 測試結果 %}
+{% asset_img ut-testing-result.gif 測試結果 %}
 
 測試程式會自動執行已經開發好的Windows Form，找到對應控制項模擬行為，然後驗證結果！
 

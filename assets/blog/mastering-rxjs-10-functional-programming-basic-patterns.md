@@ -10,7 +10,7 @@ tags:
   - Currying
   - Compose
   - Pipe
-  - Tap
+  - tap
 ---
 
 昨天的文章我們把 functional programming 的大致概念介紹了一下，今天我們來介紹一些使用 functional programming 開發時常用的基本技巧！這些技巧可以讓程式碼的可讀性、可維護性都更高，習慣以後對於這種流暢的思考方式絕對會讓你覺得寫 code 是一件很過癮的事情啊！
@@ -435,4 +435,3 @@ source$.next(2); // generateNextId$.subscribe 的結果是 5
 最後我們實際應用學到的 function programming 基礎技巧來理解 RxJS 的背後行為，我們不用很深入的鑽研 RxJS 的原始碼，但稍微理解背景在做的事情及相關知識，相信對於未來要靈活應用也會非常有幫助！
 
 花了不少的天數介紹各種遨遊在 ReactiveX 中所需要擁有的知識，明天開始我們就會正式進入 ReactiveX 的世界內囉！
-

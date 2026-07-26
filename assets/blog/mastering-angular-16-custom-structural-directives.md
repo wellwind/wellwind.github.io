@@ -7,7 +7,7 @@ tags:
   - Structural Directives
   - Attribute Directives
   - EmbeddedViewRef
-  - directive
+  - Directive
 ---
 
 前幾天我們花了不少時間在介紹 `*ngComponentOutlet` 以及 `*ngTemplateOutlet` ，這種會**改變 DOM 結構的語法**，像是 `*ngIf` 或 `*ngFor` 等等，在 Angular 裡都稱為 **Structural Directive**，這種用法看起來跟我們自己設計 directive (像是 `ngClass` 或 `ngStyle` 等，又稱為 Attribute Directive) 很像，但多了個星號開頭，不過它其實只是個語法糖，原理是差不多的。如果我們想要設計這種符合語法糖的程式，該怎麼做呢？

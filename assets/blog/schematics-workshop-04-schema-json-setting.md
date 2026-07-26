@@ -49,7 +49,7 @@ export function exercise2(_options: any): Rule {
 
 結果如下圖：
 
-{% asset_img -2.jpg %}
+{% asset_img 02.jpg %}
 
 ## 加入 TypeScript 定義
 
