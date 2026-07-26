@@ -4,11 +4,21 @@
         <title>全端開發人員天梯</title>
         <link>https://fullstackladder.dev/</link>
         <description>軟體開發學不完，就像爬不完的天梯，只好多紀錄寫筆記</description>
-        <lastBuildDate>Sun, 26 Jul 2026 02:37:54 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 26 Jul 2026 04:21:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
         <copyright>All rights reserved 2021, Mike Huang</copyright>
+        <item>
+            <title><![CDATA[[WebMCP] 基本概念：讓網站把功能直接變成 AI Agent 的工具]]></title>
+            <link>https://fullstackladder.dev/blog/2026/07/15/webmcp-basic-concepts</link>
+            <guid>https://fullstackladder.dev/blog/2026/07/15/webmcp-basic-concepts</guid>
+            <pubDate>Wed, 15 Jul 2026 11:10:53 GMT</pubDate>
+            <description><![CDATA[<p>現在的 AI Agent 已經可以看懂網頁、找到按鈕、填寫表單，甚至幫我們完成一連串操作。不過，要讓 Agent 模擬人類操作網頁，都還是已讀懂 DOM 元素為主，有點像請一位很聰明的新同事，盯著畫面猜每個按鈕到底能不能按，或按下去的效果如何，不一定能真正理解一個網頁本身設計的意圖。</p>
+<p>而 WebMCP 提供了另一條路：網站直接把「搜尋商品」、「加入購物車」、「預約餐廳」等功能宣告成結構化工具，讓瀏覽器中的 AI Agent 可以發現並呼叫。</p>
+<p>今天這篇文章我們先從 WebMCP 的基本概念開始，看看它解決什麼問題、和 MCP 有什麼不同，以及官方提供的 Imperative API 與 Declarative API 如何運作。</p>
+]]></description>
+        </item>
         <item>
             <title><![CDATA[[Angular] Resource / rxResource / httpResource 完整教學與分析]]></title>
             <link>https://fullstackladder.dev/blog/2025/06/20/angular-resource-rxresource-httpresource-introduction</link>
@@ -167,14 +177,6 @@
             <pubDate>Sat, 28 Jan 2023 15:15:21 GMT</pubDate>
             <description><![CDATA[<p>使用 JWT token 來進行身份認證已經是現在開發上的顯學了，常見的服務如 Microsoft 等透過 OAuth 2.0 登入後，有會拿到一組 JWT 格式的 access token，我們可以透過這個 token 去呼叫相關的 API 來取得想要得資料，但除了把 access token 丟給 API 外，我們有沒有其他方是可以驗證這個 token 是否有效呢？</p>
 <p>如果服務使用 RS256 對 token 簽章，且有跟著 OpenID 的規範走的話，是有一套完整在 client 端就可以自行驗證的流程的，這篇文章就來說明一下所有相關的技術，同時實際拿個 token 來驗證看看！</p>
-]]></description>
-        </item>
-        <item>
-            <title><![CDATA[[Azure DevOps] 整合 Horusec 掃描結果]]></title>
-            <link>https://fullstackladder.dev/blog/2023/01/08/azure-devops-intergrate-horusec</link>
-            <guid>https://fullstackladder.dev/blog/2023/01/08/azure-devops-intergrate-horusec</guid>
-            <pubDate>Sun, 08 Jan 2023 10:40:05 GMT</pubDate>
-            <description><![CDATA[<p>之前在文章中介紹了「<a href="https://fullstackladder.dev/blog/2023/01/07/introduction-horusec/">Horusec</a>」這個強大的程式碼安全掃描工具，今天也來介紹一下如何整合到 Azure DevOps 的 CI pipeline 中。</p>
 ]]></description>
         </item>
     </channel>
