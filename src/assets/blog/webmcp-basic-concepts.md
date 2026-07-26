@@ -297,7 +297,7 @@ Chrome 149 起也提供 Origin Trial，讓網站可以在不要求使用者手�
 
 {% note warning %}
 
-早期 WebMCP 文件與 Polyfill 常使用 `navigator.modelContext`。Chrome 已在 150 版將它標示為 deprecated，目前官方範例使用的是 `document.modelContext`。看到舊文章時，別急著複製貼上；AI 時代的 API 一樣會過期，而且速度可能還比較有企圖心。
+早期 WebMCP 文件與 Polyfill 常使用 `navigator.modelContext`。Chrome 已在 150 版將它標示為 deprecated，目前官方範例使用的是 `document.modelContext`。
 
 {% endnote %}
 
